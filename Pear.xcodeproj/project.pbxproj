@@ -13,6 +13,9 @@
 		B6111DCD201901F600DC7877 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6111DCB201901F600DC7877 /* Main.storyboard */; };
 		B6111DCF201901F600DC7877 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6111DCE201901F600DC7877 /* Assets.xcassets */; };
 		B6111DD2201901F600DC7877 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6111DD0201901F600DC7877 /* LaunchScreen.storyboard */; };
+		B6111DDA201903F000DC7877 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6111DD9201903F000DC7877 /* WelcomeViewController.swift */; };
+		B6111DDC20199FBC00DC7877 /* SocialProfilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6111DDB20199FBC00DC7877 /* SocialProfilesViewController.swift */; };
+		B6111DDE2019A95700DC7877 /* DeleteSocialProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6111DDD2019A95700DC7877 /* DeleteSocialProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		B6111DCE201901F600DC7877 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6111DD1201901F600DC7877 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6111DD3201901F600DC7877 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6111DD9201903F000DC7877 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		B6111DDB20199FBC00DC7877 /* SocialProfilesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialProfilesViewController.swift; sourceTree = "<group>"; };
+		B6111DDD2019A95700DC7877 /* DeleteSocialProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteSocialProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +63,9 @@
 			isa = PBXGroup;
 			children = (
 				B6111DC5201901F600DC7877 /* AppDelegate.swift */,
+				B6111DD9201903F000DC7877 /* WelcomeViewController.swift */,
+				B6111DDB20199FBC00DC7877 /* SocialProfilesViewController.swift */,
+				B6111DDD2019A95700DC7877 /* DeleteSocialProfileViewController.swift */,
 				B6111DC7201901F600DC7877 /* FirstViewController.swift */,
 				B6111DC9201901F600DC7877 /* SecondViewController.swift */,
 				B6111DCB201901F600DC7877 /* Main.storyboard */,
@@ -140,7 +149,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6111DCA201901F600DC7877 /* SecondViewController.swift in Sources */,
+				B6111DDA201903F000DC7877 /* WelcomeViewController.swift in Sources */,
 				B6111DC6201901F600DC7877 /* AppDelegate.swift in Sources */,
+				B6111DDC20199FBC00DC7877 /* SocialProfilesViewController.swift in Sources */,
+				B6111DDE2019A95700DC7877 /* DeleteSocialProfileViewController.swift in Sources */,
 				B6111DC8201901F600DC7877 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
