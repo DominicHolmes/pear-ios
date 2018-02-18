@@ -10,8 +10,18 @@ import Foundation
 import UIKit
 
 extension UINavigationBar {
+    /*
     open override func sizeThatFits(_ size: CGSize) -> CGSize {
         let screenRect = UIScreen.main.bounds
-        return CGSize(width: screenRect.size.width, height: 64)
+        return CGSize(width: screenRect.size.width, height: 128)
+    }*/
+}
+
+extension UIColor {
+    
+    convenience init(r: CGFloat, g: CGFloat, b: CGFloat) {
+        self.init(red: r/255, green: g/255, blue: b/255, alpha: 1)
     }
+    
+    static let pearGreen = UIColor(r: 0, g: 189, b: 157)
 }

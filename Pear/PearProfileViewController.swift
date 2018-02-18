@@ -43,8 +43,17 @@ extension PearProfileViewController: UICollectionViewDataSource {
 extension PearProfileViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let url = URL(string: "https://www.facebook.com/dh506605") {
-            UIApplication.shared.open(url, options: [:])
+        
+        let username =  "dominicfholmes" // Your Instagram Username here
+        let appURL = NSURL(string: "instagram://user?username=\(username)")!
+        let webURL = NSURL(string: "https://instagram.com/\(username)")!
+        let application = UIApplication.shared
+        
+        if application.canOpenURL(appURL as URL) {
+            application.open(appURL as URL)
+        } else {
+            // if Instagram app is not installed, open URL inside Safari
+            application.open(webURL as URL)
         }
     }
 }
