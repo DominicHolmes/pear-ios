@@ -1,14 +1,14 @@
 //
-//  DeleteSocialProfileViewController.swift
+//  AddNewNetworkViewController.swift
 //  Pear
 //
-//  Created by Dominic Holmes on 1/25/18.
+//  Created by Dominic Holmes on 2/18/18.
 //  Copyright © 2018 Dominic Holmes. All rights reserved.
 //
 
 import UIKit
 
-class DeleteSocialProfileViewController: UIViewController {
+class AddNewNetworkViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
