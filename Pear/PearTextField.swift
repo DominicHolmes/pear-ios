@@ -35,9 +35,10 @@ class PearTextField: UITextField {
         // Basic Animation
         let pathAnimation: CABasicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         pathAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        pathAnimation.duration = 0.5
+        pathAnimation.duration = 0.4
         pathAnimation.fromValue = 0.0
         pathAnimation.toValue = 1.0
+        //pathAnimation.beginTime = CACurrentMediaTime() + 0.5
         
         // Add Animation
         pathLayer.add(pathAnimation, forKey: "strokeEnd")
