@@ -828,21 +828,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCp-L9-Szg">
-                                <rect key="frame" x="16" y="118" width="343" height="21"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wrl-xI-Lyt">
-                                <rect key="frame" x="117" y="86" width="140" height="140"/>
-                                <color key="backgroundColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="140" id="6X3-1Z-SLY"/>
-                                    <constraint firstAttribute="width" constant="140" id="n91-sS-tLU"/>
-                                </constraints>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LEh-F6-rpu">
                                 <rect key="frame" x="144" y="276" width="86" height="50"/>
                                 <color key="backgroundColor" red="1" green="0.084040851149999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -851,32 +836,57 @@
                                     <constraint firstAttribute="height" constant="50" id="tox-AV-D5b"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hJh-J7-q0K">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nAX-WO-8Ym" customClass="RadialProgressView" customModule="Pear" customModuleProvider="target">
                                 <rect key="frame" x="117" y="376" width="140" height="140"/>
-                                <color key="backgroundColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hJh-J7-q0K">
+                                        <rect key="frame" x="18" y="18" width="105" height="105"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="FcE-Xe-R6c"/>
-                                    <constraint firstAttribute="height" constant="140" id="dIo-Kz-Mdh"/>
+                                    <constraint firstAttribute="width" constant="140" id="c1N-CS-7nq"/>
+                                    <constraint firstAttribute="height" constant="140" id="o5s-5R-1Yz"/>
                                 </constraints>
-                            </imageView>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iQg-bd-whq" customClass="RadialProgressView" customModule="Pear" customModuleProvider="target">
+                                <rect key="frame" x="117" y="86" width="140" height="140"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5uM-iT-ekS">
+                                        <rect key="frame" x="18" y="18" width="105" height="105"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="YWm-gj-hJF"/>
+                                    <constraint firstAttribute="width" constant="140" id="aiN-pC-yyh"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="LEh-F6-rpu" firstAttribute="top" secondItem="Wrl-xI-Lyt" secondAttribute="bottom" constant="50" id="Amy-gA-EmC"/>
-                            <constraint firstItem="hJh-J7-q0K" firstAttribute="leading" secondItem="Yyo-MY-utF" secondAttribute="leading" constant="117" id="EUI-yQ-ZD7"/>
-                            <constraint firstItem="Yyo-MY-utF" firstAttribute="trailing" secondItem="Wrl-xI-Lyt" secondAttribute="trailing" constant="118" id="Iq9-2p-voq"/>
+                            <constraint firstItem="Yyo-MY-utF" firstAttribute="trailing" secondItem="iQg-bd-whq" secondAttribute="trailing" constant="118" id="G9z-qd-HSh"/>
+                            <constraint firstItem="nAX-WO-8Ym" firstAttribute="leading" secondItem="Yyo-MY-utF" secondAttribute="leading" constant="117" id="Zw5-6d-o2B"/>
                             <constraint firstItem="LEh-F6-rpu" firstAttribute="centerX" secondItem="EzM-Px-C3n" secondAttribute="centerX" id="gzc-T8-kwe"/>
-                            <constraint firstItem="hJh-J7-q0K" firstAttribute="top" secondItem="LEh-F6-rpu" secondAttribute="bottom" constant="50" id="sD0-pL-T51"/>
+                            <constraint firstItem="LEh-F6-rpu" firstAttribute="top" secondItem="iQg-bd-whq" secondAttribute="bottom" constant="50" id="lFi-Xd-6Bm"/>
                             <constraint firstItem="LEh-F6-rpu" firstAttribute="centerY" secondItem="EzM-Px-C3n" secondAttribute="centerY" id="yfa-AC-wp4"/>
+                            <constraint firstItem="nAX-WO-8Ym" firstAttribute="top" secondItem="LEh-F6-rpu" secondAttribute="bottom" constant="50" id="z43-xw-JUr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Yyo-MY-utF"/>
                     </view>
                     <connections>
-                        <outlet property="bottomProfileLeadingConstraint" destination="EUI-yQ-ZD7" id="jjk-Ef-s9P"/>
-                        <outlet property="bottomProfileWidthConstraint" destination="FcE-Xe-R6c" id="dRQ-O8-55E"/>
-                        <outlet property="scannedCodeLabel" destination="MCp-L9-Szg" id="evC-C0-bTt"/>
-                        <outlet property="topProfileTrailingConstraint" destination="Iq9-2p-voq" id="N1Y-Ep-Z4P"/>
-                        <outlet property="topProfileWidthConstraint" destination="n91-sS-tLU" id="7p9-Ib-Kms"/>
+                        <outlet property="bottomProfileImageView" destination="hJh-J7-q0K" id="fAg-LI-rGp"/>
+                        <outlet property="bottomProfileLeadingConstraint" destination="Zw5-6d-o2B" id="f0D-AH-R48"/>
+                        <outlet property="bottomProfileView" destination="nAX-WO-8Ym" id="YGo-Dw-W10"/>
+                        <outlet property="bottomProfileWidthConstraint" destination="c1N-CS-7nq" id="SV2-5w-Vu8"/>
+                        <outlet property="topProfileImageView" destination="5uM-iT-ekS" id="jzg-cz-i4s"/>
+                        <outlet property="topProfileTrailingConstraint" destination="G9z-qd-HSh" id="48r-fA-RQC"/>
+                        <outlet property="topProfileView" destination="iQg-bd-whq" id="IsU-wA-Rp4"/>
+                        <outlet property="topProfileWidthConstraint" destination="aiN-pC-yyh" id="pHV-x1-pgo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Du-Qg-MNi" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -12,10 +12,10 @@ class PearingAnimationViewController: UIViewController {
     
     var scannedCode : String?
     
-    @IBOutlet weak var scannedCodeLabel : UILabel!
-    
-    @IBOutlet weak var topProfileView : UIImageView!
-    @IBOutlet weak var bottomProfileView : UIImageView!
+    @IBOutlet weak var topProfileView : RadialProgressView!
+    @IBOutlet weak var topProfileImageView : UIImageView!
+    @IBOutlet weak var bottomProfileView : RadialProgressView!
+    @IBOutlet weak var bottomProfileImageView : UIImageView!
     
     @IBOutlet weak var topProfileTrailingConstraint : NSLayoutConstraint!
     @IBOutlet weak var topProfileWidthConstraint : NSLayoutConstraint!
@@ -53,18 +53,33 @@ extension PearingAnimationViewController {
     }
     
     private func setupProfileImages() {
-        topProfileView.setRounded()
-        bottomProfileView.setRounded()
-        
+        topProfileImageView.setRounded()
+        bottomProfileImageView.setRounded()
     }
     
     private func beginPearingAnimation() {
-        UIView.animate(withDuration: 0.2) {
-            self.topProfileTrailingConstraint.constant =
-                (self.view.layer.bounds.maxX / 2.0) - (self.topProfileWidthConstraint.constant / 2.0)
-            self.bottomProfileLeadingConstraint.constant =
-                (self.view.layer.bounds.maxX / 2.0) - (self.bottomProfileWidthConstraint.constant / 2.0)
-            self.view.layoutIfNeeded()
-        }
+
+        topProfileView.isHidden = false
+        bottomProfileView.isHidden = false
+        
+        UIView.animate(
+            withDuration: 0.3,
+            animations: {
+                self.topProfileTrailingConstraint.constant =
+                    (self.view.layer.bounds.maxX / 2.0) - (self.topProfileWidthConstraint.constant / 2.0)
+                self.bottomProfileLeadingConstraint.constant =
+                    (self.view.layer.bounds.maxX / 2.0) - (self.bottomProfileWidthConstraint.constant / 2.0)
+                self.view.layoutIfNeeded()
+            },
+            completion: { (true) in
+                self.animatePearingCircles()
+            })
+    }
+    
+    private func animatePearingCircles() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(0), execute: {
+            self.topProfileView.setValueAnimated(duration: 0.6, newProgressValue: 1.0)
+            self.bottomProfileView.setValueAnimated(duration: 0.6, newProgressValue: 1.0)
+        })
     }
 }
