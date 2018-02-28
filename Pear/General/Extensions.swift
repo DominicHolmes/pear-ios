@@ -25,3 +25,12 @@ extension UIColor {
     
     static let pearGreen = UIColor(r: 0, g: 189, b: 157)
 }
+
+extension UIImageView {
+    
+    func setRounded() {
+        let radius = self.frame.width / 2.0
+        self.layer.cornerRadius = radius
+        self.layer.masksToBounds = true
+    }
+}

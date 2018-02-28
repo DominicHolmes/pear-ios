@@ -199,7 +199,6 @@ extension ScannerViewController {
             controller.popoverPresentationController!.delegate = self
         } else if segue.identifier == "performPearSegue" {
             let controller = segue.destination as? PearingAnimationViewController
-            controller?.popoverPresentationController!.delegate = self
             controller?.scannedCode = (sender as? String)
         }
     }

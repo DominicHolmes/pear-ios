@@ -14,14 +14,27 @@ class PearingAnimationViewController: UIViewController {
     
     @IBOutlet weak var scannedCodeLabel : UILabel!
     
+    @IBOutlet weak var topProfileView : UIImageView!
+    @IBOutlet weak var bottomProfileView : UIImageView!
+    
+    @IBOutlet weak var topProfileTrailingConstraint : NSLayoutConstraint!
+    @IBOutlet weak var topProfileWidthConstraint : NSLayoutConstraint!
+    @IBOutlet weak var bottomProfileLeadingConstraint : NSLayoutConstraint!
+    @IBOutlet weak var bottomProfileWidthConstraint : NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        layoutImageViewInitialPositions()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        scannedCodeLabel.text = "Scanned: \(scannedCode!)"
+        setupProfileImages()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        beginPearingAnimation()
     }
     
     override func didReceiveMemoryWarning() {
@@ -29,7 +42,29 @@ class PearingAnimationViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func userDidSelectClose() {
-        dismiss(animated: true, completion: nil)
+}
+
+extension PearingAnimationViewController {
+    
+    private func layoutImageViewInitialPositions() {
+        self.topProfileTrailingConstraint.constant = self.view.layer.bounds.maxX
+        self.bottomProfileLeadingConstraint.constant = self.view.layer.bounds.maxX
+        self.view.layoutIfNeeded()
+    }
+    
+    private func setupProfileImages() {
+        topProfileView.setRounded()
+        bottomProfileView.setRounded()
+        
+    }
+    
+    private func beginPearingAnimation() {
+        UIView.animate(withDuration: 0.2) {
+            self.topProfileTrailingConstraint.constant =
+                (self.view.layer.bounds.maxX / 2.0) - (self.topProfileWidthConstraint.constant / 2.0)
+            self.bottomProfileLeadingConstraint.constant =
+                (self.view.layer.bounds.maxX / 2.0) - (self.bottomProfileWidthConstraint.constant / 2.0)
+            self.view.layoutIfNeeded()
+        }
     }
 }
