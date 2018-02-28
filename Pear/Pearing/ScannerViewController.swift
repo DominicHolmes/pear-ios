@@ -9,14 +9,20 @@
 import AVFoundation
 import UIKit
 
-class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+class ScannerViewController : UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     
+    private var areProfilesVisible = false
+    private var profiles = ["Social", "Family", "Professional"]
+    
     @IBOutlet weak var profilesButton : UIButton!
     @IBOutlet weak var headerView : UIView!
     @IBOutlet weak var cameraView : UIView!
+    @IBOutlet weak var profileViewTopConstraint : NSLayoutConstraint!
+    @IBOutlet weak var profileViewHeightConstraint : NSLayoutConstraint!
+    @IBOutlet weak var profilesTableView : UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +63,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         previewLayer.videoGravity = .resizeAspectFill
         
         cameraView.layer.addSublayer(previewLayer)
+        hideProfilesTableView()
         
         captureSession.startRunning()
     }
@@ -100,7 +107,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
     
     func found(code: String) {
-        print(code)
+        performSegue(withIdentifier: "performPearSegue", sender: code)
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -112,9 +119,88 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
 }
 
+// MARK: - ProfilesButtonMethod
 extension ScannerViewController {
     
-    func addProfilesButtonToView() {
-        view.addSubview(profilesButton)
+    @IBAction func toggleProfileSelector(_ sender: UIButton) {
+        // toggle profiles value
+        areProfilesVisible = !areProfilesVisible
+        
+        if areProfilesVisible {
+            showProfilesTableView()
+        } else {
+            hideProfilesTableView()
+        }
+    }
+    
+    private func showProfilesTableView() {
+        UIView.animate(withDuration: 0.3) {
+            self.profileViewTopConstraint.constant = 140.0
+            self.profileViewHeightConstraint.constant = CGFloat(self.profiles.count) * 60.0
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    private func hideProfilesTableView() {
+        UIView.animate(withDuration: 0.3) {
+            self.profileViewTopConstraint.constant = self.view.bounds.maxY + 50.0
+            self.profileViewHeightConstraint.constant = CGFloat(self.profiles.count) * 60.0
+            self.view.layoutIfNeeded()
+        }
+    }
+}
+
+// MARK: - TableView Data Source
+extension ScannerViewController : UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return profiles.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ScannableProfileCell")
+        
+        let profileNameLabel = cell?.viewWithTag(100) as? UILabel
+        profileNameLabel?.text = profiles[indexPath.row]
+        
+        return cell!
+    }
+}
+
+// MARK: - TableView Delegate
+extension ScannerViewController : UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        // segue to correct profile
+        performSegue(withIdentifier: "viewCodeSegue", sender: nil)
+    }
+}
+
+// MARK: - View QRCode Popover
+extension ScannerViewController: UIPopoverPresentationControllerDelegate {
+    
+    func popoverPresentationControllerDidDismissPopover(
+        _ popoverPresentationController: UIPopoverPresentationController) {
+        //do stuff from popover
+    }
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .overFullScreen
+    }
+    
+}
+
+// MARK: - Segue Control
+extension ScannerViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "viewCodeSegue" {
+            let controller = segue.destination
+            controller.popoverPresentationController!.delegate = self
+        } else if segue.identifier == "performPearSegue" {
+            let controller = segue.destination as? PearingAnimationViewController
+            controller?.popoverPresentationController!.delegate = self
+            controller?.scannedCode = (sender as? String)
+        }
     }
 }

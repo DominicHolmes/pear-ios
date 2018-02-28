@@ -16,9 +16,11 @@
 		B6111DDC20199FBC00DC7877 /* SocialProfilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6111DDB20199FBC00DC7877 /* SocialProfilesViewController.swift */; };
 		B6111DDE2019A95700DC7877 /* DeleteSocialProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6111DDD2019A95700DC7877 /* DeleteSocialProfileViewController.swift */; };
 		B6111DE0201D4C1000DC7877 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6111DDF201D4C1000DC7877 /* NotificationsViewController.swift */; };
-		B62282E120435B2E00C01F61 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62282E020435B2E00C01F61 /* ScanViewController.swift */; };
+		B62282E120435B2E00C01F61 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62282E020435B2E00C01F61 /* ScannerViewController.swift */; };
 		B62282E92046287200C01F61 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62282E82046287200C01F61 /* SettingsTableViewController.swift */; };
 		B62282EB20462B3D00C01F61 /* PastPearsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62282EA20462B3D00C01F61 /* PastPearsTableViewController.swift */; };
+		B62282ED2046481C00C01F61 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62282EC2046481C00C01F61 /* QRCodeViewController.swift */; };
+		B62282EF20464DAA00C01F61 /* PearingAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62282EE20464DAA00C01F61 /* PearingAnimationViewController.swift */; };
 		B67A37062039E52D00A72456 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A37052039E52D00A72456 /* Extensions.swift */; };
 		B67A37082039FC7F00A72456 /* PearTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A37072039FC7F00A72456 /* PearTextField.swift */; };
 		B67A370A203A13E500A72456 /* ProfileConstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A3709203A13E500A72456 /* ProfileConstructionViewController.swift */; };
@@ -38,9 +40,11 @@
 		B6111DDB20199FBC00DC7877 /* SocialProfilesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialProfilesViewController.swift; sourceTree = "<group>"; };
 		B6111DDD2019A95700DC7877 /* DeleteSocialProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteSocialProfileViewController.swift; sourceTree = "<group>"; };
 		B6111DDF201D4C1000DC7877 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
-		B62282E020435B2E00C01F61 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
+		B62282E020435B2E00C01F61 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		B62282E82046287200C01F61 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		B62282EA20462B3D00C01F61 /* PastPearsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastPearsTableViewController.swift; sourceTree = "<group>"; };
+		B62282EC2046481C00C01F61 /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
+		B62282EE20464DAA00C01F61 /* PearingAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PearingAnimationViewController.swift; sourceTree = "<group>"; };
 		B67A37052039E52D00A72456 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B67A37072039FC7F00A72456 /* PearTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PearTextField.swift; sourceTree = "<group>"; };
 		B67A3709203A13E500A72456 /* ProfileConstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileConstructionViewController.swift; sourceTree = "<group>"; };
@@ -143,7 +147,9 @@
 		B62282E72046283200C01F61 /* Pearing */ = {
 			isa = PBXGroup;
 			children = (
-				B62282E020435B2E00C01F61 /* ScanViewController.swift */,
+				B62282E020435B2E00C01F61 /* ScannerViewController.swift */,
+				B62282EC2046481C00C01F61 /* QRCodeViewController.swift */,
+				B62282EE20464DAA00C01F61 /* PearingAnimationViewController.swift */,
 			);
 			path = Pearing;
 			sourceTree = "<group>";
@@ -224,16 +230,18 @@
 				B62282EB20462B3D00C01F61 /* PastPearsTableViewController.swift in Sources */,
 				B6111DDA201903F000DC7877 /* WelcomeViewController.swift in Sources */,
 				B6045A562022ECC200609C9B /* PearProfileViewController.swift in Sources */,
+				B62282EF20464DAA00C01F61 /* PearingAnimationViewController.swift in Sources */,
 				B6111DC6201901F600DC7877 /* AppDelegate.swift in Sources */,
 				B6111DDC20199FBC00DC7877 /* SocialProfilesViewController.swift in Sources */,
 				B6111DDE2019A95700DC7877 /* DeleteSocialProfileViewController.swift in Sources */,
 				B6111DE0201D4C1000DC7877 /* NotificationsViewController.swift in Sources */,
 				B67A370E203A1B2D00A72456 /* AddNewNetworkViewController.swift in Sources */,
+				B62282ED2046481C00C01F61 /* QRCodeViewController.swift in Sources */,
 				B67A37062039E52D00A72456 /* Extensions.swift in Sources */,
 				B67A370C203A144000A72456 /* NetworkCollectionCell.swift in Sources */,
 				B62282E92046287200C01F61 /* SettingsTableViewController.swift in Sources */,
 				B67A37082039FC7F00A72456 /* PearTextField.swift in Sources */,
-				B62282E120435B2E00C01F61 /* ScanViewController.swift in Sources */,
+				B62282E120435B2E00C01F61 /* ScannerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
