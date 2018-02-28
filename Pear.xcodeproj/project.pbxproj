@@ -17,6 +17,7 @@
 		B6111DDE2019A95700DC7877 /* DeleteSocialProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6111DDD2019A95700DC7877 /* DeleteSocialProfileViewController.swift */; };
 		B6111DE0201D4C1000DC7877 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6111DDF201D4C1000DC7877 /* NotificationsViewController.swift */; };
 		B62282E120435B2E00C01F61 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62282E020435B2E00C01F61 /* ScanViewController.swift */; };
+		B62282E92046287200C01F61 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62282E82046287200C01F61 /* SettingsTableViewController.swift */; };
 		B67A37062039E52D00A72456 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A37052039E52D00A72456 /* Extensions.swift */; };
 		B67A37082039FC7F00A72456 /* PearTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A37072039FC7F00A72456 /* PearTextField.swift */; };
 		B67A370A203A13E500A72456 /* ProfileConstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A3709203A13E500A72456 /* ProfileConstructionViewController.swift */; };
@@ -37,6 +38,7 @@
 		B6111DDD2019A95700DC7877 /* DeleteSocialProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteSocialProfileViewController.swift; sourceTree = "<group>"; };
 		B6111DDF201D4C1000DC7877 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		B62282E020435B2E00C01F61 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
+		B62282E82046287200C01F61 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		B67A37052039E52D00A72456 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B67A37072039FC7F00A72456 /* PearTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PearTextField.swift; sourceTree = "<group>"; };
 		B67A3709203A13E500A72456 /* ProfileConstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileConstructionViewController.swift; sourceTree = "<group>"; };
@@ -74,24 +76,73 @@
 		B6111DC4201901F600DC7877 /* Pear */ = {
 			isa = PBXGroup;
 			children = (
-				B6111DC5201901F600DC7877 /* AppDelegate.swift */,
-				B6111DD9201903F000DC7877 /* WelcomeViewController.swift */,
-				B6111DDB20199FBC00DC7877 /* SocialProfilesViewController.swift */,
-				B62282E020435B2E00C01F61 /* ScanViewController.swift */,
-				B6111DDF201D4C1000DC7877 /* NotificationsViewController.swift */,
-				B6111DDD2019A95700DC7877 /* DeleteSocialProfileViewController.swift */,
-				B6045A552022ECC200609C9B /* PearProfileViewController.swift */,
-				B67A37052039E52D00A72456 /* Extensions.swift */,
-				B67A37072039FC7F00A72456 /* PearTextField.swift */,
-				B67A370B203A144000A72456 /* NetworkCollectionCell.swift */,
-				B67A3709203A13E500A72456 /* ProfileConstructionViewController.swift */,
-				B67A370D203A1B2D00A72456 /* AddNewNetworkViewController.swift */,
+				B62282E22046279B00C01F61 /* Onboarding */,
+				B62282E72046283200C01F61 /* Pearing */,
+				B62282E3204627AA00C01F61 /* Profiles */,
+				B62282E6204627F100C01F61 /* Settings */,
+				B62282E5204627EA00C01F61 /* Notifications */,
+				B62282E4204627BD00C01F61 /* General */,
 				B6111DCB201901F600DC7877 /* Main.storyboard */,
 				B6111DCE201901F600DC7877 /* Assets.xcassets */,
 				B6111DD0201901F600DC7877 /* LaunchScreen.storyboard */,
 				B6111DD3201901F600DC7877 /* Info.plist */,
 			);
 			path = Pear;
+			sourceTree = "<group>";
+		};
+		B62282E22046279B00C01F61 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				B67A3709203A13E500A72456 /* ProfileConstructionViewController.swift */,
+				B6111DD9201903F000DC7877 /* WelcomeViewController.swift */,
+				B67A370D203A1B2D00A72456 /* AddNewNetworkViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		B62282E3204627AA00C01F61 /* Profiles */ = {
+			isa = PBXGroup;
+			children = (
+				B6111DDB20199FBC00DC7877 /* SocialProfilesViewController.swift */,
+				B67A370B203A144000A72456 /* NetworkCollectionCell.swift */,
+				B6045A552022ECC200609C9B /* PearProfileViewController.swift */,
+				B6111DDD2019A95700DC7877 /* DeleteSocialProfileViewController.swift */,
+			);
+			path = Profiles;
+			sourceTree = "<group>";
+		};
+		B62282E4204627BD00C01F61 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				B6111DC5201901F600DC7877 /* AppDelegate.swift */,
+				B67A37072039FC7F00A72456 /* PearTextField.swift */,
+				B67A37052039E52D00A72456 /* Extensions.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		B62282E5204627EA00C01F61 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				B6111DDF201D4C1000DC7877 /* NotificationsViewController.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		B62282E6204627F100C01F61 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B62282E82046287200C01F61 /* SettingsTableViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		B62282E72046283200C01F61 /* Pearing */ = {
+			isa = PBXGroup;
+			children = (
+				B62282E020435B2E00C01F61 /* ScanViewController.swift */,
+			);
+			path = Pearing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +227,7 @@
 				B67A370E203A1B2D00A72456 /* AddNewNetworkViewController.swift in Sources */,
 				B67A37062039E52D00A72456 /* Extensions.swift in Sources */,
 				B67A370C203A144000A72456 /* NetworkCollectionCell.swift in Sources */,
+				B62282E92046287200C01F61 /* SettingsTableViewController.swift in Sources */,
 				B67A37082039FC7F00A72456 /* PearTextField.swift in Sources */,
 				B62282E120435B2E00C01F61 /* ScanViewController.swift in Sources */,
 			);
