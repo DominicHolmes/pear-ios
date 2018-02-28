@@ -10,6 +10,9 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
     
+    private let settingsOptions = ["Change username", "Change email", "Change profile picture", "Share with friends",
+                                   "Join the Pearconomy", "Change password", "Log out", "Delete account"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -21,26 +24,26 @@ class SettingsTableViewController: UITableViewController {
 }
 
 // MARK: - TableView Data Source
-extension SettingsTableViewController: UITableViewDataSource {
+extension SettingsTableViewController {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 15
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 8
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsOptionCell")
         
         let settingDescriptionLabel = cell?.viewWithTag(100) as? UILabel
-        settingDescriptionLabel?.text = "Setting option"
+        settingDescriptionLabel?.text = settingsOptions[indexPath.row]
         
         return cell!
     }
 }
 
 // MARK: - TableView Delegate
-extension SettingsTableViewController: UITableViewDelegate {
+extension SettingsTableViewController {
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         // segue to correct profile
     }

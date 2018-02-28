@@ -10,13 +10,18 @@ import AVFoundation
 import UIKit
 
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+    
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
+    
+    @IBOutlet weak var profilesButton : UIButton!
+    @IBOutlet weak var headerView : UIView!
+    @IBOutlet weak var cameraView : UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.black
+        view.backgroundColor = UIColor.white
         captureSession = AVCaptureSession()
         
         guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else { return }
@@ -48,9 +53,10 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         }
         
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        previewLayer.frame = view.layer.bounds
+        previewLayer.frame = cameraView.layer.bounds
         previewLayer.videoGravity = .resizeAspectFill
-        view.layer.addSublayer(previewLayer)
+        
+        cameraView.layer.addSublayer(previewLayer)
         
         captureSession.startRunning()
     }
@@ -103,5 +109,12 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
+    }
+}
+
+extension ScannerViewController {
+    
+    func addProfilesButtonToView() {
+        view.addSubview(profilesButton)
     }
 }
