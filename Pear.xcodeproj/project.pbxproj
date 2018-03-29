@@ -29,6 +29,8 @@
 		B67A370A203A13E500A72456 /* ProfileConstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A3709203A13E500A72456 /* ProfileConstructionViewController.swift */; };
 		B67A370C203A144000A72456 /* NetworkCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A370B203A144000A72456 /* NetworkCollectionCell.swift */; };
 		B67A370E203A1B2D00A72456 /* AddNewNetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A370D203A1B2D00A72456 /* AddNewNetworkViewController.swift */; };
+		B6B3BE1D206D839600A70F47 /* InitialRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B3BE1C206D839600A70F47 /* InitialRegistrationViewController.swift */; };
+		B6B3BE1F206D83B900A70F47 /* FinalRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B3BE1E206D83B900A70F47 /* FinalRegistrationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +60,8 @@
 		B67A3709203A13E500A72456 /* ProfileConstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileConstructionViewController.swift; sourceTree = "<group>"; };
 		B67A370B203A144000A72456 /* NetworkCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCollectionCell.swift; sourceTree = "<group>"; };
 		B67A370D203A1B2D00A72456 /* AddNewNetworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewNetworkViewController.swift; sourceTree = "<group>"; };
+		B6B3BE1C206D839600A70F47 /* InitialRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialRegistrationViewController.swift; sourceTree = "<group>"; };
+		B6B3BE1E206D83B900A70F47 /* FinalRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalRegistrationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +127,8 @@
 				B67A3709203A13E500A72456 /* ProfileConstructionViewController.swift */,
 				B6111DD9201903F000DC7877 /* WelcomeViewController.swift */,
 				B67A370D203A1B2D00A72456 /* AddNewNetworkViewController.swift */,
+				B6B3BE1C206D839600A70F47 /* InitialRegistrationViewController.swift */,
+				B6B3BE1E206D83B900A70F47 /* FinalRegistrationViewController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -320,6 +326,8 @@
 				B67A370E203A1B2D00A72456 /* AddNewNetworkViewController.swift in Sources */,
 				B62282ED2046481C00C01F61 /* QRCodeViewController.swift in Sources */,
 				B67A37062039E52D00A72456 /* Extensions.swift in Sources */,
+				B6B3BE1F206D83B900A70F47 /* FinalRegistrationViewController.swift in Sources */,
+				B6B3BE1D206D839600A70F47 /* InitialRegistrationViewController.swift in Sources */,
 				B67A370C203A144000A72456 /* NetworkCollectionCell.swift in Sources */,
 				B62282E92046287200C01F61 /* SettingsTableViewController.swift in Sources */,
 				B67A37082039FC7F00A72456 /* PearTextField.swift in Sources */,
