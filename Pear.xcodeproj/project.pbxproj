@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		934B585F9D094F58943915E9 /* Pods_Pear.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4FB0199932761AD43C12C6 /* Pods_Pear.framework */; };
+		B602F1E5204A2E66003B969B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B602F1E4204A2E66003B969B /* GoogleService-Info.plist */; };
 		B6045A562022ECC200609C9B /* PearProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6045A552022ECC200609C9B /* PearProfileViewController.swift */; };
 		B6111DC6201901F600DC7877 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6111DC5201901F600DC7877 /* AppDelegate.swift */; };
 		B6111DCD201901F600DC7877 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6111DCB201901F600DC7877 /* Main.storyboard */; };
@@ -30,6 +32,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F4FB0199932761AD43C12C6 /* Pods_Pear.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pear.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		51B6E8A69D439071FCC665A4 /* Pods-Pear.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pear.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pear/Pods-Pear.release.xcconfig"; sourceTree = "<group>"; };
+		9C9743C8FAA851D925BFCD5E /* Pods-Pear.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pear.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pear/Pods-Pear.debug.xcconfig"; sourceTree = "<group>"; };
+		B602F1E4204A2E66003B969B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B6045A552022ECC200609C9B /* PearProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PearProfileViewController.swift; sourceTree = "<group>"; };
 		B6111DC2201901F600DC7877 /* Pear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6111DC5201901F600DC7877 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,17 +65,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				934B585F9D094F58943915E9 /* Pods_Pear.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9F5033715015735343D831AF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9C9743C8FAA851D925BFCD5E /* Pods-Pear.debug.xcconfig */,
+				51B6E8A69D439071FCC665A4 /* Pods-Pear.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		B6111DB9201901F600DC7877 = {
 			isa = PBXGroup;
 			children = (
 				B6111DC4201901F600DC7877 /* Pear */,
 				B6111DC3201901F600DC7877 /* Products */,
+				9F5033715015735343D831AF /* Pods */,
+				CD6CEB5E8FF5C566196A593F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -93,6 +111,7 @@
 				B6111DCB201901F600DC7877 /* Main.storyboard */,
 				B6111DCE201901F600DC7877 /* Assets.xcassets */,
 				B6111DD0201901F600DC7877 /* LaunchScreen.storyboard */,
+				B602F1E4204A2E66003B969B /* GoogleService-Info.plist */,
 				B6111DD3201901F600DC7877 /* Info.plist */,
 			);
 			path = Pear;
@@ -157,6 +176,14 @@
 			path = Pearing;
 			sourceTree = "<group>";
 		};
+		CD6CEB5E8FF5C566196A593F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2F4FB0199932761AD43C12C6 /* Pods_Pear.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -164,9 +191,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B6111DD6201901F600DC7877 /* Build configuration list for PBXNativeTarget "Pear" */;
 			buildPhases = (
+				79B856E85D21F437C29E97D1 /* [CP] Check Pods Manifest.lock */,
 				B6111DBE201901F600DC7877 /* Sources */,
 				B6111DBF201901F600DC7877 /* Frameworks */,
 				B6111DC0201901F600DC7877 /* Resources */,
+				42DBD4250A72DCA21207204C /* [CP] Embed Pods Frameworks */,
+				780750F8BCEDDBC799F04BF3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -217,12 +247,61 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6111DD2201901F600DC7877 /* LaunchScreen.storyboard in Resources */,
+				B602F1E5204A2E66003B969B /* GoogleService-Info.plist in Resources */,
 				B6111DCF201901F600DC7877 /* Assets.xcassets in Resources */,
 				B6111DCD201901F600DC7877 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		42DBD4250A72DCA21207204C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pear/Pods-Pear-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		780750F8BCEDDBC799F04BF3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pear/Pods-Pear-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		79B856E85D21F437C29E97D1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B6111DBE201901F600DC7877 /* Sources */ = {
@@ -380,6 +459,7 @@
 		};
 		B6111DD7201901F600DC7877 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C9743C8FAA851D925BFCD5E /* Pods-Pear.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -395,6 +475,7 @@
 		};
 		B6111DD8201901F600DC7877 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51B6E8A69D439071FCC665A4 /* Pods-Pear.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

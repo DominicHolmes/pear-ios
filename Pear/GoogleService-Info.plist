@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>944366018748-klk3pgg107hotmkcmhedhu7hd8589gk6.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.944366018748-klk3pgg107hotmkcmhedhu7hd8589gk6</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA75MrnV-f7ds3IGnW3hP7boyh0XjrbhXk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>944366018748</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>DominicHolmes.Pear</string>
+	<key>PROJECT_ID</key>
+	<string>pear-mobile-platform</string>
+	<key>STORAGE_BUCKET</key>
+	<string>pear-mobile-platform.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:944366018748:ios:336e4ba6e28a76f3</string>
+	<key>DATABASE_URL</key>
+	<string>https://pear-mobile-platform.firebaseio.com</string>
+</dict>
+</plist>
