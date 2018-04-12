@@ -21,26 +21,6 @@ class InitialRegistrationViewController: UIViewController {
     
     @IBOutlet weak var confirmDetailsButton: UIButton!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
-    @IBAction func privacyPolicyButtonPressed() {
-        if let url = URL(string: "https://www.iubenda.com/privacy-policy/8203081") {
-            UIApplication.shared.open(url, options: [:]) {
-                boolean in
-            }
-        }
-    }
-    
     @IBAction func firstNameFieldNextButtonPressed() {
         lastNameTextField.becomeFirstResponder()
     }

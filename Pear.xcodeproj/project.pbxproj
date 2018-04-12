@@ -31,6 +31,7 @@
 		B67A370E203A1B2D00A72456 /* AddNewNetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A370D203A1B2D00A72456 /* AddNewNetworkViewController.swift */; };
 		B6B3BE1D206D839600A70F47 /* InitialRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B3BE1C206D839600A70F47 /* InitialRegistrationViewController.swift */; };
 		B6B3BE1F206D83B900A70F47 /* FinalRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B3BE1E206D83B900A70F47 /* FinalRegistrationViewController.swift */; };
+		B6FE7A082080079100F60838 /* PearUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE7A072080079100F60838 /* PearUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		B67A370D203A1B2D00A72456 /* AddNewNetworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewNetworkViewController.swift; sourceTree = "<group>"; };
 		B6B3BE1C206D839600A70F47 /* InitialRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialRegistrationViewController.swift; sourceTree = "<group>"; };
 		B6B3BE1E206D83B900A70F47 /* FinalRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalRegistrationViewController.swift; sourceTree = "<group>"; };
+		B6FE7A072080079100F60838 /* PearUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PearUser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 		B6111DC4201901F600DC7877 /* Pear */ = {
 			isa = PBXGroup;
 			children = (
+				B6FE7A072080079100F60838 /* PearUser.swift */,
 				B62282E22046279B00C01F61 /* Onboarding */,
 				B62282E72046283200C01F61 /* Pearing */,
 				B62282E3204627AA00C01F61 /* Profiles */,
@@ -202,7 +205,6 @@
 				B6111DBF201901F600DC7877 /* Frameworks */,
 				B6111DC0201901F600DC7877 /* Resources */,
 				42DBD4250A72DCA21207204C /* [CP] Embed Pods Frameworks */,
-				780750F8BCEDDBC799F04BF3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -268,28 +270,22 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Pear/Pods-Pear-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pear/Pods-Pear-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		780750F8BCEDDBC799F04BF3 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pear/Pods-Pear-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		79B856E85D21F437C29E97D1 /* [CP] Check Pods Manifest.lock */ = {
@@ -298,13 +294,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Pear-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -326,6 +325,7 @@
 				B67A370E203A1B2D00A72456 /* AddNewNetworkViewController.swift in Sources */,
 				B62282ED2046481C00C01F61 /* QRCodeViewController.swift in Sources */,
 				B67A37062039E52D00A72456 /* Extensions.swift in Sources */,
+				B6FE7A082080079100F60838 /* PearUser.swift in Sources */,
 				B6B3BE1F206D83B900A70F47 /* FinalRegistrationViewController.swift in Sources */,
 				B6B3BE1D206D839600A70F47 /* InitialRegistrationViewController.swift in Sources */,
 				B67A370C203A144000A72456 /* NetworkCollectionCell.swift in Sources */,
