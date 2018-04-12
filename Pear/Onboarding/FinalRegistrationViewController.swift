@@ -14,5 +14,10 @@ class FinalRegistrationViewController: UIViewController {
     
     var databaseRef: DatabaseReference!
     var activeUser: PearUser?
+    var names: (String, String, String)? // first, last, username
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
     
 }

@@ -12,6 +12,8 @@ import FirebaseAuth
 
 class InitialRegistrationViewController: UIViewController {
     
+    var databaseRef: DatabaseReference!
+    
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
@@ -51,7 +53,7 @@ class InitialRegistrationViewController: UIViewController {
         let errors = findErrors()
         
         if errors.isEmpty {
-            performSegue(withIdentifier: "FinalRegistrationViewController",
+            performSegue(withIdentifier: "FinalRegistrationSegue",
                          sender: (firstNameTextField.text!, lastNameTextField.text!, usernameTextField.text!))
         } else {
             self.displayAlert("Please try again", "Please correct the following:", errors, false)
@@ -87,7 +89,7 @@ class InitialRegistrationViewController: UIViewController {
     }
     
     func usernameTaken() -> Bool {
-        return true
+        return false
     }
     
     func displayAlert(_ title: String, _ messageHeader: String, _ errors: [String], _ toPayment: Bool) {
@@ -103,27 +105,11 @@ class InitialRegistrationViewController: UIViewController {
         present(alert, animated: true)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: (a : String, b : String, c : String)) {
-        if segue.identifier == "SignUpChooseChallenge" {
-            let navigationController = segue.destination as! UINavigationController
-            let controller = navigationController.topViewController as! FinalRegistrationViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "FinalRegistrationSegue" {
+            let controller = segue.destination as! FinalRegistrationViewController
             controller.databaseRef = self.databaseRef
-            
+            controller.names = sender as? (String, String, String)
         }
     }
-
-    /*
-    if passwordTextField.hasText {
-            if (passwordTextField.text!.count < 6 || passwordTextField.text!.count > 20) {
-                errors.append("\n- Password must be 6-20 characters long")
-            }
-            if passwordTextField.text!.contains(" ") {
-                errors.append("\n- Password cannot contain spaces")
-            }
-            if passwordConfirmTextField.text != passwordTextField.text {
-            	errors.append("\n- Password and confirm password are not identical")
-        	}
-        } else {
-            errors.append("\n- Enter a valid password")
-        }*/
 }

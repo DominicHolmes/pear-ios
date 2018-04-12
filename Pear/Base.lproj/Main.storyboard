@@ -229,10 +229,10 @@
             </objects>
             <point key="canvasLocation" x="2865" y="-1555"/>
         </scene>
-        <!--View Controller-->
+        <!--Initial Registration View Controller-->
         <scene sceneID="O2w-yJ-zMJ">
             <objects>
-                <viewController id="FNR-xZ-2wm" sceneMemberID="viewController">
+                <viewController id="FNR-xZ-2wm" customClass="InitialRegistrationViewController" customModule="Pear" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5uT-SJ-IXa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -250,6 +250,11 @@
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="firstNameFieldNextButtonPressed" destination="FNR-xZ-2wm" eventType="primaryActionTriggered" id="c4p-uY-vPw"/>
+                                    <action selector="textFieldValueValueChanged" destination="FNR-xZ-2wm" eventType="editingDidEnd" id="7dJ-oy-RTd"/>
+                                    <action selector="textFieldValueValueChanged" destination="FNR-xZ-2wm" eventType="editingChanged" id="Fxs-m5-wFz"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="geT-wC-cU1" customClass="PearTextField" customModule="Pear" customModuleProvider="target">
                                 <rect key="frame" x="76" y="169" width="222" height="36"/>
@@ -257,6 +262,11 @@
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="lastNameFieldNextButtonPressed" destination="FNR-xZ-2wm" eventType="primaryActionTriggered" id="Qam-B6-rn4"/>
+                                    <action selector="textFieldValueValueChanged" destination="FNR-xZ-2wm" eventType="editingChanged" id="QMV-sC-AxF"/>
+                                    <action selector="textFieldValueValueChanged" destination="FNR-xZ-2wm" eventType="editingDidEnd" id="Yri-d7-Rkt"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="00n-0h-Kj2" customClass="PearTextField" customModule="Pear" customModuleProvider="target">
                                 <rect key="frame" x="76" y="225" width="222" height="36"/>
@@ -264,35 +274,55 @@
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldValueValueChanged" destination="FNR-xZ-2wm" eventType="editingChanged" id="v8J-NP-GWr"/>
+                                    <action selector="textFieldValueValueChanged" destination="FNR-xZ-2wm" eventType="editingDidEnd" id="zBH-82-CoC"/>
+                                    <action selector="usernameFieldNextButtonPressed" destination="FNR-xZ-2wm" eventType="primaryActionTriggered" id="qDp-Hf-jhq"/>
+                                </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Qc-PE-noA">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Qc-PE-noA">
                                 <rect key="frame" x="80.5" y="503" width="214" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Next" backgroundImage="button-outline-green">
                                     <color key="titleColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="userDidSelectDelete" destination="F7o-oA-ROU" eventType="touchUpInside" id="X8Q-aN-Wl4"/>
-                                    <segue destination="GGn-0W-5Wp" kind="show" id="Ewm-ZH-pIV"/>
+                                    <action selector="confirmDetailsButtonPressed" destination="FNR-xZ-2wm" eventType="touchUpInside" id="3Vv-oC-qHi"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="fSD-pV-dYH" firstAttribute="bottom" secondItem="1Qc-PE-noA" secondAttribute="bottom" constant="56" id="cS3-bV-zTN"/>
                             <constraint firstItem="1Qc-PE-noA" firstAttribute="centerX" secondItem="5uT-SJ-IXa" secondAttribute="centerX" id="lIe-mh-w91"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fSD-pV-dYH"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="udW-Ft-WEg" appends="YES" id="0g0-S3-cC6"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="confirmDetailsButton" destination="1Qc-PE-noA" id="Q6W-dh-axl"/>
+                        <outlet property="firstNameTextField" destination="B62-39-x0q" id="fmz-IE-hP4"/>
+                        <outlet property="lastNameTextField" destination="geT-wC-cU1" id="SFF-FS-FQX"/>
+                        <outlet property="usernameTextField" destination="00n-0h-Kj2" id="If1-nR-tsY"/>
+                        <segue destination="GGn-0W-5Wp" kind="show" identifier="FinalRegistrationSegue" id="ey6-dG-hu9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iVY-qF-efZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="udW-Ft-WEg">
+                    <connections>
+                        <action selector="dismissKeyboardWithSender:" destination="FNR-xZ-2wm" id="WYR-Ug-LdI"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1939.5" y="-1120.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Final Registration View Controller-->
         <scene sceneID="Tyg-tE-cpe">
             <objects>
-                <viewController id="GGn-0W-5Wp" sceneMemberID="viewController">
+                <viewController id="GGn-0W-5Wp" customClass="FinalRegistrationViewController" customModule="Pear" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="krG-OT-w3J">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
