@@ -6,4 +6,13 @@
 //  Copyright © 2018 Dominic Holmes. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import Firebase
+import FirebaseAuth
+
+class FinalRegistrationViewController: UIViewController {
+    
+    var databaseRef: DatabaseReference!
+    var activeUser: PearUser?
+    
+}

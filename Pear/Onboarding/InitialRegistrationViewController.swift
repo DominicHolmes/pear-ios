@@ -12,9 +12,6 @@ import FirebaseAuth
 
 class InitialRegistrationViewController: UIViewController {
     
-    var databaseRef: DatabaseReference!
-    var activeUser: PearUser?
-    
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
@@ -54,73 +51,43 @@ class InitialRegistrationViewController: UIViewController {
         let errors = findErrors()
         
         if errors.isEmpty {
-            Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
-                if error != nil {
-                    self.displayAlert("Error", error!.localizedDescription, [""], false)
-                } else if user != nil {
-                    self.saveNewReviveUser(user!)
-                    self.activeUser = ReviveUser(fname: self.firstNameTextField.text!,
-                                                 lname: self.lastNameTextField.text!,
-                                                 id: user!.uid,
-                                                 isAdmin: false)
-                    self.displayAlert("Success!", "New user with username \(self.emailTextField.text!) created. Sign up for a challenge to get started!", [""], true)
-                }
-            }
+            performSegue(withIdentifier: "FinalRegistrationViewController",
+                         sender: (firstNameTextField.text!, lastNameTextField.text!, usernameTextField.text!))
         } else {
-            self.displayAlert("Could not create new user", "Please fix the following errors:", errors, false)
+            self.displayAlert("Please try again", "Please correct the following:", errors, false)
         }
-    }
-    
-    func saveNewReviveUser(_ user: User) {
-        let uid = user.uid
-        let newUserRef = databaseRef.child("users").child(uid)
-        newUserRef.setValue(["name-first": firstNameTextField.text!,
-                             "name-last": lastNameTextField.text!,
-                             "id": uid,
-                             "isAdmin": "false"])
-        
     }
     
     func findErrors() -> [String] {
         var errors = [String]()
 
-        if !firstNameTextField.hasText {
+        if !(firstNameTextField.hasText) {
             errors.append("\n- Enter a first name")
         }
-        if !lastNameTextField.hasText {
+        if !(lastNameTextField.hasText) {
             errors.append("\n- Enter a last name")
         }
-        if !usernameTextField.hasText {
-        	if usernameValid() {
-        		if usernameTaken() {
-        			errors.append("\n- Username taken, please try another")
-        		}
-        	} else {
-        		errors.append("\n- Username should be lowercase, and contain only letters and numbers, and be at least 3 char")
-        	}
-        	if usernameTaken() {
-
-        	}
-        }
-        // other username checks
-        
-        if emailTextField.hasText {
-            let emailRegEx = "[A-Z0-9a-z.-_]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,3}"
-            do {
-                let regex = try NSRegularExpression(pattern: emailRegEx)
-                let nsString = emailTextField.text! as NSString
-                let results = regex.matches(in: emailTextField.text!, range: NSRange(location: 0, length: nsString.length))
-                if results.count == 0 {
-                    errors.append("\n- Enter a valid email address")
-                }
-            } catch _ as NSError {
-                errors.append("\n- Enter a valid email address")
-            }
+        if !(usernameTextField.hasText) {
+        	errors.append("\n- Enter a username")
         } else {
-            errors.append("\n- Enter an email address")
+            if usernameValid() {
+                if usernameTaken() {
+                    errors.append("\n- Username taken, please try another")
+                }
+            } else {
+                errors.append("\n- Username should be lowercase, and contain only letters and numbers, and be at least 3 characters.")
+            }
         }
         
         return errors
+    }
+    
+    func usernameValid() -> Bool {
+        return true
+    }
+    
+    func usernameTaken() -> Bool {
+        return true
     }
     
     func displayAlert(_ title: String, _ messageHeader: String, _ errors: [String], _ toPayment: Bool) {
@@ -136,12 +103,12 @@ class InitialRegistrationViewController: UIViewController {
         present(alert, animated: true)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: (a : String, b : String, c : String)) {
         if segue.identifier == "SignUpChooseChallenge" {
             let navigationController = segue.destination as! UINavigationController
-            let controller = navigationController.topViewController as! SignUpChooseChallengeTableViewController
+            let controller = navigationController.topViewController as! FinalRegistrationViewController
             controller.databaseRef = self.databaseRef
-            controller.activeUser = self.activeUser
+            
         }
     }
 
