@@ -10,9 +10,11 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class InitialRegistrationViewController: UIViewController {
+class InitialRegistrationViewController: PearViewController {
     
-    var databaseRef: DatabaseReference! = Database.database().reference()
+    override func viewDidLoad() {
+        databaseRef = Database.database().reference()
+    }
     
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -34,10 +36,6 @@ class InitialRegistrationViewController: UIViewController {
     
     @IBAction func confirmDetailsButtonPressed() {
         confirmDetails()
-    }
-    
-    @IBAction func dismissKeyboard(sender: UITapGestureRecognizer) {
-        self.view.endEditing(true)
     }
     
     @IBAction func textFieldValueValueChanged() {
@@ -90,19 +88,6 @@ class InitialRegistrationViewController: UIViewController {
     
     func usernameTaken() -> Bool {
         return false
-    }
-    
-    func displayAlert(_ title: String, _ messageHeader: String, _ errors: [String], _ toPayment: Bool) {
-        var message = messageHeader
-        for eachError in errors {
-            message += eachError
-        }
-        let alert = UIAlertController(title: title,
-                                      message: message,
-                                      preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alert.addAction(action)
-        present(alert, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

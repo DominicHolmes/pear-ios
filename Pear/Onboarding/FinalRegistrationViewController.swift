@@ -10,10 +10,8 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class FinalRegistrationViewController: UIViewController {
+class FinalRegistrationViewController: PearViewController {
     
-    var databaseRef: DatabaseReference!
-    var activeUser: PearUser?
     var names: (String, String, String)? // first, last, username
     
     override func viewDidLoad() {
@@ -52,10 +50,6 @@ class FinalRegistrationViewController: UIViewController {
     
     @IBAction func cancelButtonTapped() {
         dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func dismissKeyboard(sender: UITapGestureRecognizer) {
-        self.view.endEditing(true)
     }
     
     @IBAction func textFieldValueValueChanged() {
@@ -132,27 +126,6 @@ class FinalRegistrationViewController: UIViewController {
         }
         
         return errors
-    }
-    
-    func displayAlert(_ title: String, _ messageHeader: String, _ errors: [String], _ toPayment: Bool) {
-        var message = messageHeader
-        for eachError in errors {
-            message += eachError
-        }
-        let alert = UIAlertController(title: title,
-                                      message: message,
-                                      preferredStyle: .alert)
-        if toPayment {
-            let action = UIAlertAction(title: "OK", style: .default, handler: { action in
-                self.performSegue(withIdentifier: "PostRegistrationSegue", sender: self)
-            })
-            alert.addAction(action)
-            present(alert, animated: true)
-        } else {
-            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alert.addAction(action)
-            present(alert, animated: true)
-        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

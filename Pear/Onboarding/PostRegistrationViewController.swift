@@ -10,9 +10,14 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class PostRegistrationViewController : UIViewController {
+class PostRegistrationViewController : PearViewController {
     
-    var databaseRef: DatabaseReference!
-    var activeUser: PearUser?
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SocialSegue" {
+            let controller = segue.destination as! PostRegistrationViewController
+            controller.databaseRef = self.databaseRef
+            controller.activeUser = self.activeUser
+        }
+    }
     
 }

@@ -33,6 +33,8 @@
 		B6B3BE1F206D83B900A70F47 /* FinalRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B3BE1E206D83B900A70F47 /* FinalRegistrationViewController.swift */; };
 		B6FE7A082080079100F60838 /* PearUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE7A072080079100F60838 /* PearUser.swift */; };
 		B6FE7A0A20801C0400F60838 /* PostRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE7A0920801C0400F60838 /* PostRegistrationViewController.swift */; };
+		B6FE7A0C2080257400F60838 /* PearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE7A0B2080257400F60838 /* PearViewController.swift */; };
+		B6FE7A0F208026AE00F60838 /* CreateSocialProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE7A0E208026AE00F60838 /* CreateSocialProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +68,8 @@
 		B6B3BE1E206D83B900A70F47 /* FinalRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalRegistrationViewController.swift; sourceTree = "<group>"; };
 		B6FE7A072080079100F60838 /* PearUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PearUser.swift; sourceTree = "<group>"; };
 		B6FE7A0920801C0400F60838 /* PostRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRegistrationViewController.swift; sourceTree = "<group>"; };
+		B6FE7A0B2080257400F60838 /* PearViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PearViewController.swift; sourceTree = "<group>"; };
+		B6FE7A0E208026AE00F60838 /* CreateSocialProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSocialProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,7 @@
 			children = (
 				B6FE7A072080079100F60838 /* PearUser.swift */,
 				B62282E22046279B00C01F61 /* Onboarding */,
+				B6FE7A0D2080264000F60838 /* SocialProfileCreation */,
 				B62282E72046283200C01F61 /* Pearing */,
 				B62282E3204627AA00C01F61 /* Profiles */,
 				B62282E6204627F100C01F61 /* Settings */,
@@ -129,7 +134,6 @@
 		B62282E22046279B00C01F61 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				B67A3709203A13E500A72456 /* ProfileConstructionViewController.swift */,
 				B6111DD9201903F000DC7877 /* WelcomeViewController.swift */,
 				B67A370D203A1B2D00A72456 /* AddNewNetworkViewController.swift */,
 				B6B3BE1C206D839600A70F47 /* InitialRegistrationViewController.swift */,
@@ -158,6 +162,7 @@
 				B62282F0204743CF00C01F61 /* RadialProgressImageView.swift */,
 				B67A37072039FC7F00A72456 /* PearTextField.swift */,
 				B67A37052039E52D00A72456 /* Extensions.swift */,
+				B6FE7A0B2080257400F60838 /* PearViewController.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -186,6 +191,15 @@
 				B62282EE20464DAA00C01F61 /* PearingAnimationViewController.swift */,
 			);
 			path = Pearing;
+			sourceTree = "<group>";
+		};
+		B6FE7A0D2080264000F60838 /* SocialProfileCreation */ = {
+			isa = PBXGroup;
+			children = (
+				B67A3709203A13E500A72456 /* ProfileConstructionViewController.swift */,
+				B6FE7A0E208026AE00F60838 /* CreateSocialProfileViewController.swift */,
+			);
+			path = SocialProfileCreation;
 			sourceTree = "<group>";
 		};
 		CD6CEB5E8FF5C566196A593F /* Frameworks */ = {
@@ -317,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B67A370A203A13E500A72456 /* ProfileConstructionViewController.swift in Sources */,
+				B6FE7A0F208026AE00F60838 /* CreateSocialProfileViewController.swift in Sources */,
 				B62282EB20462B3D00C01F61 /* PastPearsTableViewController.swift in Sources */,
 				B6111DDA201903F000DC7877 /* WelcomeViewController.swift in Sources */,
 				B6045A562022ECC200609C9B /* PearProfileViewController.swift in Sources */,
@@ -336,6 +351,7 @@
 				B62282E92046287200C01F61 /* SettingsTableViewController.swift in Sources */,
 				B67A37082039FC7F00A72456 /* PearTextField.swift in Sources */,
 				B62282E120435B2E00C01F61 /* ScannerViewController.swift in Sources */,
+				B6FE7A0C2080257400F60838 /* PearViewController.swift in Sources */,
 				B62282F1204743CF00C01F61 /* RadialProgressImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
