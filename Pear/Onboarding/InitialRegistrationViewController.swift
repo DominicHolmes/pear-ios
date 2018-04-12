@@ -12,7 +12,7 @@ import FirebaseAuth
 
 class InitialRegistrationViewController: UIViewController {
     
-    var databaseRef: DatabaseReference!
+    var databaseRef: DatabaseReference! = Database.database().reference()
     
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!

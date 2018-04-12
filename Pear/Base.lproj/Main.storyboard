@@ -249,7 +249,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="given-name"/>
                                 <connections>
                                     <action selector="firstNameFieldNextButtonPressed" destination="FNR-xZ-2wm" eventType="primaryActionTriggered" id="c4p-uY-vPw"/>
                                     <action selector="textFieldValueValueChanged" destination="FNR-xZ-2wm" eventType="editingDidEnd" id="7dJ-oy-RTd"/>
@@ -261,7 +261,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="family-name"/>
                                 <connections>
                                     <action selector="lastNameFieldNextButtonPressed" destination="FNR-xZ-2wm" eventType="primaryActionTriggered" id="Qam-B6-rn4"/>
                                     <action selector="textFieldValueValueChanged" destination="FNR-xZ-2wm" eventType="editingChanged" id="QMV-sC-AxF"/>
@@ -273,7 +273,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="username"/>
                                 <connections>
                                     <action selector="textFieldValueValueChanged" destination="FNR-xZ-2wm" eventType="editingChanged" id="v8J-NP-GWr"/>
                                     <action selector="textFieldValueValueChanged" destination="FNR-xZ-2wm" eventType="editingDidEnd" id="zBH-82-CoC"/>
@@ -334,15 +334,14 @@
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Nf-jH-RUR">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Nf-jH-RUR">
                                 <rect key="frame" x="80.5" y="503" width="214" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Done" backgroundImage="button-outline-green">
                                     <color key="titleColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="userDidSelectDelete" destination="F7o-oA-ROU" eventType="touchUpInside" id="UNs-qa-aav"/>
-                                    <segue destination="CzA-5a-5Rk" kind="show" id="OBK-Jb-o9d"/>
+                                    <action selector="createAccountButtonPressed" destination="GGn-0W-5Wp" eventType="touchUpInside" id="iJO-jb-VWe"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qHc-XI-NJy" customClass="PearTextField" customModule="Pear" customModuleProvider="target">
@@ -350,39 +349,67 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
+                                <connections>
+                                    <action selector="passwordFieldNextButtonPressed" destination="GGn-0W-5Wp" eventType="primaryActionTriggered" id="PNW-hJ-HOK"/>
+                                    <action selector="textFieldValueValueChanged" destination="GGn-0W-5Wp" eventType="editingChanged" id="r1Y-mS-9Wt"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="If3-hG-oP8" customClass="PearTextField" customModule="Pear" customModuleProvider="target">
                                 <rect key="frame" x="76" y="239" width="222" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
+                                <connections>
+                                    <action selector="passwordConfirmFieldNextButtonPressed" destination="GGn-0W-5Wp" eventType="primaryActionTriggered" id="g99-DP-mbu"/>
+                                    <action selector="textFieldValueValueChanged" destination="GGn-0W-5Wp" eventType="editingChanged" id="HjI-SY-rnV"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ST6-uO-PII" customClass="PearTextField" customModule="Pear" customModuleProvider="target">
                                 <rect key="frame" x="76" y="121" width="222" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
+                                <connections>
+                                    <action selector="emailFieldNextButtonPressed" destination="GGn-0W-5Wp" eventType="primaryActionTriggered" id="snm-XB-mu2"/>
+                                    <action selector="textFieldValueValueChanged" destination="GGn-0W-5Wp" eventType="editingChanged" id="NbI-Da-9XI"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="0Nf-jH-RUR" firstAttribute="centerX" secondItem="krG-OT-w3J" secondAttribute="centerX" id="kNB-a1-mMi"/>
                             <constraint firstItem="KQy-oO-Guw" firstAttribute="bottom" secondItem="0Nf-jH-RUR" secondAttribute="bottom" constant="56" id="oCg-aq-Smh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KQy-oO-Guw"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="lPM-dD-0Hb" appends="YES" id="bJF-CF-lIv"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="createAccountButton" destination="0Nf-jH-RUR" id="kLh-Tz-iNQ"/>
+                        <outlet property="emailTextField" destination="ST6-uO-PII" id="i2w-nO-0lg"/>
+                        <outlet property="passwordConfirmTextField" destination="If3-hG-oP8" id="qOB-m2-zYz"/>
+                        <outlet property="passwordTextField" destination="qHc-XI-NJy" id="TLR-sa-Dgl"/>
+                        <segue destination="CzA-5a-5Rk" kind="show" identifier="PostRegistrationSegue" id="xWp-js-BUC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dsw-mA-DHO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="lPM-dD-0Hb">
+                    <connections>
+                        <action selector="dismissKeyboardWithSender:" destination="GGn-0W-5Wp" id="tNb-Jg-hI7"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1073" y="-1121"/>
         </scene>
-        <!--View Controller-->
+        <!--Post Registration View Controller-->
         <scene sceneID="qya-iy-RhH">
             <objects>
-                <viewController id="CzA-5a-5Rk" sceneMemberID="viewController">
+                <viewController id="CzA-5a-5Rk" customClass="PostRegistrationViewController" customModule="Pear" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yoe-MN-4N6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
