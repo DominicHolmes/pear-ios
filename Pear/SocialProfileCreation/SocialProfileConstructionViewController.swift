@@ -8,22 +8,14 @@
 
 import UIKit
 
-class ProfileConstructionViewController: UIViewController {
+class SocialProfileConstructionViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+
 }
 
 // MARK: - CollectionView Data Source
-extension ProfileConstructionViewController: UICollectionViewDataSource {
+extension SocialProfileConstructionViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 100
@@ -41,7 +33,7 @@ extension ProfileConstructionViewController: UICollectionViewDataSource {
 }
 
 // MARK: - CollectionView Delegate
-extension ProfileConstructionViewController: UICollectionViewDelegate {
+extension SocialProfileConstructionViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
@@ -52,7 +44,7 @@ extension ProfileConstructionViewController: UICollectionViewDelegate {
 }
 
 // MARK: - Add New Network Popover
-extension ProfileConstructionViewController: UIPopoverPresentationControllerDelegate {
+extension SocialProfileConstructionViewController: UIPopoverPresentationControllerDelegate {
     
     func popoverPresentationControllerDidDismissPopover(
         _ popoverPresentationController: UIPopoverPresentationController) {
@@ -66,7 +58,7 @@ extension ProfileConstructionViewController: UIPopoverPresentationControllerDele
 }
 
 // MARK: - Segue Control
-extension ProfileConstructionViewController {
+extension SocialProfileConstructionViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addNetworkSegue" {
             let controller = segue.destination

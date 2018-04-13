@@ -6,7 +6,15 @@
 //  Copyright © 2018 Dominic Holmes. All rights reserved.
 //
 
+import UIKit
+
 class CreateSocialProfileViewController : PearViewController {
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SocialProfileConstructionSegue" {
+            let controller = segue.destination as! CreateSocialProfileViewController
+            controller.databaseRef = self.databaseRef
+            controller.activeUser = self.activeUser
+        }
+    }
 }
