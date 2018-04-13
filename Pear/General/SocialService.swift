@@ -9,6 +9,7 @@
 import Foundation
 
 enum SocialServiceType : String {
+    
     case Facebook
     case Twitter
     case Instagram
@@ -20,6 +21,10 @@ enum SocialServiceType : String {
     case WhatsApp
     case Spotify
     case Duolingo
+    
+    static let allValues = [Facebook, Twitter, Instagram, YouTube, AdobeCloud,
+                            LinkedIn, Snapchat, Email, WhatsApp, Spotify,
+                            Duolingo]
     
     var photoName : String {
         switch self {
