@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SocialProfileConstructionViewController: UIViewController {
+class SocialProfileConstructionViewController: PearViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
 
