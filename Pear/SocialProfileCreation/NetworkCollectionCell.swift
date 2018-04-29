@@ -22,7 +22,7 @@ class NetworkCollectionCell: UICollectionViewCell {
             updateCheckmark()
         }
     }
-    private var isChecked = false {
+    var isChecked = false {
         didSet {
             self.updateCheckmark()
         }

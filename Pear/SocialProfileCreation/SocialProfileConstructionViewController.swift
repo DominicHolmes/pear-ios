@@ -21,6 +21,10 @@ class SocialProfileConstructionViewController: PearViewController {
             dump(socialProfile)
         }
     }
+    
+    @IBAction func doneButtonTapped() {
+        dump(enabledServices)
+    }
 
 }
 
@@ -55,8 +59,17 @@ extension SocialProfileConstructionViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let cell = collectionView.cellForItem(at: indexPath) as? NetworkCollectionCell
-        self.lastTappedCell = cell
-        performSegue(withIdentifier: "addNetworkSegue", sender: cell)
+        
+        if cell != nil && cell!.isChecked {
+            cell!.isChecked = false
+            if let service = cell!.socialService {
+                enabledServices = enabledServices.filter { $0.socialService != service.socialService &&
+                                                           $0.handle != service.handle}
+            }
+        } else if cell != nil && !cell!.isChecked {
+            self.lastTappedCell = cell
+            performSegue(withIdentifier: "addNetworkSegue", sender: cell)
+        }
     }
 }
 
