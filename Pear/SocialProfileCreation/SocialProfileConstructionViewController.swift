@@ -10,6 +10,9 @@ import UIKit
 
 class SocialProfileConstructionViewController: PearViewController {
     
+    var allServices = SocialServiceType.allValues
+    var enabledServices = [SocialService]()
+    
     @IBOutlet weak var collectionView: UICollectionView!
     var socialProfile: SocialProfile! {
         didSet {
@@ -23,15 +26,22 @@ class SocialProfileConstructionViewController: PearViewController {
 extension SocialProfileConstructionViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 100
+        return allServices.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NetworkCell",
                                                       for: indexPath) as! NetworkCollectionCell
+        let serviceType = allServices[indexPath.row]
+        cell.socialServiceType = serviceType
+        
+        let enabledServicesOfSameType = enabledServices.filter { $0.socialService == serviceType }
+        if !enabledServicesOfSameType.isEmpty {
+            cell.socialService = enabledServicesOfSameType[0]
+        }
         
         let cellImageView = cell.viewWithTag(100) as? UIImageView
-        cellImageView?.image = UIImage(named: "facebook-icon")
+        cellImageView?.image = UIImage(named: serviceType.photoName)
         
         return cell
     }

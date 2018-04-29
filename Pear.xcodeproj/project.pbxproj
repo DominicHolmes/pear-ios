@@ -149,7 +149,6 @@
 			isa = PBXGroup;
 			children = (
 				B6111DDB20199FBC00DC7877 /* SocialProfilesViewController.swift */,
-				B67A370B203A144000A72456 /* NetworkCollectionCell.swift */,
 				B6045A552022ECC200609C9B /* PearProfileViewController.swift */,
 				B62282EA20462B3D00C01F61 /* PastPearsTableViewController.swift */,
 				B6111DDD2019A95700DC7877 /* DeleteSocialProfileViewController.swift */,
@@ -203,6 +202,7 @@
 			children = (
 				B6FE7A0E208026AE00F60838 /* CreateSocialProfileViewController.swift */,
 				B67A3709203A13E500A72456 /* SocialProfileConstructionViewController.swift */,
+				B67A370B203A144000A72456 /* NetworkCollectionCell.swift */,
 				B67A370D203A1B2D00A72456 /* AddNewServiceViewController.swift */,
 			);
 			path = SocialProfileCreation;

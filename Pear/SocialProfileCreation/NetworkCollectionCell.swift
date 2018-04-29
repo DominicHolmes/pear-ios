@@ -11,34 +11,27 @@ import UIKit
 
 class NetworkCollectionCell: UICollectionViewCell {
     
-    private var isChecked = false
     private var checkmarkLayer: CAShapeLayer?
+    
+    var socialServiceType: SocialServiceType?
+    var socialService: SocialService? {
+        didSet {
+            self.isChecked = (socialService != nil)
+            updateCheckmark()
+        }
+    }
+    private var isChecked = false {
+        didSet {
+            self.updateCheckmark()
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        updateCheckmark()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
-        updateCheckmark()
-    }
-    
-    func toggleChecked() {
-        isChecked = !isChecked
-        updateCheckmark()
-    }
-    
-    func setChecked() {
-        isChecked = true
-        updateCheckmark()
-    }
-    
-    func clearChecked() {
-        isChecked = false
-        updateCheckmark()
     }
     
     private func createCheckmark() {

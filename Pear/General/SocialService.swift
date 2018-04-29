@@ -28,9 +28,9 @@ enum SocialServiceType : String {
     
     var photoName : String {
         switch self {
-        case .Facebook: return "facebook.png"
-        case .Twitter:  return "twitter.png"
-        default:        return "default.png"
+        case .Facebook: return "facebook-icon.png"
+        case .Twitter:  return "twitter-icon.png"
+        default:        return "default-icon.png"
         }
     }
     
