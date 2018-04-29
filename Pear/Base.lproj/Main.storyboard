@@ -471,8 +471,8 @@
                                     <color key="titleColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="segueButtonPressed" destination="CzA-5a-5Rk" eventType="touchUpInside" id="fcu-h0-Ifo"/>
                                     <action selector="userDidSelectDelete" destination="F7o-oA-ROU" eventType="touchUpInside" id="Qte-dz-Qto"/>
-                                    <segue destination="ahl-Rz-l7O" kind="show" id="efo-Zy-aMC"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -483,6 +483,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UqN-gQ-X9E"/>
                     </view>
+                    <connections>
+                        <segue destination="ahl-Rz-l7O" kind="show" identifier="CreateSocialProfileSegue" id="XqZ-TR-T33"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2zy-Ty-gUs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -550,10 +553,10 @@
             </objects>
             <point key="canvasLocation" x="-2653" y="-1"/>
         </scene>
-        <!--View Controller-->
+        <!--Create Social Profile View Controller-->
         <scene sceneID="WD8-Xf-p1V">
             <objects>
-                <viewController id="ahl-Rz-l7O" sceneMemberID="viewController">
+                <viewController id="ahl-Rz-l7O" customClass="CreateSocialProfileViewController" customModule="Pear" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qQl-sM-wx1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -579,8 +582,8 @@
                                     <color key="titleColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="createSocialProfileButtonTapped" destination="ahl-Rz-l7O" eventType="touchUpInside" id="rh8-cN-CBU"/>
                                     <action selector="userDidSelectDelete" destination="F7o-oA-ROU" eventType="touchUpInside" id="exo-GQ-EMU"/>
-                                    <segue destination="MCp-Nu-Jqp" kind="show" id="oO3-Q6-ife"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ex. social, professional" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UdN-5p-cLw" customClass="PearTextField" customModule="Pear" customModuleProvider="target">
@@ -589,17 +592,35 @@
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="textFieldPrimaryActionShouldDismissKeyboardWithSender:" destination="ahl-Rz-l7O" eventType="primaryActionTriggered" id="2BB-Kw-BLW"/>
+                                    <action selector="textFieldValueValueChanged" destination="ahl-Rz-l7O" eventType="editingChanged" id="Zbq-Ox-r6c"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="6zn-49-ZOS" firstAttribute="bottom" secondItem="UUg-vy-FwI" secondAttribute="bottom" constant="56" id="arZ-td-Dm9"/>
                             <constraint firstItem="UUg-vy-FwI" firstAttribute="centerX" secondItem="qQl-sM-wx1" secondAttribute="centerX" id="mHp-pa-z1Y"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6zn-49-ZOS"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="6lZ-Qy-Sd6" appends="YES" id="hSK-qb-fRC"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="createSocialProfileButton" destination="UUg-vy-FwI" id="nEX-T4-AI0"/>
+                        <outlet property="socialProfileTextField" destination="UdN-5p-cLw" id="ahy-tw-Q6R"/>
+                        <segue destination="MCp-Nu-Jqp" kind="show" identifier="SocialProfileConstructionSegue" id="KHy-lm-9No"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NT2-aj-Jsy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="6lZ-Qy-Sd6">
+                    <connections>
+                        <action selector="dismissKeyboardWithSender:" destination="ahl-Rz-l7O" id="Aqx-Mw-Ahc"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-2085" y="1008"/>
         </scene>

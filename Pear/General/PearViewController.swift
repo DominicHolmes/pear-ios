@@ -18,6 +18,10 @@ class PearViewController: UIViewController {
         self.view.endEditing(true)
     }
     
+    @IBAction func textFieldPrimaryActionShouldDismissKeyboard(sender: UITextField) {
+        self.view.endEditing(true)
+    }
+    
     func displayAlert(_ title: String, _ messageHeader: String, _ errors: [String], _ toPayment: Bool) {
         var message = messageHeader
         for eachError in errors {

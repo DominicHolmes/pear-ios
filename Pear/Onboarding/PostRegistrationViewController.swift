@@ -10,6 +10,10 @@ import UIKit
 
 class PostRegistrationViewController : PearViewController {
     
+    @IBAction func segueButtonPressed() {
+        performSegue(withIdentifier: "CreateSocialProfileSegue", sender: nil)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "CreateSocialProfileSegue" {
             let controller = segue.destination as! CreateSocialProfileViewController
