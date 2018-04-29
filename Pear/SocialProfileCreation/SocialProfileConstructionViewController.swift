@@ -11,6 +11,7 @@ import UIKit
 class SocialProfileConstructionViewController: PearViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    var socialProfileName: String!
 
 }
 

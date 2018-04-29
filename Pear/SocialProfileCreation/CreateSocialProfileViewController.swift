@@ -19,6 +19,7 @@ class CreateSocialProfileViewController : PearViewController {
             let controller = segue.destination as! SocialProfileConstructionViewController
             controller.databaseRef = self.databaseRef
             controller.activeUser = self.activeUser
+            controller.socialProfileName = sender as! String
         }
     }
     
