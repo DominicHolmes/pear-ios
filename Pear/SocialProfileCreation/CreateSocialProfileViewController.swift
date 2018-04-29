@@ -8,10 +8,10 @@
 
 import UIKit
 
-class CreateSocialProfileViewController : PearViewController {
+class CreateSocialProfileViewController: PearViewController {
     
-    @IBOutlet weak var socialProfileTextField : UITextField!
-    @IBOutlet weak var createSocialProfileButton : UIButton!
+    @IBOutlet weak var socialProfileTextField: UITextField!
+    @IBOutlet weak var createSocialProfileButton: UIButton!
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -19,7 +19,7 @@ class CreateSocialProfileViewController : PearViewController {
             let controller = segue.destination as! SocialProfileConstructionViewController
             controller.databaseRef = self.databaseRef
             controller.activeUser = self.activeUser
-            controller.socialProfileName = sender as! String
+            controller.socialProfile = sender as! SocialProfile
         }
     }
     
@@ -33,7 +33,8 @@ class CreateSocialProfileViewController : PearViewController {
     
     @IBAction func createSocialProfileButtonTapped() {
         if socialProfileNameValid() && socialProfileTextField.hasText {
-            performSegue(withIdentifier: "SocialProfileConstructionSegue", sender: socialProfileTextField.text!)
+            let socialProfile = SocialProfile(name: socialProfileTextField.text!, services: nil)
+            performSegue(withIdentifier: "SocialProfileConstructionSegue", sender: socialProfile)
         }
     }
     

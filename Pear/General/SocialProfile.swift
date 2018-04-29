@@ -10,4 +10,19 @@ import Foundation
 
 class SocialProfile: NSObject {
     
+    private var profileName : String!
+    private var socialServices : [SocialService]?
+    
+    init(name : String!, services : [SocialService]?) {
+        self.profileName = name
+        self.socialServices = services
+    }
+    
+    func getName() -> String! {
+        return profileName
+    }
+    
+    func getServices() -> [SocialService]? {
+        return socialServices
+    }
 }

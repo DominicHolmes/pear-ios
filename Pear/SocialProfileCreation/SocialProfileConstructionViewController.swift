@@ -11,7 +11,11 @@ import UIKit
 class SocialProfileConstructionViewController: PearViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    var socialProfileName: String!
+    var socialProfile: SocialProfile! {
+        didSet {
+            dump(socialProfile)
+        }
+    }
 
 }
 
