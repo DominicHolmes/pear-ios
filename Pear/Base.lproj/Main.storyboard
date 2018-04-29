@@ -624,10 +624,10 @@
             </objects>
             <point key="canvasLocation" x="-2085" y="1008"/>
         </scene>
-        <!--Profile Construction View Controller-->
+        <!--Social Profile Construction View Controller-->
         <scene sceneID="3vb-58-yXk">
             <objects>
-                <viewController id="MCp-Nu-Jqp" customClass="ProfileConstructionViewController" customModule="Pear" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="MCp-Nu-Jqp" customClass="SocialProfileConstructionViewController" customModule="Pear" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Iuh-Ud-cm4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1205,10 +1205,10 @@
             </objects>
             <point key="canvasLocation" x="-3731" y="0.0"/>
         </scene>
-        <!--Add New Network View Controller-->
+        <!--Add New Service View Controller-->
         <scene sceneID="RsE-wX-0Vs">
             <objects>
-                <viewController id="gey-ed-Ebv" customClass="AddNewNetworkViewController" customModule="Pear" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gey-ed-Ebv" customClass="AddNewServiceViewController" customModule="Pear" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6fM-kG-Mmf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1217,6 +1217,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="vlI-3S-W5C" appends="YES" id="mFE-mk-j1f"/>
+                                </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I want to share my Instagram profile" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ElO-1x-ZVd">
                                 <rect key="frame" x="73" y="115" width="231" height="54"/>
@@ -1262,6 +1266,9 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="username"/>
+                                <connections>
+                                    <action selector="textFieldPrimaryActionShouldDismissKeyboardWithSender:" destination="gey-ed-Ebv" eventType="primaryActionTriggered" id="XDg-f5-9zs"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1269,6 +1276,11 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MJg-ze-fQp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="vlI-3S-W5C">
+                    <connections>
+                        <action selector="dismissKeyboardWithSender:" destination="gey-ed-Ebv" id="sPH-O2-hak"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-10" y="1008"/>
         </scene>

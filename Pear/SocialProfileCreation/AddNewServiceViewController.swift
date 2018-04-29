@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddNewNetworkViewController: UIViewController {
+class AddNewServiceViewController: PearViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()

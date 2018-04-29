@@ -28,7 +28,7 @@
 		B67A37082039FC7F00A72456 /* PearTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A37072039FC7F00A72456 /* PearTextField.swift */; };
 		B67A370A203A13E500A72456 /* SocialProfileConstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A3709203A13E500A72456 /* SocialProfileConstructionViewController.swift */; };
 		B67A370C203A144000A72456 /* NetworkCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A370B203A144000A72456 /* NetworkCollectionCell.swift */; };
-		B67A370E203A1B2D00A72456 /* AddNewNetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A370D203A1B2D00A72456 /* AddNewNetworkViewController.swift */; };
+		B67A370E203A1B2D00A72456 /* AddNewServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A370D203A1B2D00A72456 /* AddNewServiceViewController.swift */; };
 		B6B3BE1D206D839600A70F47 /* InitialRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B3BE1C206D839600A70F47 /* InitialRegistrationViewController.swift */; };
 		B6B3BE1F206D83B900A70F47 /* FinalRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B3BE1E206D83B900A70F47 /* FinalRegistrationViewController.swift */; };
 		B6FE7A082080079100F60838 /* PearUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE7A072080079100F60838 /* PearUser.swift */; };
@@ -65,7 +65,7 @@
 		B67A37072039FC7F00A72456 /* PearTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PearTextField.swift; sourceTree = "<group>"; };
 		B67A3709203A13E500A72456 /* SocialProfileConstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialProfileConstructionViewController.swift; sourceTree = "<group>"; };
 		B67A370B203A144000A72456 /* NetworkCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCollectionCell.swift; sourceTree = "<group>"; };
-		B67A370D203A1B2D00A72456 /* AddNewNetworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewNetworkViewController.swift; sourceTree = "<group>"; };
+		B67A370D203A1B2D00A72456 /* AddNewServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewServiceViewController.swift; sourceTree = "<group>"; };
 		B6B3BE1C206D839600A70F47 /* InitialRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialRegistrationViewController.swift; sourceTree = "<group>"; };
 		B6B3BE1E206D83B900A70F47 /* FinalRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalRegistrationViewController.swift; sourceTree = "<group>"; };
 		B6FE7A072080079100F60838 /* PearUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PearUser.swift; path = ../PearUser.swift; sourceTree = "<group>"; };
@@ -138,7 +138,6 @@
 			isa = PBXGroup;
 			children = (
 				B6111DD9201903F000DC7877 /* WelcomeViewController.swift */,
-				B67A370D203A1B2D00A72456 /* AddNewNetworkViewController.swift */,
 				B6B3BE1C206D839600A70F47 /* InitialRegistrationViewController.swift */,
 				B6B3BE1E206D83B900A70F47 /* FinalRegistrationViewController.swift */,
 				B6FE7A0920801C0400F60838 /* PostRegistrationViewController.swift */,
@@ -204,6 +203,7 @@
 			children = (
 				B6FE7A0E208026AE00F60838 /* CreateSocialProfileViewController.swift */,
 				B67A3709203A13E500A72456 /* SocialProfileConstructionViewController.swift */,
+				B67A370D203A1B2D00A72456 /* AddNewServiceViewController.swift */,
 			);
 			path = SocialProfileCreation;
 			sourceTree = "<group>";
@@ -348,7 +348,7 @@
 				B6111DE0201D4C1000DC7877 /* NotificationsViewController.swift in Sources */,
 				B6FE7A132080307000F60838 /* SocialProfile.swift in Sources */,
 				B6FE7A11208028F200F60838 /* SocialService.swift in Sources */,
-				B67A370E203A1B2D00A72456 /* AddNewNetworkViewController.swift in Sources */,
+				B67A370E203A1B2D00A72456 /* AddNewServiceViewController.swift in Sources */,
 				B62282ED2046481C00C01F61 /* QRCodeViewController.swift in Sources */,
 				B67A37062039E52D00A72456 /* Extensions.swift in Sources */,
 				B6FE7A082080079100F60838 /* PearUser.swift in Sources */,
