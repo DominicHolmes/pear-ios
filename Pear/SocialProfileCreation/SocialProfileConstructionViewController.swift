@@ -72,12 +72,30 @@ extension SocialProfileConstructionViewController: UIPopoverPresentationControll
     
 }
 
+extension SocialProfileConstructionViewController: AddNewServiceProfileDelegate {
+    
+    func addNewServiceViewControllerDidCancel(_ controller: AddNewServiceViewController) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func addNewServiceViewControllerDidSave(_ controller: AddNewServiceViewController, withService service: SocialService?) {
+        controller.dismiss(animated: true, completion: nil)
+        if let _ = service { enabledServices.append(service!) }
+    }
+    
+    
+}
+
 // MARK: - Segue Control
 extension SocialProfileConstructionViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addNetworkSegue" {
-            let controller = segue.destination
+            let controller = segue.destination as! AddNewServiceViewController
             controller.popoverPresentationController!.delegate = self
+            controller.delegate = self
+            let sender = sender as! NetworkCollectionCell
+            controller.socialServiceType = sender.socialServiceType
+            controller.socialService = sender.socialService
         }
     }
 }

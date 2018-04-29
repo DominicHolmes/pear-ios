@@ -244,7 +244,7 @@
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B62-39-x0q" customClass="PearTextField" customModule="Pear" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Dominic" placeholder="First name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B62-39-x0q" customClass="PearTextField" customModule="Pear" customModuleProvider="target">
                                 <rect key="frame" x="76" y="114" width="222" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -256,7 +256,7 @@
                                     <action selector="textFieldValueValueChanged" destination="FNR-xZ-2wm" eventType="editingChanged" id="Fxs-m5-wFz"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="geT-wC-cU1" customClass="PearTextField" customModule="Pear" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Holmes" placeholder="Last name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="geT-wC-cU1" customClass="PearTextField" customModule="Pear" customModuleProvider="target">
                                 <rect key="frame" x="76" y="169" width="222" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -268,7 +268,7 @@
                                     <action selector="textFieldValueValueChanged" destination="FNR-xZ-2wm" eventType="editingDidEnd" id="Yri-d7-Rkt"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="00n-0h-Kj2" customClass="PearTextField" customModule="Pear" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="hdominic" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="00n-0h-Kj2" customClass="PearTextField" customModule="Pear" customModuleProvider="target">
                                 <rect key="frame" x="76" y="225" width="222" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -344,7 +344,7 @@
                                     <action selector="createAccountButtonPressed" destination="GGn-0W-5Wp" eventType="touchUpInside" id="iJO-jb-VWe"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qHc-XI-NJy" customClass="PearTextField" customModule="Pear" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="password123" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qHc-XI-NJy" customClass="PearTextField" customModule="Pear" customModuleProvider="target">
                                 <rect key="frame" x="76" y="183" width="222" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -355,7 +355,7 @@
                                     <action selector="textFieldValueValueChanged" destination="GGn-0W-5Wp" eventType="editingChanged" id="r1Y-mS-9Wt"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="If3-hG-oP8" customClass="PearTextField" customModule="Pear" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="password123" placeholder="Confirm password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="If3-hG-oP8" customClass="PearTextField" customModule="Pear" customModuleProvider="target">
                                 <rect key="frame" x="76" y="239" width="222" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -366,7 +366,7 @@
                                     <action selector="textFieldValueValueChanged" destination="GGn-0W-5Wp" eventType="editingChanged" id="HjI-SY-rnV"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ST6-uO-PII" customClass="PearTextField" customModule="Pear" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="hello@dom.voyage" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ST6-uO-PII" customClass="PearTextField" customModule="Pear" customModuleProvider="target">
                                 <rect key="frame" x="76" y="121" width="222" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1243,6 +1243,7 @@
                                 </state>
                                 <connections>
                                     <action selector="userDidSelectDelete" destination="gey-ed-Ebv" eventType="touchUpInside" id="IaN-Ja-REI"/>
+                                    <action selector="userDidSelectDone" destination="gey-ed-Ebv" eventType="touchUpInside" id="x2F-ac-UBZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e7m-Te-LyF">
@@ -1274,6 +1275,12 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="5eA-y1-QAA"/>
                     </view>
+                    <connections>
+                        <outlet property="doneButton" destination="Fqv-A5-mOI" id="CLx-46-Nv2"/>
+                        <outlet property="handleTextField" destination="C7W-0l-72g" id="ytj-hY-l7W"/>
+                        <outlet property="socialServiceLogo" destination="FbY-Fg-sfU" id="ZpG-wP-iOb"/>
+                        <outlet property="socialServiceNameLabel" destination="ElO-1x-ZVd" id="QpH-xm-UAn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MJg-ze-fQp" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="vlI-3S-W5C">

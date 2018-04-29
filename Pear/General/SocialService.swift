@@ -28,9 +28,18 @@ enum SocialServiceType : String {
     
     var photoName : String {
         switch self {
-        case .Facebook: return "facebook-icon.png"
-        case .Twitter:  return "twitter-icon.png"
-        default:        return "default-icon.png"
+        case .Facebook:      return "facebook.png"
+        case .Twitter:       return "twitter.png"
+        case .Instagram:     return "instagram.png"
+        case .YouTube:       return "youtube.png"
+        case .AdobeCloud:    return "adobeCloud.png"
+        case .LinkedIn:      return "linkedIn.png"
+        case .Snapchat:      return "snapchat.png"
+        case .Email:         return "email.png"
+        case .WhatsApp:      return "whatsApp.png"
+        case .Spotify:       return "spotify.png"
+        case .Duolingo:      return "duolingo.png"
+        default:            return "default.png"
         }
     }
     
