@@ -12,28 +12,13 @@ protocol AddNewServiceProfileDelegate {
     func addNewServiceViewControllerDidCancel(_ controller: AddNewServiceViewController)
     func addNewServiceViewControllerDidSave(_ controller: AddNewServiceViewController,
                                             withService service: SocialService?)
-    
 }
 
 class AddNewServiceViewController: PearViewController {
     
     var delegate: AddNewServiceProfileDelegate?
-    var socialServiceType: SocialServiceType? {
-        didSet {
-            if let service = socialServiceType {
-                socialServiceNameLabel.text = "I want to share my \(service.serviceName)"
-                socialServiceLogo.image = UIImage(named: service.photoName)
-            }
-        }
-    }
-    var socialService: SocialService? {
-        didSet {
-            if let _ = socialService {
-                handleTextField.text = socialService!.handle
-                doneButton.isEnabled = true
-            }
-        }
-    }
+    var socialServiceType: SocialServiceType?
+    var socialService: SocialService?
     
     @IBOutlet var handleTextField: UITextField!
     @IBOutlet var socialServiceNameLabel: UILabel!
@@ -50,7 +35,24 @@ class AddNewServiceViewController: PearViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        setupUI()
         super.viewWillAppear(animated)
+    }
+    
+    private func setupUI() {
+        if let service = socialServiceType {
+            socialServiceNameLabel.text = "I want to share my \(service.serviceName)"
+            socialServiceLogo.image = UIImage(named: service.photoName)
+            handleTextField.placeholder = "\(service.serviceName) username"
+        }
+        if let _ = socialService {
+            handleTextField.text = socialService!.handle
+            doneButton.isEnabled = true
+        }
+    }
+    
+    @IBAction func doneButtonShouldUpdateState() {
+        doneButton.isEnabled = handleTextField.hasText
     }
     
     @IBAction func userDidSelectDone() {

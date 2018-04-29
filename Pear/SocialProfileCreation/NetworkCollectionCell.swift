@@ -13,6 +13,8 @@ class NetworkCollectionCell: UICollectionViewCell {
     
     private var checkmarkLayer: CAShapeLayer?
     
+    lazy var checkmarkView: UIImageView? = self.viewWithTag(101) as? UIImageView
+    
     var socialServiceType: SocialServiceType?
     var socialService: SocialService? {
         didSet {
@@ -66,15 +68,20 @@ class NetworkCollectionCell: UICollectionViewCell {
     }
     
     private func updateCheckmark() {
+        
         if isChecked {
+            checkmarkView?.image = UIImage(named: "checkmark.png")
+            /*
             createCheckmark()
             if let _ = checkmarkLayer {
                 layer.addSublayer(checkmarkLayer!)
-            }
+            }*/
         } else {
+            checkmarkView?.image = nil
+            /*
             checkmarkLayer?.removeFromSuperlayer()
             checkmarkLayer?.removeAllAnimations()
-            checkmarkLayer = nil
+            checkmarkLayer = nil*/
         }
     }
     

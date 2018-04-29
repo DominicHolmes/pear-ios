@@ -13,6 +13,8 @@ class SocialProfileConstructionViewController: PearViewController {
     var allServices = SocialServiceType.allValues
     var enabledServices = [SocialService]()
     
+    weak var lastTappedCell: NetworkCollectionCell?
+    
     @IBOutlet weak var collectionView: UICollectionView!
     var socialProfile: SocialProfile! {
         didSet {
@@ -53,7 +55,7 @@ extension SocialProfileConstructionViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let cell = collectionView.cellForItem(at: indexPath) as? NetworkCollectionCell
-        //cell?.toggleChecked()
+        self.lastTappedCell = cell
         performSegue(withIdentifier: "addNetworkSegue", sender: cell)
     }
 }
@@ -80,7 +82,12 @@ extension SocialProfileConstructionViewController: AddNewServiceProfileDelegate 
     
     func addNewServiceViewControllerDidSave(_ controller: AddNewServiceViewController, withService service: SocialService?) {
         controller.dismiss(animated: true, completion: nil)
-        if let _ = service { enabledServices.append(service!) }
+        if let _ = service {
+            enabledServices.append(service!)
+            lastTappedCell?.socialService = service
+        }
+        lastTappedCell?.setNeedsLayout()
+        collectionView.layoutIfNeeded()
     }
     
     

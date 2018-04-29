@@ -10,6 +10,8 @@ import Foundation
 
 enum SocialServiceType : String {
     
+    case Behance
+    case Dribble
     case Facebook
     case Twitter
     case Instagram
@@ -21,17 +23,33 @@ enum SocialServiceType : String {
     case WhatsApp
     case Spotify
     case Duolingo
+    case GooglePlus
+    case GroupMe
+    case Medium
+    case PhoneNumber
+    case Pintrest
+    case Reddit
+    case Skype
+    case Soundcloud
+    case Tumblr
+    case Venmo
+    case Vsco
     
-    static let allValues = [Facebook, Twitter, Instagram, YouTube, AdobeCloud,
-                            LinkedIn, Snapchat, Email, WhatsApp, Spotify,
-                            Duolingo]
+    
+    static let allValues = [Behance, Dribble, Facebook, Twitter, Instagram,
+                            YouTube, AdobeCloud, LinkedIn, Snapchat, Email,
+                            WhatsApp, Spotify, Duolingo, GooglePlus, GroupMe,
+                            Medium, PhoneNumber, Pintrest, Reddit, Skype,
+                            Soundcloud, Tumblr, Venmo, Vsco]
     
     var photoName : String {
         switch self {
+        case .Behance:       return "behance.png"
+        case .Dribble:       return "dribble.png"
         case .Facebook:      return "facebook.png"
         case .Twitter:       return "twitter.png"
         case .Instagram:     return "instagram.png"
-        case .YouTube:       return "youtube.png"
+        case .YouTube:       return "youTube.png"
         case .AdobeCloud:    return "adobeCloud.png"
         case .LinkedIn:      return "linkedIn.png"
         case .Snapchat:      return "snapchat.png"
@@ -39,14 +57,26 @@ enum SocialServiceType : String {
         case .WhatsApp:      return "whatsApp.png"
         case .Spotify:       return "spotify.png"
         case .Duolingo:      return "duolingo.png"
-        default:            return "default.png"
+        case .GooglePlus:    return "googlePlus.png"
+        case .GroupMe:       return "groupMe.png"
+        case .Medium:        return "medium.png"
+        case .PhoneNumber:   return "phoneNumber.png"
+        case .Pintrest:      return "pintrest.png"
+        case .Reddit:        return "reddit.png"
+        case .Skype:         return "skype.png"
+        case .Soundcloud:    return "soundcloud.png"
+        case .Tumblr:        return "tumblr.png"
+        case .Venmo:         return "venmo.png"
+        case .Vsco:          return "vsco.png"
         }
     }
     
     var serviceName : String {
         switch self {
-        case .AdobeCloud: return "Adobe Cloud"
-        default:          return self.rawValue
+        case .AdobeCloud:  return "Adobe Cloud"
+        case .GooglePlus:  return "Google Plus"
+        case .PhoneNumber: return "Phone Number"
+        default:           return self.rawValue
         }
     }
 }
