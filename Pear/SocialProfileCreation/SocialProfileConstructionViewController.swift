@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class SocialProfileConstructionViewController: PearViewController {
     
@@ -16,16 +17,31 @@ class SocialProfileConstructionViewController: PearViewController {
     weak var lastTappedCell: NetworkCollectionCell?
     
     @IBOutlet weak var collectionView: UICollectionView!
-    var socialProfile: SocialProfile! {
-        didSet {
-            dump(socialProfile)
-        }
-    }
+    var socialProfile: SocialProfile!
     
     @IBAction func doneButtonTapped() {
         dump(enabledServices)
+        if enabledServices.count > 0 {
+            saveNewSocialProfile()
+        }
     }
-
+    
+    func saveNewSocialProfile() {
+        
+        if activeUser != nil && enabledServices.count > 0 {
+            
+            let newProfileRef: DatabaseReference!
+            
+            if socialProfile.hasProfileID() {
+                newProfileRef = databaseRef.child("usersSocialProfiles").child(activeUser!.id).child(socialProfile.getProfileID())
+            } else {
+                newProfileRef = databaseRef.child("usersSocialProfiles").child(activeUser!.id).childByAutoId()
+                socialProfile.setProfileID(id: newProfileRef.key)
+            }
+            socialProfile.setServices(services: enabledServices)
+            newProfileRef.setValue(socialProfile.getFirebaseEncoding())
+        }
+    }
 }
 
 // MARK: - CollectionView Data Source
