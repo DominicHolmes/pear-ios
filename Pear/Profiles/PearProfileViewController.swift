@@ -18,11 +18,7 @@ class PearProfileViewController: UIViewController {
         }
     }
     
-    var services: [SocialService]? {
-        didSet {
-            collectionView.reloadData()
-        }
-    }
+    var services: [SocialService]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,8 +62,8 @@ extension PearProfileViewController: UICollectionViewDelegate {
         
         let service = services![indexPath.row]
         let username = service.handle
-        let appURL = NSURL(string: "instagram://user?username=\(username!)")!
-        let webURL = NSURL(string: "https://instagram.com/\(username!)")!
+        let appURL = NSURL(string: service.socialService.appURL + username!)!
+        let webURL = NSURL(string: service.socialService.webURL + username!)!
         let application = UIApplication.shared
         
         if application.canOpenURL(appURL as URL) {

@@ -80,8 +80,10 @@ extension SocialProfilesViewController {
             let controller = segue.destination
             controller.popoverPresentationController!.delegate = self
         } else if segue.identifier == "PearProfileSegue" {
-            let controller = segue.destination
+            let controller = segue.destination as! PearProfileViewController
             controller.popoverPresentationController!.delegate = self
+            let profile = sender as? SocialProfile
+            controller.socialProfile = profile
         }
     }
 }

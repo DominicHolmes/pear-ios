@@ -79,6 +79,18 @@ enum SocialServiceType : String {
         default:           return self.rawValue
         }
     }
+    
+    var appURL : String {
+        switch self {
+        default: return "\(self.rawValue.lowercased)://user?username="
+        }
+    }
+    
+    var webURL : String {
+        switch self {
+        default: return "https://\(self.rawValue.lowercased).com/"
+        }
+    }
 }
 
 struct SocialService {

@@ -82,6 +82,9 @@
                         <segue destination="F7o-oA-ROU" kind="popoverPresentation" identifier="deleteProfileSegue" popoverAnchorView="wG8-1x-00J" id="hu9-9E-gPQ">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
+                        <segue destination="HO9-DV-9D7" kind="popoverPresentation" identifier="PearProfileSegue" popoverAnchorView="wG8-1x-00J" id="44M-5T-dTA">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Suk-Jh-f4X" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -119,6 +122,7 @@
                                 </state>
                                 <connections>
                                     <action selector="userDidSelectDelete" destination="F7o-oA-ROU" eventType="touchUpInside" id="Q7x-h9-9tL"/>
+                                    <action selector="userDidSelectDone" destination="HO9-DV-9D7" eventType="touchUpInside" id="UWm-vV-Fmg"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HyI-dN-jzG">
@@ -152,11 +156,6 @@
                                     <outlet property="delegate" destination="HO9-DV-9D7" id="osn-r2-uFj"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ci-LV-v4i">
-                                <rect key="frame" x="320" y="28" width="39" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Close"/>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pear-logo" translatesAutoresizingMaskIntoConstraints="NO" id="J8R-YI-sMR">
                                 <rect key="frame" x="131" y="100" width="113" height="111"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
@@ -166,7 +165,7 @@
                         <viewLayoutGuide key="safeArea" id="Va3-Jm-Gjw"/>
                     </view>
                     <connections>
-                        <outlet property="collectionView" destination="HyI-dN-jzG" id="lbv-92-Jba"/>
+                        <outlet property="collectionView" destination="HyI-dN-jzG" id="3Uw-uK-HXG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SUk-dX-YGn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -561,7 +560,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vWV-uA-ffU">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vWV-uA-ffU">
                                 <rect key="frame" x="80.5" y="503" width="214" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Login" backgroundImage="button-outline-green">
@@ -1387,4 +1386,7 @@
         <image name="profile-tab-icon-enabled" width="22" height="26"/>
         <image name="translucent-background" width="750" height="1336"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="44M-5T-dTA"/>
+    </inferredMetricsTieBreakers>
 </document>
