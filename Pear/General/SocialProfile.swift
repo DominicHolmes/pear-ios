@@ -34,7 +34,7 @@ class SocialProfile: NSObject {
         var filteredServices = Dictionary<String, String>()
         if let _ = socialServices {
             filteredServices["!ProfileName"] = self.profileName
-            filteredServices["!ProfileID"] = self.profileID
+            filteredServices["!ProfileId"] = self.profileID
             for eachIndex in socialServices!.indices {
                 let service: SocialService! = socialServices![eachIndex]
                 let valueString: String! = "(\(eachIndex)): " + (service!.handle)!
@@ -45,4 +45,31 @@ class SocialProfile: NSObject {
         return filteredServices
     }
     
+}
+
+extension SocialProfile {
+    
+    static func parseHandle(_ string: String) -> String {
+        let components = string.components(separatedBy: "): ")
+        if components.count > 2 {
+            var handle = ""
+            for each in components where each != components.first {
+                handle += each
+            }
+            return handle
+        } else if components.count == 2 {
+            return components[1]
+        } else {
+            return ""
+        }
+    }
+    
+    static func parseRanking(_ string: String) -> Int {
+        let components = string.components(separatedBy: ["(", ")"])
+        if let ranking = Int(components[0]) {
+            return ranking
+        } else {
+            return 0
+        }
+    }
 }

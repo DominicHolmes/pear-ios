@@ -56,7 +56,7 @@ class AddNewServiceViewController: PearViewController {
     }
     
     @IBAction func userDidSelectDone() {
-        delegate?.addNewServiceViewControllerDidSave(self, withService: SocialService(socialService: socialServiceType, handle: handleTextField.text!))
+        delegate?.addNewServiceViewControllerDidSave(self, withService: SocialService(socialService: socialServiceType, handle: handleTextField.text!, ranking: nil))
     }
     
     @IBAction func userDidSelectCancel() {

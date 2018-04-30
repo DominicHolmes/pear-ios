@@ -17,7 +17,7 @@ class PearUser: NSObject {
     let id: String!
     
     // User's list of social profiles
-    var profiles = [String]()
+    var profiles = [SocialProfile]()
     
     init(fname: String, lname: String, username: String, id: String) {
         self.firstName = fname
@@ -31,20 +31,5 @@ class PearUser: NSObject {
         self.lastName = dict["name-last"]
         self.username = dict["username"]
         self.id = dict["id"]
-    }
-}
-
-extension PearUser {
-    func getProfiles(with ref: DatabaseReference) -> [SocialProfile]? {
-        let userProfileRef = ref.child("userProfiles").child(self.id)
-        
-        userProfileRef.observe(.value, with: { snapshot in
-            if let _ = snapshot.value {
-                if let userProfiles = snapshot.value as? NSArray {
-                    dump(userProfiles)
-                }
-            }
-        })
-        return nil
     }
 }

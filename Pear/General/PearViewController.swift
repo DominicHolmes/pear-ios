@@ -19,6 +19,10 @@ class PearViewController: UIViewController {
     }
     
     @IBAction func textFieldPrimaryActionShouldDismissKeyboard(sender: UITextField) {
+        dismissKeyboard()
+    }
+    
+    func dismissKeyboard() {
         self.view.endEditing(true)
     }
     

@@ -527,7 +527,7 @@
                                 </state>
                                 <connections>
                                     <action selector="userDidSelectDelete" destination="F7o-oA-ROU" eventType="touchUpInside" id="ixh-k2-EQk"/>
-                                    <segue destination="49e-Tb-3d3" kind="show" id="Hxt-Eb-5O2"/>
+                                    <segue destination="9cF-gE-Uio" kind="show" id="LUE-NC-Ki7"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to the best pearing app around!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KNH-80-cyE">
@@ -552,6 +552,77 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SeS-7C-3gT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2882" y="0.0"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="TYR-3K-q7G">
+            <objects>
+                <viewController id="9cF-gE-Uio" customClass="LoginViewController" customModule="Pear" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1y0-Xj-p8L">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vWV-uA-ffU">
+                                <rect key="frame" x="80.5" y="503" width="214" height="44"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Login" backgroundImage="button-outline-green">
+                                    <color key="titleColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginActionTriggered" destination="9cF-gE-Uio" eventType="touchUpInside" id="ypB-Se-KbE"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFY-km-giz">
+                                <rect key="frame" x="8" y="60" width="359" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="hello@dom.voyage" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="asH-wz-x2b" customClass="PearTextField" customModule="Pear" customModuleProvider="target">
+                                <rect key="frame" x="76" y="121" width="222" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
+                                <connections>
+                                    <action selector="emailFieldNextButtonPressed" destination="9cF-gE-Uio" eventType="primaryActionTriggered" id="ovM-Dn-9Ih"/>
+                                    <action selector="textFieldValueValueChanged" destination="9cF-gE-Uio" eventType="editingChanged" id="qce-Fh-Fe6"/>
+                                </connections>
+                            </textField>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="wj2-A0-vcZ">
+                                <rect key="frame" x="177" y="515" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="password123" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gjm-gs-0Nl" customClass="PearTextField" customModule="Pear" customModuleProvider="target">
+                                <rect key="frame" x="76" y="183" width="222" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
+                                <connections>
+                                    <action selector="loginActionTriggered" destination="9cF-gE-Uio" eventType="primaryActionTriggered" id="NNb-F6-a3f"/>
+                                    <action selector="textFieldValueValueChanged" destination="9cF-gE-Uio" eventType="editingChanged" id="dcI-Tz-JO7"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="m4K-mK-hz4" firstAttribute="bottom" secondItem="vWV-uA-ffU" secondAttribute="bottom" constant="56" id="0v5-Hr-enF"/>
+                            <constraint firstItem="vWV-uA-ffU" firstAttribute="centerX" secondItem="1y0-Xj-p8L" secondAttribute="centerX" id="vRs-7Q-KPJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="m4K-mK-hz4"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="asH-wz-x2b" id="njb-Oa-1la"/>
+                        <outlet property="loginButton" destination="vWV-uA-ffU" id="IDS-1c-fqA"/>
+                        <outlet property="passwordTextField" destination="Gjm-gs-0Nl" id="k9s-Gb-vlB"/>
+                        <outlet property="spinner" destination="wj2-A0-vcZ" id="OWa-zp-V43"/>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="LoginCompletionSegue" id="fV5-vX-hDw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Zw-rm-Zv6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1726" y="0.0"/>
         </scene>
         <!--Create Social Profile View Controller-->
         <scene sceneID="WD8-Xf-p1V">
@@ -908,7 +979,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LEh-F6-rpu">
-                                <rect key="frame" x="144" y="276" width="86" height="50"/>
+                                <rect key="frame" x="144" y="276.5" width="86" height="50"/>
                                 <color key="backgroundColor" red="1" green="0.084040851149999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="86" id="tMr-Am-aIi"/>
@@ -916,7 +987,7 @@
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nAX-WO-8Ym" customClass="RadialProgressView" customModule="Pear" customModuleProvider="target">
-                                <rect key="frame" x="117" y="376" width="140" height="140"/>
+                                <rect key="frame" x="117" y="376.5" width="140" height="140"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hJh-J7-q0K">
                                         <rect key="frame" x="18" y="18" width="105" height="105"/>
@@ -931,7 +1002,7 @@
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iQg-bd-whq" customClass="RadialProgressView" customModule="Pear" customModuleProvider="target">
-                                <rect key="frame" x="117" y="86" width="140" height="140"/>
+                                <rect key="frame" x="117" y="86.5" width="140" height="140"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5uM-iT-ekS">
                                         <rect key="frame" x="18" y="18" width="105" height="105"/>

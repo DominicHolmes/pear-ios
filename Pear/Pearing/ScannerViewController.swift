@@ -9,7 +9,7 @@
 import AVFoundation
 import UIKit
 
-class ScannerViewController : UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+class ScannerViewController : PearViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!

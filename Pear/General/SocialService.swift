@@ -84,4 +84,5 @@ enum SocialServiceType : String {
 struct SocialService {
     var socialService: SocialServiceType!
     var handle: String!
+    var ranking: Int?
 }

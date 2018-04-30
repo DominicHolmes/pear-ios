@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SocialProfilesViewController: UIViewController {
+class SocialProfilesViewController: PearViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -26,14 +26,18 @@ class SocialProfilesViewController: UIViewController {
 extension SocialProfilesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return activeUser!.profiles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell")
         
         let profileNameLabel = cell?.viewWithTag(100) as? UILabel
-        profileNameLabel?.text = "Social"
+        if indexPath.row < activeUser!.profiles.count {
+            profileNameLabel?.text = activeUser!.profiles[indexPath.row].getName()
+        } else {
+            profileNameLabel?.text = ""
+        }
         
         return cell!
     }
@@ -44,7 +48,7 @@ extension SocialProfilesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        // segue to correct profile
+        performSegue(withIdentifier: "PearProfileSegue", sender: activeUser!.profiles[indexPath.row])
     }
     
     // Swipe to delete functionality
@@ -73,6 +77,9 @@ extension SocialProfilesViewController: UIPopoverPresentationControllerDelegate 
 extension SocialProfilesViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "deleteProfileSegue" {
+            let controller = segue.destination
+            controller.popoverPresentationController!.delegate = self
+        } else if segue.identifier == "PearProfileSegue" {
             let controller = segue.destination
             controller.popoverPresentationController!.delegate = self
         }
