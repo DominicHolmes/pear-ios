@@ -82,13 +82,13 @@ enum SocialServiceType : String {
     
     var appURL : String {
         switch self {
-        default: return "\(self.rawValue.lowercased)://user?username="
+        default: return "\(self.rawValue)://user?username="
         }
     }
     
     var webURL : String {
         switch self {
-        default: return "https://\(self.rawValue.lowercased).com/"
+        default: return "https://\(self.rawValue).com/"
         }
     }
 }

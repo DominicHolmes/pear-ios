@@ -60,10 +60,14 @@ extension PearProfileViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let service = services![indexPath.row]
+        let service : SocialService! = services![indexPath.row]
         let username = service.handle
-        let appURL = NSURL(string: service.socialService.appURL + username!)!
-        let webURL = NSURL(string: service.socialService.webURL + username!)!
+        
+        let appURLString = service!.socialService!.appURL + username!
+        let webURLString = service!.socialService!.webURL + username!
+        
+        let appURL = NSURL(string: appURLString)!
+        let webURL = NSURL(string: webURLString)!
         let application = UIApplication.shared
         
         if application.canOpenURL(appURL as URL) {
