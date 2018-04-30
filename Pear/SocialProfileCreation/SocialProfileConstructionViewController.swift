@@ -20,10 +20,10 @@ class SocialProfileConstructionViewController: PearViewController {
     var socialProfile: SocialProfile!
     
     @IBAction func doneButtonTapped() {
-        dump(enabledServices)
         if enabledServices.count > 0 {
             saveNewSocialProfile()
         }
+        performSegue(withIdentifier: "ProfileConstructionCompletedSegue", sender: nil)
     }
     
     func saveNewSocialProfile() {
@@ -40,6 +40,7 @@ class SocialProfileConstructionViewController: PearViewController {
             }
             socialProfile.setServices(services: enabledServices)
             newProfileRef.setValue(socialProfile.getFirebaseEncoding())
+            
         }
     }
 }
@@ -132,6 +133,11 @@ extension SocialProfileConstructionViewController {
             let sender = sender as! NetworkCollectionCell
             controller.socialServiceType = sender.socialServiceType
             controller.socialService = sender.socialService
+        } else if segue.identifier == "ProfileConstructionCompletedSegue" {
+            let tabBarController = segue.destination as! UITabBarController
+            let controller = tabBarController.viewControllers?.first as! SocialProfilesViewController
+            controller.databaseRef = self.databaseRef
+            controller.activeUser = self.activeUser
         }
     }
 }

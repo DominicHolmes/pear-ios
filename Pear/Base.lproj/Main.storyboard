@@ -783,6 +783,7 @@
                         <segue destination="gey-ed-Ebv" kind="popoverPresentation" identifier="addNetworkSegue" popoverAnchorView="Iuh-Ud-cm4" id="pZb-8e-ZDz">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="ProfileConstructionCompletedSegue" id="6gK-MG-iBY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4zu-Ci-RO9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1387,6 +1388,7 @@
         <image name="translucent-background" width="750" height="1336"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="6gK-MG-iBY"/>
         <segue reference="44M-5T-dTA"/>
     </inferredMetricsTieBreakers>
 </document>
