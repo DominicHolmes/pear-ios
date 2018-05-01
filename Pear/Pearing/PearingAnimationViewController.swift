@@ -7,10 +7,15 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
-class PearingAnimationViewController: UIViewController {
+class PearingAnimationViewController: PearViewController {
     
-    var scannedCode : String?
+    var scannedCode : String? {
+        didSet {
+            if scannedCode != nil { self.searchForProfile(withId: scannedCode!) }
+        }
+    }
     
     @IBOutlet weak var topProfileView : RadialProgressView!
     @IBOutlet weak var topProfileImageView : UIImageView!
@@ -42,6 +47,47 @@ class PearingAnimationViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+}
+
+extension PearingAnimationViewController {
+    func searchForProfile(withId profileId: String) {
+        attemptLoadSocialProfile(with: profileId)
+    }
+    
+    func attemptLoadSocialProfile(with id: String) {
+        let profilesRef = databaseRef.child("allSocialProfiles").child(id)
+        profilesRef.observe(.value, with: { snapshot in
+            if let _ = snapshot.value {
+                self.loadSocialProfile(ofId: id, withSnapshot: snapshot)
+            }
+            print("Done!!")
+            //self.performSegue(withIdentifier: "LoginCompletionSegue", sender: nil)
+        })
+    }
+    
+    func loadSocialProfile(ofId profileId: String, withSnapshot snapshot: DataSnapshot){
+        var loadedProfile: SocialProfile
+        
+        if let profileDict = snapshot.value as? [String: String] {
+            var loadedServices = [SocialService]()
+            var profileName = "ProfileName"
+            let profileId = profileId
+            for service in profileDict {
+                if service.key == "!ProfileName" {
+                    profileName = service.value
+                } else if service.key != "!ProfileId" {
+                    let newService = SocialService(socialService: SocialServiceType(rawValue: service.key),
+                                                   handle: SocialProfile.parseHandle(service.value),
+                                                   ranking: SocialProfile.parseRanking(service.value))
+                    loadedServices.append(newService)
+                }
+            }
+            loadedProfile = SocialProfile(name: profileName, services: loadedServices)
+            loadedProfile.setProfileID(id: profileId)
+        }
+
+        dump(loadedProfile)
+    }
 }
 
 extension PearingAnimationViewController {

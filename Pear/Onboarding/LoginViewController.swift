@@ -176,7 +176,6 @@ class LoginViewController: PearViewController {
             }
         }
         activeUser?.profiles = loadedSocialProfiles
-        dump(loadedSocialProfiles)
     }
     
     // Segue control
