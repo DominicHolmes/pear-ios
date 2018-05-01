@@ -84,9 +84,8 @@ extension PearingAnimationViewController {
             }
             loadedProfile = SocialProfile(name: profileName, services: loadedServices)
             loadedProfile.setProfileID(id: profileId)
+            dump(loadedProfile)
         }
-
-        dump(loadedProfile)
     }
 }
 
