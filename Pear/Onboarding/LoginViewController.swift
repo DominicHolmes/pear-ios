@@ -183,10 +183,9 @@ class LoginViewController: PearViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         stopLoading()
         if segue.identifier == "LoginCompletionSegue" {
-            let tabBarController = segue.destination as! UITabBarController
-            let controller = tabBarController.viewControllers?.first as! SocialProfilesViewController
-            controller.databaseRef = self.databaseRef
-            controller.activeUser = self.activeUser
+            let tabBarController = segue.destination as! PearTabBarController
+            tabBarController.databaseRef = self.databaseRef
+            tabBarController.activeUser = self.activeUser
         }
     }
     

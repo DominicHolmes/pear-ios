@@ -10,6 +10,9 @@ import UIKit
 
 class QRCodeViewController: UIViewController {
     
+    var socialProfile: SocialProfile?
+    var userProfile: PearUser?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

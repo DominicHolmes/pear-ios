@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class PearTabBarController: UITabBarController {
+    
+    var databaseRef: DatabaseReference!
+    var activeUser: PearUser?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.selectedIndex = 2
     }
+    
 }

@@ -9,7 +9,7 @@
 import AVFoundation
 import UIKit
 
-class ScannerViewController : PearViewController, AVCaptureMetadataOutputObjectsDelegate {
+class ScannerViewController : PearTabViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
@@ -208,11 +208,17 @@ extension ScannerViewController: UIPopoverPresentationControllerDelegate {
 extension ScannerViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "viewCodeSegue" {
-            let controller = segue.destination
-            controller.popoverPresentationController!.delegate = self
+            let controller = segue.destination as? QRCodeViewController
+            controller?.popoverPresentationController!.delegate = self
+            if let socialProfile = sender as? SocialProfile {
+                controller?.socialProfile = socialProfile
+                controller?.userProfile = activeUser
+            }
         } else if segue.identifier == "performPearSegue" {
             let controller = segue.destination as? PearingAnimationViewController
             controller?.scannedCode = (sender as? String)
+            controller?.activeUser = self.activeUser
+            controller?.databaseRef = self.databaseRef
         }
     }
 }
