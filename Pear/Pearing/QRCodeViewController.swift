@@ -13,8 +13,20 @@ class QRCodeViewController: UIViewController {
     var socialProfile: SocialProfile?
     var userProfile: PearUser?
     
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var profileNameLabel: UILabel!
+    @IBOutlet weak var handleLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let user = userProfile {
+            nameLabel.text = user.firstName + " " + user.lastName
+            handleLabel.text = user.username
+        }
+        if let _ = socialProfile {
+            profileNameLabel.text = socialProfile!.getName()
+        }
     }
     
     override func didReceiveMemoryWarning() {
