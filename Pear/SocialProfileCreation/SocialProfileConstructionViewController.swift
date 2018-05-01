@@ -30,16 +30,20 @@ class SocialProfileConstructionViewController: PearViewController {
         
         if activeUser != nil && enabledServices.count > 0 {
             
-            let newProfileRef: DatabaseReference!
+            let usersProfilesRef: DatabaseReference!
+            let allProfilesRef: DatabaseReference!
             
             if socialProfile.hasProfileID() {
-                newProfileRef = databaseRef.child("usersSocialProfiles").child(activeUser!.id).child(socialProfile.getProfileID())
+                usersProfilesRef = databaseRef.child("usersSocialProfiles").child(activeUser!.id).child(socialProfile.getProfileID())
             } else {
-                newProfileRef = databaseRef.child("usersSocialProfiles").child(activeUser!.id).childByAutoId()
-                socialProfile.setProfileID(id: newProfileRef.key)
+                usersProfilesRef = databaseRef.child("usersSocialProfiles").child(activeUser!.id).childByAutoId()
+                socialProfile.setProfileID(id: usersProfilesRef.key)
             }
+            allProfilesRef = databaseRef.child("allSocialProfiles").child(socialProfile.getProfileID())
+            
             socialProfile.setServices(services: enabledServices)
-            newProfileRef.setValue(socialProfile.getFirebaseEncoding())
+            usersProfilesRef.setValue(socialProfile.getFirebaseEncoding())
+            allProfilesRef.setValue(socialProfile.getFirebaseEncoding())
             
         }
     }
