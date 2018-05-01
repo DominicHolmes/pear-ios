@@ -23,7 +23,7 @@ class SocialProfileConstructionViewController: PearViewController {
         if enabledServices.count > 0 {
             saveNewSocialProfile()
         }
-        performSegue(withIdentifier: "ProfileConstructionCompletedSegue", sender: nil)
+        //performSegue(withIdentifier: "ProfileConstructionCompletedSegue", sender: nil)
     }
     
     func saveNewSocialProfile() {
