@@ -186,7 +186,7 @@ extension ScannerViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         // segue to correct profile
-        performSegue(withIdentifier: "viewCodeSegue", sender: nil)
+        performSegue(withIdentifier: "viewCodeSegue", sender: activeUser!.profiles[indexPath.row])
     }
 }
 
