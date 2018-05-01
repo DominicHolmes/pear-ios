@@ -15,7 +15,6 @@ class ScannerViewController : PearViewController, AVCaptureMetadataOutputObjects
     var previewLayer: AVCaptureVideoPreviewLayer!
     
     private var areProfilesVisible = false
-    private var profiles = ["Social", "Family", "Professional"]
     
     @IBOutlet weak var profilesButton : UIButton!
     @IBOutlet weak var headerView : UIView!
@@ -75,6 +74,7 @@ class ScannerViewController : PearViewController, AVCaptureMetadataOutputObjects
         ac.addAction(UIAlertAction(title: "OK", style: .default))
         present(ac, animated: true)
         captureSession = nil
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -154,14 +154,19 @@ extension ScannerViewController {
 extension ScannerViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return profiles.count
+        if activeUser != nil {
+            return activeUser!.profiles.count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ScannableProfileCell")
         
         let profileNameLabel = cell?.viewWithTag(100) as? UILabel
-        profileNameLabel?.text = profiles[indexPath.row]
+        if activeUser != nil {
+            profileNameLabel?.text = activeUser!.profiles[indexPath.row]
+        }
         
         return cell!
     }
