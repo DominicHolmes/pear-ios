@@ -136,7 +136,11 @@ extension ScannerViewController {
     private func showProfilesTableView() {
         UIView.animate(withDuration: 0.3) {
             self.profileViewTopConstraint.constant = 140.0
-            self.profileViewHeightConstraint.constant = CGFloat(self.profiles.count) * 60.0
+            if self.activeUser != nil {
+                self.profileViewHeightConstraint.constant = CGFloat(self.activeUser!.profiles.count) * 60.0
+            } else {
+                self.profileViewHeightConstraint.constant = 60.0
+            }
             self.view.layoutIfNeeded()
         }
     }
@@ -144,7 +148,11 @@ extension ScannerViewController {
     private func hideProfilesTableView() {
         UIView.animate(withDuration: 0.3) {
             self.profileViewTopConstraint.constant = self.view.bounds.maxY + 50.0
-            self.profileViewHeightConstraint.constant = CGFloat(self.profiles.count) * 60.0
+            if self.activeUser != nil {
+                self.profileViewHeightConstraint.constant = CGFloat(self.activeUser!.profiles.count) * 60.0
+            } else {
+                self.profileViewHeightConstraint.constant = 60.0
+            }
             self.view.layoutIfNeeded()
         }
     }
@@ -165,7 +173,7 @@ extension ScannerViewController : UITableViewDataSource {
         
         let profileNameLabel = cell?.viewWithTag(100) as? UILabel
         if activeUser != nil {
-            profileNameLabel?.text = activeUser!.profiles[indexPath.row]
+            profileNameLabel?.text = activeUser!.profiles[indexPath.row].getName()
         }
         
         return cell!
