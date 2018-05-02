@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SocialProfilesViewController: PearViewController {
+class SocialProfilesViewController: PearTabViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
