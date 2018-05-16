@@ -122,7 +122,7 @@ class ScannerViewController : PearTabViewController, AVCaptureMetadataOutputObje
 // MARK: - ProfilesButtonMethod
 extension ScannerViewController {
     
-    @IBAction func toggleProfileSelector(_ sender: UIButton) {
+    @IBAction func toggleProfileSelector() {
         // toggle profiles value
         areProfilesVisible = !areProfilesVisible
         
