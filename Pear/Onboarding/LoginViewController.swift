@@ -183,7 +183,8 @@ class LoginViewController: PearViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         stopLoading()
         if segue.identifier == "LoginCompletionSegue" {
-            let tabBarController = segue.destination as! PearTabBarController
+            let navController = segue.destination as! UINavigationController
+            let tabBarController = navController.topViewController as! PearTabBarController
             tabBarController.databaseRef = self.databaseRef
             tabBarController.activeUser = self.activeUser
         }
