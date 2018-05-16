@@ -618,10 +618,6 @@
                                     <action selector="textFieldValueValueChanged" destination="9cF-gE-Uio" eventType="editingChanged" id="qce-Fh-Fe6"/>
                                 </connections>
                             </textField>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="wj2-A0-vcZ">
-                                <rect key="frame" x="177" y="515" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </activityIndicatorView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="password123" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gjm-gs-0Nl" customClass="PearTextField" customModule="Pear" customModuleProvider="target">
                                 <rect key="frame" x="76" y="183" width="222" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -633,11 +629,16 @@
                                     <action selector="textFieldValueValueChanged" destination="9cF-gE-Uio" eventType="editingChanged" id="dcI-Tz-JO7"/>
                                 </connections>
                             </textField>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="wj2-A0-vcZ">
+                                <rect key="frame" x="177" y="515" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="m4K-mK-hz4" firstAttribute="bottom" secondItem="vWV-uA-ffU" secondAttribute="bottom" constant="56" id="0v5-Hr-enF"/>
+                            <constraint firstItem="wj2-A0-vcZ" firstAttribute="centerX" secondItem="1y0-Xj-p8L" secondAttribute="centerX" id="1KE-9c-4tE"/>
                             <constraint firstItem="vWV-uA-ffU" firstAttribute="centerX" secondItem="1y0-Xj-p8L" secondAttribute="centerX" id="vRs-7Q-KPJ"/>
+                            <constraint firstItem="m4K-mK-hz4" firstAttribute="bottom" secondItem="wj2-A0-vcZ" secondAttribute="bottom" constant="68" id="zCA-jr-tav"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="m4K-mK-hz4"/>
                     </view>
