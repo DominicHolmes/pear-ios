@@ -162,13 +162,22 @@
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="Va3-Jm-Gjw"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="ZP2-r5-iPJ" appends="YES" id="66z-uH-dZR"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="HyI-dN-jzG" id="3Uw-uK-HXG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SUk-dX-YGn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="down" id="ZP2-r5-iPJ">
+                    <connections>
+                        <action selector="userDidSelectDone" destination="HO9-DV-9D7" id="8Ys-9Q-S0a"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2865" y="-648"/>
         </scene>
@@ -393,7 +402,7 @@
                         <outlet property="emailTextField" destination="ST6-uO-PII" id="i2w-nO-0lg"/>
                         <outlet property="passwordConfirmTextField" destination="If3-hG-oP8" id="qOB-m2-zYz"/>
                         <outlet property="passwordTextField" destination="qHc-XI-NJy" id="TLR-sa-Dgl"/>
-                        <segue destination="CzA-5a-5Rk" kind="show" identifier="PostRegistrationSegue" id="xWp-js-BUC"/>
+                        <segue destination="648-Ra-rJw" kind="show" identifier="PostRegistrationSegue" id="tf6-yM-i4r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dsw-mA-DHO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -405,12 +414,28 @@
             </objects>
             <point key="canvasLocation" x="-1073" y="-1121"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="b2W-ts-SVQ">
+            <objects>
+                <navigationController id="648-Ra-rJw" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LxW-C8-ZaZ">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="CzA-5a-5Rk" kind="show" id="KGn-Cd-iAD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aQT-Lq-DdX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="70" y="-1121"/>
+        </scene>
         <!--Post Registration View Controller-->
         <scene sceneID="qya-iy-RhH">
             <objects>
                 <viewController id="CzA-5a-5Rk" customClass="PostRegistrationViewController" customModule="Pear" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yoe-MN-4N6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bu7-hd-uph">
@@ -464,7 +489,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Gx-IG-wLk">
-                                <rect key="frame" x="80" y="503" width="214" height="44"/>
+                                <rect key="frame" x="80" y="567" width="214" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Let's do this!" backgroundImage="button-outline-green">
                                     <color key="titleColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -488,7 +513,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2zy-Ty-gUs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-219.5" y="-1120.5"/>
+            <point key="canvasLocation" x="-2996" y="1008"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="Xct-UB-fUB">
@@ -628,7 +653,7 @@
             <objects>
                 <viewController id="ahl-Rz-l7O" customClass="CreateSocialProfileViewController" customModule="Pear" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qQl-sM-wx1">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rqd-Js-hbn">
@@ -646,7 +671,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UUg-vy-FwI">
-                                <rect key="frame" x="80.5" y="503" width="214" height="44"/>
+                                <rect key="frame" x="80.5" y="567" width="214" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Create" backgroundImage="button-outline-green">
                                     <color key="titleColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -699,11 +724,11 @@
             <objects>
                 <viewController id="MCp-Nu-Jqp" customClass="SocialProfileConstructionViewController" customModule="Pear" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Iuh-Ud-cm4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AYh-GQ-cb8">
-                                <rect key="frame" x="0.0" y="201.5" width="375" height="200"/>
+                                <rect key="frame" x="0.0" y="233.5" width="375" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="4nK-0n-rdG"/>
@@ -741,7 +766,7 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ehg-ko-9fM">
-                                <rect key="frame" x="80.5" y="503" width="214" height="44"/>
+                                <rect key="frame" x="80.5" y="567" width="214" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Done" backgroundImage="button-outline-green">
                                     <color key="titleColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1318,7 +1343,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="vlI-3S-W5C" appends="YES" id="mFE-mk-j1f"/>
+                                    <outletCollection property="gestureRecognizers" destination="f9l-Eg-S6M" appends="YES" id="Y38-4m-8Gd"/>
                                 </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I want to share my Instagram profile" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ElO-1x-ZVd">
@@ -1382,11 +1407,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MJg-ze-fQp" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="vlI-3S-W5C">
+                <swipeGestureRecognizer direction="down" id="f9l-Eg-S6M">
                     <connections>
-                        <action selector="dismissKeyboardWithSender:" destination="gey-ed-Ebv" id="sPH-O2-hak"/>
+                        <action selector="userDidSelectCancel" destination="gey-ed-Ebv" id="Kiy-h2-cgw"/>
                     </connections>
-                </tapGestureRecognizer>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-10.4" y="1007.9460269865068"/>
         </scene>
@@ -1409,7 +1434,8 @@
         <image name="translucent-background" width="750" height="1336"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6gK-MG-iBY"/>
+        <segue reference="fV5-vX-hDw"/>
         <segue reference="44M-5T-dTA"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

@@ -9,13 +9,7 @@
 import Foundation
 import UIKit
 
-extension UINavigationBar {
-    /*
-    open override func sizeThatFits(_ size: CGSize) -> CGSize {
-        let screenRect = UIScreen.main.bounds
-        return CGSize(width: screenRect.size.width, height: 128)
-    }*/
-}
+extension UINavigationBar {}
 
 extension UIColor {
     

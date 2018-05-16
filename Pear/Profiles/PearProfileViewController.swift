@@ -27,6 +27,7 @@ class PearProfileViewController: UIViewController {
     @IBAction func userDidSelectDone() {
         dismiss(animated: true, completion: nil)
     }
+    
 }
 
 // MARK: - CollectionView Data Source
