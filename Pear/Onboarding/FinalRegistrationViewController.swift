@@ -130,7 +130,8 @@ class FinalRegistrationViewController: PearViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PostRegistrationSegue" {
-            let controller = segue.destination as! PostRegistrationViewController
+            let navController = segue.destination as! UINavigationController
+            let controller = navController.topViewController as! PostRegistrationViewController
             controller.databaseRef = self.databaseRef
             controller.activeUser = self.activeUser
         }

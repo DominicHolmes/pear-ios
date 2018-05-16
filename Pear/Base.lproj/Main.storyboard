@@ -655,7 +655,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Zw-rm-Zv6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1726" y="0.0"/>
+            <point key="canvasLocation" x="-2014" y="0.0"/>
         </scene>
         <!--Create Social Profile View Controller-->
         <scene sceneID="WD8-Xf-p1V">
