@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseDatabase
 
-class PearProfileSelectionTVC: PearTableViewController {
+class PearProfileSelectionVC: PearTableViewController {
     
     var scannedCode : String? {
         didSet {

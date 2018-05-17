@@ -14,6 +14,7 @@ class ScannerViewController : PearTabViewController, AVCaptureMetadataOutputObje
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     
+    private var codeFound = false
     private var areProfilesVisible = false
     
     @IBOutlet weak var profilesButton : UIButton!
@@ -88,6 +89,10 @@ class ScannerViewController : PearTabViewController, AVCaptureMetadataOutputObje
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
+        endCaptureSession()
+    }
+    
+    func endCaptureSession() {
         if (captureSession?.isRunning == true) {
             captureSession.stopRunning()
         }
@@ -103,11 +108,15 @@ class ScannerViewController : PearTabViewController, AVCaptureMetadataOutputObje
             found(code: stringValue)
         }
         
-        dismiss(animated: true)
+        //dismiss(animated: true) // potential problem here
     }
     
     func found(code: String) {
-        performSegue(withIdentifier: "pearProfileSelectionSegue", sender: code)
+        if !codeFound {
+            endCaptureSession()
+            performSegue(withIdentifier: "pearProfileSelectionSegue", sender: code)
+            codeFound = true
+        }
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -215,7 +224,7 @@ extension ScannerViewController {
                 controller?.userProfile = activeUser
             }
         } else if segue.identifier == "pearProfileSelectionSegue" {
-            let controller = segue.destination as? PearProfileSelectionTVC
+            let controller = segue.destination as? PearProfileSelectionVC
             controller?.activeUser = self.activeUser
             controller?.databaseRef = self.databaseRef
         }
