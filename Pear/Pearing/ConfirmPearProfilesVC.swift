@@ -20,6 +20,8 @@ class ConfirmPearProfilesVC: PearViewController {
     var profileToShare : SocialProfile?
     var scannedProfile : SocialProfile?
     
+    var transaction : PearTransaction?
+    
     @IBOutlet weak var topProfileView : RadialProgressView!
     @IBOutlet weak var topProfileImageView : UIImageView!
     @IBOutlet weak var bottomProfileView : RadialProgressView!
@@ -48,6 +50,16 @@ class ConfirmPearProfilesVC: PearViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+}
+
+// Mark: - PearTransaction creation and validation
+extension ConfirmPearProfilesVC {
+    
+    func initializeTransaction() {
+        self.transaction = PearTransaction(primary: profileToShare,
+                                           secondary: scannedProfile!,
+                                           perspective: .primary)
     }
 }
 

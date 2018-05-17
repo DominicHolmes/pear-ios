@@ -41,7 +41,6 @@ class SocialProfile: NSObject {
                 filteredServices[service.socialService.rawValue] = valueString
             }
         }
-        dump(filteredServices)
         return filteredServices
     }
     

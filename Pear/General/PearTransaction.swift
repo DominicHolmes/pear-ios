@@ -16,7 +16,7 @@ enum PearTransactionPerspective {
     case secondary
 }
 
-enum PearTransactionState {
+enum PearTransactionState : String {
     case waiting
     case approved
 }
@@ -25,17 +25,22 @@ class PearTransaction {
     
     private var transactionState: PearTransactionState = .waiting
     
+    private let primaryProfile: SocialProfile?
+    private let secondaryProfile: SocialProfile!
+    
     private var primaryApproval: Bool = false
     private var secondaryApproval: Bool = false
     private var overallApproval: Bool = false
     
-    private var primaryProfileID: Int?
-    private var secondaryProfileID: Int?
+    private let primaryProfileID: String?
+    private let secondaryProfileID: String!
     private var dateOfCompletion: Date?
     
-    init(primary primaryID: Int!, secondary secondaryID: Int!, _ perspective: PearTransactionPerspective) {
-        self.primaryProfileID = primaryID
-        self.secondaryProfileID = secondaryID
+    init(primary: SocialProfile?, secondary: SocialProfile!, perspective: PearTransactionPerspective) {
+        self.primaryProfile = primary
+        self.secondaryProfile = secondary
+        self.primaryProfileID = primary?.getProfileID()
+        self.secondaryProfileID = secondary.getProfileID()
         switch perspective {
         case .primary: primaryApproval = true
         case .secondary: secondaryApproval = true
@@ -52,7 +57,7 @@ class PearTransaction {
     }
 }
 
-// Mark: - User-facing methods
+// Mark: - controller-facing methods
 extension PearTransaction {
     
     func getTransactionState() -> PearTransactionState {
@@ -67,11 +72,25 @@ extension PearTransaction {
         return secondaryApproval
     }
     
-    func getPrimaryID() -> Int? {
+    func getPrimaryID() -> String? {
         return primaryProfileID
     }
     
-    func getSecondaryID() -> Int? {
+    func getSecondaryID() -> String? {
         return secondaryProfileID
+    }
+    
+    func getFirebaseEncoding() -> [String: String]! {
+        var dict = Dictionary<String, String>()
+        
+        if let _ = primaryProfileID { dict["primaryID"] = self.primaryProfileID! }
+        dict["primaryApproval"] = self.primaryApproval.description
+        
+        dict["secondaryApproval"] = self.secondaryApproval.description
+        dict["secondaryID"] = self.secondaryProfileID
+        
+        dict["state"] = self.transactionState.rawValue
+        
+        return dict
     }
 }
