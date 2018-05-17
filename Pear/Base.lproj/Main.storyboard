@@ -1098,16 +1098,17 @@
                     </view>
                     <connections>
                         <outlet property="titleLabel" destination="d9t-pE-8Gx" id="K8m-Ph-eva"/>
+                        <segue destination="Bx5-Dl-4Y7" kind="show" identifier="confirmPearProfilesSegue" id="Ihi-x8-Mg4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qhh-V8-fld" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2864.8000000000002" y="205.54722638680661"/>
         </scene>
-        <!--Pearing Animation View Controller-->
+        <!--Confirm Pear ProfilesVC-->
         <scene sceneID="GtL-L2-cOy">
             <objects>
-                <viewController id="Bx5-Dl-4Y7" customClass="PearingAnimationViewController" customModule="Pear" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Bx5-Dl-4Y7" customClass="ConfirmPearProfilesVC" customModule="Pear" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EzM-Px-C3n">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1175,7 +1176,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Du-Qg-MNi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4679" y="206"/>
+            <point key="canvasLocation" x="4057" y="206"/>
         </scene>
         <!--Past Pears Table View Controller-->
         <scene sceneID="Dim-Cd-E9y">

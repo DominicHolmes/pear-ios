@@ -9,13 +9,16 @@
 import UIKit
 import FirebaseDatabase
 
-class PearingAnimationViewController: PearViewController {
+class ConfirmPearProfilesVC: PearViewController {
     
     var scannedCode : String? {
         didSet {
             if scannedCode != nil { self.searchForProfile(withId: scannedCode!) }
         }
     }
+    
+    var profileToShare : SocialProfile?
+    var scannedProfile : SocialProfile?
     
     @IBOutlet weak var topProfileView : RadialProgressView!
     @IBOutlet weak var topProfileImageView : UIImageView!
@@ -46,10 +49,9 @@ class PearingAnimationViewController: PearViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 }
 
-extension PearingAnimationViewController {
+extension ConfirmPearProfilesVC {
     func searchForProfile(withId profileId: String) {
         attemptLoadSocialProfile(with: profileId)
     }
@@ -89,7 +91,8 @@ extension PearingAnimationViewController {
     }
 }
 
-extension PearingAnimationViewController {
+// Mark: - Pearing Animation
+extension ConfirmPearProfilesVC {
     
     private func layoutImageViewInitialPositions() {
         self.topProfileTrailingConstraint.constant = self.view.layer.bounds.maxX

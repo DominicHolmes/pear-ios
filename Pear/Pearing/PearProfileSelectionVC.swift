@@ -34,7 +34,7 @@ class PearProfileSelectionVC: PearViewController {
 extension PearProfileSelectionVC {
     func updateInterface(with profile: SocialProfile?) {
         if let _ = loadedProfile {
-            titleLabel.text = "Pearing with \(loadedProfile!.getName())"
+            titleLabel.text = "Pearing with \(loadedProfile!.getName()!)"
         }
     }
 }
@@ -74,7 +74,7 @@ extension PearProfileSelectionVC : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         // segue to correct profile
-        performSegue(withIdentifier: "viewCodeSegue", sender: activeUser!.profiles[indexPath.row])
+        performSegue(withIdentifier: "confirmPearProfilesSegue", sender: activeUser!.profiles[indexPath.row])
     }
 }
 
@@ -115,6 +115,20 @@ extension PearProfileSelectionVC {
             return tempProfile
         } else {
             return nil
+        }
+    }
+}
+
+extension PearProfileSelectionVC {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "confirmPearProfilesSegue" {
+            let controller = segue.destination as? ConfirmPearProfilesVC
+            if let socialProfile = sender as? SocialProfile {
+                controller?.profileToShare = socialProfile
+                controller?.activeUser = activeUser
+                controller?.scannedProfile = loadedProfile
+                controller?.databaseRef = databaseRef
+            }
         }
     }
 }
