@@ -969,7 +969,7 @@
                         <segue destination="Qdb-gs-KGW" kind="popoverPresentation" identifier="viewCodeSegue" popoverAnchorView="PPX-oO-opV" id="2Z4-Kf-B9m">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
-                        <segue destination="XrL-H4-Yjx" kind="show" identifier="pearProfileSelectionSegue" id="PsV-py-h1Y"/>
+                        <segue destination="XrL-H4-Yjx" kind="showDetail" identifier="pearProfileSelectionSegue" id="PsV-py-h1Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wtV-rF-Wft" userLabel="First Responder" sceneMemberID="firstResponder"/>
