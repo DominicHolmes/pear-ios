@@ -1041,10 +1041,10 @@
             </objects>
             <point key="canvasLocation" x="4058" y="-648"/>
         </scene>
-        <!--View Controller-->
+        <!--Pear Profile SelectionVC-->
         <scene sceneID="d3S-vL-9dV">
             <objects>
-                <viewController id="KfD-PZ-VB1" sceneMemberID="viewController">
+                <viewController id="KfD-PZ-VB1" customClass="PearProfileSelectionVC" customModule="Pear" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MeC-Nf-N6O">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

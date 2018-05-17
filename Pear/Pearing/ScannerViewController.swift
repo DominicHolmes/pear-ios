@@ -227,6 +227,7 @@ extension ScannerViewController {
             let controller = segue.destination as? PearProfileSelectionVC
             controller?.activeUser = self.activeUser
             controller?.databaseRef = self.databaseRef
+            controller?.scannedCode = (sender as? String)
         }
         
         /*else if segue.identifier == "performPearSegue" {

@@ -1,5 +1,5 @@
 //
-//  PearingProfileSelectionTableViewController.swift
+//  PearingProfileSelectionVC.swift
 //  Pear
 //
 //  Created by dominic on 5/17/18.
@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseDatabase
 
-class PearProfileSelectionVC: PearTableViewController {
+class PearProfileSelectionVC: PearViewController {
     
     var scannedCode : String? {
         didSet {
@@ -31,7 +31,7 @@ class PearProfileSelectionVC: PearTableViewController {
     
 }
 
-extension PearProfileSelectionTVC {
+extension PearProfileSelectionVC {
     
     func attemptLoadSocialProfile(with id: String) {
         let profilesRef = databaseRef.child("allSocialProfiles").child(id)
