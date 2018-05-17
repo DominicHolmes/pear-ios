@@ -107,7 +107,7 @@ class ScannerViewController : PearTabViewController, AVCaptureMetadataOutputObje
     }
     
     func found(code: String) {
-        performSegue(withIdentifier: "performPearSegue", sender: code)
+        performSegue(withIdentifier: "pearProfileSelectionSegue", sender: code)
     }
     
     override var prefersStatusBarHidden: Bool {
