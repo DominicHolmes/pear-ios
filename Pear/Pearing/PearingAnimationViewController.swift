@@ -65,7 +65,7 @@ extension PearingAnimationViewController {
         })
     }
     
-    func loadSocialProfile(ofId profileId: String, withSnapshot snapshot: DataSnapshot){
+    func loadSocialProfile(ofId profileId: String, withSnapshot snapshot: DataSnapshot) {
         var loadedProfile: SocialProfile
         
         if let profileDict = snapshot.value as? [String: String] {
