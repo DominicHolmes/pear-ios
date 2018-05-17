@@ -60,8 +60,8 @@ extension ConfirmPearProfilesVC {
         self.transaction = PearTransaction(primary: profileToShare,
                                            secondary: scannedProfile!,
                                            perspective: .primary)
-        saveNewTransaction(transaction!)
-        
+        saveTransaction(transaction!)
+    
     }
     
     func saveTransaction(_ transaction: PearTransaction) {
