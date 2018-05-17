@@ -9,6 +9,7 @@
 import Foundation
 
 // Primary user is the whoever initiates the Pear (through scanning, username, etc.)
+// Secondary is the one displaying a QR code
 
 enum PearTransactionPerspective {
     case primary
@@ -49,6 +50,28 @@ class PearTransaction {
         case false: transactionState = .waiting
         }
     }
+}
+
+// Mark: - User-facing methods
+extension PearTransaction {
     
+    func getTransactionState() -> PearTransactionState {
+        return transactionState
+    }
     
+    func getPrimaryClearance() -> Bool {
+        return primaryApproval
+    }
+    
+    func getSecondaryClearance() -> Bool {
+        return secondaryApproval
+    }
+    
+    func getPrimaryID() -> Int? {
+        return primaryProfileID
+    }
+    
+    func getSecondaryID() -> Int? {
+        return secondaryProfileID
+    }
 }
