@@ -215,16 +215,16 @@ extension ScannerViewController {
                 controller?.userProfile = activeUser
             }
         } else if segue.identifier == "pearProfileSelectionSegue" {
-            let controller = segue.destination as? PearingProfileSelectionTableViewController
+            let controller = segue.destination as? PearProfileSelectionTVC
             controller?.activeUser = self.activeUser
             controller?.databaseRef = self.databaseRef
         }
         
-        else if segue.identifier == "performPearSegue" {
+        /*else if segue.identifier == "performPearSegue" {
             let controller = segue.destination as? PearingAnimationViewController
             controller?.activeUser = self.activeUser
             controller?.databaseRef = self.databaseRef
             controller?.scannedCode = (sender as? String)
-        }
+        }*/
     }
 }
