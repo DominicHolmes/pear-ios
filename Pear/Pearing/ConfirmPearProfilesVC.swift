@@ -21,6 +21,7 @@ class ConfirmPearProfilesVC: PearViewController {
     var scannedProfile : SocialProfile?
     
     var transaction : PearTransaction?
+    var pendingTransaction : PearPendingTransaction?
     
     @IBOutlet weak var topProfileView : RadialProgressView!
     @IBOutlet weak var topProfileImageView : UIImageView!
@@ -35,6 +36,8 @@ class ConfirmPearProfilesVC: PearViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         layoutImageViewInitialPositions()
+        
+        initializeTransaction()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,25 +59,42 @@ class ConfirmPearProfilesVC: PearViewController {
 // Mark: - PearTransaction creation and validation
 extension ConfirmPearProfilesVC {
     
+    func executeTransation() {
+        initializeTransaction()
+        saveTransaction(transaction!)
+        initializePendingTransaction()
+        savePendingTransaction(pendingTransaction!)
+    }
+    
     func initializeTransaction() {
         self.transaction = PearTransaction(primary: profileToShare,
                                            secondary: scannedProfile!,
                                            perspective: .primary)
-        saveTransaction(transaction!)
-    
     }
     
     func saveTransaction(_ transaction: PearTransaction) {
-        
         let transactionDatabaseRef: DatabaseReference!
-        
         switch transaction.hasFirebaseID() {
         case true: transactionDatabaseRef = databaseRef.child("transactions").child(transaction.getFirebaseID())
         case false: transactionDatabaseRef = databaseRef.child("transactions").childByAutoId()
                     transaction.setFirebaseID(transactionDatabaseRef.key)
         }
-        
         transactionDatabaseRef.setValue(transaction.getFirebaseEncoding())
+    }
+    
+    func initializePendingTransaction() {
+        self.pendingTransaction = PearPendingTransaction(transactionID: transaction!.getFirebaseID(),
+                                                         secondaryProfileID: transaction!.getSecondaryID())
+    }
+    
+    func savePendingTransaction(_ pendingTransaction: PearPendingTransaction) {
+        let pendingDatabaseRef = databaseRef.child("pendingTransactions").child(
+            pendingTransaction.secondaryProfileID).child(pendingTransaction.transactionID)
+        pendingDatabaseRef.setValue(pendingTransaction.getFirebaseEncoding())
+    }
+    
+    func observePendingTransaction() {
+        
     }
 }
 

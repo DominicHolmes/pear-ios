@@ -78,7 +78,7 @@ extension PearTransaction {
         return primaryProfileID
     }
     
-    func getSecondaryID() -> String? {
+    func getSecondaryID() -> String {
         return secondaryProfileID
     }
     

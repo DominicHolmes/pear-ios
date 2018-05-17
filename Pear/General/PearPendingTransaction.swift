@@ -10,9 +10,10 @@ import Foundation
 
 class PearPendingTransaction {
     
-    private var transactionID: String!
-    private var secondaryProfileID: String!
-    private var secondaryApproval: Bool = false
+    let transactionID: String!
+    let secondaryProfileID: String!
+    private var secondaryApproved: Bool = false
+    private var secondaryDenied: Bool = false
     
     init(transactionID: String, secondaryProfileID: String) {
         self.transactionID = transactionID
@@ -27,7 +28,8 @@ extension PearPendingTransaction {
         var dict = Dictionary<String, String>()
         
         dict["transactionID"] = transactionID
-        dict["secondaryApproval"] = secondaryApproval.description
+        dict["secondaryApproved"] = secondaryApproved.description
+        dict["secondaryDenied"] = secondaryDenied.description
         
         return dict
     }
