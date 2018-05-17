@@ -25,6 +25,8 @@ class PearTransaction {
     
     private var transactionState: PearTransactionState = .waiting
     
+    private var firebaseID: String?
+    
     private let primaryProfile: SocialProfile?
     private let secondaryProfile: SocialProfile!
     
@@ -78,6 +80,18 @@ extension PearTransaction {
     
     func getSecondaryID() -> String? {
         return secondaryProfileID
+    }
+    
+    func hasFirebaseID() -> Bool {
+        return !(firebaseID == nil)
+    }
+    
+    func getFirebaseID() -> String {
+        return firebaseID!
+    }
+    
+    func setFirebaseID(_ id: String) {
+        firebaseID = id
     }
     
     func getFirebaseEncoding() -> [String: String]! {

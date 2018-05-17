@@ -229,12 +229,5 @@ extension ScannerViewController {
             controller?.databaseRef = self.databaseRef
             controller?.scannedCode = (sender as? String)
         }
-        
-        /*else if segue.identifier == "performPearSegue" {
-            let controller = segue.destination as? PearingAnimationViewController
-            controller?.activeUser = self.activeUser
-            controller?.databaseRef = self.databaseRef
-            controller?.scannedCode = (sender as? String)
-        }*/
     }
 }

@@ -60,6 +60,21 @@ extension ConfirmPearProfilesVC {
         self.transaction = PearTransaction(primary: profileToShare,
                                            secondary: scannedProfile!,
                                            perspective: .primary)
+        saveNewTransaction(transaction!)
+        
+    }
+    
+    func saveTransaction(_ transaction: PearTransaction) {
+        
+        let transactionDatabaseRef: DatabaseReference!
+        
+        switch transaction.hasFirebaseID() {
+        case true: transactionDatabaseRef = databaseRef.child("transactions").child(transaction.getFirebaseID())
+        case false: transactionDatabaseRef = databaseRef.child("transactions").childByAutoId()
+                    transaction.setFirebaseID(transactionDatabaseRef.key)
+        }
+        
+        transactionDatabaseRef.setValue(transaction.getFirebaseEncoding())
     }
 }
 
