@@ -221,8 +221,9 @@ extension ScannerViewController {
             controller?.popoverPresentationController!.delegate = self
             if let socialProfile = sender as? SocialProfile {
                 controller?.socialProfile = socialProfile
-                controller?.userProfile = activeUser
             }
+            controller?.activeUser = activeUser
+            controller?.databaseRef = databaseRef
         } else if segue.identifier == "pearProfileSelectionSegue" {
             let controller = segue.destination as? PearProfileSelectionVC
             controller?.activeUser = self.activeUser

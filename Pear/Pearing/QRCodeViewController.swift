@@ -7,11 +7,11 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
-class QRCodeViewController: UIViewController {
+class QRCodeViewController: PearViewController {
     
     var socialProfile: SocialProfile?
-    var userProfile: PearUser?
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileNameLabel: UILabel!
@@ -21,7 +21,7 @@ class QRCodeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let user = userProfile {
+        if let user = activeUser {
             nameLabel.text = user.firstName + " " + user.lastName
             handleLabel.text = "@" + user.username
         }
@@ -42,75 +42,51 @@ class QRCodeViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    func observePendingTransaction() {
+        let ref = databaseRef.child("pendingTransactions").child(socialProfile!.getProfileID())
+        ref.observe(.value, with: { snapshot in
+            if let _ = snapshot.value, let dict = snapshot.value as? Dictionary<String, Dictionary<String, String>> {
+                for eachPendingTransaction in dict {
+                    self.handle(PearPendingTransaction(of: eachPendingTransaction.value))
+                }
+            }
+        })
+    }
     
-    // https://www.hackingwithswift.com/example-code/media/how-to-create-a-qr-code
+    private func handle(_ transaction: PearPendingTransaction) {
+        
+    }
+    
+}
+
+extension QRCodeViewController {
+    
     func generateQRCode(from string: String) -> UIImage? {
         
         let data = string.data(using: String.Encoding.ascii)
         
+        // Generate the QR code
         guard let qrFilter = CIFilter(name: "CIQRCodeGenerator") else { return nil }
         qrFilter.setValue(data, forKey: "inputMessage")
         let transform = CGAffineTransform(scaleX: 10, y: 10)
         guard let qrFilterOutput = qrFilter.outputImage?.transformed(by: transform) else { return nil }
         
+        // Invert the colors
         guard let colorInvertFilter = CIFilter(name: "CIColorInvert") else { return nil }
         colorInvertFilter.setValue(qrFilterOutput, forKey: "inputImage")
         guard let outputInvertedImage = colorInvertFilter.outputImage else { return nil }
         
+        // Replace black with transparency
         guard let maskToAlphaFilter = CIFilter(name: "CIMaskToAlpha") else { return nil }
         maskToAlphaFilter.setValue(outputInvertedImage, forKey: "inputImage")
         guard let outputCIImage = maskToAlphaFilter.outputImage else { return nil }
         
-        /*colorClampFilter.setValue(CIVector(x: 1.0, y: 1.0, z: 1.0, w: 0.0), forKey: "inputMinComponents")
-        colorClampFilter.setValue(CIVector(x: 1.0, y: 1.0, z: 1.0, w: 0.0), forKey: "inputMaxComponents")
-        guard let outputCIImage = colorClampFilter.outputImage else { return nil }*/
-        
+        // Create gcImage from the extent
         let context = CIContext()
         if let cgImage = context.createCGImage(outputCIImage, from: outputCIImage.extent) {
             let processedImage = UIImage(cgImage: cgImage)
             return processedImage
         }
         return nil
-        
-        /*
-        let data = string.data(using: String.Encoding.ascii)
-        
-        guard let qrFilter = CIFilter(name: "CIQRCodeGenerator") else { return nil }
-        qrFilter.setValue(data, forKey: "inputMessage")
-        let transform = CGAffineTransform(scaleX: 5, y: 5)
-        guard let qrFilterOutput = qrFilter.outputImage?.transformed(by: transform) else { return nil }
-        
-        guard let colorClampFilter = CIFilter(name: "CIColorClamp") else { return nil }
-        colorClampFilter.setValue(qrFilterOutput, forKey: "inputImage")
-        colorClampFilter.setValue(CIVector(x: 1.0, y: 1.0, z: 1.0, w: 0.0), forKey: "inputMinComponents")
-        colorClampFilter.setValue(CIVector(x: 1.0, y: 1.0, z: 1.0, w: 0.0), forKey: "inputMaxComponents")
-        guard let outputCIImage = colorClampFilter.outputImage else { return nil }
-        
-        let context = CIContext()
-        if let cgImage = context.createCGImage(outputCIImage, from: outputCIImage.extent) {
-            let processedImage = UIImage(cgImage: cgImage)
-            return processedImage
-        }
-        return nil
-        */
-        
-        /*if let whiteOutput = colorClampFilter.outputImage {
-         let extent = filterOutput.extent
-         let cgImage =
-         let cgImage : CGImage = createCGImage(filteredImage, fromRect: extent)
-         let finalImage = UIImage(ciImage: finalOutput)
-         return finalImage
-         }
-         
-         let context = CIContext()
-         
-         if let cgimg = context.createCGImage(outputImage, from: outputImage.extent) {
-         let processedImage = UIImage(cgImage: cgimg)
-         print(processedImage.size)
-         }
-         
-         /* if let finalOutput = colorClampFilter.outputImage?.transformed(by: transform) {
-         return UIImage(ciImage: finalOutput)
-         }*/*/
     }
 }
