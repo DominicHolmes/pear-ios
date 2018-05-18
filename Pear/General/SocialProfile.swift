@@ -21,15 +21,17 @@ class SocialProfile: NSObject {
     
     init(of dict: Dictionary<String, String>) {
         self.profileName = dict["!ProfileName"]
-        self.profileID = dict["!ProfileID"]
+        self.profileID = dict["!ProfileId"]
         
         var loadedServices = [SocialService]()
         for eachService in dict {
-            guard (eachService.key != "!ProfileName") && (eachService.key != "!ProfileID") else { continue }
-            let newService = SocialService(socialService: SocialServiceType(rawValue: eachService.key),
-                                           handle: SocialProfile.parseHandle(eachService.value),
-                                           ranking: SocialProfile.parseRanking(eachService.value))
-            loadedServices.append(newService)
+            dump(eachService.key)
+            if ((eachService.key != "!ProfileName") && (eachService.key != "!ProfileId")) {
+                let newService = SocialService(socialService: SocialServiceType(rawValue: eachService.key),
+                                               handle: SocialProfile.parseHandle(eachService.value),
+                                               ranking: SocialProfile.parseRanking(eachService.value))
+                loadedServices.append(newService)
+            }
         }
         self.socialServices = loadedServices
     }
