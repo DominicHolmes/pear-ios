@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class FinalRegistrationViewController: PearViewController {
+class FinalRegistrationViewController: PearRegistrationViewController {
     
     var names: (String, String, String)? // first, last, username
     

@@ -25,7 +25,9 @@ class PearViewController: UIViewController {
     func dismissKeyboard() {
         self.view.endEditing(true)
     }
-    
+}
+
+class PearRegistrationViewController: PearViewController {
     func displayAlert(_ title: String, _ messageHeader: String, _ errors: [String], _ toPayment: Bool) {
         var message = messageHeader
         for eachError in errors {

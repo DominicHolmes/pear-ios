@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class InitialRegistrationViewController: PearViewController {
+class InitialRegistrationViewController: PearRegistrationViewController {
     
     override func viewDidLoad() {
         databaseRef = Database.database().reference()
