@@ -39,7 +39,7 @@
 		B6C945E620AE4601000374DE /* PearPendingTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C945E520AE4601000374DE /* PearPendingTransaction.swift */; };
 		B6FE7A082080079100F60838 /* PearUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE7A072080079100F60838 /* PearUser.swift */; };
 		B6FE7A0A20801C0400F60838 /* PostRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE7A0920801C0400F60838 /* PostRegistrationViewController.swift */; };
-		B6FE7A0C2080257400F60838 /* PearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE7A0B2080257400F60838 /* PearViewController.swift */; };
+		B6FE7A0C2080257400F60838 /* PearViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE7A0B2080257400F60838 /* PearViewControllers.swift */; };
 		B6FE7A0F208026AE00F60838 /* CreateSocialProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE7A0E208026AE00F60838 /* CreateSocialProfileViewController.swift */; };
 		B6FE7A11208028F200F60838 /* SocialService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE7A10208028F200F60838 /* SocialService.swift */; };
 		B6FE7A132080307000F60838 /* SocialProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE7A122080307000F60838 /* SocialProfile.swift */; };
@@ -82,7 +82,7 @@
 		B6C945E520AE4601000374DE /* PearPendingTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PearPendingTransaction.swift; sourceTree = "<group>"; };
 		B6FE7A072080079100F60838 /* PearUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PearUser.swift; path = ../PearUser.swift; sourceTree = "<group>"; };
 		B6FE7A0920801C0400F60838 /* PostRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRegistrationViewController.swift; sourceTree = "<group>"; };
-		B6FE7A0B2080257400F60838 /* PearViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PearViewController.swift; sourceTree = "<group>"; };
+		B6FE7A0B2080257400F60838 /* PearViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PearViewControllers.swift; sourceTree = "<group>"; };
 		B6FE7A0E208026AE00F60838 /* CreateSocialProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSocialProfileViewController.swift; sourceTree = "<group>"; };
 		B6FE7A10208028F200F60838 /* SocialService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialService.swift; sourceTree = "<group>"; };
 		B6FE7A122080307000F60838 /* SocialProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialProfile.swift; sourceTree = "<group>"; };
@@ -176,7 +176,7 @@
 				B62282F0204743CF00C01F61 /* RadialProgressImageView.swift */,
 				B67A37072039FC7F00A72456 /* PearTextField.swift */,
 				B67A37052039E52D00A72456 /* Extensions.swift */,
-				B6FE7A0B2080257400F60838 /* PearViewController.swift */,
+				B6FE7A0B2080257400F60838 /* PearViewControllers.swift */,
 				B69DEDA2209909860084C1E0 /* PearTabViewController.swift */,
 				B69DEDA0209904BC0084C1E0 /* PearTabBarController.swift */,
 				B6FE7A072080079100F60838 /* PearUser.swift */,
@@ -382,7 +382,7 @@
 				B62282E92046287200C01F61 /* SettingsTableViewController.swift in Sources */,
 				B67A37082039FC7F00A72456 /* PearTextField.swift in Sources */,
 				B62282E120435B2E00C01F61 /* ScannerViewController.swift in Sources */,
-				B6FE7A0C2080257400F60838 /* PearViewController.swift in Sources */,
+				B6FE7A0C2080257400F60838 /* PearViewControllers.swift in Sources */,
 				B69DED9F2096A8460084C1E0 /* LoginViewController.swift in Sources */,
 				B62282F1204743CF00C01F61 /* RadialProgressImageView.swift in Sources */,
 			);

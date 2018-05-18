@@ -57,6 +57,31 @@ class QRCodeViewController: PearViewController {
         
     }
     
+    private func approveTransaction(_ transaction: PearPendingTransaction) {
+        
+    }
+    
+    private func denyTransaction(_ transaction: PearPendingTransaction) {
+        
+    }
+    
+}
+
+extension QRCodeViewController {
+    func displayTransactionPrompt(_ transaction: PearPendingTransaction) {
+        let alert = UIAlertController(title: "Pear Requested",
+                                      message: "User is requesting to Pear with you.",
+                                      preferredStyle: .alert)
+        let approveAction = UIAlertAction(title: "Approve", style: .default, handler: { action in
+            self.approveTransaction(transaction)
+        })
+        let denyAction = UIAlertAction(title: "Deny", style: .destructive, handler: { action in
+            self.denyTransaction(transaction)
+        })
+        alert.addAction(denyAction)
+        alert.addAction(approveAction)
+        present(alert, animated: true)
+    }
 }
 
 extension QRCodeViewController {
