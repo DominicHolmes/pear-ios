@@ -109,11 +109,11 @@ extension PearTransaction {
     func getFirebaseEncoding() -> [String: String]! {
         var dict = Dictionary<String, String>()
         
-        if let _ = primaryProfileID { dict["primaryID"] = self.primaryProfileID! }
+        if let _ = primaryProfileID { dict["primaryProfileID"] = self.primaryProfileID! }
         dict["primaryApproval"] = self.primaryApproval.description
         
         dict["secondaryApproval"] = self.secondaryApproval.description
-        dict["secondaryID"] = self.secondaryProfileID
+        dict["secondaryProfileID"] = self.secondaryProfileID
         
         dict["state"] = self.transactionState.rawValue
         

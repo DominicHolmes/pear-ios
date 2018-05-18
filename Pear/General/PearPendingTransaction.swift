@@ -12,12 +12,14 @@ class PearPendingTransaction {
     
     let transactionID: String!
     let secondaryProfileID: String!
+    let primaryProfileID: String?
     private var secondaryApproved: Bool = false
     private var secondaryDenied: Bool = false
     
-    init(transactionID: String, secondaryProfileID: String) {
+    init(transactionID: String, secondaryProfileID: String, primaryProfileID: String?) {
         self.transactionID = transactionID
         self.secondaryProfileID = secondaryProfileID
+        self.primaryProfileID = primaryProfileID
     }
     
     init(of dict: Dictionary<String, String>) {
@@ -25,6 +27,11 @@ class PearPendingTransaction {
         self.secondaryDenied = (dict["secondaryDenied"] == "true")
         self.secondaryApproved = (dict["secondaryApproved"] == "true")
         self.secondaryProfileID = dict["secondaryProfileID"]
+        if dict["primaryProfileID"] == "!NONE" {
+            self.primaryProfileID = nil
+        } else {
+            self.primaryProfileID = dict["primaryProfileID"]
+        }
     }
     
 }
@@ -38,6 +45,11 @@ extension PearPendingTransaction {
         dict["secondaryApproved"] = secondaryApproved.description
         dict["secondaryDenied"] = secondaryDenied.description
         dict["secondaryProfileID"] = secondaryProfileID
+        if primaryProfileID != nil {
+            dict["primaryProfileID"] = primaryProfileID!
+        } else {
+            dict["primaryProfileID"] = "!NONE"
+        }
         
         return dict
     }

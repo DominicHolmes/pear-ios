@@ -101,7 +101,8 @@ extension ConfirmPearProfilesVC {
     
     func initializePendingTransaction() {
         self.pendingTransaction = PearPendingTransaction(transactionID: transaction!.getFirebaseID(),
-                                                         secondaryProfileID: transaction!.getSecondaryID())
+                                                         secondaryProfileID: transaction!.getSecondaryID(),
+                                                         primaryProfileID: profileToShare?.getProfileID())
     }
     
     func savePendingTransaction(_ pendingTransaction: PearPendingTransaction) {

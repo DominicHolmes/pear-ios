@@ -19,6 +19,44 @@ class SocialProfile: NSObject {
         self.socialServices = services
     }
     
+    init(of dict: Dictionary<String, String>) {
+        self.profileName = dict["!ProfileName"]
+        self.profileID = dict["!ProfileID"]
+        
+        var loadedServices = [SocialService]()
+        for eachService in dict {
+            guard (eachService.key != "!ProfileName") && (eachService.key != "!ProfileID") else { continue }
+            let newService = SocialService(socialService: SocialServiceType(rawValue: eachService.key),
+                                           handle: SocialProfile.parseHandle(eachService.value),
+                                           ranking: SocialProfile.parseRanking(eachService.value))
+            loadedServices.append(newService)
+        }
+        self.socialServices = loadedServices
+    }
+    /*
+    if let profilesDict = snapshot.value as? [String: Any] {
+        for eachProfileId in profilesDict.keys {
+            if let eachProfile = profilesDict[eachProfileId] as? [String : String] {
+                var loadedServices = [SocialService]()
+                var profileName = "Profile"
+                let profileId = eachProfileId
+                for service in eachProfile {
+                    if service.key == "!ProfileName" {
+                        profileName = service.value
+                    } else if service.key != "!ProfileId" {
+                        let newService = SocialService(socialService: SocialServiceType(rawValue: service.key),
+                                                       handle: SocialProfile.parseHandle(service.value),
+                                                       ranking: SocialProfile.parseRanking(service.value))
+                        loadedServices.append(newService)
+                    }
+                }
+                let newProfile = SocialProfile(name: profileName, services: loadedServices)
+                newProfile.setProfileID(id: profileId)
+                loadedSocialProfiles.append(newProfile)
+            }
+        }
+    }*/
+    
     func getName() -> String! {
         return profileName
     }

@@ -30,6 +30,8 @@ class QRCodeViewController: PearViewController {
             profileNameLabel.text = socialProfile!.getName()
             let qrCodeImage = generateQRCode(from: socialProfile!.getProfileID())
             QRCodeImageView.image = qrCodeImage
+            
+            observePendingTransaction()
         }
     }
     
@@ -54,7 +56,23 @@ class QRCodeViewController: PearViewController {
     }
     
     private func handle(_ transaction: PearPendingTransaction) {
-        
+        if !transaction.isApproved() && !transaction.isDenied() {
+            if let _ = transaction.primaryProfileID {
+                loadPrimaryProfile(with: transaction)
+            } else {
+                displayTransactionPrompt(transaction, optionalProfile: nil)
+            }
+        }
+    }
+    
+    private func loadPrimaryProfile(with pending: PearPendingTransaction) {
+        guard let primaryProfileID = pending.primaryProfileID else { return }
+        let ref = databaseRef.child("allSocialProfiles").child(primaryProfileID)
+        ref.observe(.value) { (snapshot) in
+            guard let _ = snapshot.value, let dict = snapshot.value as? Dictionary<String, String> else { return }
+            let primaryProfile = SocialProfile(of: dict)
+            self.displayTransactionPrompt(pending, optionalProfile: primaryProfile)
+        }
     }
     
     private func approveTransaction(_ transaction: PearPendingTransaction) {
@@ -64,13 +82,23 @@ class QRCodeViewController: PearViewController {
     private func denyTransaction(_ transaction: PearPendingTransaction) {
         
     }
+
     
 }
 
 extension QRCodeViewController {
-    func displayTransactionPrompt(_ transaction: PearPendingTransaction) {
+    func displayTransactionPrompt(_ transaction: PearPendingTransaction, optionalProfile profile: SocialProfile?) {
+        
+        let message: String
+        
+        if let _ = profile {
+            message = "User is requesting to Pear with you. They are sharing their \(profile!.getName()) profile."
+        } else {
+            message = "User is requesting to Pear with you. They are not sharing a profile."
+        }
+        
         let alert = UIAlertController(title: "Pear Requested",
-                                      message: "User is requesting to Pear with you.",
+                                      message: message,
                                       preferredStyle: .alert)
         let approveAction = UIAlertAction(title: "Approve", style: .default, handler: { action in
             self.approveTransaction(transaction)
