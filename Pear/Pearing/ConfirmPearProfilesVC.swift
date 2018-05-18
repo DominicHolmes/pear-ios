@@ -47,7 +47,7 @@ class ConfirmPearProfilesVC: PearViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        //beginPearingAnimation()
+        beginPearingAnimation()
     }
     
     override func didReceiveMemoryWarning() {
@@ -58,12 +58,13 @@ class ConfirmPearProfilesVC: PearViewController {
     func processTransactionState() {
         if let trans = transaction {
             switch trans.getTransactionState() {
-            case .approved: beginPearingAnimation()
+            case .approved: animatePearingCircles()
                             saveTransaction(trans)
                             updatePrimaryUserTransactions()
                             deletePendingTransaction()
             case .denied:   deletePendingTransaction()
                             deleteTransaction()
+                            // need to setup protocol to dismiss both view controllers
                             dismiss(animated: true, completion: nil)
             case .waiting: break //do nothing
             }
@@ -204,9 +205,10 @@ extension ConfirmPearProfilesVC {
                     (self.view.layer.bounds.maxX / 2.0) - (self.bottomProfileWidthConstraint.constant / 2.0)
                 self.view.layoutIfNeeded()
             },
-            completion: { (true) in
+            completion: nil)
+            /*completion: { (true) in
                 self.animatePearingCircles()
-            })
+            })*/
     }
     
     private func animatePearingCircles() {
