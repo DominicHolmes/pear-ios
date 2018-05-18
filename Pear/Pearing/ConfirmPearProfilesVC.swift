@@ -62,7 +62,9 @@ class ConfirmPearProfilesVC: PearViewController {
                             saveTransaction(trans)
                             updatePrimaryUserTransactions()
                             deletePendingTransaction()
-            case .denied: dismiss(animated: true, completion: nil)
+            case .denied:   deletePendingTransaction()
+                            deleteTransaction()
+                            dismiss(animated: true, completion: nil)
             case .waiting: break //do nothing
             }
         }
@@ -125,6 +127,11 @@ extension ConfirmPearProfilesVC {
     func deletePendingTransaction() {
         let ref = databaseRef.child("pendingTransactions").child(
             pendingTransaction!.secondaryProfileID).child(pendingTransaction!.transactionID)
+        ref.setValue(nil)
+    }
+    
+    func deleteTransaction() {
+        let ref = databaseRef.child("allTransactions").child(transaction!.getFirebaseID())
         ref.setValue(nil)
     }
 }
