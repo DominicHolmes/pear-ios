@@ -11,17 +11,15 @@ import FirebaseDatabase
 
 class ConfirmPearProfilesVC: PearViewController {
     
-    var scannedCode : String? {
-        didSet {
-            if scannedCode != nil { self.searchForProfile(withId: scannedCode!) }
-        }
-    }
-    
     var profileToShare : SocialProfile?
     var scannedProfile : SocialProfile?
     
     var transaction : PearTransaction?
-    var pendingTransaction : PearPendingTransaction?
+    var pendingTransaction : PearPendingTransaction? {
+        didSet {
+            updateUI()
+        }
+    }
     
     @IBOutlet weak var topProfileView : RadialProgressView!
     @IBOutlet weak var topProfileImageView : UIImageView!
@@ -36,8 +34,8 @@ class ConfirmPearProfilesVC: PearViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         layoutImageViewInitialPositions()
-        
-        initializeTransaction()
+        executeTransaction()
+        updateUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,7 +45,7 @@ class ConfirmPearProfilesVC: PearViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        beginPearingAnimation()
+        //beginPearingAnimation()
     }
     
     override func didReceiveMemoryWarning() {
@@ -59,11 +57,12 @@ class ConfirmPearProfilesVC: PearViewController {
 // Mark: - PearTransaction creation and validation
 extension ConfirmPearProfilesVC {
     
-    func executeTransation() {
+    func executeTransaction() {
         initializeTransaction()
         saveTransaction(transaction!)
         initializePendingTransaction()
         savePendingTransaction(pendingTransaction!)
+        observePendingTransaction()
     }
     
     func initializeTransaction() {
@@ -94,12 +93,18 @@ extension ConfirmPearProfilesVC {
     }
     
     func observePendingTransaction() {
-        
+        let ref = databaseRef.child("pendingTransactions").child(
+            pendingTransaction!.secondaryProfileID).child(pendingTransaction!.transactionID)
+        ref.observe(.value, with: { snapshot in
+            if let _ = snapshot.value, let dict = snapshot.value as? Dictionary<String, String> {
+                self.pendingTransaction = PearPendingTransaction.init(of: dict)
+            }
+        })
     }
 }
 
 extension ConfirmPearProfilesVC {
-    func searchForProfile(withId profileId: String) {
+    /*func searchForProfile(withId profileId: String) {
         attemptLoadSocialProfile(with: profileId)
     }
     
@@ -135,11 +140,23 @@ extension ConfirmPearProfilesVC {
             loadedProfile.setProfileID(id: profileId)
             dump(loadedProfile)
         }
-    }
+    }*/
 }
 
 // Mark: - Pearing Animation
 extension ConfirmPearProfilesVC {
+    
+    func updateUI() {
+        if let pending = pendingTransaction {
+            if pending.isApproved() {
+                beginPearingAnimation()
+            } else if pending.isDenied() {
+                // dismiss?
+            } else {
+                // do nothing?
+            }
+        }
+    }
     
     private func layoutImageViewInitialPositions() {
         self.topProfileTrailingConstraint.constant = self.view.layer.bounds.maxX

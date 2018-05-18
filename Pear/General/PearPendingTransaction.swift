@@ -20,6 +20,13 @@ class PearPendingTransaction {
         self.secondaryProfileID = secondaryProfileID
     }
     
+    init(of dict: Dictionary<String, String>) {
+        self.transactionID = dict["transactionID"]
+        self.secondaryDenied = (dict["secondaryDenied"] == "true")
+        self.secondaryApproved = (dict["secondaryApproved"] == "true")
+        self.secondaryProfileID = dict["secondaryProfileID"]
+    }
+    
 }
 
 extension PearPendingTransaction {
@@ -30,7 +37,16 @@ extension PearPendingTransaction {
         dict["transactionID"] = transactionID
         dict["secondaryApproved"] = secondaryApproved.description
         dict["secondaryDenied"] = secondaryDenied.description
+        dict["secondaryProfileID"] = secondaryProfileID
         
         return dict
+    }
+    
+    func isApproved() -> Bool {
+        return secondaryApproved && !secondaryDenied
+    }
+    
+    func isDenied() -> Bool {
+        return secondaryDenied
     }
 }
