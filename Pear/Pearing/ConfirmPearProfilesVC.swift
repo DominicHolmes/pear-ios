@@ -60,6 +60,7 @@ class ConfirmPearProfilesVC: PearViewController {
             switch trans.getTransactionState() {
             case .approved: beginPearingAnimation()
                             saveTransaction(trans)
+                            updateUsersTransactions()
             case .denied: dismiss(animated: true, completion: nil)
             case .waiting: break //do nothing
             }

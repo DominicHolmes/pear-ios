@@ -121,6 +121,13 @@ extension PearTransaction {
     }
     
     func getFirebaseStubEncoding() -> [String: String]! {
-        var dict = Dictionary<String, String>
+        var dict = Dictionary<String, String>()
+        
+        if let _ = firebaseID { dict["transactionID"] = firebaseID! }
+        if let _ = dateOfCompletion { dict["completionDate"] = Date.firebaseDateString(from: dateOfCompletion!) }
+        dict["pearName"] = "Pear-Name"
+        dict["pearHandle"] = "Pear-Handle"
+        
+        return dict
     }
 }

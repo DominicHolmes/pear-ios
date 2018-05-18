@@ -28,3 +28,12 @@ extension UIImageView {
         self.layer.masksToBounds = true
     }
 }
+
+extension Date {
+    static func firebaseDateString(from date: Date) -> String {
+        return "sample-date"
+    }
+    static func parseFirebaseDateString(from string: String) -> Date {
+        return Date()
+    }
+}
