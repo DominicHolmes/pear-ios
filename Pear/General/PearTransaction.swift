@@ -19,6 +19,7 @@ enum PearTransactionPerspective {
 enum PearTransactionState : String {
     case waiting
     case approved
+    case denied
 }
 
 class PearTransaction {
@@ -94,6 +95,17 @@ extension PearTransaction {
         firebaseID = id
     }
     
+    func updateTransaction(with pendingTransaction: PearPendingTransaction) {
+        secondaryApproval = pendingTransaction.isApproved()
+        if pendingTransaction.isDenied() {
+            transactionState = .denied
+        } else if secondaryApproval {
+            transactionState = .approved
+        } else {
+            transactionState = .waiting
+        }
+    }
+    
     func getFirebaseEncoding() -> [String: String]! {
         var dict = Dictionary<String, String>()
         
@@ -106,5 +118,9 @@ extension PearTransaction {
         dict["state"] = self.transactionState.rawValue
         
         return dict
+    }
+    
+    func getFirebaseStubEncoding() -> [String: String]! {
+        var dict = Dictionary<String, String>
     }
 }

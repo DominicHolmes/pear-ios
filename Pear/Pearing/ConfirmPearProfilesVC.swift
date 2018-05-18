@@ -17,7 +17,10 @@ class ConfirmPearProfilesVC: PearViewController {
     var transaction : PearTransaction?
     var pendingTransaction : PearPendingTransaction? {
         didSet {
-            updateUI()
+            if let _ = pendingTransaction {
+                transaction?.updateTransaction(with: pendingTransaction!)
+            }
+            processTransactionState()
         }
     }
     
@@ -35,7 +38,6 @@ class ConfirmPearProfilesVC: PearViewController {
         super.viewDidLoad()
         layoutImageViewInitialPositions()
         executeTransaction()
-        updateUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,6 +53,17 @@ class ConfirmPearProfilesVC: PearViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func processTransactionState() {
+        if let trans = transaction {
+            switch trans.getTransactionState() {
+            case .approved: beginPearingAnimation()
+                            saveTransaction(trans)
+            case .denied: dismiss(animated: true, completion: nil)
+            case .waiting: break //do nothing
+            }
+        }
     }
 }
 
@@ -74,8 +87,8 @@ extension ConfirmPearProfilesVC {
     func saveTransaction(_ transaction: PearTransaction) {
         let transactionDatabaseRef: DatabaseReference!
         switch transaction.hasFirebaseID() {
-        case true: transactionDatabaseRef = databaseRef.child("transactions").child(transaction.getFirebaseID())
-        case false: transactionDatabaseRef = databaseRef.child("transactions").childByAutoId()
+        case true: transactionDatabaseRef = databaseRef.child("allTransactions").child(transaction.getFirebaseID())
+        case false: transactionDatabaseRef = databaseRef.child("allTransactions").childByAutoId()
                     transaction.setFirebaseID(transactionDatabaseRef.key)
         }
         transactionDatabaseRef.setValue(transaction.getFirebaseEncoding())
@@ -100,6 +113,11 @@ extension ConfirmPearProfilesVC {
                 self.pendingTransaction = PearPendingTransaction.init(of: dict)
             }
         })
+    }
+    
+    func updateUsersTransactions() {
+        let ref = databaseRef.child("usersTransactions").child(activeUser!.id).child(transaction!.getFirebaseID())
+        ref.setValue(transaction!.getFirebaseStubEncoding())
     }
 }
 
@@ -145,18 +163,6 @@ extension ConfirmPearProfilesVC {
 
 // Mark: - Pearing Animation
 extension ConfirmPearProfilesVC {
-    
-    func updateUI() {
-        if let pending = pendingTransaction {
-            if pending.isApproved() {
-                beginPearingAnimation()
-            } else if pending.isDenied() {
-                // dismiss?
-            } else {
-                // do nothing?
-            }
-        }
-    }
     
     private func layoutImageViewInitialPositions() {
         self.topProfileTrailingConstraint.constant = self.view.layer.bounds.maxX
