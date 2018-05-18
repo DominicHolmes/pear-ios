@@ -211,6 +211,10 @@ extension ConfirmPearProfilesVC {
             })*/
     }
     
+    private func beginPearingDeniedAnimation() {
+        // TODO
+    }
+    
     private func animatePearingCircles() {
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(0), execute: {
             self.topProfileView.setValueAnimated(duration: 0.6, newProgressValue: 1.0)
