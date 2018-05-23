@@ -79,6 +79,11 @@ class QRCodeViewController: PearViewController {
         
     }
     
+    func updateSecondaryUserTransactions(_ transaction: PearPendingTransaction) {
+        let ref = databaseRef.child("usersTransactions").child(activeUser!.id).child(transaction.transactionID)
+        ref.setValue(transaction.getFirebaseEncoding()) // INCORRECT - SHOULD BE TRANSACTION NOT PENDINGTRANSACTION
+    }
+    
     private func denyTransaction(_ transaction: PearPendingTransaction) {
         
     }
@@ -136,10 +141,8 @@ extension QRCodeViewController {
         
         // Create gcImage from the extent
         let context = CIContext()
-        if let cgImage = context.createCGImage(outputCIImage, from: outputCIImage.extent) {
-            let processedImage = UIImage(cgImage: cgImage)
-            return processedImage
-        }
-        return nil
+        guard let cgImage = context.createCGImage(outputCIImage, from: outputCIImage.extent) else { return nil }
+        let processedImage = UIImage(cgImage: cgImage)
+        return processedImage
     }
 }

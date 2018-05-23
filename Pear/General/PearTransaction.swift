@@ -109,6 +109,9 @@ extension PearTransaction {
     func getFirebaseEncoding() -> [String: String]! {
         var dict = Dictionary<String, String>()
         
+        dict["pearName"] = "Pear-Name"
+        dict["pearHandle"] = "Pear-Handle"
+        
         if let _ = primaryProfileID { dict["primaryProfileID"] = self.primaryProfileID! }
         dict["primaryApproval"] = self.primaryApproval.description
         
@@ -116,17 +119,7 @@ extension PearTransaction {
         dict["secondaryProfileID"] = self.secondaryProfileID
         
         dict["state"] = self.transactionState.rawValue
-        
-        return dict
-    }
-    
-    func getFirebaseStubEncoding() -> [String: String]! {
-        var dict = Dictionary<String, String>()
-        
-        if let _ = firebaseID { dict["transactionID"] = firebaseID! }
         if let _ = dateOfCompletion { dict["completionDate"] = Date.firebaseDateString(from: dateOfCompletion!) }
-        dict["pearName"] = "Pear-Name"
-        dict["pearHandle"] = "Pear-Handle"
         
         return dict
     }

@@ -123,7 +123,7 @@ extension ConfirmPearProfilesVC {
     
     func updatePrimaryUserTransactions() {
         let ref = databaseRef.child("usersTransactions").child(activeUser!.id).child(transaction!.getFirebaseID())
-        ref.setValue(transaction!.getFirebaseStubEncoding())
+        ref.setValue(transaction!.getFirebaseEncoding())
     }
     
     func deletePendingTransaction() {
