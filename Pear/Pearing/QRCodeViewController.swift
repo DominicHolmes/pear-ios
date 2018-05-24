@@ -77,7 +77,6 @@ class QRCodeViewController: PearViewController {
     }
     
     private func handle(_ transaction: PearTransaction, _ pending: PearPendingTransaction) {
-        if transaction
         if let _ = pending.primaryProfileID {
             loadPrimaryProfile(transaction, pending)
         } else {
@@ -98,6 +97,8 @@ class QRCodeViewController: PearViewController {
     private func approveTransaction(_ pendingTransaction: PearPendingTransaction) {
         let ref = databaseRef.child("pendingTransactions").child(socialProfile!.getProfileID()).child("secondaryApproved")
         ref.setValue("true")
+        
+        // SHOULD JUST MAKE THE WHOLE THING A PENDING TRANSACTION.
     }
     
     func updateSecondaryUserTransactions(_ pendingTransaction: PearPendingTransaction) {
