@@ -55,12 +55,13 @@ class QRCodeViewController: PearViewController {
         })
     }
     
-    private func handle(_ transaction: PearPendingTransaction) {
-        if !transaction.isApproved() && !transaction.isDenied() {
-            if let _ = transaction.primaryProfileID {
-                loadPrimaryProfile(with: transaction)
+    private func handle(_ pendingTransaction: PearPendingTransaction) {
+        if !pendingTransaction.isApproved() && !pendingTransaction.isDenied() {
+            
+            if let _ = pendingTransaction.primaryProfileID {
+                loadPrimaryProfile(with: pendingTransaction)
             } else {
-                displayTransactionPrompt(transaction, optionalProfile: nil)
+                displayTransactionPrompt(pendingTransaction, optionalProfile: nil)
             }
         }
     }
@@ -75,16 +76,16 @@ class QRCodeViewController: PearViewController {
         }
     }
     
-    private func approveTransaction(_ transaction: PearPendingTransaction) {
+    private func approveTransaction(_ pendingTransaction: PearPendingTransaction) {
         
     }
     
-    func updateSecondaryUserTransactions(_ transaction: PearPendingTransaction) {
-        let ref = databaseRef.child("usersTransactions").child(activeUser!.id).child(transaction.transactionID)
-        ref.setValue(transaction.getFirebaseEncoding()) // INCORRECT - SHOULD BE TRANSACTION NOT PENDINGTRANSACTION
+    func updateSecondaryUserTransactions(_ pendingTransaction: PearPendingTransaction) {
+        let ref = databaseRef.child("usersTransactions").child(activeUser!.id).child(pendingTransaction.transactionID)
+        ref.setValue(pendingTransaction.getFirebaseEncoding()) // INCORRECT - SHOULD BE TRANSACTION NOT PENDINGTRANSACTION
     }
     
-    private func denyTransaction(_ transaction: PearPendingTransaction) {
+    private func denyTransaction(_ pendingTransaction: PearPendingTransaction) {
         
     }
 
@@ -92,7 +93,7 @@ class QRCodeViewController: PearViewController {
 }
 
 extension QRCodeViewController {
-    func displayTransactionPrompt(_ transaction: PearPendingTransaction, optionalProfile profile: SocialProfile?) {
+    func displayTransactionPrompt(_ pendingTransaction: PearPendingTransaction, optionalProfile profile: SocialProfile?) {
         
         let message: String
         
@@ -106,10 +107,10 @@ extension QRCodeViewController {
                                       message: message,
                                       preferredStyle: .alert)
         let approveAction = UIAlertAction(title: "Approve", style: .default, handler: { action in
-            self.approveTransaction(transaction)
+            self.approveTransaction(pendingTransaction)
         })
         let denyAction = UIAlertAction(title: "Deny", style: .destructive, handler: { action in
-            self.denyTransaction(transaction)
+            self.denyTransaction(pendingTransaction)
         })
         alert.addAction(denyAction)
         alert.addAction(approveAction)
