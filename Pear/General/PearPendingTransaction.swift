@@ -16,10 +16,25 @@ class PearPendingTransaction {
     private var secondaryApproved: Bool = false
     private var secondaryDenied: Bool = false
     
-    init(transactionID: String, secondaryProfileID: String, primaryProfileID: String?) {
+    var transaction: PearTransaction? {
+        didSet {
+            self.primaryName = transaction?.primaryName
+            self.primaryHandle = transaction?.primaryHandle
+            self.secondaryName = transaction?.secondaryName
+            self.secondaryHandle = transaction?.secondaryHandle
+        }
+    }
+    
+    var primaryName: String?
+    var primaryHandle: String?
+    var secondaryName: String?
+    var secondaryHandle: String?
+    
+    init(transactionID: String, secondaryProfileID: String, primaryProfileID: String?, transaction: PearTransaction?) {
         self.transactionID = transactionID
         self.secondaryProfileID = secondaryProfileID
         self.primaryProfileID = primaryProfileID
+        self.transaction = transaction
     }
     
     init(of dict: Dictionary<String, String>) {
@@ -32,6 +47,11 @@ class PearPendingTransaction {
         } else {
             self.primaryProfileID = dict["primaryProfileID"]
         }
+        
+        self.primaryName = dict["primaryName"]
+        self.primaryHandle = dict["primaryHandle"]
+        self.secondaryName = dict["secondaryName"]
+        self.secondaryHandle = dict["secondaryHandle"]
     }
     
 }
@@ -51,6 +71,26 @@ extension PearPendingTransaction {
             dict["primaryProfileID"] = "!NONE"
         }
         
+        if let _ = primaryName { dict["primaryName"] = self.primaryName! }
+        if let _ = primaryHandle { dict["primaryHandle"] = self.primaryHandle! }
+        if let _ = secondaryName { dict["secondaryName"] = self.secondaryName! }
+        if let _ = secondaryHandle { dict["secondaryHandle"] = self.secondaryHandle! }
+        
+        return dict
+    }
+    
+    func getFirebaseEncodingStub(from perspective: PearTransactionPerspective) -> [String: String]! {
+        var dict = Dictionary<String, String>()
+        
+        dict["transactionID"] = transactionID
+        
+        switch perspective {
+        case .primary:      if let _ = secondaryName { dict["secondaryName"] = self.secondaryName! }
+                            if let _ = secondaryHandle { dict["secondaryHandle"] = self.secondaryHandle! }
+        case .secondary:    if let _ = primaryName { dict["primaryName"] = self.primaryName! }
+                            if let _ = primaryHandle { dict["primaryHandle"] = self.primaryHandle! }
+        }
+        
         return dict
     }
     
@@ -58,7 +98,15 @@ extension PearPendingTransaction {
         return secondaryApproved && !secondaryDenied
     }
     
+    func setApproval() {
+        secondaryApproved = true
+    }
+    
     func isDenied() -> Bool {
         return secondaryDenied
+    }
+    
+    func setDenial() {
+        secondaryDenied = true
     }
 }

@@ -76,16 +76,28 @@ class QRCodeViewController: PearViewController {
     }
     
     private func approveTransaction(_ transaction: PearPendingTransaction) {
+        updateSecondaryUserTransactions(transaction)
         
-    }
-    
-    func updateSecondaryUserTransactions(_ transaction: PearPendingTransaction) {
-        let ref = databaseRef.child("usersTransactions").child(activeUser!.id).child(transaction.transactionID)
-        ref.setValue(transaction.getFirebaseEncoding()) // INCORRECT - SHOULD BE TRANSACTION NOT PENDINGTRANSACTION
+        // Approve transaction
+        transaction.setApproval()
+        updatePendingTransactionRef(transaction)
     }
     
     private func denyTransaction(_ transaction: PearPendingTransaction) {
-        
+        // Deny transaction
+        transaction.setDenial()
+        updatePendingTransactionRef(transaction)
+    }
+    
+    func updateSecondaryUserTransactions(_ transaction: PearPendingTransaction) {
+        // Update users transaction's ref
+        let usersRef = databaseRef.child("usersTransactions").child(activeUser!.id).child(transaction.transactionID)
+        usersRef.setValue(transaction.getFirebaseEncodingStub(from: .secondary))
+    }
+
+    func updatePendingTransactionRef(_ transaction: PearPendingTransaction) {
+        let pendingRef = databaseRef.child("pendingTransactions").child(socialProfile!.getProfileID()).child(transaction.transactionID)
+        pendingRef.setValue(transaction.getFirebaseEncoding())
     }
 
     
@@ -97,9 +109,9 @@ extension QRCodeViewController {
         let message: String
         
         if let _ = profile {
-            message = "User is requesting to Pear with you. They are sharing their \(profile!.getName()) profile."
+            message = "\(transaction.primaryName!) is requesting to Pear with you. They are sharing their \(profile!.getName()) profile."
         } else {
-            message = "User is requesting to Pear with you. They are not sharing a profile."
+            message = "\(transaction.primaryName!) is requesting to Pear with you. They are not sharing a profile."
         }
         
         let alert = UIAlertController(title: "Pear Requested",

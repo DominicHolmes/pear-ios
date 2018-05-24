@@ -28,8 +28,25 @@ class PearTransaction {
     
     private var firebaseID: String?
     
-    private let primaryProfile: SocialProfile?
-    private let secondaryProfile: SocialProfile!
+    private var primaryProfile: SocialProfile? {
+        didSet {
+            self.primaryName = primaryProfile?.getName()
+            self.primaryHandle = primaryProfile?.getProfileID()
+        }
+    }
+    
+    var primaryName: String?
+    var primaryHandle: String?
+    
+    private var secondaryProfile: SocialProfile! {
+        didSet {
+            self.secondaryName = primaryProfile?.getName()
+            self.secondaryHandle = primaryProfile?.getProfileID()
+        }
+    }
+    
+    var secondaryName: String?
+    var secondaryHandle: String?
     
     private var primaryApproval: Bool = false
     private var secondaryApproval: Bool = false
@@ -109,8 +126,10 @@ extension PearTransaction {
     func getFirebaseEncoding() -> [String: String]! {
         var dict = Dictionary<String, String>()
         
-        dict["pearName"] = "Pear-Name"
-        dict["pearHandle"] = "Pear-Handle"
+        if let _ = primaryName { dict["primaryName"] = self.primaryName! }
+        if let _ = primaryHandle { dict["primaryHandle"] = self.primaryHandle! }
+        if let _ = secondaryName { dict["secondaryName"] = self.secondaryName! }
+        if let _ = secondaryHandle { dict["secondaryHandle"] = self.secondaryHandle! }
         
         if let _ = primaryProfileID { dict["primaryProfileID"] = self.primaryProfileID! }
         dict["primaryApproval"] = self.primaryApproval.description

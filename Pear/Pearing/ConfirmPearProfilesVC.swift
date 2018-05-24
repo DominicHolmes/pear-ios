@@ -78,7 +78,7 @@ extension ConfirmPearProfilesVC {
     func executeTransaction() {
         initializeTransaction()
         saveTransaction(transaction!)
-        initializePendingTransaction()
+        initializePendingTransaction(transaction!)
         savePendingTransaction(pendingTransaction!)
         observePendingTransaction()
     }
@@ -99,10 +99,11 @@ extension ConfirmPearProfilesVC {
         transactionDatabaseRef.setValue(transaction.getFirebaseEncoding())
     }
     
-    func initializePendingTransaction() {
-        self.pendingTransaction = PearPendingTransaction(transactionID: transaction!.getFirebaseID(),
-                                                         secondaryProfileID: transaction!.getSecondaryID(),
-                                                         primaryProfileID: profileToShare?.getProfileID())
+    func initializePendingTransaction(_ transaction: PearTransaction) {
+        self.pendingTransaction = PearPendingTransaction(transactionID: transaction.getFirebaseID(),
+                                                         secondaryProfileID: transaction.getSecondaryID(),
+                                                         primaryProfileID: profileToShare?.getProfileID(),
+                                                         transaction: transaction)
     }
     
     func savePendingTransaction(_ pendingTransaction: PearPendingTransaction) {
@@ -123,7 +124,7 @@ extension ConfirmPearProfilesVC {
     
     func updatePrimaryUserTransactions() {
         let ref = databaseRef.child("usersTransactions").child(activeUser!.id).child(transaction!.getFirebaseID())
-        ref.setValue(transaction!.getFirebaseEncoding())
+        ref.setValue(pendingTransaction!.getFirebaseEncodingStub(from: .primary))
     }
     
     func deletePendingTransaction() {
