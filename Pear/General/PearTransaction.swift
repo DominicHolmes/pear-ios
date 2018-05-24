@@ -26,38 +26,51 @@ class PearTransaction {
     
     private var transactionState: PearTransactionState = .waiting
     
-    private var firebaseID: String?
+    var transactionId: String?
+    let secondaryProfileId: String!
+    let primaryProfileId: String?
+    private var primaryApproved: Bool = false
+    private var secondaryApproved: Bool = false
+    private var secondaryDenied: Bool = false
     
-    private let primaryProfile: SocialProfile?
-    private let secondaryProfile: SocialProfile!
+    var primaryName = "TestName"
     
-    private var primaryApproval: Bool = false
-    private var secondaryApproval: Bool = false
-    private var overallApproval: Bool = false
+    var approval: Bool = false
     
-    private let primaryProfileID: String?
-    private let secondaryProfileID: String!
     private var dateOfCompletion: Date?
     
-    init(primary: SocialProfile?, secondary: SocialProfile!, perspective: PearTransactionPerspective) {
-        self.primaryProfile = primary
-        self.secondaryProfile = secondary
-        self.primaryProfileID = primary?.getProfileID()
-        self.secondaryProfileID = secondary.getProfileID()
+    init(primaryId: String?, secondaryId: String!, perspective: PearTransactionPerspective) {
+        self.primaryProfileId = primaryId
+        self.secondaryProfileId = secondaryId
         switch perspective {
-        case .primary: primaryApproval = true
-        case .secondary: secondaryApproval = true
+        case .primary: primaryApproved = true
+        case .secondary: secondaryApproved = true
         }
         updateTransactionState()
     }
     
     private func updateTransactionState() {
-        overallApproval = primaryApproval && secondaryApproval
-        switch overallApproval {
+        approval = primaryApproved && secondaryApproved
+        switch approval {
         case true: transactionState = .approved
         case false: transactionState = .waiting
         }
     }
+    
+    convenience init(of dict: Dictionary<String, String>, with perspective: PearTransactionPerspective) {
+        self.init(primaryId: dict["primaryProfileId"], secondaryId: dict["secondaryProfileId"], perspective: perspective)
+        self.transactionId = dict["transactionId"]
+        
+        if dict["primaryApproved"] == "true" {
+            self.primaryApproved = true
+        }
+        if dict["secondaryApproved"] == "true" {
+            self.primaryApproved = true
+        }
+        
+        updateTransactionState()
+    }
+    
 }
 
 // Mark: - controller-facing methods
@@ -68,38 +81,22 @@ extension PearTransaction {
     }
     
     func getPrimaryClearance() -> Bool {
-        return primaryApproval
+        return primaryApproved
     }
     
     func getSecondaryClearance() -> Bool {
-        return secondaryApproval
-    }
-    
-    func getPrimaryID() -> String? {
-        return primaryProfileID
-    }
-    
-    func getSecondaryID() -> String {
-        return secondaryProfileID
+        return secondaryApproved
     }
     
     func hasFirebaseID() -> Bool {
-        return !(firebaseID == nil)
-    }
-    
-    func getFirebaseID() -> String {
-        return firebaseID!
-    }
-    
-    func setFirebaseID(_ id: String) {
-        firebaseID = id
+        return (transactionId != nil)
     }
     
     func updateTransaction(with pendingTransaction: PearPendingTransaction) {
-        secondaryApproval = pendingTransaction.isApproved()
+        secondaryApproved = pendingTransaction.isApproved()
         if pendingTransaction.isDenied() {
             transactionState = .denied
-        } else if secondaryApproval {
+        } else if secondaryApproved {
             transactionState = .approved
         } else {
             transactionState = .waiting
@@ -109,14 +106,17 @@ extension PearTransaction {
     func getFirebaseEncoding() -> [String: String]! {
         var dict = Dictionary<String, String>()
         
-        dict["pearName"] = "Pear-Name"
-        dict["pearHandle"] = "Pear-Handle"
+        dict["primaryName"] = "blah"
+        dict["primaryHandle"] = "blah"
+        dict["secondaryName"] = "blah"
+        dict["secondaryHandle"] = "blah"
         
-        if let _ = primaryProfileID { dict["primaryProfileID"] = self.primaryProfileID! }
-        dict["primaryApproval"] = self.primaryApproval.description
+        dict["transactionId"] = self.transactionId
         
-        dict["secondaryApproval"] = self.secondaryApproval.description
-        dict["secondaryProfileID"] = self.secondaryProfileID
+        if let _ = primaryProfileId { dict["primaryProfileID"] = self.primaryProfileId! }
+        dict["primaryApproved"] = self.primaryApproved.description
+        dict["secondaryApproved"] = self.secondaryApproved.description
+        dict["secondaryProfileID"] = self.secondaryProfileId
         
         dict["state"] = self.transactionState.rawValue
         if let _ = dateOfCompletion { dict["completionDate"] = Date.firebaseDateString(from: dateOfCompletion!) }

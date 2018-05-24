@@ -57,27 +57,47 @@ class QRCodeViewController: PearViewController {
     
     private func handle(_ pendingTransaction: PearPendingTransaction) {
         if !pendingTransaction.isApproved() && !pendingTransaction.isDenied() {
-            
+            loadTransaction(from: pendingTransaction)
+            /*
             if let _ = pendingTransaction.primaryProfileID {
                 loadPrimaryProfile(with: pendingTransaction)
             } else {
                 displayTransactionPrompt(pendingTransaction, optionalProfile: nil)
-            }
+            }*/
         }
     }
     
-    private func loadPrimaryProfile(with pending: PearPendingTransaction) {
+    private func loadTransaction(from pending: PearPendingTransaction) {
+        let ref = databaseRef.child("allTransactions").child(pending.transactionID)
+        ref.observe(.value) { (snapshot) in
+            guard let _ = snapshot.value, let dict = snapshot.value as? Dictionary<String, String> else { return }
+            let transaction = PearTransaction(of: dict, with: .secondary)
+            self.handle(transaction, pending)
+        }
+    }
+    
+    private func handle(_ transaction: PearTransaction, _ pending: PearPendingTransaction) {
+        if transaction
+        if let _ = pending.primaryProfileID {
+            loadPrimaryProfile(transaction, pending)
+        } else {
+            displayTransactionPrompt(transaction, pending, optionalProfile: nil)
+        }
+    }
+    
+    private func loadPrimaryProfile(_ transaction: PearTransaction, _ pending: PearPendingTransaction) {
         guard let primaryProfileID = pending.primaryProfileID else { return }
         let ref = databaseRef.child("allSocialProfiles").child(primaryProfileID)
         ref.observe(.value) { (snapshot) in
             guard let _ = snapshot.value, let dict = snapshot.value as? Dictionary<String, String> else { return }
             let primaryProfile = SocialProfile(of: dict)
-            self.displayTransactionPrompt(pending, optionalProfile: primaryProfile)
+            self.displayTransactionPrompt(transaction, pending, optionalProfile: primaryProfile)
         }
     }
     
     private func approveTransaction(_ pendingTransaction: PearPendingTransaction) {
-        
+        let ref = databaseRef.child("pendingTransactions").child(socialProfile!.getProfileID()).child("secondaryApproved")
+        ref.setValue("true")
     }
     
     func updateSecondaryUserTransactions(_ pendingTransaction: PearPendingTransaction) {
@@ -93,14 +113,14 @@ class QRCodeViewController: PearViewController {
 }
 
 extension QRCodeViewController {
-    func displayTransactionPrompt(_ pendingTransaction: PearPendingTransaction, optionalProfile profile: SocialProfile?) {
+    func displayTransactionPrompt(_ transaction: PearTransaction, _ pendingTransaction: PearPendingTransaction, optionalProfile profile: SocialProfile?) {
         
         let message: String
         
         if let _ = profile {
-            message = "User is requesting to Pear with you. They are sharing their \(profile!.getName()) profile."
+            message = "\(transaction.primaryName) is requesting to Pear with you. They are sharing their \(profile!.getName()) profile."
         } else {
-            message = "User is requesting to Pear with you. They are not sharing a profile."
+            message = "\(transaction.primaryName) is requesting to Pear with you. They are not sharing a profile."
         }
         
         let alert = UIAlertController(title: "Pear Requested",

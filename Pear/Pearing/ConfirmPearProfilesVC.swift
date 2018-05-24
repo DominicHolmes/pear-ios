@@ -84,24 +84,24 @@ extension ConfirmPearProfilesVC {
     }
     
     func initializeTransaction() {
-        self.transaction = PearTransaction(primary: profileToShare,
-                                           secondary: scannedProfile!,
+        self.transaction = PearTransaction(primaryId: profileToShare?.getProfileID(),
+                                           secondaryId: scannedProfile!.getProfileID(),
                                            perspective: .primary)
     }
     
     func saveTransaction(_ transaction: PearTransaction) {
         let transactionDatabaseRef: DatabaseReference!
         switch transaction.hasFirebaseID() {
-        case true: transactionDatabaseRef = databaseRef.child("allTransactions").child(transaction.getFirebaseID())
+        case true: transactionDatabaseRef = databaseRef.child("allTransactions").child(transaction.transactionId!)
         case false: transactionDatabaseRef = databaseRef.child("allTransactions").childByAutoId()
-                    transaction.setFirebaseID(transactionDatabaseRef.key)
+                    transaction.transactionId = transactionDatabaseRef.key
         }
         transactionDatabaseRef.setValue(transaction.getFirebaseEncoding())
     }
     
     func initializePendingTransaction() {
-        self.pendingTransaction = PearPendingTransaction(transactionID: transaction!.getFirebaseID(),
-                                                         secondaryProfileID: transaction!.getSecondaryID(),
+        self.pendingTransaction = PearPendingTransaction(transactionID: transaction!.transactionId!,
+                                                         secondaryProfileID: transaction!.secondaryProfileId,
                                                          primaryProfileID: profileToShare?.getProfileID())
     }
     
@@ -122,7 +122,7 @@ extension ConfirmPearProfilesVC {
     }
     
     func updatePrimaryUserTransactions() {
-        let ref = databaseRef.child("usersTransactions").child(activeUser!.id).child(transaction!.getFirebaseID())
+        let ref = databaseRef.child("usersTransactions").child(activeUser!.id).child(transaction!.transactionId!)
         ref.setValue(transaction!.getFirebaseEncoding())
     }
     
@@ -133,7 +133,7 @@ extension ConfirmPearProfilesVC {
     }
     
     func deleteTransaction() {
-        let ref = databaseRef.child("allTransactions").child(transaction!.getFirebaseID())
+        let ref = databaseRef.child("allTransactions").child(transaction!.transactionId!)
         ref.setValue(nil)
     }
 }
