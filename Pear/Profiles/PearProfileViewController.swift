@@ -19,7 +19,7 @@ class PearProfileViewController: PearViewController {
                 if services!.haveRankings() {
                     services = socialProfile?.getServices()?.sorted(by: { $0.ranking! < $1.ranking! })
                 } else {
-                    services = services?.assignRankings()
+                    socialProfile!.setServices(services: services?.assignRankings())
                     services = socialProfile?.getServices()?.sorted(by: { $0.ranking! < $1.ranking! })
                 }
             }
