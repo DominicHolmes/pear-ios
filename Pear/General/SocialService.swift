@@ -98,3 +98,22 @@ struct SocialService {
     var handle: String!
     var ranking: Int?
 }
+
+extension Array where Element == SocialService {
+    
+    func haveRankings() -> Bool {
+        for each in self {
+            if each.ranking == nil { return false }
+        }
+        return true
+    }
+    
+    func assignRankings() -> [SocialService] {
+        var tempServices = [SocialService]()
+        for each in self.indices {
+            let service = self[each]
+            tempServices.append(SocialService(socialService: service.socialService, handle: service.handle, ranking: each))
+        }
+        return tempServices
+    }
+}

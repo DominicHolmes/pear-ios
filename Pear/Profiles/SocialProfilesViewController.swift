@@ -10,6 +10,12 @@ import UIKit
 
 class SocialProfilesViewController: PearTabViewController {
     
+    override var activeUser: PearUser? {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {

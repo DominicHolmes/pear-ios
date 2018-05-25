@@ -87,7 +87,6 @@ extension PearProfileSelectionVC {
                 self.loadedProfile = self.loadSocialProfile(ofId: id, withSnapshot: snapshot)
                 
             }
-            //self.performSegue(withIdentifier: "LoginCompletionSegue", sender: nil)
         })
     }
     

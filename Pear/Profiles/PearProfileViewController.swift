@@ -8,26 +8,47 @@
 
 import UIKit
 
-class PearProfileViewController: UIViewController {
+class PearProfileViewController: PearViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     var socialProfile: SocialProfile? {
         didSet {
-            services = socialProfile?.getServices()?.sorted(by: { $0.ranking! < $1.ranking! })
+            if let _ = socialProfile?.getServices() {
+                services = socialProfile!.getServices()!
+                if services!.haveRankings() {
+                    services = socialProfile?.getServices()?.sorted(by: { $0.ranking! < $1.ranking! })
+                } else {
+                    services = services?.assignRankings()
+                    services = socialProfile?.getServices()?.sorted(by: { $0.ranking! < $1.ranking! })
+                }
+            }
         }
     }
     
     var services: [SocialService]?
+    var shouldResetSegues = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     @IBAction func userDidSelectDone() {
-        dismiss(animated: true, completion: nil)
+        if shouldResetSegues {
+            performSegue(withIdentifier: "returnToHomeSegue", sender: nil)
+        } else {
+            dismiss(animated: true, completion: nil)
+        }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "returnToHomeSegue" {
+            let navController = segue.destination as! UINavigationController
+            let tabBarController = navController.topViewController as! PearTabBarController
+            tabBarController.databaseRef = self.databaseRef
+            tabBarController.activeUser = self.activeUser
+        }
+    }
 }
 
 // MARK: - CollectionView Data Source

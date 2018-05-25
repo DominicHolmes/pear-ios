@@ -62,12 +62,24 @@ class ConfirmPearProfilesVC: PearViewController {
                             saveTransaction(trans)
                             updatePrimaryUserTransactions()
                             deletePendingTransaction()
+                            beginLoadingSecondaryProfile(trans.getSecondaryID())
             case .denied:   deletePendingTransaction()
                             deleteTransaction()
                             // need to setup protocol to dismiss both view controllers
                             dismiss(animated: true, completion: nil)
             case .waiting: break //do nothing
             }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "successfulPearSegue" {
+            let controller = segue.destination as! PearProfileViewController
+            let profile = sender as? SocialProfile
+            controller.socialProfile = profile
+            controller.shouldResetSegues = true
+            controller.databaseRef = self.databaseRef
+            controller.activeUser = self.activeUser
         }
     }
 }
@@ -137,26 +149,30 @@ extension ConfirmPearProfilesVC {
         let ref = databaseRef.child("allTransactions").child(transaction!.getFirebaseID())
         ref.setValue(nil)
     }
+    
+    func beginLoadingSecondaryProfile(_ id: String) {
+        attemptLoadSocialProfile(with: id)
+    }
 }
 
 extension ConfirmPearProfilesVC {
-    /*func searchForProfile(withId profileId: String) {
-        attemptLoadSocialProfile(with: profileId)
-    }
-    
     func attemptLoadSocialProfile(with id: String) {
         let profilesRef = databaseRef.child("allSocialProfiles").child(id)
         profilesRef.observe(.value, with: { snapshot in
             if let _ = snapshot.value {
-                self.loadSocialProfile(ofId: id, withSnapshot: snapshot)
+                let loadedProfile = self.loadSocialProfile(ofId: id, withSnapshot: snapshot)
+                if let _ = loadedProfile {
+                    self.performSegue(withIdentifier: "successfulPearSegue", sender: loadedProfile!)
+                } else {
+                    print("Could not load user!")
+                }
             }
-            print("Done!!")
-            //self.performSegue(withIdentifier: "LoginCompletionSegue", sender: nil)
         })
     }
     
-    func loadSocialProfile(ofId profileId: String, withSnapshot snapshot: DataSnapshot) {
-        var loadedProfile: SocialProfile
+    func loadSocialProfile(ofId profileId: String, withSnapshot snapshot: DataSnapshot) -> SocialProfile? {
+        
+        var tempProfile: SocialProfile
         
         if let profileDict = snapshot.value as? [String: String] {
             var loadedServices = [SocialService]()
@@ -172,11 +188,14 @@ extension ConfirmPearProfilesVC {
                     loadedServices.append(newService)
                 }
             }
-            loadedProfile = SocialProfile(name: profileName, services: loadedServices)
-            loadedProfile.setProfileID(id: profileId)
-            dump(loadedProfile)
+            tempProfile = SocialProfile(name: profileName, services: loadedServices)
+            tempProfile.setProfileID(id: profileId)
+            
+            return tempProfile
+        } else {
+            return nil
         }
-    }*/
+    }
 }
 
 // Mark: - Pearing Animation

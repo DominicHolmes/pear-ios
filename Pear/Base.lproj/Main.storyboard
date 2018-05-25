@@ -165,6 +165,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="HyI-dN-jzG" id="3Uw-uK-HXG"/>
+                        <segue destination="2qu-Rl-Az0" kind="show" identifier="returnToHomeSegue" id="JVR-pM-jdX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SUk-dX-YGn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -174,7 +175,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2865" y="-648"/>
+            <point key="canvasLocation" x="4159" y="-648"/>
         </scene>
         <!--Delete Social Profile View Controller-->
         <scene sceneID="2JK-qO-uJO">
@@ -814,7 +815,7 @@
                         <segue destination="gey-ed-Ebv" kind="popoverPresentation" identifier="addNetworkSegue" popoverAnchorView="Iuh-Ud-cm4" id="pZb-8e-ZDz">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
-                        <segue destination="49e-Tb-3d3" kind="show" identifier="ProfileConstructionCompletedSegue" id="6gK-MG-iBY"/>
+                        <segue destination="2qu-Rl-Az0" kind="show" identifier="ProfileConstructionCompletedSegue" id="EaW-Nt-kia"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4zu-Ci-RO9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1036,6 +1037,7 @@
                         <outlet property="handleLabel" destination="jba-7b-2DN" id="Wa9-TZ-ykX"/>
                         <outlet property="nameLabel" destination="maq-QI-pCC" id="3bk-MM-sRx"/>
                         <outlet property="profileNameLabel" destination="Ocb-Kv-0ie" id="pZC-t7-rIn"/>
+                        <segue destination="HO9-DV-9D7" kind="show" identifier="successfulPearSegue" id="PI2-Ap-psT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yTn-pX-Tug" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1045,7 +1047,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4056.8000000000002" y="-648.12593703148434"/>
+            <point key="canvasLocation" x="2865" y="-215"/>
         </scene>
         <!--Pear Profile SelectionVC-->
         <scene sceneID="d3S-vL-9dV">
@@ -1109,7 +1111,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qhh-V8-fld" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2864.8000000000002" y="205.54722638680661"/>
+            <point key="canvasLocation" x="2865" y="603"/>
         </scene>
         <!--Confirm Pear ProfilesVC-->
         <scene sceneID="GtL-L2-cOy">
@@ -1178,11 +1180,12 @@
                         <outlet property="topProfileTrailingConstraint" destination="G9z-qd-HSh" id="48r-fA-RQC"/>
                         <outlet property="topProfileView" destination="iQg-bd-whq" id="IsU-wA-Rp4"/>
                         <outlet property="topProfileWidthConstraint" destination="aiN-pC-yyh" id="pHV-x1-pgo"/>
+                        <segue destination="HO9-DV-9D7" kind="show" identifier="successfulPearSegue" id="4wm-yD-ubR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Du-Qg-MNi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4057" y="206"/>
+            <point key="canvasLocation" x="3986" y="602"/>
         </scene>
         <!--Past Pears Table View Controller-->
         <scene sceneID="Dim-Cd-E9y">
@@ -1529,8 +1532,8 @@
         <image name="translucent-background" width="750" height="1336"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZJX-rC-XxX"/>
-        <segue reference="44M-5T-dTA"/>
+        <segue reference="EaW-Nt-kia"/>
+        <segue reference="4wm-yD-ubR"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

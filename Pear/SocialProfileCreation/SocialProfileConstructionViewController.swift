@@ -23,7 +23,7 @@ class SocialProfileConstructionViewController: PearViewController {
         if enabledServices.count > 0 {
             saveNewSocialProfile()
         }
-        //performSegue(withIdentifier: "ProfileConstructionCompletedSegue", sender: nil)
+        performSegue(withIdentifier: "ProfileConstructionCompletedSegue", sender: nil)
     }
     
     func saveNewSocialProfile() {
@@ -45,6 +45,7 @@ class SocialProfileConstructionViewController: PearViewController {
             usersProfilesRef.setValue(socialProfile.getFirebaseEncoding())
             allProfilesRef.setValue(socialProfile.getFirebaseEncoding())
             
+            if !activeUser!.profiles.contains(socialProfile) { activeUser!.profiles.append(socialProfile) }
         }
     }
 }
@@ -138,10 +139,10 @@ extension SocialProfileConstructionViewController {
             controller.socialServiceType = sender.socialServiceType
             controller.socialService = sender.socialService
         } else if segue.identifier == "ProfileConstructionCompletedSegue" {
-            let tabBarController = segue.destination as! UITabBarController
-            let controller = tabBarController.viewControllers?.first as! SocialProfilesViewController
-            controller.databaseRef = self.databaseRef
-            controller.activeUser = self.activeUser
+            let navController = segue.destination as! UINavigationController
+            let tabBarController = navController.topViewController as! PearTabBarController
+            tabBarController.databaseRef = self.databaseRef
+            tabBarController.activeUser = self.activeUser
         }
     }
 }

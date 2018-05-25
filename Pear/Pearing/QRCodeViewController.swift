@@ -81,6 +81,13 @@ class QRCodeViewController: PearViewController {
         // Approve transaction
         transaction.setApproval()
         updatePendingTransactionRef(transaction)
+        
+        if let _ = transaction.primaryProfileID {
+            // Loads profile, then segues to next screen
+            attemptLoadSocialProfile(with: transaction.primaryProfileID!)
+        } else {
+            dismiss(animated: true, completion: nil)
+        }
     }
     
     private func denyTransaction(_ transaction: PearPendingTransaction) {
@@ -99,8 +106,19 @@ class QRCodeViewController: PearViewController {
         let pendingRef = databaseRef.child("pendingTransactions").child(socialProfile!.getProfileID()).child(transaction.transactionID)
         pendingRef.setValue(transaction.getFirebaseEncoding())
     }
+}
 
-    
+extension QRCodeViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "successfulPearSegue" {
+            let controller = segue.destination as! PearProfileViewController
+            let profile = sender as? SocialProfile
+            controller.socialProfile = profile
+            controller.shouldResetSegues = true
+            controller.databaseRef = self.databaseRef
+            controller.activeUser = self.activeUser
+        }
+    }
 }
 
 extension QRCodeViewController {
@@ -109,9 +127,9 @@ extension QRCodeViewController {
         let message: String
         
         if let _ = profile {
-            message = "\(transaction.primaryName!) is requesting to Pear with you. They are sharing their \(profile!.getName()) profile."
+            message = "\(transaction.primaryName ?? "User") is requesting to Pear with you. They are sharing their \(profile!.getName()) profile."
         } else {
-            message = "\(transaction.primaryName!) is requesting to Pear with you. They are not sharing a profile."
+            message = "\(transaction.primaryName ?? "User") is requesting to Pear with you. They are not sharing a profile."
         }
         
         let alert = UIAlertController(title: "Pear Requested",
@@ -156,5 +174,46 @@ extension QRCodeViewController {
         guard let cgImage = context.createCGImage(outputCIImage, from: outputCIImage.extent) else { return nil }
         let processedImage = UIImage(cgImage: cgImage)
         return processedImage
+    }
+}
+
+extension QRCodeViewController {
+    func attemptLoadSocialProfile(with id: String) {
+        let profilesRef = databaseRef.child("allSocialProfiles").child(id)
+        profilesRef.observe(.value, with: { snapshot in
+            if let _ = snapshot.value {
+                let loadedProfile = self.loadSocialProfile(ofId: id, withSnapshot: snapshot)
+                if let _ = loadedProfile {
+                    self.performSegue(withIdentifier: "successfulPearSegue", sender: loadedProfile!)
+                }
+            }
+        })
+    }
+    
+    func loadSocialProfile(ofId profileId: String, withSnapshot snapshot: DataSnapshot) -> SocialProfile? {
+        
+        var tempProfile: SocialProfile
+        
+        if let profileDict = snapshot.value as? [String: String] {
+            var loadedServices = [SocialService]()
+            var profileName = "ProfileName"
+            let profileId = profileId
+            for service in profileDict {
+                if service.key == "!ProfileName" {
+                    profileName = service.value
+                } else if service.key != "!ProfileId" {
+                    let newService = SocialService(socialService: SocialServiceType(rawValue: service.key),
+                                                   handle: SocialProfile.parseHandle(service.value),
+                                                   ranking: SocialProfile.parseRanking(service.value))
+                    loadedServices.append(newService)
+                }
+            }
+            tempProfile = SocialProfile(name: profileName, services: loadedServices)
+            tempProfile.setProfileID(id: profileId)
+            
+            return tempProfile
+        } else {
+            return nil
+        }
     }
 }

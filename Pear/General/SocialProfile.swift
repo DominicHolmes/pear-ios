@@ -53,8 +53,9 @@ class SocialProfile: NSObject {
             filteredServices["!ProfileName"] = self.profileName
             filteredServices["!ProfileId"] = self.profileID
             for eachIndex in socialServices!.indices {
-                let service: SocialService! = socialServices![eachIndex]
-                let valueString: String! = "(\(eachIndex)): " + (service!.handle)!
+                var service: SocialService! = socialServices![eachIndex]
+                service.ranking = eachIndex
+                let valueString: String! = "(\(service!.ranking!)): " + (service!.handle)!
                 filteredServices[service.socialService.rawValue] = valueString
             }
         }
@@ -82,7 +83,7 @@ extension SocialProfile {
     
     static func parseRanking(_ string: String) -> Int {
         let components = string.components(separatedBy: ["(", ")"])
-        if let ranking = Int(components[0]) {
+        if let ranking = Int(components[1]) {
             return ranking
         } else {
             return 0

@@ -208,9 +208,9 @@
 			isa = PBXGroup;
 			children = (
 				B62282E020435B2E00C01F61 /* ScannerViewController.swift */,
-				B62282EC2046481C00C01F61 /* QRCodeViewController.swift */,
 				B6C945E120AE1B91000374DE /* PearProfileSelectionVC.swift */,
 				B62282EE20464DAA00C01F61 /* ConfirmPearProfilesVC.swift */,
+				B62282EC2046481C00C01F61 /* QRCodeViewController.swift */,
 			);
 			path = Pearing;
 			sourceTree = "<group>";
