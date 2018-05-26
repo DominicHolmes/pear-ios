@@ -12,6 +12,10 @@ class PearProfileViewController: PearViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var profileNameLabel: UILabel!
+    @IBOutlet weak var usersNameLabel: UILabel!
+    @IBOutlet weak var usersHandleLabel: UILabel!
+    
     var socialProfile: SocialProfile? {
         didSet {
             if let _ = socialProfile?.getServices() {
