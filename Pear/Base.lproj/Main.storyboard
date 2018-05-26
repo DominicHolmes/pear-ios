@@ -543,6 +543,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fP5-F3-MkP">
                                 <rect key="frame" x="80.5" y="503" width="214" height="44"/>
                                 <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="17"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Register" backgroundImage="button-outline-green">
                                     <color key="titleColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -554,11 +555,11 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U0Z-PV-obr">
                                 <rect key="frame" x="80.5" y="439" width="214" height="44"/>
                                 <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="17"/>
-                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Login" backgroundImage="button-outline-green">
                                     <color key="titleColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <state key="highlighted" backgroundImage="button-outline-grey">
+                                <state key="highlighted">
                                     <color key="titleColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -1529,7 +1530,6 @@
         <image name="bell-tab-icon-disabled" width="22" height="28"/>
         <image name="bell-tab-icon-enabled" width="22" height="28"/>
         <image name="button-outline-green" width="214" height="44"/>
-        <image name="button-outline-grey" width="215" height="44"/>
         <image name="button-outline-white" width="215" height="44"/>
         <image name="button-solid-white" width="210" height="40"/>
         <image name="circle-tab-icon-disabled" width="26" height="26"/>
