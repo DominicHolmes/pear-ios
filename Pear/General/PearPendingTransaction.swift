@@ -39,6 +39,13 @@ class PearPendingTransaction {
         self.secondaryProfileID = secondaryProfileID
         self.primaryProfileID = primaryProfileID
         self.transaction = transaction
+        
+        self.primaryName = transaction?.primaryName
+        self.primaryHandle = transaction?.primaryHandle
+        self.primaryUsersName = transaction?.primaryUsersName
+        self.secondaryName = transaction?.secondaryName
+        self.secondaryHandle = transaction?.secondaryHandle
+        self.secondaryUsersName = transaction?.secondaryUsersName
     }
     
     init(of dict: Dictionary<String, String>) {

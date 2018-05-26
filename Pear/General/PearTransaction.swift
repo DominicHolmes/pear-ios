@@ -42,9 +42,9 @@ class PearTransaction {
     
     private var secondaryProfile: SocialProfile! {
         didSet {
-            self.secondaryName = primaryProfile?.getName()
-            self.secondaryHandle = primaryProfile?.getHandle()
-            self.secondaryUsersName = primaryProfile?.getUsersName()
+            self.secondaryName = secondaryProfile?.getName()
+            self.secondaryHandle = secondaryProfile?.getHandle()
+            self.secondaryUsersName = secondaryProfile?.getUsersName()
         }
     }
     
@@ -65,6 +65,14 @@ class PearTransaction {
         self.secondaryProfile = secondary
         self.primaryProfileID = primary?.getProfileID()
         self.secondaryProfileID = secondary.getProfileID()
+        
+        self.primaryName = primaryProfile?.getName()
+        self.primaryHandle = primaryProfile?.getHandle()
+        self.primaryUsersName = primaryProfile?.getUsersName()
+        self.secondaryName = secondaryProfile?.getName()
+        self.secondaryHandle = secondaryProfile?.getHandle()
+        self.secondaryUsersName = secondaryProfile?.getUsersName()
+        
         switch perspective {
         case .primary: primaryApproval = true
         case .secondary: secondaryApproval = true
