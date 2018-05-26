@@ -8,9 +8,20 @@
 
 import UIKit
 
+struct PastPear {
+    let transactionId: String
+    let usersName: String
+    let profileName: String
+    let handle: String
+}
+
 class PastPearsTableViewController: PearTabTableViewController {
     
-    var pears: [PearTransaction]?
+    var pears: [PastPear] = [PastPear]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +47,24 @@ extension PastPearsTableViewController {
     }
     
     func getTransactions(from dict: Dictionary<String, Dictionary<String, String>>) {
-        dump(dict)
+        var tempPears = [PastPear]()
+        for transaction in dict {
+            let transDict = transaction.value
+            if ((transDict.keys.contains("primaryHandle")) && (transDict.keys.contains("primaryName")) && (transDict.keys.contains("primaryUsersName"))) {
+                let tempPear = PastPear(transactionId: transDict["transactionID"]!, 
+                    usersName: transDict["primaryUsersName"]!, 
+                    profileName: transDict["primaryName"]!, 
+                    handle: transDict["primaryHandle"]!)
+                tempPears.append(tempPear)
+            } else if ((transDict.keys.contains("secondaryHandle")) && (transDict.keys.contains("secondaryName")) && (transDict.keys.contains("secondaryUsersName"))) {
+                let tempPear = PastPear(transactionId: transDict["transactionID"]!, 
+                    usersName: transDict["secondaryUsersName"]!, 
+                    profileName: transDict["secondaryName"]!, 
+                    handle: transDict["secondaryHandle"]!)
+                tempPears.append(tempPear)
+            }
+        }
+        pears = tempPears.sorted(by: { $0.usersName.first! < $1.usersName.first! })
     }
 }
 
@@ -44,17 +72,18 @@ extension PastPearsTableViewController {
 extension PastPearsTableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return pears.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PastPearCell")
+        let pastPear = pears[indexPath.row]
         
         let profileNameLabel = cell?.viewWithTag(100) as? UILabel
-        profileNameLabel?.text = "Gustavo Ortega"
+        profileNameLabel?.text = pastPear.usersName
         
         let profileHandleLabel = cell?.viewWithTag(101) as? UILabel
-        profileHandleLabel?.text = "@gustavo-ortega"
+        profileHandleLabel?.text = "@" + pastPear.handle
         
         return cell!
     }
@@ -66,12 +95,6 @@ extension PastPearsTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         // segue to correct profile
-    }
-    
-    // Swipe to delete functionality
-    override func tableView(_ tableView: UITableView,
-                   commit editingStyle: UITableViewCellEditingStyle,
-                   forRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "viewPastPearSegue", sender: nil)
     }
 }
@@ -94,8 +117,10 @@ extension PastPearsTableViewController: UIPopoverPresentationControllerDelegate 
 extension PastPearsTableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "viewPastPearSegue" {
-            let controller = segue.destination
+            let controller = segue.destination as! PearProfileViewController
             controller.popoverPresentationController!.delegate = self
+            let profile = sender as? SocialProfile
+            controller.socialProfile = profile
         }
     }
 }

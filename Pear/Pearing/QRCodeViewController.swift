@@ -35,7 +35,7 @@ class QRCodeViewController: PearViewController {
         if let profile = socialProfile {
             profileNameLabel.text = profile.getName()
             nameLabel.text = profile.getUsersName()
-            handleLabel.text = profile.getHandle()
+            handleLabel.text = "@" + profile.getHandle()
         }
     }
     
@@ -131,7 +131,7 @@ extension QRCodeViewController {
         let message: String
         
         if let _ = profile {
-            message = "\(profile!.getUsersName() ?? "User") is requesting to Pear with you. They are sharing their \(profile!.getName()) profile."
+            message = "\((profile!.getUsersName())!) is requesting to Pear with you. They are sharing their \((profile!.getName())!) profile."
         } else {
             if let name = transaction.primaryName {
                 message = "\(name) is requesting to Pear with you. They are not sharing a profile."

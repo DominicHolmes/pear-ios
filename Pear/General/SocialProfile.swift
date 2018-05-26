@@ -21,7 +21,7 @@ class SocialProfile: NSObject {
         didSet {
             if activeUser != nil {
                 self.handle = activeUser!.username + "-" + profileName.lowercased()
-                self.usersName = activeUser!.firstName
+                self.usersName = activeUser!.firstName + " " + activeUser!.lastName
             }
         }
     }
