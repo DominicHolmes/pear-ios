@@ -34,6 +34,8 @@ class SocialProfile: NSObject {
     init(of dict: Dictionary<String, String>) {
         self.profileName = dict["!ProfileName"]
         self.profileID = dict["!ProfileId"]
+        self.usersName = dict["!UsersName"]
+        self.handle = dict["!Handle"]
         
         var loadedServices = [SocialService]()
         for eachService in dict {
@@ -64,6 +66,8 @@ class SocialProfile: NSObject {
         if let _ = socialServices {
             filteredServices["!ProfileName"] = self.profileName
             filteredServices["!ProfileId"] = self.profileID
+            filteredServices["!UsersName"] = self.usersName
+            filteredServices["!Handle"] = self.handle
             for eachIndex in socialServices!.indices {
                 var service: SocialService! = socialServices![eachIndex]
                 service.ranking = eachIndex
