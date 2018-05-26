@@ -281,7 +281,7 @@
                                 <rect key="frame" x="76" y="114" width="222" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="given-name"/>
                                 <connections>
                                     <action selector="firstNameFieldNextButtonPressed" destination="FNR-xZ-2wm" eventType="primaryActionTriggered" id="c4p-uY-vPw"/>
@@ -293,7 +293,7 @@
                                 <rect key="frame" x="76" y="169" width="222" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="family-name"/>
                                 <connections>
                                     <action selector="lastNameFieldNextButtonPressed" destination="FNR-xZ-2wm" eventType="primaryActionTriggered" id="Qam-B6-rn4"/>
@@ -305,7 +305,7 @@
                                 <rect key="frame" x="76" y="225" width="222" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="username"/>
                                 <connections>
                                     <action selector="textFieldValueValueChanged" destination="FNR-xZ-2wm" eventType="editingChanged" id="v8J-NP-GWr"/>
@@ -315,9 +315,12 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Qc-PE-noA">
                                 <rect key="frame" x="80.5" y="503" width="214" height="44"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="17"/>
                                 <state key="normal" title="Next" backgroundImage="button-outline-green">
                                     <color key="titleColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted" backgroundImage="button-outline-green-highlighted">
+                                    <color key="titleColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="0.5995023545" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="confirmDetailsButtonPressed" destination="FNR-xZ-2wm" eventType="touchUpInside" id="3Vv-oC-qHi"/>
@@ -369,9 +372,12 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Nf-jH-RUR">
                                 <rect key="frame" x="80.5" y="503" width="214" height="44"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="17"/>
                                 <state key="normal" title="Done" backgroundImage="button-outline-green">
                                     <color key="titleColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted" backgroundImage="button-outline-green-highlighted">
+                                    <color key="titleColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="0.5995023545" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="createAccountButtonPressed" destination="GGn-0W-5Wp" eventType="touchUpInside" id="iJO-jb-VWe"/>
@@ -381,7 +387,7 @@
                                 <rect key="frame" x="76" y="183" width="222" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                 <connections>
                                     <action selector="passwordFieldNextButtonPressed" destination="GGn-0W-5Wp" eventType="primaryActionTriggered" id="PNW-hJ-HOK"/>
@@ -392,7 +398,7 @@
                                 <rect key="frame" x="76" y="239" width="222" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                 <connections>
                                     <action selector="passwordConfirmFieldNextButtonPressed" destination="GGn-0W-5Wp" eventType="primaryActionTriggered" id="g99-DP-mbu"/>
@@ -403,7 +409,7 @@
                                 <rect key="frame" x="76" y="121" width="222" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
                                 <connections>
                                     <action selector="emailFieldNextButtonPressed" destination="GGn-0W-5Wp" eventType="primaryActionTriggered" id="snm-XB-mu2"/>
@@ -687,7 +693,7 @@
                                 <rect key="frame" x="76" y="198" width="222" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <action selector="textFieldPrimaryActionShouldDismissKeyboardWithSender:" destination="ahl-Rz-l7O" eventType="primaryActionTriggered" id="2BB-Kw-BLW"/>
@@ -1488,10 +1494,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Facebook username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C7W-0l-72g" customClass="PearTextField" customModule="Pear" customModuleProvider="target">
-                                <rect key="frame" x="67" y="294" width="240" height="36"/>
+                                <rect key="frame" x="67" y="298" width="240" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="username"/>
                                 <connections>
                                     <action selector="doneButtonShouldUpdateState" destination="gey-ed-Ebv" eventType="editingChanged" id="0uN-Wo-IRb"/>
