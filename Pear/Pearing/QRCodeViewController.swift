@@ -173,7 +173,11 @@ extension QRCodeViewController {
         let context = CIContext()
         guard let cgImage = context.createCGImage(outputCIImage, from: outputCIImage.extent) else { return nil }
         let processedImage = UIImage(cgImage: cgImage)
-        return processedImage
+        
+        // Optional: replace colors in the UIImage - change color with the UIImageView tint on storyboard
+        let tintedImage = processedImage.withRenderingMode(.alwaysTemplate)
+        
+        return tintedImage
     }
 }
 
