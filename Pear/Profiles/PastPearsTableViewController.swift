@@ -8,15 +8,35 @@
 
 import UIKit
 
-class PastPearsTableViewController: UITableViewController {
+class PastPearsTableViewController: PearTabTableViewController {
+    
+    var pears: [PearTransaction]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        beginFetchingPastPears()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+}
+
+// MARK: - Fetch Pears
+extension PastPearsTableViewController {
+    func beginFetchingPastPears() {
+        let ref = databaseRef.child("usersTransactions").child(activeUser!.id)
+        ref.observe(.value) { (snapshot) in
+            if let _ = snapshot.value, let dict = snapshot.value as? Dictionary<String,Dictionary<String,String>> {
+                self.getTransactions(from: dict)
+            }
+        }
+    }
+    
+    func getTransactions(from dict: Dictionary<String, Dictionary<String, String>>) {
+        dump(dict)
     }
 }
 

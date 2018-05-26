@@ -14,6 +14,18 @@ class SocialProfile: NSObject {
     private var socialServices : [SocialService]?
     private var profileID : String?
     
+    private var usersName: String!
+    private var handle: String!
+    
+    var activeUser: PearUser? {
+        didSet {
+            if activeUser != nil {
+                self.handle = activeUser!.username + "-" + profileName.lowercased()
+                self.usersName = activeUser!.firstName
+            }
+        }
+    }
+    
     init(name : String!, services : [SocialService]?) {
         self.profileName = name
         self.socialServices = services
@@ -36,9 +48,9 @@ class SocialProfile: NSObject {
         self.socialServices = loadedServices
     }
     
-    func getName() -> String! {
-        return profileName
-    }
+    func getName() -> String! { return profileName }
+    func getHandle() -> String! { return handle }
+    func getUsersName() -> String! { return usersName }
     
     func getServices() -> [SocialService]? { return socialServices }
     func setServices(services: [SocialService]?) { socialServices = services }

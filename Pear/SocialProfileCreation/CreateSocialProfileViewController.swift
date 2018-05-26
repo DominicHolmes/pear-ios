@@ -34,6 +34,7 @@ class CreateSocialProfileViewController: PearViewController {
     @IBAction func createSocialProfileButtonTapped() {
         if socialProfileNameValid() && socialProfileTextField.hasText {
             let socialProfile = SocialProfile(name: socialProfileTextField.text!, services: nil)
+            socialProfile.activeUser = self.activeUser
             performSegue(withIdentifier: "SocialProfileConstructionSegue", sender: socialProfile)
         }
     }

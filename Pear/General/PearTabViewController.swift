@@ -19,3 +19,15 @@ class PearTabViewController: PearViewController {
         }
     }
 }
+
+class PearTabTableViewController: PearTableViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if let pearTBC = self.tabBarController as? PearTabBarController {
+            self.activeUser = pearTBC.activeUser
+            self.databaseRef = pearTBC.databaseRef
+        }
+    }
+}
