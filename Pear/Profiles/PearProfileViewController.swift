@@ -37,6 +37,16 @@ class PearProfileViewController: PearViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let profile = socialProfile {
+            profileNameLabel.text = profile.getName()
+            usersNameLabel.text = profile.getUsersName()
+            usersHandleLabel.text = profile.getHandle()
+        }
+    }
+    
     @IBAction func userDidSelectDone() {
         if shouldResetSegues {
             performSegue(withIdentifier: "returnToHomeSegue", sender: nil)

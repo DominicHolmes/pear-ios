@@ -35,6 +35,16 @@ class QRCodeViewController: PearViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let profile = socialProfile {
+            profileNameLabel.text = profile.getName()
+            nameLabel.text = profile.getUsersName()
+            handleLabel.text = profile.getHandle()
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
