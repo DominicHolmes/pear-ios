@@ -34,7 +34,7 @@ class PearProfileSelectionVC: PearViewController {
 extension PearProfileSelectionVC {
     func updateInterface(with profile: SocialProfile?) {
         if let _ = loadedProfile {
-            titleLabel.text = "Pearing with \(loadedProfile!.getName()!)"
+            titleLabel.text = "Pearing with \(loadedProfile!.getUsersName()!)"
         }
     }
 }

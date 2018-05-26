@@ -43,7 +43,7 @@ class PearProfileViewController: PearViewController {
         if let profile = socialProfile {
             profileNameLabel.text = profile.getName()
             usersNameLabel.text = profile.getUsersName()
-            usersHandleLabel.text = profile.getHandle()
+            usersHandleLabel.text = "@" + profile.getHandle()
         }
     }
     

@@ -31,22 +31,26 @@ class PearTransaction {
     private var primaryProfile: SocialProfile? {
         didSet {
             self.primaryName = primaryProfile?.getName()
-            self.primaryHandle = primaryProfile?.getProfileID()
+            self.primaryHandle = primaryProfile?.getHandle()
+            self.primaryUsersName = primaryProfile?.getUsersName()
         }
     }
     
     var primaryName: String?
     var primaryHandle: String?
+    var primaryUsersName: String?
     
     private var secondaryProfile: SocialProfile! {
         didSet {
             self.secondaryName = primaryProfile?.getName()
-            self.secondaryHandle = primaryProfile?.getProfileID()
+            self.secondaryHandle = primaryProfile?.getHandle()
+            self.secondaryUsersName = primaryProfile?.getUsersName()
         }
     }
     
     var secondaryName: String?
     var secondaryHandle: String?
+    var secondaryUsersName: String?
     
     private var primaryApproval: Bool = false
     private var secondaryApproval: Bool = false
@@ -128,8 +132,10 @@ extension PearTransaction {
         
         if let _ = primaryName { dict["primaryName"] = self.primaryName! }
         if let _ = primaryHandle { dict["primaryHandle"] = self.primaryHandle! }
+        if let _ = primaryUsersName { dict["primaryUsersName"] = self.primaryUsersName! }
         if let _ = secondaryName { dict["secondaryName"] = self.secondaryName! }
         if let _ = secondaryHandle { dict["secondaryHandle"] = self.secondaryHandle! }
+        if let _ = secondaryUsersName { dict["secondaryUsersName"] = self.secondaryUsersName! }
         
         if let _ = primaryProfileID { dict["primaryProfileID"] = self.primaryProfileID! }
         dict["primaryApproval"] = self.primaryApproval.description

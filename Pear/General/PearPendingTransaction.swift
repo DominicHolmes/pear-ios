@@ -20,15 +20,19 @@ class PearPendingTransaction {
         didSet {
             self.primaryName = transaction?.primaryName
             self.primaryHandle = transaction?.primaryHandle
+            self.primaryUsersName = transaction?.primaryUsersName
             self.secondaryName = transaction?.secondaryName
             self.secondaryHandle = transaction?.secondaryHandle
+            self.secondaryUsersName = transaction?.secondaryUsersName
         }
     }
     
     var primaryName: String?
     var primaryHandle: String?
+    var primaryUsersName: String?
     var secondaryName: String?
     var secondaryHandle: String?
+    var secondaryUsersName: String?
     
     init(transactionID: String, secondaryProfileID: String, primaryProfileID: String?, transaction: PearTransaction?) {
         self.transactionID = transactionID
@@ -50,8 +54,10 @@ class PearPendingTransaction {
         
         self.primaryName = dict["primaryName"]
         self.primaryHandle = dict["primaryHandle"]
+        self.primaryUsersName = dict["primaryUsersName"]
         self.secondaryName = dict["secondaryName"]
         self.secondaryHandle = dict["secondaryHandle"]
+        self.secondaryUsersName = dict["secondaryUsersName"]
     }
     
 }
@@ -73,8 +79,10 @@ extension PearPendingTransaction {
         
         if let _ = primaryName { dict["primaryName"] = self.primaryName! }
         if let _ = primaryHandle { dict["primaryHandle"] = self.primaryHandle! }
+        if let _ = primaryUsersName { dict["primaryUsersName"] = self.primaryUsersName! }
         if let _ = secondaryName { dict["secondaryName"] = self.secondaryName! }
         if let _ = secondaryHandle { dict["secondaryHandle"] = self.secondaryHandle! }
+        if let _ = secondaryUsersName { dict["secondaryUsersName"] = self.secondaryUsersName! }
         
         return dict
     }
@@ -87,8 +95,10 @@ extension PearPendingTransaction {
         switch perspective {
         case .primary:      if let _ = secondaryName { dict["secondaryName"] = self.secondaryName! }
                             if let _ = secondaryHandle { dict["secondaryHandle"] = self.secondaryHandle! }
+                            if let _ = secondaryUsersName { dict["secondaryUsersName"] = self.secondaryUsersName! }
         case .secondary:    if let _ = primaryName { dict["primaryName"] = self.primaryName! }
                             if let _ = primaryHandle { dict["primaryHandle"] = self.primaryHandle! }
+                            if let _ = primaryUsersName { dict["primaryUsersName"] = self.primaryUsersName! }
         }
         
         return dict
