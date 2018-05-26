@@ -61,6 +61,7 @@
 		B6C945E220AE1B91000374DE /* PearProfileSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C945E120AE1B91000374DE /* PearProfileSelectionVC.swift */; };
 		B6C945E420AE32FC000374DE /* PearTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C945E320AE32FC000374DE /* PearTransaction.swift */; };
 		B6C945E620AE4601000374DE /* PearPendingTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C945E520AE4601000374DE /* PearPendingTransaction.swift */; };
+		B6E4468920BA1CE8006C6B5B /* UserValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E4468820BA1CE8006C6B5B /* UserValidationViewController.swift */; };
 		B6FE7A082080079100F60838 /* PearUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE7A072080079100F60838 /* PearUser.swift */; };
 		B6FE7A0A20801C0400F60838 /* PostRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE7A0920801C0400F60838 /* PostRegistrationViewController.swift */; };
 		B6FE7A0C2080257400F60838 /* PearViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE7A0B2080257400F60838 /* PearViewControllers.swift */; };
@@ -128,6 +129,7 @@
 		B6C945E120AE1B91000374DE /* PearProfileSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PearProfileSelectionVC.swift; sourceTree = "<group>"; };
 		B6C945E320AE32FC000374DE /* PearTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PearTransaction.swift; sourceTree = "<group>"; };
 		B6C945E520AE4601000374DE /* PearPendingTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PearPendingTransaction.swift; sourceTree = "<group>"; };
+		B6E4468820BA1CE8006C6B5B /* UserValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserValidationViewController.swift; sourceTree = "<group>"; };
 		B6FE7A072080079100F60838 /* PearUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PearUser.swift; path = ../PearUser.swift; sourceTree = "<group>"; };
 		B6FE7A0920801C0400F60838 /* PostRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRegistrationViewController.swift; sourceTree = "<group>"; };
 		B6FE7A0B2080257400F60838 /* PearViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PearViewControllers.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 		B62282E22046279B00C01F61 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				B6E4468820BA1CE8006C6B5B /* UserValidationViewController.swift */,
 				B6111DD9201903F000DC7877 /* WelcomeViewController.swift */,
 				B69DED9E2096A8460084C1E0 /* LoginViewController.swift */,
 				B6B3BE1C206D839600A70F47 /* InitialRegistrationViewController.swift */,
@@ -504,6 +507,7 @@
 				B62282E120435B2E00C01F61 /* ScannerViewController.swift in Sources */,
 				B6FE7A0C2080257400F60838 /* PearViewControllers.swift in Sources */,
 				B69DED9F2096A8460084C1E0 /* LoginViewController.swift in Sources */,
+				B6E4468920BA1CE8006C6B5B /* UserValidationViewController.swift in Sources */,
 				B62282F1204743CF00C01F61 /* RadialProgressImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

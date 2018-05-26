@@ -17,7 +17,7 @@ class PearTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.selectedIndex = 0
+        self.selectedIndex = 2
     }
     
 }
