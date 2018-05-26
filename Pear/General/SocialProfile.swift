@@ -31,6 +31,13 @@ class SocialProfile: NSObject {
         self.socialServices = services
     }
     
+    init(name : String!, services : [SocialService]?, handle: String, usersName: String) {
+        self.profileName = name
+        self.socialServices = services
+        self.handle = handle
+        self.usersName = usersName
+    }
+    
     init(of dict: Dictionary<String, String>) {
         self.profileName = dict["!ProfileName"]
         self.profileID = dict["!ProfileId"]
@@ -39,10 +46,10 @@ class SocialProfile: NSObject {
         
         var loadedServices = [SocialService]()
         for eachService in dict {
-            dump(eachService.key)
-            if ((eachService.key != "!ProfileName") && (eachService.key != "!ProfileId")) {
+            if ((eachService.key != "!ProfileName") && (eachService.key != "!ProfileId") &&
+                (eachService.key != "!UsersName") && (eachService.key != "!Handle")) {
                 let newService = SocialService(socialService: SocialServiceType(rawValue: eachService.key),
-                                               handle: SocialProfile.parseHandle(eachService.value),
+                                               handle: SocialProfile.parseSocialHandle(eachService.value),
                                                ranking: SocialProfile.parseRanking(eachService.value))
                 loadedServices.append(newService)
             }
@@ -82,14 +89,14 @@ class SocialProfile: NSObject {
 
 extension SocialProfile {
     
-    static func parseHandle(_ string: String) -> String {
+    static func parseSocialHandle(_ string: String) -> String {
         let components = string.components(separatedBy: "): ")
         if components.count > 2 {
-            var handle = ""
+            var socialHandle = ""
             for each in components where each != components.first {
-                handle += each
+                socialHandle += each
             }
-            return handle
+            return socialHandle
         } else if components.count == 2 {
             return components[1]
         } else {

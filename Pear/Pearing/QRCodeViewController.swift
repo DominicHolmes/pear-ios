@@ -21,13 +21,7 @@ class QRCodeViewController: PearViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let user = activeUser {
-            nameLabel.text = user.firstName + " " + user.lastName
-            handleLabel.text = "@" + user.username
-        }
-        
         if let _ = socialProfile {
-            profileNameLabel.text = socialProfile!.getName()
             let qrCodeImage = generateQRCode(from: socialProfile!.getProfileID())
             QRCodeImageView.image = qrCodeImage
             
@@ -137,9 +131,13 @@ extension QRCodeViewController {
         let message: String
         
         if let _ = profile {
-            message = "\(transaction.primaryName ?? "User") is requesting to Pear with you. They are sharing their \(profile!.getName()) profile."
+            message = "\(profile!.getUsersName() ?? "User") is requesting to Pear with you. They are sharing their \(profile!.getName()) profile."
         } else {
-            message = "\(transaction.primaryName ?? "User") is requesting to Pear with you. They are not sharing a profile."
+            if let name = transaction.primaryName {
+                message = "\(name) is requesting to Pear with you. They are not sharing a profile."
+            } else {
+                message = "An unknown user is requesting to Pear with you. They are not sharing a profile."
+            }
         }
         
         let alert = UIAlertController(title: "Pear Requested",
@@ -211,18 +209,24 @@ extension QRCodeViewController {
         if let profileDict = snapshot.value as? [String: String] {
             var loadedServices = [SocialService]()
             var profileName = "ProfileName"
-            let profileId = profileId
+            var profileUsersName = "ProfileUsersName"
+            var profileHandle = "ProfileHandle"
+            
             for service in profileDict {
                 if service.key == "!ProfileName" {
                     profileName = service.value
+                } else if service.key == "!UsersName" {
+                    profileUsersName = service.value
+                } else if service.key == "!Handle" {
+                    profileHandle = service.value
                 } else if service.key != "!ProfileId" {
                     let newService = SocialService(socialService: SocialServiceType(rawValue: service.key),
-                                                   handle: SocialProfile.parseHandle(service.value),
+                                                   handle: SocialProfile.parseSocialHandle(service.value),
                                                    ranking: SocialProfile.parseRanking(service.value))
                     loadedServices.append(newService)
                 }
             }
-            tempProfile = SocialProfile(name: profileName, services: loadedServices)
+            tempProfile = SocialProfile(name: profileName, services: loadedServices, handle: profileHandle, usersName: profileUsersName)
             tempProfile.setProfileID(id: profileId)
             
             return tempProfile

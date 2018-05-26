@@ -177,18 +177,24 @@ extension ConfirmPearProfilesVC {
         if let profileDict = snapshot.value as? [String: String] {
             var loadedServices = [SocialService]()
             var profileName = "ProfileName"
-            let profileId = profileId
+            var profileUsersName = "ProfileUsersName"
+            var profileHandle = "ProfileHandle"
+            
             for service in profileDict {
                 if service.key == "!ProfileName" {
                     profileName = service.value
+                } else if service.key == "!UsersName" {
+                    profileUsersName = service.value
+                } else if service.key == "!Handle" {
+                    profileHandle = service.value
                 } else if service.key != "!ProfileId" {
                     let newService = SocialService(socialService: SocialServiceType(rawValue: service.key),
-                                                   handle: SocialProfile.parseHandle(service.value),
+                                                   handle: SocialProfile.parseSocialHandle(service.value),
                                                    ranking: SocialProfile.parseRanking(service.value))
                     loadedServices.append(newService)
                 }
             }
-            tempProfile = SocialProfile(name: profileName, services: loadedServices)
+            tempProfile = SocialProfile(name: profileName, services: loadedServices, handle: profileHandle, usersName: profileUsersName)
             tempProfile.setProfileID(id: profileId)
             
             return tempProfile
