@@ -43,16 +43,18 @@ extension PearProfileSelectionVC {
 extension PearProfileSelectionVC : UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        if activeUser != nil && activeUser!.profiles.count > 0 {
+            return 2
+        } else {
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 && activeUser != nil {
+        if section == 0 && activeUser != nil && activeUser!.profiles.count > 0 {
             return activeUser!.profiles.count
-        } else if section == 1 {
-            return 1
         } else {
-            return 0
+            return 1
         }
     }
     
@@ -60,8 +62,10 @@ extension PearProfileSelectionVC : UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell")
         
         let profileNameLabel = cell?.viewWithTag(100) as? UILabel
-        if activeUser != nil {
+        if activeUser != nil && activeUser!.profiles.count > 0 && indexPath.section == 0 {
             profileNameLabel?.text = activeUser!.profiles[indexPath.row].getName()
+        } else {
+            profileNameLabel?.text = "none"
         }
         
         return cell!
@@ -74,7 +78,11 @@ extension PearProfileSelectionVC : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         // segue to correct profile
-        performSegue(withIdentifier: "confirmPearProfilesSegue", sender: activeUser!.profiles[indexPath.row])
+        if indexPath.section == 1 || activeUser?.profiles.count == 0 {
+            performSegue(withIdentifier: "confirmPearProfilesSegue", sender: nil)
+        } else {
+            performSegue(withIdentifier: "confirmPearProfilesSegue", sender: activeUser!.profiles[indexPath.row])
+        }
     }
 }
 
@@ -124,10 +132,10 @@ extension PearProfileSelectionVC {
             let controller = segue.destination as? ConfirmPearProfilesVC
             if let socialProfile = sender as? SocialProfile {
                 controller?.profileToShare = socialProfile
-                controller?.activeUser = activeUser
-                controller?.scannedProfile = loadedProfile
-                controller?.databaseRef = databaseRef
             }
+            controller?.activeUser = activeUser
+            controller?.scannedProfile = loadedProfile
+            controller?.databaseRef = databaseRef
         }
     }
 }

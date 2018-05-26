@@ -1202,7 +1202,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="4ez-Cb-OmC">
+                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="4ez-Cb-OmC">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="127"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -1366,7 +1366,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="LH1-g4-xJP">
+                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="LH1-g4-xJP">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="71"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -1554,7 +1554,7 @@
         <image name="x-button-highlighted" width="47" height="47"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="JVR-pM-jdX"/>
+        <segue reference="61v-J4-xMk"/>
         <segue reference="PI2-Ap-psT"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
