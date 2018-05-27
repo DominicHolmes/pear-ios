@@ -145,8 +145,9 @@ class LoginViewController: PearViewController {
         let profilesRef = databaseRef.child("usersSocialProfiles").child(id)
         profilesRef.observe(.value, with: { snapshot in
             if let _ = snapshot.value {
-                guard let dict = snapshot.value as? Dictionary<String, Dictionary<String, String>> else { return }
-                self.loadUsersSocialProfiles(withDict: dict)
+                if let dict = snapshot.value as? Dictionary<String, Dictionary<String, String>> {
+                    self.loadUsersSocialProfiles(withDict: dict)
+                }
             }
             self.performSegue(withIdentifier: "LoginCompletionSegue", sender: nil)
         })

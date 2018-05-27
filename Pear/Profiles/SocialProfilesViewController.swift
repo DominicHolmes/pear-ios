@@ -90,6 +90,10 @@ extension SocialProfilesViewController {
             controller.popoverPresentationController!.delegate = self
             let profile = sender as? SocialProfile
             controller.socialProfile = profile
+        } else if segue.identifier == "AddNewSocialProfileSegue" {
+            let controller = segue.destination as! CreateSocialProfileViewController
+            controller.activeUser = self.activeUser
+            controller.databaseRef = self.databaseRef
         }
     }
 }
