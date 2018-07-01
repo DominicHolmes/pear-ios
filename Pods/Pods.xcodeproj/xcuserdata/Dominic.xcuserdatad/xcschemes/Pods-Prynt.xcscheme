@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "54B4460A51A84DCF67BFD018A6DF5FB1"
-               BuildableName = "Pods_Pear.framework"
-               BlueprintName = "Pods-Pear"
+               BlueprintIdentifier = "4473FDBAF0B4806FE8866F5A562B3A22"
+               BuildableName = "Pods_Prynt.framework"
+               BlueprintName = "Pods-Prynt"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "54B4460A51A84DCF67BFD018A6DF5FB1"
-            BuildableName = "Pods_Pear.framework"
-            BlueprintName = "Pods-Pear"
+            BlueprintIdentifier = "4473FDBAF0B4806FE8866F5A562B3A22"
+            BuildableName = "Pods_Prynt.framework"
+            BlueprintName = "Pods-Prynt"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
