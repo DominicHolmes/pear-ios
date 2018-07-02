@@ -24,6 +24,9 @@
 		B62282ED2046481C00C01F61 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62282EC2046481C00C01F61 /* QRCodeViewController.swift */; };
 		B62282EF20464DAA00C01F61 /* ConfirmPearProfilesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62282EE20464DAA00C01F61 /* ConfirmPearProfilesVC.swift */; };
 		B62282F1204743CF00C01F61 /* RadialProgressImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62282F0204743CF00C01F61 /* RadialProgressImageView.swift */; };
+		B65DEEDB20E99DE40027A1EF /* RootPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DEEDA20E99DE40027A1EF /* RootPageViewController.swift */; };
+		B65DEEDD20E99E1B0027A1EF /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DEEDC20E99E1B0027A1EF /* ActivityViewController.swift */; };
+		B65DEEE120E99E450027A1EF /* ClustersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DEEE020E99E450027A1EF /* ClustersViewController.swift */; };
 		B6740ED520B90ECD00ACB85F /* Gotham-XLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6740EBC20B90EC900ACB85F /* Gotham-XLight.otf */; };
 		B6740ED620B90ECD00ACB85F /* Gotham-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6740EBD20B90EC900ACB85F /* Gotham-Thin.otf */; };
 		B6740ED720B90ECD00ACB85F /* Gotham-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6740EBE20B90EC900ACB85F /* Gotham-Black.otf */; };
@@ -86,12 +89,15 @@
 		B6111DDB20199FBC00DC7877 /* SocialProfilesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialProfilesViewController.swift; sourceTree = "<group>"; };
 		B6111DDD2019A95700DC7877 /* DeleteSocialProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteSocialProfileViewController.swift; sourceTree = "<group>"; };
 		B6111DDF201D4C1000DC7877 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
-		B62282E020435B2E00C01F61 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		B62282E020435B2E00C01F61 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScannerViewController.swift; path = ../Pearing/ScannerViewController.swift; sourceTree = "<group>"; };
 		B62282E82046287200C01F61 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		B62282EA20462B3D00C01F61 /* PastPearsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastPearsTableViewController.swift; sourceTree = "<group>"; };
 		B62282EC2046481C00C01F61 /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		B62282EE20464DAA00C01F61 /* ConfirmPearProfilesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPearProfilesVC.swift; sourceTree = "<group>"; };
 		B62282F0204743CF00C01F61 /* RadialProgressImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadialProgressImageView.swift; sourceTree = "<group>"; };
+		B65DEEDA20E99DE40027A1EF /* RootPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPageViewController.swift; sourceTree = "<group>"; };
+		B65DEEDC20E99E1B0027A1EF /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		B65DEEE020E99E450027A1EF /* ClustersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClustersViewController.swift; sourceTree = "<group>"; };
 		B6740EBC20B90EC900ACB85F /* Gotham-XLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-XLight.otf"; sourceTree = "<group>"; };
 		B6740EBD20B90EC900ACB85F /* Gotham-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Thin.otf"; sourceTree = "<group>"; };
 		B6740EBE20B90EC900ACB85F /* Gotham-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Black.otf"; sourceTree = "<group>"; };
@@ -171,6 +177,7 @@
 		B6111DC4201901F600DC7877 /* Pear */ = {
 			isa = PBXGroup;
 			children = (
+				B65DEED920E99DB20027A1EF /* Main Interface */,
 				B62282E22046279B00C01F61 /* Onboarding */,
 				B6FE7A0D2080264000F60838 /* SocialProfileCreation */,
 				B62282E72046283200C01F61 /* Pearing */,
@@ -250,12 +257,22 @@
 		B62282E72046283200C01F61 /* Pearing */ = {
 			isa = PBXGroup;
 			children = (
-				B62282E020435B2E00C01F61 /* ScannerViewController.swift */,
 				B6C945E120AE1B91000374DE /* PearProfileSelectionVC.swift */,
 				B62282EE20464DAA00C01F61 /* ConfirmPearProfilesVC.swift */,
 				B62282EC2046481C00C01F61 /* QRCodeViewController.swift */,
 			);
 			path = Pearing;
+			sourceTree = "<group>";
+		};
+		B65DEED920E99DB20027A1EF /* Main Interface */ = {
+			isa = PBXGroup;
+			children = (
+				B65DEEDA20E99DE40027A1EF /* RootPageViewController.swift */,
+				B65DEEDC20E99E1B0027A1EF /* ActivityViewController.swift */,
+				B62282E020435B2E00C01F61 /* ScannerViewController.swift */,
+				B65DEEE020E99E450027A1EF /* ClustersViewController.swift */,
+			);
+			path = "Main Interface";
 			sourceTree = "<group>";
 		};
 		B6740EBA20B90EC900ACB85F /* Fonts */ = {
@@ -498,6 +515,8 @@
 				B6C945E620AE4601000374DE /* PearPendingTransaction.swift in Sources */,
 				B6FE7A082080079100F60838 /* PearUser.swift in Sources */,
 				B6C945E220AE1B91000374DE /* PearProfileSelectionVC.swift in Sources */,
+				B65DEEDD20E99E1B0027A1EF /* ActivityViewController.swift in Sources */,
+				B65DEEE120E99E450027A1EF /* ClustersViewController.swift in Sources */,
 				B6FE7A0A20801C0400F60838 /* PostRegistrationViewController.swift in Sources */,
 				B6B3BE1F206D83B900A70F47 /* FinalRegistrationViewController.swift in Sources */,
 				B6B3BE1D206D839600A70F47 /* InitialRegistrationViewController.swift in Sources */,
@@ -507,6 +526,7 @@
 				B62282E120435B2E00C01F61 /* ScannerViewController.swift in Sources */,
 				B6FE7A0C2080257400F60838 /* PearViewControllers.swift in Sources */,
 				B69DED9F2096A8460084C1E0 /* LoginViewController.swift in Sources */,
+				B65DEEDB20E99DE40027A1EF /* RootPageViewController.swift in Sources */,
 				B6E4468920BA1CE8006C6B5B /* UserValidationViewController.swift in Sources */,
 				B62282F1204743CF00C01F61 /* RadialProgressImageView.swift in Sources */,
 			);
@@ -655,7 +675,7 @@
 				INFOPLIST_FILE = Pear/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = DominicHolmes.Prynt;
+				PRODUCT_BUNDLE_IDENTIFIER = DominicHolmes.Pear;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -672,7 +692,7 @@
 				INFOPLIST_FILE = Pear/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = DominicHolmes.Prynt;
+				PRODUCT_BUNDLE_IDENTIFIER = DominicHolmes.Pear;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

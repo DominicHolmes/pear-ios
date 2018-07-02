@@ -63,7 +63,7 @@ class ScannerViewController : PearTabViewController, AVCaptureMetadataOutputObje
         previewLayer.videoGravity = .resizeAspectFill
         
         cameraView.layer.addSublayer(previewLayer)
-        hideProfilesTableView()
+        //hideProfilesTableView()
         
         captureSession.startRunning()
     }
@@ -136,13 +136,13 @@ extension ScannerViewController {
         areProfilesVisible = !areProfilesVisible
         
         if areProfilesVisible {
-            showProfilesTableView()
+            //showProfilesTableView()
         } else {
-            hideProfilesTableView()
+            //hideProfilesTableView()
         }
     }
     
-    private func showProfilesTableView() {
+    /*private func showProfilesTableView() {
         UIView.animate(withDuration: 0.3) {
             self.profileViewTopConstraint.constant = 140.0
             if self.activeUser != nil {
@@ -164,7 +164,7 @@ extension ScannerViewController {
             }
             self.view.layoutIfNeeded()
         }
-    }
+    }*/
 }
 
 // MARK: - TableView Data Source
