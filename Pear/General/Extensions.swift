@@ -37,3 +37,12 @@ extension Date {
         return Date()
     }
 }
+
+extension Encodable {
+    
+    // Credit to https://stackoverflow.com/a/46329055/9847320
+    var dictionary: [String: Any]? {
+        guard let data = try? JSONEncoder().encode(self) else { return nil }
+        return (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)).flatMap { $0 as? [String: Any] }
+    }
+}
