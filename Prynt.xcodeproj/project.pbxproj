@@ -24,6 +24,7 @@
 		B62282ED2046481C00C01F61 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62282EC2046481C00C01F61 /* QRCodeViewController.swift */; };
 		B62282EF20464DAA00C01F61 /* ConfirmPearProfilesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62282EE20464DAA00C01F61 /* ConfirmPearProfilesVC.swift */; };
 		B62282F1204743CF00C01F61 /* RadialProgressImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62282F0204743CF00C01F61 /* RadialProgressImageView.swift */; };
+		B6287589210D49C000FB2873 /* PryntUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6287588210D49C000FB2873 /* PryntUser.swift */; };
 		B65DEEDB20E99DE40027A1EF /* RootPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DEEDA20E99DE40027A1EF /* RootPageViewController.swift */; };
 		B65DEEDD20E99E1B0027A1EF /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DEEDC20E99E1B0027A1EF /* ActivityViewController.swift */; };
 		B65DEEE120E99E450027A1EF /* ClustersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DEEE020E99E450027A1EF /* ClustersViewController.swift */; };
@@ -95,6 +96,7 @@
 		B62282EC2046481C00C01F61 /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		B62282EE20464DAA00C01F61 /* ConfirmPearProfilesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPearProfilesVC.swift; sourceTree = "<group>"; };
 		B62282F0204743CF00C01F61 /* RadialProgressImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadialProgressImageView.swift; sourceTree = "<group>"; };
+		B6287588210D49C000FB2873 /* PryntUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PryntUser.swift; sourceTree = "<group>"; };
 		B65DEEDA20E99DE40027A1EF /* RootPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPageViewController.swift; sourceTree = "<group>"; };
 		B65DEEDC20E99E1B0027A1EF /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		B65DEEE020E99E450027A1EF /* ClustersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClustersViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				B62282E72046283200C01F61 /* Pearing */,
 				B62282E3204627AA00C01F61 /* Profiles */,
 				B62282E6204627F100C01F61 /* Settings */,
+				B6287587210D495000FB2873 /* Models */,
 				B62282E5204627EA00C01F61 /* Notifications */,
 				B62282E4204627BD00C01F61 /* General */,
 				B6111DCB201901F600DC7877 /* Main.storyboard */,
@@ -262,6 +265,14 @@
 				B62282EC2046481C00C01F61 /* QRCodeViewController.swift */,
 			);
 			path = Pearing;
+			sourceTree = "<group>";
+		};
+		B6287587210D495000FB2873 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B6287588210D49C000FB2873 /* PryntUser.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		B65DEED920E99DB20027A1EF /* Main Interface */ = {
@@ -500,6 +511,7 @@
 				B6111DDA201903F000DC7877 /* WelcomeViewController.swift in Sources */,
 				B6045A562022ECC200609C9B /* PearProfileViewController.swift in Sources */,
 				B62282EF20464DAA00C01F61 /* ConfirmPearProfilesVC.swift in Sources */,
+				B6287589210D49C000FB2873 /* PryntUser.swift in Sources */,
 				B6111DC6201901F600DC7877 /* AppDelegate.swift in Sources */,
 				B6111DDC20199FBC00DC7877 /* SocialProfilesViewController.swift in Sources */,
 				B69DEDA3209909860084C1E0 /* PearTabViewController.swift in Sources */,
