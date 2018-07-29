@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum SocialServiceType : String {
+enum SocialServiceType: String, Codable {
     
     case Behance
     case Dribble

@@ -1,5 +1,5 @@
 //
-//  PryntUser.swift
+//  PryntModels.swift
 //  Prynt
 //
 //  Created by Dominic Holmes on 7/28/18.
@@ -20,12 +20,14 @@ struct PryntProfile: Codable {
     let profileName: String
     let usersName: String
     let user: String
-    //let accounts: [PryntProfileService]
     
+    let accounts: [ServiceProfile]
 }
 
 struct ServiceProfile: Codable {
-    
+    let service: SocialServiceType
+    let handle: String
+    let ranking: Int
 }
 
 struct Transaction: Codable {
