@@ -13,6 +13,11 @@ class UserNetworkingManager {
     
     static let shared = UserNetworkingManager()
     
+    private let sessionManager = Alamofire.SessionManager(
+        configuration: URLSessionConfiguration.default,
+        serverTrustPolicyManager: CustomServerTrustPoliceManager()
+    )
+    
     func createUser(from userInfo: UserInfo, _ completion: @escaping (_ success: Bool, _ user: UserInfo?) -> Void) {
         
         let parameters: Parameters? = userInfo.dictionary
@@ -20,10 +25,22 @@ class UserNetworkingManager {
         let encoding: ParameterEncoding = Alamofire.URLEncoding.httpBody
         let headers: HTTPHeaders? = ["Content-Type": "application/json"]
         
-        Alamofire.request("35.231.241.240/user/create", method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON { response in
+        sessionManager.request("https://35.231.241.240:80/user/create", method: method, parameters: parameters, encoding: encoding, headers: headers).response { response in
             debugPrint(response)
             
-            if let json = response.result.value {
+            print("---")
+            dump(response.data)
+            
+            let jsonDecoder = JSONDecoder()
+            do {
+                let newData =  try jsonDecoder.decode(UserInfoHTTPSResponse.self, from: response.data!)
+                dump(newData)
+            }
+            catch {
+                print("~~~ COULD NOT DECODE DATA")
+            }
+            
+            if let json = response.data {
                 print("JSON: \(json)")
                 completion(true, UserInfo(id: "nil", username: "nil", nameFirst: "nil", nameLast: "nil"))
             } else {
@@ -39,7 +56,7 @@ class UserNetworkingManager {
         let encoding: ParameterEncoding = Alamofire.URLEncoding.httpBody
         let headers: HTTPHeaders? = ["Content-Type": "application/json"]
 
-        Alamofire.request("https://35.231.241.240/user/read", method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON { response in
+        sessionManager.request("https://35.231.241.240:80/user/read", method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON { response in
             debugPrint(response)
             
             if let json = response.result.value {
@@ -59,7 +76,7 @@ class UserNetworkingManager {
         let encoding: ParameterEncoding = Alamofire.URLEncoding.httpBody
         let headers: HTTPHeaders? = ["Content-Type": "application/json"]
         
-        Alamofire.request("35.231.241.240/user/update", method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON { response in
+        sessionManager.request("https://35.231.241.240:80/user/update", method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON { response in
             debugPrint(response)
             
             if let json = response.result.value {
@@ -79,7 +96,7 @@ class UserNetworkingManager {
         let encoding: ParameterEncoding = Alamofire.URLEncoding.httpBody
         let headers: HTTPHeaders? = ["Content-Type": "application/json"]
         
-        Alamofire.request("35.231.241.240/user/delete", method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON { response in
+        sessionManager.request("https://35.231.241.240:80/user/delete", method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON { response in
             debugPrint(response)
             
             if let json = response.result.value {
@@ -89,5 +106,14 @@ class UserNetworkingManager {
                 completion(false)
             }
         }
+    }
+}
+
+class CustomServerTrustPoliceManager : ServerTrustPolicyManager {
+    override func serverTrustPolicy(forHost host: String) -> ServerTrustPolicy? {
+        return .disableEvaluation
+    }
+    public init() {
+        super.init(policies: [:])
     }
 }

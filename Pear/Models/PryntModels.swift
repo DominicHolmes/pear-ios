@@ -8,6 +8,11 @@
 
 import Foundation
 
+struct UserInfoHTTPSResponse: Codable {
+    let status: Bool
+    let user: UserInfo?
+}
+
 struct UserInfo: Codable {
     let id: String
     let username: String
