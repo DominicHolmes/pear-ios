@@ -107,8 +107,7 @@ extension AuthRegistrationViewController {
 extension AuthRegistrationViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PearRegistrationSegue", let uid = newUserUID {
-            let navController = segue.destination as! UINavigationController
-            let controller = navController.topViewController as! PearRegistrationViewController
+            let controller = segue.destination as! PearRegistrationViewController
             controller.newUserUID = uid
         }
     }

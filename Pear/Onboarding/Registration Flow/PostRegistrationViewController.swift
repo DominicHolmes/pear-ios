@@ -21,5 +21,4 @@ class PostRegistrationViewController : PearViewController {
             controller.activeUser = self.activeUser
         }
     }
-    
 }

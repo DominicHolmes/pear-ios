@@ -54,7 +54,7 @@ class PearGenericRegistrationViewController: PearViewController {
                                       preferredStyle: .alert)
         if shouldSegue {
             let action = UIAlertAction(title: "OK", style: .default, handler: { action in
-                self.performSegue(withIdentifier: "PostRegistrationSegue", sender: self)
+                self.performSegue(withIdentifier: "PearRegistrationSegue", sender: self)
             })
             alert.addAction(action)
             present(alert, animated: true)
