@@ -1,5 +1,5 @@
 //
-//  InitialRegistrationViewController.swift
+//  PearRegistrationViewController.swift
 //  Pear
 //
 //  Created by dominic on 3/29/18.
@@ -9,8 +9,12 @@
 import UIKit
 import FirebaseAuth
 
-class InitialRegistrationViewController: PearRegistrationViewController {
+class PearRegistrationViewController: PearGenericRegistrationViewController {
     
+    // Class variables
+    var newUserUID: String?
+    
+    // Outlets, actions
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
@@ -40,12 +44,11 @@ class InitialRegistrationViewController: PearRegistrationViewController {
     }
     
     fileprivate func attemptUserCreation() {
-        guard let username = usernameTextField.text, let first = firstNameTextField.text, let last = lastNameTextField.text else { return }
-        let proposedUser = UserInfo(id: "testID", username: username, nameFirst: first, nameLast: last)
+        guard let uid = newUserUID, let username = usernameTextField.text, let first = firstNameTextField.text, let last = lastNameTextField.text else { return }
+        let proposedUser = UserInfo(id: uid, username: username, nameFirst: first, nameLast: last)
         UserNetworkingManager.shared.createUser(from: proposedUser) { (success, user) in
             if success, let user = user {
-                self.performSegue(withIdentifier: "FinalRegistrationSegue",
-                                  sender: user)
+                self.performSegue(withIdentifier: "PostRegistrationSegue", sender: user)
             } else {
                 self.displayAlert("Username taken", "Please try again.", [], false)
             }
@@ -54,7 +57,7 @@ class InitialRegistrationViewController: PearRegistrationViewController {
 }
 
 // MARK: - Error Handling
-extension InitialRegistrationViewController {
+extension PearRegistrationViewController {
     fileprivate func findErrors() -> [String] {
         var errors = [String]()
         
@@ -88,12 +91,12 @@ extension InitialRegistrationViewController {
 }
 
 // MARK: - Segue Control
-extension InitialRegistrationViewController {
+extension PearRegistrationViewController {
     override internal func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "FinalRegistrationSegue" {
-            let controller = segue.destination as! FinalRegistrationViewController
-            controller.databaseRef = self.databaseRef
-            controller.names = sender as? (String, String, String)
+        if segue.identifier == "PostRegistrationSegue", let sender = sender as? UserInfo {
+            let nav = segue.destination as! UINavigationController
+            let controller = nav.topViewController as! PostRegistrationViewController
+            controller.activeUser = PearUser(from: sender)
         }
     }
 }

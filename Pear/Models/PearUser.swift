@@ -32,4 +32,11 @@ class PearUser: NSObject {
         self.username = dict["username"]
         self.id = dict["id"]
     }
+    
+    init(from userInfo: UserInfo) {
+        self.firstName = userInfo.nameFirst
+        self.lastName = userInfo.nameLast
+        self.id = userInfo.id
+        self.username = userInfo.username
+    }
 }

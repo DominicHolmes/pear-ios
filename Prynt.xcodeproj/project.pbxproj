@@ -140,7 +140,7 @@
 		B6C945E320AE32FC000374DE /* PearTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PearTransaction.swift; sourceTree = "<group>"; };
 		B6C945E520AE4601000374DE /* PearPendingTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PearPendingTransaction.swift; sourceTree = "<group>"; };
 		B6E4468820BA1CE8006C6B5B /* UserValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserValidationViewController.swift; sourceTree = "<group>"; };
-		B6FE7A072080079100F60838 /* PearUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PearUser.swift; path = ../PearUser.swift; sourceTree = "<group>"; };
+		B6FE7A072080079100F60838 /* PearUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PearUser.swift; sourceTree = "<group>"; };
 		B6FE7A0920801C0400F60838 /* PostRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRegistrationViewController.swift; sourceTree = "<group>"; };
 		B6FE7A0B2080257400F60838 /* PearViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PearViewControllers.swift; sourceTree = "<group>"; };
 		B6FE7A0E208026AE00F60838 /* CreateSocialProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSocialProfileViewController.swift; sourceTree = "<group>"; };
@@ -207,9 +207,7 @@
 				B6E4468820BA1CE8006C6B5B /* UserValidationViewController.swift */,
 				B6111DD9201903F000DC7877 /* WelcomeViewController.swift */,
 				B69DED9E2096A8460084C1E0 /* LoginViewController.swift */,
-				B6B3BE1E206D83B900A70F47 /* AuthRegistrationViewController.swift */,
-				B6B3BE1C206D839600A70F47 /* PearRegistrationViewController.swift */,
-				B6FE7A0920801C0400F60838 /* PostRegistrationViewController.swift */,
+				B67881D021194BBB000DA750 /* Registration Flow */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -235,8 +233,6 @@
 				B6FE7A0B2080257400F60838 /* PearViewControllers.swift */,
 				B69DEDA2209909860084C1E0 /* PearTabViewController.swift */,
 				B69DEDA0209904BC0084C1E0 /* PearTabBarController.swift */,
-				B6FE7A072080079100F60838 /* PearUser.swift */,
-				B6C945E320AE32FC000374DE /* PearTransaction.swift */,
 				B6C945E520AE4601000374DE /* PearPendingTransaction.swift */,
 				B6FE7A10208028F200F60838 /* SocialService.swift */,
 				B6FE7A122080307000F60838 /* SocialProfile.swift */,
@@ -273,7 +269,9 @@
 		B6287587210D495000FB2873 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B6FE7A072080079100F60838 /* PearUser.swift */,
 				B6287588210D49C000FB2873 /* PryntModels.swift */,
+				B6C945E320AE32FC000374DE /* PearTransaction.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -342,6 +340,16 @@
 				B6740ED420B90EC900ACB85F /* GothamRnd-BookItal.otf */,
 			);
 			path = "Gotham Rounded";
+			sourceTree = "<group>";
+		};
+		B67881D021194BBB000DA750 /* Registration Flow */ = {
+			isa = PBXGroup;
+			children = (
+				B6B3BE1E206D83B900A70F47 /* AuthRegistrationViewController.swift */,
+				B6B3BE1C206D839600A70F47 /* PearRegistrationViewController.swift */,
+				B6FE7A0920801C0400F60838 /* PostRegistrationViewController.swift */,
+			);
+			path = "Registration Flow";
 			sourceTree = "<group>";
 		};
 		B6FE7A0D2080264000F60838 /* SocialProfileCreation */ = {

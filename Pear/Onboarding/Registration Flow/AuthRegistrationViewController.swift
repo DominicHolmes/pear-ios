@@ -1,5 +1,5 @@
 //
-//  FinalRegistrationViewController.swift
+//  AuthRegistrationViewController.swift
 //  Pear
 //
 //  Created by dominic on 3/29/18.
@@ -10,34 +10,25 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class FinalRegistrationViewController: PearRegistrationViewController {
+class AuthRegistrationViewController: PearGenericRegistrationViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
+    // Class variables
+    var newUserUID: String?
+    
+    // Outlets, actions
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordConfirmTextField: UITextField!
-    
     @IBOutlet weak var createAccountButton: UIButton!
-    
-    @IBAction func emailFieldNextButtonPressed() {
-        passwordTextField.becomeFirstResponder()
-    }
-    
-    @IBAction func passwordFieldNextButtonPressed() {
-        passwordConfirmTextField.becomeFirstResponder()
-    }
-    
-    @IBAction func passwordConfirmFieldNextButtonPressed() {
-        self.view.endEditing(true)
-    }
-    
-    @IBAction func createAccountButtonPressed() {
-        createAccount()
-    }
-    
+    @IBAction func emailFieldNextButtonPressed() { passwordTextField.becomeFirstResponder() }
+    @IBAction func passwordFieldNextButtonPressed() { passwordConfirmTextField.becomeFirstResponder() }
+    @IBAction func passwordConfirmFieldNextButtonPressed() { self.view.endEditing(true) }
+    @IBAction func createAccountButtonPressed() { createAccount() }
+    @IBAction func cancelButtonTapped() { dismiss(animated: true, completion: nil) }
     @IBAction func privacyPolicyButtonPressed() {
         if let url = URL(string: "https://www.iubenda.com/privacy-policy/8203081") {
             UIApplication.shared.open(url, options: [:]) {
@@ -45,11 +36,6 @@ class FinalRegistrationViewController: PearRegistrationViewController {
             }
         }
     }
-    
-    @IBAction func cancelButtonTapped() {
-        dismiss(animated: true, completion: nil)
-    }
-    
     @IBAction func textFieldValueValueChanged() {
         if passwordTextField.hasText && passwordConfirmTextField.hasText &&
             emailTextField.hasText {
@@ -58,38 +44,29 @@ class FinalRegistrationViewController: PearRegistrationViewController {
             createAccountButton.isEnabled = false
         }
     }
-    
-    func createAccount() {
+}
+
+// MARK: - Firebase Auth UUID Creation
+extension AuthRegistrationViewController {
+    internal func createAccount() {
         let errors = findErrors()
-        
         if errors.isEmpty {
             Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
                 if error != nil {
                     self.displayAlert("Error", error!.localizedDescription, [""], false)
-                } else if user != nil {
-                    self.saveNewPearUser(user!)
-                    self.activeUser = PearUser(fname: self.names!.0,
-                                               lname: self.names!.1,
-                                               username: self.names!.2,
-                                               id: user!.uid)
-                    self.displayAlert("Success!", "New user with username \(self.emailTextField.text!) created. Welcome to Pear!", [""], true)
+                } else if let user = user {
+                    self.newUserUID = user.uid
+                    self.displayAlert("Success!", "New account with email \(self.emailTextField.text!) created. Welcome to Pear!", [""], true)
                 }
             }
         } else {
             self.displayAlert("Could not create new user", "Please fix the following errors:", errors, false)
         }
     }
-    
-    func saveNewPearUser(_ user: User) {
-        let uid = user.uid
-        let newUserRef = databaseRef.child("users").child(uid)
-        newUserRef.setValue(["name-first": names!.0,
-                             "name-last": names!.1,
-                             "username": names!.2,
-                             "id": uid])
-        
-    }
-    
+}
+
+// MARK: - Error Checking
+extension AuthRegistrationViewController {
     func findErrors() -> [String] {
         var errors = [String]()
         
@@ -120,18 +97,19 @@ class FinalRegistrationViewController: PearRegistrationViewController {
             errors.append("\n- Enter a valid password")
         }
         if passwordConfirmTextField.text != passwordTextField.text {
-            errors.append("\n- Password and confirm password are not identical")
+            errors.append("\n- Passwords are not identical")
         }
-        
         return errors
     }
-    
+}
+
+// MARK: - Segue Control
+extension AuthRegistrationViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "PostRegistrationSegue" {
+        if segue.identifier == "PearRegistrationSegue", let uid = newUserUID {
             let navController = segue.destination as! UINavigationController
-            let controller = navController.topViewController as! PostRegistrationViewController
-            controller.databaseRef = self.databaseRef
-            controller.activeUser = self.activeUser
+            let controller = navController.topViewController as! PearRegistrationViewController
+            controller.newUserUID = uid
         }
     }
 }

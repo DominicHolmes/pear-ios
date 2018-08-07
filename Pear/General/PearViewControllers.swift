@@ -43,7 +43,7 @@ class PearLoginViewController: PearViewController {
 }
 
 
-class PearRegistrationViewController: PearViewController {
+class PearGenericRegistrationViewController: PearViewController {
     func displayAlert(_ title: String, _ messageHeader: String, _ errors: [String], _ shouldSegue: Bool) {
         var message = messageHeader
         for eachError in errors {
