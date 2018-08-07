@@ -7,37 +7,19 @@
 //
 
 import UIKit
-import Firebase
 import FirebaseAuth
 
 class InitialRegistrationViewController: PearRegistrationViewController {
     
-    override func viewDidLoad() {
-        databaseRef = Database.database().reference()
-    }
-    
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
-    
     @IBOutlet weak var confirmDetailsButton: UIButton!
     
-    @IBAction func firstNameFieldNextButtonPressed() {
-        lastNameTextField.becomeFirstResponder()
-    }
-    
-    @IBAction func lastNameFieldNextButtonPressed() {
-        usernameTextField.becomeFirstResponder()
-    }
-
-    @IBAction func usernameFieldNextButtonPressed() {
-        self.view.endEditing(true)
-    }
-    
-    @IBAction func confirmDetailsButtonPressed() {
-        confirmDetails()
-    }
-    
+    @IBAction func firstNameFieldNextButtonPressed() { lastNameTextField.becomeFirstResponder() }
+    @IBAction func lastNameFieldNextButtonPressed() { usernameTextField.becomeFirstResponder() }
+    @IBAction func usernameFieldNextButtonPressed() { self.view.endEditing(true) }
+    @IBAction func confirmDetailsButtonPressed() { confirmDetails() }
     @IBAction func textFieldValueValueChanged() {
         if firstNameTextField.hasText && lastNameTextField.hasText &&
             usernameTextField.hasText {
@@ -47,20 +29,35 @@ class InitialRegistrationViewController: PearRegistrationViewController {
         }
     }
     
-    func confirmDetails() {
+    fileprivate func confirmDetails() {
         let errors = findErrors()
         
         if errors.isEmpty {
-            performSegue(withIdentifier: "FinalRegistrationSegue",
-                         sender: (firstNameTextField.text!, lastNameTextField.text!, usernameTextField.text!))
+            attemptUserCreation()
         } else {
             self.displayAlert("Please try again", "Please correct the following:", errors, false)
         }
     }
     
-    func findErrors() -> [String] {
-        var errors = [String]()
+    fileprivate func attemptUserCreation() {
+        guard let username = usernameTextField.text, let first = firstNameTextField.text, let last = lastNameTextField.text else { return }
+        let proposedUser = UserInfo(id: "testID", username: username, nameFirst: first, nameLast: last)
+        UserNetworkingManager.shared.createUser(from: proposedUser) { (success, user) in
+            if success, let user = user {
+                self.performSegue(withIdentifier: "FinalRegistrationSegue",
+                                  sender: user)
+            } else {
+                self.displayAlert("Username taken", "Please try again.", [], false)
+            }
+        }
+    }
+}
 
+// MARK: - Error Handling
+extension InitialRegistrationViewController {
+    fileprivate func findErrors() -> [String] {
+        var errors = [String]()
+        
         if !(firstNameTextField.hasText) {
             errors.append("\n- Enter a first name")
         }
@@ -68,7 +65,7 @@ class InitialRegistrationViewController: PearRegistrationViewController {
             errors.append("\n- Enter a last name")
         }
         if !(usernameTextField.hasText) {
-        	errors.append("\n- Enter a username")
+            errors.append("\n- Enter a username")
         } else {
             if usernameValid() {
                 if usernameTaken() {
@@ -81,16 +78,18 @@ class InitialRegistrationViewController: PearRegistrationViewController {
         
         return errors
     }
-    
-    func usernameValid() -> Bool {
+    // MARK: - TODO
+    fileprivate func usernameValid() -> Bool {
         return true
     }
-    
-    func usernameTaken() -> Bool {
+    fileprivate func usernameTaken() -> Bool {
         return false
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+}
+
+// MARK: - Segue Control
+extension InitialRegistrationViewController {
+    override internal func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "FinalRegistrationSegue" {
             let controller = segue.destination as! FinalRegistrationViewController
             controller.databaseRef = self.databaseRef

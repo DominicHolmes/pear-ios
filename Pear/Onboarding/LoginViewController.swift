@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class LoginViewController: PearViewController {
+class LoginViewController: PearLoginViewController {
     
     var authenticatedFIRUser: User?
     
@@ -31,54 +31,6 @@ class LoginViewController: PearViewController {
             try firebaseAuth.signOut()
         } catch _ as NSError {
         }
-    }
-    
-    @IBAction func privacyPolicyButtonPressed() {
-        if let url = URL(string: "https://www.iubenda.com/privacy-policy/8203081") {
-            UIApplication.shared.open(url, options: [:]) {
-                boolean in
-            }
-        }
-    }
-
-    @IBAction func emailFieldNextButtonPressed() {
-        passwordTextField.becomeFirstResponder()
-    }
-    
-    @IBAction func loginActionTriggered() {
-        dismissKeyboard()
-        attemptLogin()
-    }
-    
-    @IBAction func textFieldValueValueChanged() {
-        if emailTextField.hasText && passwordTextField.hasText {
-            loginButton.isEnabled = true
-        } else {
-            loginButton.isEnabled = false
-        }
-    }
-    
-    func startLoading() {
-        spinner.startAnimating()
-        loginButton.setTitle("", for: .normal)
-    }
-    
-    func stopLoading() {
-        spinner.stopAnimating()
-        loginButton.setTitle("Login", for: .normal)
-    }
-    
-    func displayAlert(with errors: [String]) {
-        var message = ""
-        for eachError in errors {
-            message += eachError
-        }
-        let alert = UIAlertController(title: "Unable to Login",
-                                      message: message,
-                                      preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alert.addAction(action)
-        present(alert, animated: true)
     }
     
     func attemptLogin() {
@@ -161,9 +113,10 @@ class LoginViewController: PearViewController {
         }
         activeUser?.profiles = loadedSocialProfiles
     }
-    
-    // Segue control
-    
+}
+
+// MARK: - Segue Control
+extension LoginViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         stopLoading()
         if segue.identifier == "LoginCompletionSegue" {
@@ -173,5 +126,39 @@ class LoginViewController: PearViewController {
             tabBarController.activeUser = self.activeUser
         }
     }
+}
+
+// MARK: - IBActions
+extension LoginViewController {
+    @IBAction func privacyPolicyButtonPressed() {
+        if let url = URL(string: "https://www.iubenda.com/privacy-policy/8203081") {
+            UIApplication.shared.open(url, options: [:]) {
+                boolean in
+            }
+        }
+    }
+    @IBAction func emailFieldNextButtonPressed() {
+        passwordTextField.becomeFirstResponder()
+    }
+    @IBAction func loginActionTriggered() {
+        dismissKeyboard()
+        attemptLogin()
+    }
+    @IBAction func textFieldValueValueChanged() {
+        if emailTextField.hasText && passwordTextField.hasText {
+            loginButton.isEnabled = true
+        } else {
+            loginButton.isEnabled = false
+        }
+    }
     
+    // Spinner
+    fileprivate func startLoading() {
+        spinner.startAnimating()
+        loginButton.setTitle("", for: .normal)
+    }
+    fileprivate func stopLoading() {
+        spinner.stopAnimating()
+        loginButton.setTitle("Login", for: .normal)
+    }
 }

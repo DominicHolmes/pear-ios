@@ -12,8 +12,6 @@ import FirebaseAuth
 
 class FinalRegistrationViewController: PearRegistrationViewController {
     
-    var names: (String, String, String)? // first, last, username
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

@@ -61,8 +61,8 @@
 		B69DED9F2096A8460084C1E0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69DED9E2096A8460084C1E0 /* LoginViewController.swift */; };
 		B69DEDA1209904BC0084C1E0 /* PearTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69DEDA0209904BC0084C1E0 /* PearTabBarController.swift */; };
 		B69DEDA3209909860084C1E0 /* PearTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69DEDA2209909860084C1E0 /* PearTabViewController.swift */; };
-		B6B3BE1D206D839600A70F47 /* InitialRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B3BE1C206D839600A70F47 /* InitialRegistrationViewController.swift */; };
-		B6B3BE1F206D83B900A70F47 /* FinalRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B3BE1E206D83B900A70F47 /* FinalRegistrationViewController.swift */; };
+		B6B3BE1D206D839600A70F47 /* PearRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B3BE1C206D839600A70F47 /* PearRegistrationViewController.swift */; };
+		B6B3BE1F206D83B900A70F47 /* AuthRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B3BE1E206D83B900A70F47 /* AuthRegistrationViewController.swift */; };
 		B6C945E220AE1B91000374DE /* PearProfileSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C945E120AE1B91000374DE /* PearProfileSelectionVC.swift */; };
 		B6C945E420AE32FC000374DE /* PearTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C945E320AE32FC000374DE /* PearTransaction.swift */; };
 		B6C945E620AE4601000374DE /* PearPendingTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C945E520AE4601000374DE /* PearPendingTransaction.swift */; };
@@ -134,8 +134,8 @@
 		B69DED9E2096A8460084C1E0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B69DEDA0209904BC0084C1E0 /* PearTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PearTabBarController.swift; sourceTree = "<group>"; };
 		B69DEDA2209909860084C1E0 /* PearTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PearTabViewController.swift; sourceTree = "<group>"; };
-		B6B3BE1C206D839600A70F47 /* InitialRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialRegistrationViewController.swift; sourceTree = "<group>"; };
-		B6B3BE1E206D83B900A70F47 /* FinalRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalRegistrationViewController.swift; sourceTree = "<group>"; };
+		B6B3BE1C206D839600A70F47 /* PearRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PearRegistrationViewController.swift; sourceTree = "<group>"; };
+		B6B3BE1E206D83B900A70F47 /* AuthRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRegistrationViewController.swift; sourceTree = "<group>"; };
 		B6C945E120AE1B91000374DE /* PearProfileSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PearProfileSelectionVC.swift; sourceTree = "<group>"; };
 		B6C945E320AE32FC000374DE /* PearTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PearTransaction.swift; sourceTree = "<group>"; };
 		B6C945E520AE4601000374DE /* PearPendingTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PearPendingTransaction.swift; sourceTree = "<group>"; };
@@ -207,8 +207,8 @@
 				B6E4468820BA1CE8006C6B5B /* UserValidationViewController.swift */,
 				B6111DD9201903F000DC7877 /* WelcomeViewController.swift */,
 				B69DED9E2096A8460084C1E0 /* LoginViewController.swift */,
-				B6B3BE1C206D839600A70F47 /* InitialRegistrationViewController.swift */,
-				B6B3BE1E206D83B900A70F47 /* FinalRegistrationViewController.swift */,
+				B6B3BE1E206D83B900A70F47 /* AuthRegistrationViewController.swift */,
+				B6B3BE1C206D839600A70F47 /* PearRegistrationViewController.swift */,
 				B6FE7A0920801C0400F60838 /* PostRegistrationViewController.swift */,
 			);
 			path = Onboarding;
@@ -544,8 +544,8 @@
 				B65DEEE120E99E450027A1EF /* ClustersViewController.swift in Sources */,
 				B628758B210D5C2D00FB2873 /* UserNetworking.swift in Sources */,
 				B6FE7A0A20801C0400F60838 /* PostRegistrationViewController.swift in Sources */,
-				B6B3BE1F206D83B900A70F47 /* FinalRegistrationViewController.swift in Sources */,
-				B6B3BE1D206D839600A70F47 /* InitialRegistrationViewController.swift in Sources */,
+				B6B3BE1F206D83B900A70F47 /* AuthRegistrationViewController.swift in Sources */,
+				B6B3BE1D206D839600A70F47 /* PearRegistrationViewController.swift in Sources */,
 				B67A370C203A144000A72456 /* NetworkCollectionCell.swift in Sources */,
 				B62282E92046287200C01F61 /* SettingsTableViewController.swift in Sources */,
 				B67A37082039FC7F00A72456 /* PearTextField.swift in Sources */,

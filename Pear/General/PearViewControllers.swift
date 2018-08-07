@@ -27,8 +27,24 @@ class PearViewController: UIViewController {
     }
 }
 
+class PearLoginViewController: PearViewController {
+    func displayAlert(with errors: [String]) {
+        var message = ""
+        for eachError in errors {
+            message += eachError
+        }
+        let alert = UIAlertController(title: "Unable to Login",
+                                      message: message,
+                                      preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true)
+    }
+}
+
+
 class PearRegistrationViewController: PearViewController {
-    func displayAlert(_ title: String, _ messageHeader: String, _ errors: [String], _ toPayment: Bool) {
+    func displayAlert(_ title: String, _ messageHeader: String, _ errors: [String], _ shouldSegue: Bool) {
         var message = messageHeader
         for eachError in errors {
             message += eachError
@@ -36,7 +52,7 @@ class PearRegistrationViewController: PearViewController {
         let alert = UIAlertController(title: title,
                                       message: message,
                                       preferredStyle: .alert)
-        if toPayment {
+        if shouldSegue {
             let action = UIAlertAction(title: "OK", style: .default, handler: { action in
                 self.performSegue(withIdentifier: "PostRegistrationSegue", sender: self)
             })
