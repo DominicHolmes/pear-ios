@@ -25,7 +25,7 @@ class WelcomeViewController: UIViewController {
     // TEST CODE - - -
     
     @IBAction func create() {
-        let userInfo = UserInfo(id: "test-Id", username: "hdom", nameFirst: "Dominic", nameLast: "Holmes")
+        let userInfo = UserInfo(id: "1234a", username: "user.1234a", nameFirst: "usera", nameLast: "1234a")
         UserNetworkingManager.shared.createUser(from: userInfo) { (success, user) in
             dump(user)
         }
