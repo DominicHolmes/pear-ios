@@ -24,7 +24,7 @@
 		B62282ED2046481C00C01F61 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62282EC2046481C00C01F61 /* QRCodeViewController.swift */; };
 		B62282EF20464DAA00C01F61 /* ConfirmPearProfilesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62282EE20464DAA00C01F61 /* ConfirmPearProfilesVC.swift */; };
 		B62282F1204743CF00C01F61 /* RadialProgressImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62282F0204743CF00C01F61 /* RadialProgressImageView.swift */; };
-		B6287589210D49C000FB2873 /* PryntModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6287588210D49C000FB2873 /* PryntModels.swift */; };
+		B6287589210D49C000FB2873 /* PryntUserModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6287588210D49C000FB2873 /* PryntUserModels.swift */; };
 		B628758B210D5C2D00FB2873 /* UserNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B628758A210D5C2D00FB2873 /* UserNetworking.swift */; };
 		B65DEEDB20E99DE40027A1EF /* RootPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DEEDA20E99DE40027A1EF /* RootPageViewController.swift */; };
 		B65DEEDD20E99E1B0027A1EF /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DEEDC20E99E1B0027A1EF /* ActivityViewController.swift */; };
@@ -53,6 +53,9 @@
 		B6740EEA20B90ECD00ACB85F /* GothamRnd-BoldItal.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6740ED220B90EC900ACB85F /* GothamRnd-BoldItal.otf */; };
 		B6740EEB20B90ECD00ACB85F /* GothamRnd-MedItal.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6740ED320B90EC900ACB85F /* GothamRnd-MedItal.otf */; };
 		B6740EEC20B90ECD00ACB85F /* GothamRnd-BookItal.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6740ED420B90EC900ACB85F /* GothamRnd-BookItal.otf */; };
+		B67881D2211A6FB3000DA750 /* ProfileNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67881D1211A6FB3000DA750 /* ProfileNetworking.swift */; };
+		B67881D4211A7029000DA750 /* PryntProfileModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67881D3211A7029000DA750 /* PryntProfileModels.swift */; };
+		B67881D6211A7044000DA750 /* PryntTransactionModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67881D5211A7044000DA750 /* PryntTransactionModels.swift */; };
 		B67A37062039E52D00A72456 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A37052039E52D00A72456 /* Extensions.swift */; };
 		B67A37082039FC7F00A72456 /* PearTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A37072039FC7F00A72456 /* PearTextField.swift */; };
 		B67A370A203A13E500A72456 /* SocialProfileConstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A3709203A13E500A72456 /* SocialProfileConstructionViewController.swift */; };
@@ -97,7 +100,7 @@
 		B62282EC2046481C00C01F61 /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		B62282EE20464DAA00C01F61 /* ConfirmPearProfilesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPearProfilesVC.swift; sourceTree = "<group>"; };
 		B62282F0204743CF00C01F61 /* RadialProgressImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadialProgressImageView.swift; sourceTree = "<group>"; };
-		B6287588210D49C000FB2873 /* PryntModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PryntModels.swift; sourceTree = "<group>"; };
+		B6287588210D49C000FB2873 /* PryntUserModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PryntUserModels.swift; sourceTree = "<group>"; };
 		B628758A210D5C2D00FB2873 /* UserNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworking.swift; sourceTree = "<group>"; };
 		B65DEEDA20E99DE40027A1EF /* RootPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPageViewController.swift; sourceTree = "<group>"; };
 		B65DEEDC20E99E1B0027A1EF /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +129,9 @@
 		B6740ED220B90EC900ACB85F /* GothamRnd-BoldItal.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GothamRnd-BoldItal.otf"; sourceTree = "<group>"; };
 		B6740ED320B90EC900ACB85F /* GothamRnd-MedItal.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GothamRnd-MedItal.otf"; sourceTree = "<group>"; };
 		B6740ED420B90EC900ACB85F /* GothamRnd-BookItal.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GothamRnd-BookItal.otf"; sourceTree = "<group>"; };
+		B67881D1211A6FB3000DA750 /* ProfileNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNetworking.swift; sourceTree = "<group>"; };
+		B67881D3211A7029000DA750 /* PryntProfileModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PryntProfileModels.swift; sourceTree = "<group>"; };
+		B67881D5211A7044000DA750 /* PryntTransactionModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PryntTransactionModels.swift; sourceTree = "<group>"; };
 		B67A37052039E52D00A72456 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B67A37072039FC7F00A72456 /* PearTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PearTextField.swift; sourceTree = "<group>"; };
 		B67A3709203A13E500A72456 /* SocialProfileConstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialProfileConstructionViewController.swift; sourceTree = "<group>"; };
@@ -270,7 +276,9 @@
 			isa = PBXGroup;
 			children = (
 				B6FE7A072080079100F60838 /* PearUser.swift */,
-				B6287588210D49C000FB2873 /* PryntModels.swift */,
+				B6287588210D49C000FB2873 /* PryntUserModels.swift */,
+				B67881D3211A7029000DA750 /* PryntProfileModels.swift */,
+				B67881D5211A7044000DA750 /* PryntTransactionModels.swift */,
 				B6C945E320AE32FC000374DE /* PearTransaction.swift */,
 			);
 			path = Models;
@@ -280,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				B628758A210D5C2D00FB2873 /* UserNetworking.swift */,
+				B67881D1211A6FB3000DA750 /* ProfileNetworking.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -532,7 +541,8 @@
 				B6111DDA201903F000DC7877 /* WelcomeViewController.swift in Sources */,
 				B6045A562022ECC200609C9B /* PearProfileViewController.swift in Sources */,
 				B62282EF20464DAA00C01F61 /* ConfirmPearProfilesVC.swift in Sources */,
-				B6287589210D49C000FB2873 /* PryntModels.swift in Sources */,
+				B67881D6211A7044000DA750 /* PryntTransactionModels.swift in Sources */,
+				B6287589210D49C000FB2873 /* PryntUserModels.swift in Sources */,
 				B6111DC6201901F600DC7877 /* AppDelegate.swift in Sources */,
 				B6111DDC20199FBC00DC7877 /* SocialProfilesViewController.swift in Sources */,
 				B69DEDA3209909860084C1E0 /* PearTabViewController.swift in Sources */,
@@ -543,6 +553,7 @@
 				B69DEDA1209904BC0084C1E0 /* PearTabBarController.swift in Sources */,
 				B6C945E420AE32FC000374DE /* PearTransaction.swift in Sources */,
 				B67A370E203A1B2D00A72456 /* AddNewServiceViewController.swift in Sources */,
+				B67881D2211A6FB3000DA750 /* ProfileNetworking.swift in Sources */,
 				B62282ED2046481C00C01F61 /* QRCodeViewController.swift in Sources */,
 				B67A37062039E52D00A72456 /* Extensions.swift in Sources */,
 				B6C945E620AE4601000374DE /* PearPendingTransaction.swift in Sources */,
@@ -555,6 +566,7 @@
 				B6B3BE1F206D83B900A70F47 /* AuthRegistrationViewController.swift in Sources */,
 				B6B3BE1D206D839600A70F47 /* PearRegistrationViewController.swift in Sources */,
 				B67A370C203A144000A72456 /* NetworkCollectionCell.swift in Sources */,
+				B67881D4211A7029000DA750 /* PryntProfileModels.swift in Sources */,
 				B62282E92046287200C01F61 /* SettingsTableViewController.swift in Sources */,
 				B67A37082039FC7F00A72456 /* PearTextField.swift in Sources */,
 				B62282E120435B2E00C01F61 /* ScannerViewController.swift in Sources */,
