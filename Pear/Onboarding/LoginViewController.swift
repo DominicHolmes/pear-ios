@@ -14,6 +14,24 @@ class LoginViewController: PearLoginViewController {
     
     var authenticatedFIRUser: User?
     
+    enum LoginState {
+        case none
+        case auth
+        case failedAuth
+        case loadingUserInfo
+        case loadingUserProfiles
+    }
+    
+    var state: LoginState = .none {
+        didSet {
+            switch state {
+            case .none: stopLoading()
+            case .failedAuth: stopLoading()
+            default: startLoading()
+            }
+        }
+    }
+    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
@@ -22,24 +40,28 @@ class LoginViewController: PearLoginViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Initialize firebase database
-        databaseRef = Database.database().reference()
-        
-        // Logout if necessary
+        // Logout if Firebase User if logged in
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
         } catch _ as NSError {
         }
     }
+
+}
+
+// MARK: - Login Methods
+extension LoginViewController {
     
     func attemptLogin() {
         if emailTextField.hasText && passwordTextField.hasText {
-            startLoading()
+            state = .auth
             Auth.auth().signIn(withEmail: emailTextField.text!,
                                password: passwordTextField.text!) { (user, error) in
                                 if let error = error {
-                                    self.stopLoading()
+                                    
+                                    self.state = .failedAuth
+                                    
                                     let nsError = error as NSError
                                     switch AuthErrorCode(rawValue: nsError.code)! {
                                     case .operationNotAllowed:
@@ -58,6 +80,8 @@ class LoginViewController: PearLoginViewController {
                                     self.authenticatedFIRUser = user
                                     if user != nil {
                                         self.attemptLoadUser(with: user!.uid)
+                                    } else {
+                                        self.state = .failedAuth
                                     }
                                 }
             }
@@ -66,34 +90,35 @@ class LoginViewController: PearLoginViewController {
         }
     }
     
-    func proceedWithLogin() {
-        if let _ = activeUser {
-            performSegue(withIdentifier: "LoginCompletedSegue", sender: nil)
-        } else {
-            stopLoading()
-            displayAlert(with: ["Error logging in"])
-        }
+    func proceedWithLogin(user: PearUser) {
+        performSegue(withIdentifier: "LoginCompletedSegue", sender: nil)
     }
-    
+}
+
+// MARK: - Load Prynt User
+extension LoginViewController {
     // Load user and challenges (after login verfified)
     
     func attemptLoadUser(with id: String) {
-        let userRef = databaseRef.child("users").child(id)
-        userRef.observe(.value, with: { snapshot in
-            if let _ = snapshot.value {
-                if let userDict = snapshot.value as? Dictionary<String, String> {
-                    self.activeUser = PearUser.init(of: userDict)
-                    self.attemptLoadUsersSocialProfiles(with: self.activeUser!.id)
-                } else {
-                    self.activeUser = nil
-                }
+        self.state = .loadingUserInfo
+        UserNetworkingManager.shared.fetchUser(for: id) { (success, user) in
+            if success, let user = user {
+                self.fetchSocialProfiles(with: user)
+                self.proceedWithLogin(user: PearUser(from: user))
             } else {
-                self.activeUser = nil
+                self.state = .none
+                self.displayAlert(with: ["Sorry, we couldn't fetch your data. Please try again later."])
             }
-        })
+        }
     }
     
-    func attemptLoadUsersSocialProfiles(with id: String) {
+    func fetchSocialProfiles(with user: UserInfo) {
+        
+    }
+    
+    
+    
+    /*func attemptLoadUsersSocialProfiles(with id: String) {
         let profilesRef = databaseRef.child("usersSocialProfiles").child(id)
         profilesRef.observe(.value, with: { snapshot in
             if let _ = snapshot.value {
@@ -112,7 +137,7 @@ class LoginViewController: PearLoginViewController {
             loadedSocialProfiles.append(newProfile)
         }
         activeUser?.profiles = loadedSocialProfiles
-    }
+    }*/
 }
 
 // MARK: - Segue Control
