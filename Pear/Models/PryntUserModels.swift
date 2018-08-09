@@ -8,13 +8,15 @@
 
 import Foundation
 
+typealias UserId = String
+
 struct UserInfoHTTPSResponse: Codable {
     let status: Bool
     let user: UserInfo?
 }
 
 struct UserInfo: Codable {
-    let id: String
+    let id: UserId
     let username: String
     let nameFirst: String
     let nameLast: String

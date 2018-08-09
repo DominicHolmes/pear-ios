@@ -25,91 +25,91 @@ class ProfileNetworkingManager {
     )
     
     // MARK: - Create Profile
-    func createProfile(from userInfo: UserInfo, _ completion: @escaping (_ success: Bool, _ user: UserInfo?) -> Void) {
+    func createProfile(from createProfile: PryntProfileCreate, _ completion: @escaping (_ success: Bool, _ profile: PryntProfile?) -> Void) {
         
         let method = Alamofire.HTTPMethod.post
-        let parameters: Parameters? = userInfo.dictionary
+        let parameters: Parameters? = createProfile.dictionary
         
-        sessionManager.request("https://35.231.241.240:80/user/create", method: method, parameters: parameters, encoding: encoding, headers: headers).response { response in
+        sessionManager.request("https://35.231.241.240:80/profile/create", method: method, parameters: parameters, encoding: encoding, headers: headers).response { response in
             
             let jsonDecoder = JSONDecoder()
             do {
-                let decodedResponse =  try jsonDecoder.decode(UserInfoHTTPSResponse.self, from: response.data!)
-                if decodedResponse.status, let user = decodedResponse.user {
-                    completion(true, user)
+                let decodedResponse =  try jsonDecoder.decode(PryntProfileHTTPSResponse.self, from: response.data!)
+                if decodedResponse.status, let profile = decodedResponse.profile {
+                    completion(true, profile)
                 } else {
                     completion(false, nil)
                 }
             }
             catch {
-                print("ERROR - Could not create user")
+                print("ERROR - Could not create profile")
             }
         }
     }
     
     // MARK: - Fetch Profile
-    func fetchProfile(for id: String, _ completion: @escaping (_ success: Bool, _ user: UserInfo?) -> Void) {
+    func fetchProfile(for userId: UserId, with profileId: ProfileId, _ completion: @escaping (_ success: Bool, _ profile: PryntProfile?) -> Void) {
         
         let method = Alamofire.HTTPMethod.post
-        let parameters: Parameters? = ["id": id]
+        let parameters: Parameters? = ["id": userId, "profileId": profileId]
         
-        sessionManager.request("https://35.231.241.240:80/user/read", method: method, parameters: parameters, encoding: encoding, headers: headers).response { response in
+        sessionManager.request("https://35.231.241.240:80/profile/read", method: method, parameters: parameters, encoding: encoding, headers: headers).response { response in
             
             let jsonDecoder = JSONDecoder()
             do {
-                let decodedResponse =  try jsonDecoder.decode(UserInfoHTTPSResponse.self, from: response.data!)
-                if decodedResponse.status, let user = decodedResponse.user {
-                    completion(true, user)
+                let decodedResponse =  try jsonDecoder.decode(PryntProfileHTTPSResponse.self, from: response.data!)
+                if decodedResponse.status, let profile = decodedResponse.profile {
+                    completion(true, profile)
                 } else {
                     completion(false, nil)
                 }
             }
             catch {
-                print("ERROR - Could not fetch user")
+                print("ERROR - Could not fetch profile")
                 completion(false, nil)
             }
         }
     }
     
     // MARK: - Update Profile
-    func updateProfile(from userInfo: UserInfo, _ completion: @escaping (_ success: Bool, _ user: UserInfo?) -> Void) {
+    func updateProfile(from profileInfo: PryntProfile, _ completion: @escaping (_ success: Bool, _ profile: PryntProfile?) -> Void) {
         
         let method = Alamofire.HTTPMethod.post
-        let parameters: Parameters? = userInfo.dictionary
+        let parameters: Parameters? = profileInfo.dictionary
         
-        sessionManager.request("https://35.231.241.240:80/user/update", method: method, parameters: parameters, encoding: encoding, headers: headers).response { response in
+        sessionManager.request("https://35.231.241.240:80/profile/update", method: method, parameters: parameters, encoding: encoding, headers: headers).response { response in
             
             let jsonDecoder = JSONDecoder()
             do {
-                let decodedResponse =  try jsonDecoder.decode(UserInfoHTTPSResponse.self, from: response.data!)
-                if decodedResponse.status, let user = decodedResponse.user {
-                    completion(true, user)
+                let decodedResponse =  try jsonDecoder.decode(PryntProfileHTTPSResponse.self, from: response.data!)
+                if decodedResponse.status, let profile = decodedResponse.profile {
+                    completion(true, profile)
                 } else {
                     completion(false, nil)
                 }
             }
             catch {
-                print("ERROR - Could not update user")
-                completion(false, nil)
+                print("ERROR - Could not update profile")
+                completion(false, nil)P
             }
         }
     }
     
     // MARK: - Delete Profile
-    func deleteProfile(with id: String, _ completion: @escaping (_ success: Bool) -> Void) {
+    func deleteProfile(for userId: UserId, with profileId: ProfileId, _ completion: @escaping (_ success: Bool) -> Void) {
         
         let method = Alamofire.HTTPMethod.post
-        let parameters: Parameters? = ["id": id]
+        let parameters: Parameters? = ["id": userId, "profileId": profileId]
         
-        sessionManager.request("https://35.231.241.240:80/user/delete", method: method, parameters: parameters, encoding: encoding, headers: headers).response { response in
+        sessionManager.request("https://35.231.241.240:80/profile/delete", method: method, parameters: parameters, encoding: encoding, headers: headers).response { response in
             
             let jsonDecoder = JSONDecoder()
             do {
-                let decodedResponse =  try jsonDecoder.decode(UserInfoHTTPSResponse.self, from: response.data!)
+                let decodedResponse =  try jsonDecoder.decode(PryntProfileHTTPSResponse.self, from: response.data!)
                 completion(decodedResponse.status)
             }
             catch {
-                print("ERROR - Could not delete user")
+                print("ERROR - Could not delete profile")
                 completion(false)
             }
         }

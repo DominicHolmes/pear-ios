@@ -48,7 +48,7 @@ class UserNetworkingManager {
     }
     
     // MARK: - Fetch User
-    func fetchUser(for id: String, _ completion: @escaping (_ success: Bool, _ user: UserInfo?) -> Void) {
+    func fetchUser(for id: UserId, _ completion: @escaping (_ success: Bool, _ user: UserInfo?) -> Void) {
         
         let method = Alamofire.HTTPMethod.post
         let parameters: Parameters? = ["id": id]
@@ -96,7 +96,7 @@ class UserNetworkingManager {
     }
     
     // MARK: - Delete User
-    func deleteUser(with id: String, _ completion: @escaping (_ success: Bool) -> Void) {
+    func deleteUser(with id: UserId, _ completion: @escaping (_ success: Bool) -> Void) {
         
         let method = Alamofire.HTTPMethod.post
         let parameters: Parameters? = ["id": id]

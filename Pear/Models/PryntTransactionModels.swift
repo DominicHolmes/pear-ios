@@ -8,25 +8,36 @@
 
 import Foundation
 
+typealias TransactionId = String
+
+struct TransactionInitiateRequest: Codable {
+    let id: UserId
+    let profileId: ProfileId
+}
+
 struct Transaction: Codable {
     let primaryApproval: Bool
     let primaryHandle: String
-    let primaryProfileId: String
+    let primaryName: String
+    let primaryProfileId: ProfileId
     let primaryUsersName: String
+    let primaryUser: UserId
     
     let secondaryApproval: Bool
-    let secondaryHandle: String
-    let secondaryName: String
-    let secondaryProfileId: String
+    let secondaryHandle: String?
+    let secondaryName: String?
+    let secondaryProfileId: ProfileId?
+    let secondaryUsersName: String?
+    let secondaryUser: UserId?
     
     let state: TransactionState
-    let id: String
+    let id: TransactionId
 }
 
-struct TransactionResponse: Codable {
+struct CompleteTransaction: Codable {
     let transaction: Transaction
     let primaryProfile: PryntProfile
-    let secondaryProfile: PryntProfile
+    let secondaryProfile: PryntProfile?
 }
 
 enum TransactionState: String, Codable {
