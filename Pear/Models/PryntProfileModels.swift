@@ -15,6 +15,11 @@ struct PryntProfileHTTPSResponse: Codable {
     let profile: PryntProfile?
 }
 
+struct AllPryntProfilesHTTPSResponse: Codable {
+    let status: Bool
+    let profiles: [PryntProfile]?
+}
+
 struct PryntProfileCreate: Codable {
     let userId: UserId
     let handle: String

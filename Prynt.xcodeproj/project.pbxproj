@@ -210,9 +210,8 @@
 		B62282E22046279B00C01F61 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				B6E4468820BA1CE8006C6B5B /* UserValidationViewController.swift */,
-				B6111DD9201903F000DC7877 /* WelcomeViewController.swift */,
-				B69DED9E2096A8460084C1E0 /* LoginViewController.swift */,
+				B6889B2C211D0635001E9B25 /* Welcome */,
+				B6889B2B211D0625001E9B25 /* Login */,
 				B67881D021194BBB000DA750 /* Registration Flow */,
 			);
 			path = Onboarding;
@@ -359,6 +358,23 @@
 				B6FE7A0920801C0400F60838 /* PostRegistrationViewController.swift */,
 			);
 			path = "Registration Flow";
+			sourceTree = "<group>";
+		};
+		B6889B2B211D0625001E9B25 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B6E4468820BA1CE8006C6B5B /* UserValidationViewController.swift */,
+				B69DED9E2096A8460084C1E0 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		B6889B2C211D0635001E9B25 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				B6111DD9201903F000DC7877 /* WelcomeViewController.swift */,
+			);
+			path = Welcome;
 			sourceTree = "<group>";
 		};
 		B6FE7A0D2080264000F60838 /* SocialProfileCreation */ = {

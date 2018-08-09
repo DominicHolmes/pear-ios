@@ -71,6 +71,30 @@ class ProfileNetworkingManager {
         }
     }
     
+    // MARK: - Fetch All Profiles
+    func fetchAllProfiles(for userId: UserId, _ completion: @escaping (_ success: Bool, _ profiles: [PryntProfile]?) -> Void) {
+        
+        let method = Alamofire.HTTPMethod.post
+        let parameters: Parameters? = ["id": userId]
+        
+        sessionManager.request("https://35.231.241.240:80/profile/read/all", method: method, parameters: parameters, encoding: encoding, headers: headers).response { response in
+            
+            let jsonDecoder = JSONDecoder()
+            do {
+                let decodedResponse =  try jsonDecoder.decode(AllPryntProfilesHTTPSResponse.self, from: response.data!)
+                if decodedResponse.status, let profiles = decodedResponse.profiles {
+                    completion(true, profiles)
+                } else {
+                    completion(false, nil)
+                }
+            }
+            catch {
+                print("ERROR - Could not fetch all profiles")
+                completion(false, nil)
+            }
+        }
+    }
+    
     // MARK: - Update Profile
     func updateProfile(from profileInfo: PryntProfile, _ completion: @escaping (_ success: Bool, _ profile: PryntProfile?) -> Void) {
         
@@ -90,7 +114,7 @@ class ProfileNetworkingManager {
             }
             catch {
                 print("ERROR - Could not update profile")
-                completion(false, nil)P
+                completion(false, nil)
             }
         }
     }

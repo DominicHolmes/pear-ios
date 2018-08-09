@@ -17,7 +17,6 @@ class PostRegistrationViewController : PearViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "CreateSocialProfileSegue" {
             let controller = segue.destination as! CreateSocialProfileViewController
-            controller.databaseRef = self.databaseRef
             controller.activeUser = self.activeUser
         }
     }

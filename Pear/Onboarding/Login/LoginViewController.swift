@@ -113,7 +113,7 @@ extension LoginViewController {
     }
     
     func fetchSocialProfiles(with user: UserInfo) {
-        
+        self.state = .loadingUserProfiles
     }
     
     
