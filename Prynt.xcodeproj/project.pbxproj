@@ -440,6 +440,7 @@
 			children = (
 				B6889B42211E2885001E9B25 /* AccountsViewController.swift */,
 				B6889B44211E2F7D001E9B25 /* ViewAccountViewController.swift */,
+				B67A370B203A144000A72456 /* NetworkCollectionCell.swift */,
 			);
 			path = Accounts;
 			sourceTree = "<group>";
@@ -449,7 +450,6 @@
 			children = (
 				B6FE7A0E208026AE00F60838 /* CreatePryntProfileViewController.swift */,
 				B67A3709203A13E500A72456 /* EditPryntProfileViewController.swift */,
-				B67A370B203A144000A72456 /* NetworkCollectionCell.swift */,
 				B67A370D203A1B2D00A72456 /* AddNewServiceViewController.swift */,
 			);
 			path = SocialProfileCreation;

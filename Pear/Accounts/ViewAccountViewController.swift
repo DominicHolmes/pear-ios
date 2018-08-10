@@ -10,29 +10,37 @@ import UIKit
 
 protocol ViewAccountViewControllerDelegate {
     func viewAccountViewControllerDidCancel(_ controller: ViewAccountViewController)
-    func viewAccountViewControllerDidCreate(_ controller: ViewAccountViewController, account: Account)
+    func viewAccountViewControllerDidCreate(_ controller: ViewAccountViewController, accountCreate: AccountCreate)
     func viewAccountViewControllerDidUpdate(_ controller: ViewAccountViewController, account: Account)
     func viewAccountViewControllerDidDelete(_ controller: ViewAccountViewController, account: Account)
 }
 
 class ViewAccountViewController: PearViewController {
     
+    private enum State {
+        case editing
+        case viewing
+        case creating
+    }
+    
     var delegate: ViewAccountViewControllerDelegate?
-    var socialServiceType: SocialServiceType?
-    var socialService: SocialService?
+    var service: SocialServiceType!
+    private var state = State.creating
     
     @IBOutlet var handleTextField: UITextField!
     @IBOutlet var socialServiceNameLabel: UILabel!
     @IBOutlet var socialServiceLogo: UIImageView!
     @IBOutlet var doneButton: UIButton!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    var accountToEdit: Account? {
+        didSet {
+            state = .editing
+        }
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    var accountToDisplay: Account? {
+        didSet {
+            state = .viewing
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,14 +49,25 @@ class ViewAccountViewController: PearViewController {
     }
     
     private func setupUI() {
-        if let service = socialServiceType {
+        socialServiceLogo.image = UIImage(named: service.photoName)
+        switch state {
+        case .creating:
             socialServiceNameLabel.text = "I want to share my \(service.serviceName)"
-            socialServiceLogo.image = UIImage(named: service.photoName)
             handleTextField.placeholder = "\(service.serviceName) username"
-        }
-        if let _ = socialService {
-            handleTextField.text = socialService!.handle
-            doneButton.isEnabled = true
+        case .editing:
+            socialServiceNameLabel.text = "\(service.serviceName)"
+            if let accountToEdit = accountToEdit {
+                handleTextField.text = accountToEdit.handle
+                handleTextField.isEnabled = true
+                doneButton.isEnabled = true
+            }
+        case .viewing:
+            socialServiceNameLabel.text = "\(service.serviceName)"
+            if let accountToDisplay = accountToDisplay {
+                handleTextField.text = accountToDisplay.handle
+                handleTextField.isEnabled = false
+                doneButton.isEnabled = true
+            }
         }
     }
     

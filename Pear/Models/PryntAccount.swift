@@ -8,8 +8,13 @@
 
 import Foundation
 
+struct AccountCreate: Codable {
+    let service: SocialServiceType
+    let handle: String
+}
+
 struct Account: Codable {
     let service: SocialServiceType
     let handle: String
-    let ranking: Int
+    let id: String
 }

@@ -16,16 +16,13 @@ class AccountsViewController: PryntViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBAction func xButtonTapped() { dismiss(animated: true, completion: nil) }
     
-    internal func create(_ account: Account) {
-        
+    internal func create(_ accountCreate: AccountCreate) {
     }
     
     internal func update(_ account: Account) {
-        
     }
     
     internal func delete(_ account: Account) {
-        
     }
 }
 
@@ -73,18 +70,15 @@ extension AccountsViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        /*let cell = collectionView.cellForItem(at: indexPath) as? NetworkCollectionCell
+        let cell = collectionView.cellForItem(at: indexPath) as? NetworkCollectionCell
         
-        if cell != nil && cell!.isChecked {
-            cell!.isChecked = false
-            if let service = cell!.socialService {
-                //enabledServices = enabledServices.filter { $0.socialService != service.socialService &&
-                //$0.handle != service.handle}
-            }
-        } else if cell != nil && !cell!.isChecked {
-            self.lastTappedCell = cell
-            performSegue(withIdentifier: "addNetworkSegue", sender: cell)
-        }*/
+        if let accountToEdit = cell?.accountToEdit {
+            performSegue(withIdentifier: "EditAccountSegue", sender: accountToEdit)
+        } else if let accountToDisplay = cell?.accountToDisplay {
+            performSegue(withIdentifier: "ViewAccountSegue", sender: accountToDisplay)
+        } else if let cell = cell, let service = cell.socialServiceType {
+            performSegue(withIdentifier: "CreateAccountSegue", sender: service)
+        }
     }
 }
 
@@ -113,9 +107,9 @@ extension AccountsViewController: ViewAccountViewControllerDelegate {
         update(account)
     }
     
-    func viewAccountViewControllerDidCreate(_ controller: ViewAccountViewController, account: Account) {
+    func viewAccountViewControllerDidCreate(_ controller: ViewAccountViewController, accountCreate: AccountCreate) {
         controller.dismiss(animated: true, completion: nil)
-        create(account)
+        create(accountCreate)
     }
     
     func viewAccountViewControllerDidDelete(_ controller: ViewAccountViewController, account: Account) {
@@ -139,17 +133,19 @@ extension AccountsViewController: ViewAccountViewControllerDelegate {
 // MARK: - Segue Control
 extension AccountsViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "addNetworkSegue" {
-            let controller = segue.destination as! ViewAccountViewController
-            controller.popoverPresentationController!.delegate = self
-            controller.delegate = self
-            let sender = sender as! NetworkCollectionCell
-            controller.socialServiceType = sender.socialServiceType
-            //controller.socialService = sender.socialService
-        } else if segue.identifier == "ProfileConstructionCompletedSegue" {
-            let navController = segue.destination as! UINavigationController
-            let tabBarController = navController.topViewController as! PryntTabBarController
-            tabBarController.user = self.user
+        guard let controller = segue.destination as? ViewAccountViewController else { return }
+        
+        controller.popoverPresentationController!.delegate = self
+        controller.delegate = self
+        
+        if segue.identifier == "CreateAccountSegue", let service = sender as? SocialServiceType {
+            controller.service = service
+        } else if segue.identifier == "EditAccountSegue", let account = sender as? Account {
+            controller.service = account.service
+            controller.accountToEdit = account
+        } else if segue.identifier == "ViewAccountSegue", let account = sender as? Account {
+            controller.service = account.service
+            controller.accountToDisplay = account
         }
     }
 }
