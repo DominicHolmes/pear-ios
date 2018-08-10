@@ -90,7 +90,8 @@ extension LoginViewController {
         }
     }
     
-    func proceedWithLogin(user: PearUser) {
+    func proceedWithLogin(_ user: PryntUser) {
+        self.state = .none
         performSegue(withIdentifier: "LoginCompletedSegue", sender: nil)
     }
 }
@@ -103,8 +104,9 @@ extension LoginViewController {
         self.state = .loadingUserInfo
         UserNetworkingManager.shared.fetchUser(for: id) { (success, user) in
             if success, let user = user {
+                let user = PryntUser(from: user)
                 self.fetchSocialProfiles(with: user)
-                self.proceedWithLogin(user: PearUser(from: user))
+                self.proceedWithLogin(user)
             } else {
                 self.state = .none
                 self.displayAlert(with: ["Sorry, we couldn't fetch your data. Please try again later."])
@@ -112,43 +114,18 @@ extension LoginViewController {
         }
     }
     
-    func fetchSocialProfiles(with user: UserInfo) {
-        self.state = .loadingUserProfiles
+    func fetchSocialProfiles(with user: PryntUser) {
+        user.requestAllProfiles()
     }
-    
-    
-    
-    /*func attemptLoadUsersSocialProfiles(with id: String) {
-        let profilesRef = databaseRef.child("usersSocialProfiles").child(id)
-        profilesRef.observe(.value, with: { snapshot in
-            if let _ = snapshot.value {
-                if let dict = snapshot.value as? Dictionary<String, Dictionary<String, String>> {
-                    self.loadUsersSocialProfiles(withDict: dict)
-                }
-            }
-            self.performSegue(withIdentifier: "LoginCompletionSegue", sender: nil)
-        })
-    }
-    
-    func loadUsersSocialProfiles(withDict dict: Dictionary<String, Dictionary<String, String>>) {
-        var loadedSocialProfiles = [SocialProfile]()
-        for eachProfile in dict {
-            let newProfile = SocialProfile(of: eachProfile.value)
-            loadedSocialProfiles.append(newProfile)
-        }
-        activeUser?.profiles = loadedSocialProfiles
-    }*/
 }
 
 // MARK: - Segue Control
 extension LoginViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        stopLoading()
-        if segue.identifier == "LoginCompletionSegue" {
+        if segue.identifier == "LoginCompletedSegue", let sender = sender as? PryntUser {
             let navController = segue.destination as! UINavigationController
-            let tabBarController = navController.topViewController as! PearTabBarController
-            tabBarController.databaseRef = self.databaseRef
-            tabBarController.activeUser = self.activeUser
+            let tabBarController = navController.topViewController as! PryntTabBarController
+            tabBarController.user = sender
         }
     }
 }

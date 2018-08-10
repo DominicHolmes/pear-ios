@@ -388,7 +388,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Almost done" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRi-gz-GTL">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Register" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRi-gz-GTL">
                                 <rect key="frame" x="7" y="60" width="359" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="23"/>
@@ -589,7 +589,7 @@
                                 </state>
                                 <connections>
                                     <action selector="userDidSelectDelete" destination="F7o-oA-ROU" eventType="touchUpInside" id="ixh-k2-EQk"/>
-                                    <segue destination="9cF-gE-Uio" kind="show" identifier="LoginCompletionSegue" id="LUE-NC-Ki7"/>
+                                    <segue destination="9cF-gE-Uio" kind="show" identifier="LoginCompletedSegue" id="LUE-NC-Ki7"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to the best pearing app around!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KNH-80-cyE">
@@ -687,7 +687,7 @@
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="asH-wz-x2b" customClass="PearTextField" customModule="Prynt" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="test@dominic.land" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="asH-wz-x2b" customClass="PearTextField" customModule="Prynt" customModuleProvider="target">
                                 <rect key="frame" x="75" y="114" width="222" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -698,7 +698,7 @@
                                     <action selector="textFieldValueValueChanged" destination="9cF-gE-Uio" eventType="editingChanged" id="qce-Fh-Fe6"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gjm-gs-0Nl" customClass="PearTextField" customModule="Prynt" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="password123" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gjm-gs-0Nl" customClass="PearTextField" customModule="Prynt" customModuleProvider="target">
                                 <rect key="frame" x="75" y="169" width="222" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -727,7 +727,7 @@
                         <outlet property="loginButton" destination="vWV-uA-ffU" id="IDS-1c-fqA"/>
                         <outlet property="passwordTextField" destination="Gjm-gs-0Nl" id="k9s-Gb-vlB"/>
                         <outlet property="spinner" destination="wj2-A0-vcZ" id="OWa-zp-V43"/>
-                        <segue destination="2qu-Rl-Az0" kind="show" identifier="LoginCompletionSegue" id="61v-J4-xMk"/>
+                        <segue destination="2qu-Rl-Az0" kind="show" identifier="LoginCompletedSegue" id="61v-J4-xMk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Zw-rm-Zv6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1539,7 +1539,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="aAb-A9-esn"/>
                     <connections>
-                        <segue destination="2qu-Rl-Az0" kind="show" identifier="userLoggedInSegue" id="EsY-PZ-b6Y"/>
+                        <segue destination="2qu-Rl-Az0" kind="show" identifier="TODO Implement This" id="EsY-PZ-b6Y"/>
                         <segue destination="3dU-Km-9Ts" kind="show" identifier="userNotLoggedIn" id="zs1-hK-bs9"/>
                     </connections>
                 </viewController>
@@ -1687,7 +1687,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="zs1-hK-bs9"/>
-        <segue reference="EsY-PZ-b6Y"/>
+        <segue reference="61v-J4-xMk"/>
         <segue reference="XqZ-TR-T33"/>
         <segue reference="DbV-Xy-BZu"/>
     </inferredMetricsTieBreakers>
