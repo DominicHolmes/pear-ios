@@ -1,6 +1,6 @@
 //
 //  ScanViewController.swift
-//  Pear
+//  Prynt
 //
 //  Created by Dominic Holmes on 2/25/18.
 //  Copyright © 2018 Dominic Holmes. All rights reserved.
@@ -9,9 +9,9 @@
 import AVFoundation
 import UIKit
 
-class ScannerViewController : PearTabViewController, AVCaptureMetadataOutputObjectsDelegate {
+class ScannerViewController: UIViewController {}
     
-    var captureSession: AVCaptureSession!
+    /*var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     
     private var codeFound = false
@@ -231,4 +231,4 @@ extension ScannerViewController {
             controller?.scannedCode = (sender as? String)
         }
     }
-}
+}*/

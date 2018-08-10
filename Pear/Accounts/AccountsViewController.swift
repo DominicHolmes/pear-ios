@@ -11,18 +11,25 @@ import UIKit
 class AccountsViewController: PryntViewController {
     
     private var allServices = SocialServiceType.allValues
-    private var enabledAccounts: [Account]?
+    private var enabledAccounts: [Account]? = [Account(service: .Facebook, handle: "DominicHolmes", id: "accountId"),
+                                               Account(service: .Twitter, handle: "DominicHolmes", id: "accountId"),
+                                               Account(service: .GroupMe, handle: "DominicHolmes", id: "accountId"),
+                                               Account(service: .GooglePlus, handle: "DominicHolmes", id: "accountId")]
     
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBAction func xButtonTapped() { dismiss(animated: true, completion: nil) }
     
     internal func create(_ accountCreate: AccountCreate) {
+        dump(accountCreate)
+        enabledAccounts!.append(Account(service: accountCreate.service, handle: accountCreate.handle, id: "miscHandle"))
+        collectionView.reloadData()
     }
     
     internal func update(_ account: Account) {
+        dump(account)
     }
     
     internal func delete(_ account: Account) {
+        dump(account)
     }
 }
 

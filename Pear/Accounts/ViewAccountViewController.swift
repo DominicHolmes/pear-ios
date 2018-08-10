@@ -76,7 +76,17 @@ class ViewAccountViewController: PearViewController {
     }
     
     @IBAction func userDidSelectDone() {
-        delegate?.viewAccountViewControllerDidCancel(self)
+        switch state {
+        case .viewing: delegate?.viewAccountViewControllerDidCancel(self)
+        case .creating:
+            if let text = handleTextField.text {
+                delegate?.viewAccountViewControllerDidCreate(self, accountCreate: AccountCreate(service: service, handle: text))
+            }
+        case .editing:
+            if let text = handleTextField.text, let accountToEdit = accountToEdit {
+                delegate?.viewAccountViewControllerDidUpdate(self, account: Account(service: service, handle: text, id: accountToEdit.id))
+            }
+        }
     }
     
     @IBAction func userDidSelectCancel() {

@@ -16,14 +16,7 @@ class NetworkCollectionCell: UICollectionViewCell {
     lazy var checkmarkView: UIImageView? = self.viewWithTag(101) as? UIImageView
     
     var socialServiceType: SocialServiceType?
-    
-    var accountToEdit: Account? {
-        didSet {
-            self.isChecked = (accountToEdit != nil)
-            updateCheckmark()
-        }
-    }
-    
+    var accountToEdit: Account?
     var accountToDisplay: Account?
     
     var isChecked = false {

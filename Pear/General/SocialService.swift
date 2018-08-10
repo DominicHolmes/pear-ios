@@ -37,8 +37,8 @@ enum SocialServiceType: String, Codable {
     
     
     static let allValues = [Behance, Dribble, Facebook, Twitter, Instagram,
-                            YouTube, AdobeCloud, LinkedIn, Snapchat, Email,
-                            WhatsApp, Spotify, Duolingo, GooglePlus, GroupMe,
+                            YouTube, LinkedIn, Snapchat, Email,
+                            WhatsApp, Spotify, GooglePlus, GroupMe,
                             Medium, PhoneNumber, Pintrest, Reddit, Skype,
                             Soundcloud, Tumblr, Venmo, Vsco]
     

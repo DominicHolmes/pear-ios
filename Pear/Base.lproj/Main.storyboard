@@ -32,7 +32,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="93Z-vc-oSF">
-                                <rect key="frame" x="0.0" y="155" width="375" height="512"/>
+                                <rect key="frame" x="0.0" y="155" width="375" height="463"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0IN-sH-f2Y">
@@ -77,11 +77,35 @@
                     <tabBarItem key="tabBarItem" title="Item" id="Eiv-1Z-wPj"/>
                     <connections>
                         <outlet property="collectionView" destination="93Z-vc-oSF" id="ihZ-6d-cvm"/>
+                        <segue destination="JAB-Um-KeB" kind="popoverPresentation" identifier="ViewAccountSegue" popoverAnchorView="EOd-9Z-WHi" id="K1S-Tm-ghH">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
+                        <segue destination="JAB-Um-KeB" kind="popoverPresentation" identifier="EditAccountSegue" popoverAnchorView="EOd-9Z-WHi" id="ehQ-QM-5F0">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
+                        <segue destination="JAB-Um-KeB" kind="popoverPresentation" identifier="CreateAccountSegue" popoverAnchorView="EOd-9Z-WHi" id="rQJ-Lp-f2f">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9eD-tF-cPs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1562.4000000000001" y="-2263.7181409295354"/>
+            <point key="canvasLocation" x="1564" y="-3055.3223388305851"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="qrl-Gx-cSH">
+            <objects>
+                <viewController id="jFc-oZ-Ov8" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Nn0-lE-sCS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="6dD-IA-XTJ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y13-LT-I2U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1564" y="-2281"/>
         </scene>
         <!--Profiles View Controller-->
         <scene sceneID="JJV-2u-p2L">
@@ -678,7 +702,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Open Testing"/>
                                 <connections>
-                                    <segue destination="Igu-zz-OBv" kind="show" id="Znp-Ua-BOy"/>
+                                    <segue destination="Igu-zz-OBv" kind="showDetail" id="Znp-Ua-BOy"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Usn-87-uUO">
@@ -1046,10 +1070,6 @@
                                                 </tableViewCellContentView>
                                             </tableViewCell>
                                         </prototypes>
-                                        <connections>
-                                            <outlet property="dataSource" destination="5oa-Xh-Fqc" id="Rzp-bh-uYw"/>
-                                            <outlet property="delegate" destination="5oa-Xh-Fqc" id="cki-p5-k74"/>
-                                        </connections>
                                     </tableView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1063,9 +1083,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <state key="normal" image="qr-button"/>
                                 <state key="highlighted" image="qr-button-highlighted"/>
-                                <connections>
-                                    <action selector="toggleProfileSelector" destination="5oa-Xh-Fqc" eventType="touchUpInside" id="3I9-5v-4Pl"/>
-                                </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0VD-Fg-Bib">
                                 <rect key="frame" x="0.0" y="64" width="375" height="71"/>
@@ -1096,12 +1113,6 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="circle-tab-icon-disabled" selectedImage="circle-tab-icon-enabled" id="nbi-X5-ISA"/>
                     <connections>
-                        <outlet property="cameraView" destination="PPX-oO-opV" id="PXE-dr-JU3"/>
-                        <outlet property="headerView" destination="0VD-Fg-Bib" id="4g0-BV-s5T"/>
-                        <outlet property="profileViewHeightConstraint" destination="S4H-9p-XD4" id="pnE-JD-YNt"/>
-                        <outlet property="profileViewTopConstraint" destination="Ax3-LA-MH4" id="FSp-L6-SKR"/>
-                        <outlet property="profilesButton" destination="OhS-Cq-Yga" id="OFE-X8-fZH"/>
-                        <outlet property="profilesTableView" destination="Is4-lb-wD2" id="a2s-3z-VJ7"/>
                         <segue destination="Qdb-gs-KGW" kind="popoverPresentation" identifier="viewCodeSegue" popoverAnchorView="PPX-oO-opV" id="2Z4-Kf-B9m">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
@@ -1364,9 +1375,6 @@
                         <color key="backgroundColor" red="1" green="0.56146918400000001" blue="0.1867947049" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="kqm-VU-MHg"/>
                     </view>
-                    <connections>
-                        <outlet property="cameraView" destination="FCj-Pe-FQj" id="dWX-Ih-tO1"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Cz-hc-m8d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1729,6 +1737,98 @@
             </objects>
             <point key="canvasLocation" x="-10.4" y="1007.9460269865068"/>
         </scene>
+        <!--View Account View Controller-->
+        <scene sceneID="usB-2Z-mmL">
+            <objects>
+                <viewController id="JAB-Um-KeB" customClass="ViewAccountViewController" customModule="Prynt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5Ne-bV-G9O">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="translucent-background" translatesAutoresizingMaskIntoConstraints="NO" id="Ggs-7k-cWq">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="OW6-w6-lYl" appends="YES" id="WNr-KC-4ND"/>
+                                </connections>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I want to share my Instagram profile" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GkI-7n-lHl">
+                                <rect key="frame" x="72" y="110" width="230" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7S-A8-IGM">
+                                <rect key="frame" x="72" y="407" width="230" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="17"/>
+                                <state key="normal" title="Done" backgroundImage="button-solid-white">
+                                    <color key="titleColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted" backgroundImage="button-solid-white-highlighted">
+                                    <color key="titleColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="0.5995023545" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="userDidSelectDone" destination="JAB-Um-KeB" eventType="touchUpInside" id="vtw-wI-ehc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRx-dI-7WY">
+                                <rect key="frame" x="72" y="477" width="230" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="17"/>
+                                <state key="normal" title="Cancel" backgroundImage="button-outline-white">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <state key="highlighted" backgroundImage="button-outline-white-highlighted">
+                                    <color key="titleColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="userDidSelectCancel" destination="JAB-Um-KeB" eventType="touchUpInside" id="Dax-LT-SZf"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4wc-TC-4Eg">
+                                <rect key="frame" x="157" y="208" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OWt-AK-6X7">
+                                <rect key="frame" x="88" y="172" width="200" height="3"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Facebook username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="btn-pp-YHt" customClass="PearTextField" customModule="Prynt" customModuleProvider="target">
+                                <rect key="frame" x="66" y="298" width="240" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="username"/>
+                                <connections>
+                                    <action selector="doneButtonShouldUpdateState" destination="JAB-Um-KeB" eventType="editingChanged" id="55E-If-vGN"/>
+                                    <action selector="textFieldPrimaryActionShouldDismissKeyboardWithSender:" destination="JAB-Um-KeB" eventType="primaryActionTriggered" id="tuD-7Y-eyY"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="MZR-CN-pyH"/>
+                    </view>
+                    <connections>
+                        <outlet property="doneButton" destination="h7S-A8-IGM" id="ZSV-aU-y3K"/>
+                        <outlet property="handleTextField" destination="btn-pp-YHt" id="z7N-eD-6bd"/>
+                        <outlet property="socialServiceLogo" destination="4wc-TC-4Eg" id="3sr-fS-Typ"/>
+                        <outlet property="socialServiceNameLabel" destination="GkI-7n-lHl" id="Ylo-Mp-zqd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sSv-KB-tMW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="down" id="OW6-w6-lYl">
+                    <connections>
+                        <action selector="userDidSelectCancel" destination="JAB-Um-KeB" id="X7p-oN-mIq"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2865" y="-2971"/>
+        </scene>
     </scenes>
     <resources>
         <image name="bell-tab-icon-disabled" width="22" height="28"/>
@@ -1756,10 +1856,11 @@
         <image name="x-button-highlighted" width="47" height="47"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="rQJ-Lp-f2f"/>
         <segue reference="zs1-hK-bs9"/>
-        <segue reference="EaW-Nt-kia"/>
+        <segue reference="JVR-pM-jdX"/>
         <segue reference="H4Y-RI-GR5"/>
-        <segue reference="44M-5T-dTA"/>
+        <segue reference="PI2-Ap-psT"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
 </document>
