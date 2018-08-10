@@ -82,7 +82,7 @@ extension PearProfileViewController: UICollectionViewDataSource {
         let cellImageView = cell!.viewWithTag(100) as? UIImageView
         if services != nil && indexPath.row < services!.count {
             let service = services![indexPath.row]
-            cell?.socialService = service
+            cell?.accountToDisplay = nil
             cell?.socialServiceType = service.socialService
             cellImageView?.image = UIImage(named: service.socialService.photoName)
         }

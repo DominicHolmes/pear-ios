@@ -6,7 +6,7 @@
 //  Copyright © 2018 Dominic Holmes. All rights reserved.
 //
 
-import UIKit
+/*import UIKit
 import FirebaseDatabase
 
 class EditPryntProfileViewController: PryntViewController {
@@ -14,7 +14,7 @@ class EditPryntProfileViewController: PryntViewController {
     var profileToEdit: PryntProfile?
     
     private var allServices = SocialServiceType.allValues
-    private var enabledServices = [ServiceProfile]()
+    private var enabledServices = [Account]()
     
     weak var lastTappedCell: NetworkCollectionCell?
     
@@ -22,12 +22,12 @@ class EditPryntProfileViewController: PryntViewController {
     var socialProfile: SocialProfile!
     
     @IBAction func doneButtonTapped() {
-        saveSocialProfile()
+        saveAccountChanges()
         //performSegue(withIdentifier: "ProfileConstructionCompletedSegue", sender: nil)
     }
     
-    func saveServiceProfileChanges() {
-        guard let profileToEdit = profileToEdit else { return }
+    func saveAccountChanges() {
+        /*guard let profileToEdit = profileToEdit else { return }
         profileToEdit.accounts = enabledServices
         ProfileNetworkingManager.shared.updateProfile(from: profileToEdit) { (success, updatedProfile) in
             if success, let updatedProfile = updatedProfile {
@@ -36,7 +36,7 @@ class EditPryntProfileViewController: PryntViewController {
             } else {
                 self.displayAlert("Error", "Couldn't save profile. Please try again later.", nil)
             }
-        }
+        }*/
         
         /*if activeUser != nil && enabledServices.count > 0 {
             
@@ -75,7 +75,7 @@ extension EditPryntProfileViewController: UICollectionViewDataSource {
         
         let enabledServicesOfSameType = enabledServices.filter { $0.service == serviceType }
         if !enabledServicesOfSameType.isEmpty {
-            cell.socialService = enabledServicesOfSameType[0]
+            //cell.socialService = enabledServicesOfSameType[0]
         }
         
         let cellImageView = cell.viewWithTag(100) as? UIImageView
@@ -95,8 +95,8 @@ extension EditPryntProfileViewController: UICollectionViewDelegate {
         if cell != nil && cell!.isChecked {
             cell!.isChecked = false
             if let service = cell!.socialService {
-                enabledServices = enabledServices.filter { $0.socialService != service.socialService &&
-                                                           $0.handle != service.handle}
+                //enabledServices = enabledServices.filter { $0.socialService != service.socialService &&
+                                                           //$0.handle != service.handle}
             }
         } else if cell != nil && !cell!.isChecked {
             self.lastTappedCell = cell
@@ -128,7 +128,7 @@ extension EditPryntProfileViewController: AddNewServiceProfileDelegate {
     func addNewServiceViewControllerDidSave(_ controller: AddNewServiceViewController, withService service: SocialService?) {
         controller.dismiss(animated: true, completion: nil)
         if let _ = service {
-            enabledServices.append(service!)
+            //enabledServices.append(service!)
             lastTappedCell?.socialService = service
         }
         lastTappedCell?.setNeedsLayout()
@@ -154,4 +154,4 @@ extension EditPryntProfileViewController {
             tabBarController.user = self.user
         }
     }
-}
+}*/

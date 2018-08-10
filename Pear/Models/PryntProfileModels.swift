@@ -24,7 +24,7 @@ struct PryntProfileCreate: Codable {
     let userId: UserId
     let handle: String
     let profileName: String
-    let accounts: [ServiceProfile]?
+    let accounts: [Account]?
     
     enum CodingKeys: String, CodingKey {
         case userId = "user"
@@ -40,7 +40,7 @@ struct PryntProfile: Codable {
     let handle: String
     let profileName: String
     let usersName: String
-    let accounts: [ServiceProfile]?
+    let accounts: [Account]?
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -52,15 +52,9 @@ struct PryntProfile: Codable {
     }
 }
 
-struct ServiceProfile: Codable {
-    let service: SocialServiceType
-    let handle: String
-    let ranking: Int
-}
-
 struct PryntTransactionProfile: Codable {
     let handle: String
     let profileName: String
     let usersName: String
-    let accounts: [ServiceProfile]?
+    let accounts: [Account]?
 }
