@@ -17,9 +17,8 @@ class CreateSocialProfileViewController: PearViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SocialProfileConstructionSegue" {
             let controller = segue.destination as! SocialProfileConstructionViewController
-            controller.databaseRef = self.databaseRef
-            controller.activeUser = self.activeUser
-            controller.socialProfile = sender as! SocialProfile
+            controller.user = self.activeUser
+            controller.pryntProfile = sender as! PryntProfile
         }
     }
     
