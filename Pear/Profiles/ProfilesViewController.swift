@@ -46,7 +46,7 @@ extension ProfilesViewController: UITableViewDelegate {
         performSegue(withIdentifier: "ViewPryntProfileSegue", sender: profiles[indexPath.row])
     }
     
-    // Swipe to delete functionality
+    // Swipe to delete UI functionality
     func tableView(_ tableView: UITableView,
                    commit editingStyle: UITableViewCellEditingStyle,
                    forRowAt indexPath: IndexPath) {
@@ -60,26 +60,27 @@ extension ProfilesViewController: UIPopoverPresentationControllerDelegate {
     
     func popoverPresentationControllerDidDismissPopover(
         _ popoverPresentationController: UIPopoverPresentationController) {
-        //do stuff from popover
+        // TODO: Implement Profile Deletion
     }
     
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .overFullScreen
     }
-    
 }
 
 // MARK: - Segue Control
 extension ProfilesViewController {
+    
+    // TODO: Hook up segue stuff
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ConfirmDeletePryntProfileSegue" {
             let controller = segue.destination
-            controller.popoverPresentationController!.delegate = self
+            //controller.popoverPresentationController!.delegate = self
         } else if segue.identifier == "ViewPryntProfileSegue" {
             let controller = segue.destination as! PearProfileViewController
-            controller.popoverPresentationController!.delegate = self
+            /*controller.popoverPresentationController!.delegate = self
             let profile = sender as? SocialProfile
-            controller.socialProfile = profile
+            controller.socialProfile = profile*/
         } else if segue.identifier == "CreateNewPryntProfileSegue" {
             let controller = segue.destination as! CreateSocialProfileViewController
         }
