@@ -1,74 +1,62 @@
 //
-//  SocialProfilesViewController.swift
-//  Pear
+//  ProfilesViewController.swift
+//  Prynt
 //
-//  Created by Dominic Holmes on 1/25/18.
+//  Created by Dominic Holmes on 8/9/18.
 //  Copyright © 2018 Dominic Holmes. All rights reserved.
 //
 
 import UIKit
 
-class SocialProfilesViewController: PearTabViewController {
+class ProfilesViewController: PearTabViewController {
     
-    override var activeUser: PearUser? {
-        didSet {
-            tableView.reloadData()
-        }
-    }
-    
-    
-    
+    var profiles: [PryntProfile]?
     @IBOutlet weak var tableView: UITableView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 }
 
 // MARK: - TableView Data Source
-extension SocialProfilesViewController: UITableViewDataSource {
+extension ProfilesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return activeUser!.profiles.count
+        return profiles?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell")
+        guard let profiles = profiles, profiles.count > indexPath.row else { return UITableViewCell() }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PryntProfileCell")
         
         let profileNameLabel = cell?.viewWithTag(100) as? UILabel
-        if indexPath.row < activeUser!.profiles.count {
-            profileNameLabel?.text = activeUser!.profiles[indexPath.row].getName()
-        } else {
-            profileNameLabel?.text = ""
-        }
+        profileNameLabel?.text = profiles[indexPath.row].profileName
+        
+        let handleLabel = cell?.viewWithTag(101) as? UILabel
+        handleLabel?.text = profiles[indexPath.row].handle
         
         return cell!
     }
 }
 
 // MARK: - TableView Delegate
-extension SocialProfilesViewController: UITableViewDelegate {
+extension ProfilesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: "PearProfileSegue", sender: activeUser!.profiles[indexPath.row])
+        guard let profiles = profiles, profiles.count > indexPath.row else { return }
+        
+        performSegue(withIdentifier: "ViewPryntProfileSegue", sender: profiles[indexPath.row])
     }
     
     // Swipe to delete functionality
     func tableView(_ tableView: UITableView,
                    commit editingStyle: UITableViewCellEditingStyle,
                    forRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "deleteProfileSegue", sender: nil)
+        guard let profiles = profiles, profiles.count > indexPath.row else { return }
+        performSegue(withIdentifier: "ConfirmDeletePryntProfileSegue", sender: profiles[indexPath.row])
     }
 }
 
 // MARK: - Delete Profile Popover
-extension SocialProfilesViewController: UIPopoverPresentationControllerDelegate {
+extension ProfilesViewController: UIPopoverPresentationControllerDelegate {
     
     func popoverPresentationControllerDidDismissPopover(
         _ popoverPresentationController: UIPopoverPresentationController) {
@@ -82,20 +70,18 @@ extension SocialProfilesViewController: UIPopoverPresentationControllerDelegate 
 }
 
 // MARK: - Segue Control
-extension SocialProfilesViewController {
+extension ProfilesViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "deleteProfileSegue" {
+        if segue.identifier == "ConfirmDeletePryntProfileSegue" {
             let controller = segue.destination
             controller.popoverPresentationController!.delegate = self
-        } else if segue.identifier == "PearProfileSegue" {
+        } else if segue.identifier == "ViewPryntProfileSegue" {
             let controller = segue.destination as! PearProfileViewController
             controller.popoverPresentationController!.delegate = self
             let profile = sender as? SocialProfile
             controller.socialProfile = profile
-        } else if segue.identifier == "AddNewSocialProfileSegue" {
+        } else if segue.identifier == "CreateNewPryntProfileSegue" {
             let controller = segue.destination as! CreateSocialProfileViewController
-            controller.activeUser = self.activeUser
-            controller.databaseRef = self.databaseRef
         }
     }
 }

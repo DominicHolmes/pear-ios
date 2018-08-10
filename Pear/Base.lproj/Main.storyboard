@@ -911,10 +911,10 @@
             </objects>
             <point key="canvasLocation" x="-791" y="0.0"/>
         </scene>
-        <!--Pear Tab Bar Controller-->
+        <!--Prynt Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" customClass="PearTabBarController" customModule="Prynt" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="49e-Tb-3d3" customClass="PryntTabBarController" customModule="Prynt" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="TNF-l6-HfH"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" itemPositioning="centered" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
@@ -1688,8 +1688,8 @@
     <inferredMetricsTieBreakers>
         <segue reference="zs1-hK-bs9"/>
         <segue reference="61v-J4-xMk"/>
-        <segue reference="XqZ-TR-T33"/>
-        <segue reference="DbV-Xy-BZu"/>
+        <segue reference="aZp-fy-vME"/>
+        <segue reference="44M-5T-dTA"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -63,6 +63,7 @@
 		B67A370E203A1B2D00A72456 /* AddNewServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A370D203A1B2D00A72456 /* AddNewServiceViewController.swift */; };
 		B6889B2E211D0B56001E9B25 /* PryntUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6889B2D211D0B56001E9B25 /* PryntUser.swift */; };
 		B6889B35211D10E2001E9B25 /* PryntTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6889B34211D10E2001E9B25 /* PryntTabBarController.swift */; };
+		B6889B37211D133A001E9B25 /* ProfilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6889B36211D133A001E9B25 /* ProfilesViewController.swift */; };
 		B69DED9F2096A8460084C1E0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69DED9E2096A8460084C1E0 /* LoginViewController.swift */; };
 		B69DEDA1209904BC0084C1E0 /* PearTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69DEDA0209904BC0084C1E0 /* PearTabBarController.swift */; };
 		B69DEDA3209909860084C1E0 /* PearTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69DEDA2209909860084C1E0 /* PearTabViewController.swift */; };
@@ -141,6 +142,7 @@
 		B67A370D203A1B2D00A72456 /* AddNewServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewServiceViewController.swift; sourceTree = "<group>"; };
 		B6889B2D211D0B56001E9B25 /* PryntUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PryntUser.swift; sourceTree = "<group>"; };
 		B6889B34211D10E2001E9B25 /* PryntTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PryntTabBarController.swift; sourceTree = "<group>"; };
+		B6889B36211D133A001E9B25 /* ProfilesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesViewController.swift; sourceTree = "<group>"; };
 		B69DED9E2096A8460084C1E0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B69DEDA0209904BC0084C1E0 /* PearTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PearTabBarController.swift; sourceTree = "<group>"; };
 		B69DEDA2209909860084C1E0 /* PearTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PearTabViewController.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				B6111DDB20199FBC00DC7877 /* SocialProfilesViewController.swift */,
+				B6889B36211D133A001E9B25 /* ProfilesViewController.swift */,
 				B6045A552022ECC200609C9B /* PearProfileViewController.swift */,
 				B62282EA20462B3D00C01F61 /* PastPearsTableViewController.swift */,
 				B6111DDD2019A95700DC7877 /* DeleteSocialProfileViewController.swift */,
@@ -243,7 +246,6 @@
 				B67A37052039E52D00A72456 /* Extensions.swift */,
 				B6FE7A0B2080257400F60838 /* PearViewControllers.swift */,
 				B69DEDA2209909860084C1E0 /* PearTabViewController.swift */,
-				B69DEDA0209904BC0084C1E0 /* PearTabBarController.swift */,
 				B6C945E520AE4601000374DE /* PearPendingTransaction.swift */,
 				B6FE7A10208028F200F60838 /* SocialService.swift */,
 				B6FE7A122080307000F60838 /* SocialProfile.swift */,
@@ -384,6 +386,7 @@
 		B6889B2F211D0D83001E9B25 /* DEPRECATED */ = {
 			isa = PBXGroup;
 			children = (
+				B69DEDA0209904BC0084C1E0 /* PearTabBarController.swift */,
 				B6C945E320AE32FC000374DE /* PearTransaction.swift */,
 				B6FE7A072080079100F60838 /* PearUser.swift */,
 			);
@@ -598,6 +601,7 @@
 				B6FE7A11208028F200F60838 /* SocialService.swift in Sources */,
 				B69DEDA1209904BC0084C1E0 /* PearTabBarController.swift in Sources */,
 				B6C945E420AE32FC000374DE /* PearTransaction.swift in Sources */,
+				B6889B37211D133A001E9B25 /* ProfilesViewController.swift in Sources */,
 				B67A370E203A1B2D00A72456 /* AddNewServiceViewController.swift in Sources */,
 				B67881D2211A6FB3000DA750 /* ProfileNetworking.swift in Sources */,
 				B62282ED2046481C00C01F61 /* QRCodeViewController.swift in Sources */,
