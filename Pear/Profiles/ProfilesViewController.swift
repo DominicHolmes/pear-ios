@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfilesViewController: PearTabViewController {
+class ProfilesViewController: PryntTabViewController {
     
     var profiles: [PryntProfile]?
     @IBOutlet weak var tableView: UITableView!
@@ -83,6 +83,7 @@ extension ProfilesViewController {
             controller.socialProfile = profile*/
         } else if segue.identifier == "CreateNewPryntProfileSegue" {
             let controller = segue.destination as! CreateSocialProfileViewController
+            controller.user = self.user
         }
     }
 }

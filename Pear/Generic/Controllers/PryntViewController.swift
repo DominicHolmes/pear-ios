@@ -10,7 +10,7 @@ import UIKit
 
 class PryntViewController: UIViewController {
     
-    var user: PryntUser?
+    var user: PryntUser!
     
     // Dismiss Keyboard
     @IBAction func dismissKeyboard(sender: UITapGestureRecognizer) { self.view.endEditing(true) }

@@ -44,3 +44,18 @@ extension PryntUser {
         }
     }
 }
+
+// MARK: - Profile Creation
+extension PryntUser {
+    func add(_ profile: PryntProfile) {
+        if profiles == nil { profiles = [PryntProfile]() }
+        
+        if let replacedProfile = profiles!.index(where: { (p) -> Bool in
+            return profile.id == p.id
+        }) {
+            profiles![replacedProfile] = profile
+        } else {
+            profiles!.append(profile)
+        }
+    }
+}
