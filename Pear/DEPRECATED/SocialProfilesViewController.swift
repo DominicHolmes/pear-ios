@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SocialProfilesViewController: PearTabViewController {
+/*class SocialProfilesViewController: PearTabViewController {
     
     override var activeUser: PearUser? {
         didSet {
@@ -93,9 +93,9 @@ extension SocialProfilesViewController {
             let profile = sender as? SocialProfile
             controller.socialProfile = profile
         } else if segue.identifier == "AddNewSocialProfileSegue" {
-            let controller = segue.destination as! CreateSocialProfileViewController
+            let controller = segue.destination as! CreatePryntProfileViewController
             controller.activeUser = self.activeUser
             controller.databaseRef = self.databaseRef
         }
     }
-}
+}*/

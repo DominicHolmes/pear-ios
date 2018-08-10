@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PostRegistrationViewController : PearViewController {
+class PostRegistrationViewController : PryntViewController {
     
     @IBAction func segueButtonPressed() {
         performSegue(withIdentifier: "CreateSocialProfileSegue", sender: nil)
@@ -16,8 +16,8 @@ class PostRegistrationViewController : PearViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "CreateSocialProfileSegue" {
-            let controller = segue.destination as! CreateSocialProfileViewController
-            controller.activeUser = self.activeUser
+            let controller = segue.destination as! CreatePryntProfileViewController
+            controller.user = self.user
         }
     }
 }

@@ -82,7 +82,7 @@ extension ProfilesViewController {
             let profile = sender as? SocialProfile
             controller.socialProfile = profile*/
         } else if segue.identifier == "CreateNewPryntProfileSegue" {
-            let controller = segue.destination as! CreateSocialProfileViewController
+            let controller = segue.destination as! CreatePryntProfileViewController
             controller.user = self.user
         }
     }

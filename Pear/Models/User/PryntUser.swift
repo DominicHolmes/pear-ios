@@ -48,8 +48,8 @@ extension PryntUser {
 // MARK: - Profile Creation
 extension PryntUser {
     func add(_ profile: PryntProfile) {
+        // Replace a profile if the id already exists; append if it doesn't
         if profiles == nil { profiles = [PryntProfile]() }
-        
         if let replacedProfile = profiles!.index(where: { (p) -> Bool in
             return profile.id == p.id
         }) {

@@ -96,7 +96,7 @@ extension PearRegistrationViewController {
         if segue.identifier == "PostRegistrationSegue", let sender = sender as? UserInfo {
             let nav = segue.destination as! UINavigationController
             let controller = nav.topViewController as! PostRegistrationViewController
-            controller.activeUser = PearUser(from: sender)
+            controller.user = PryntUser(from: sender)
         }
     }
 }

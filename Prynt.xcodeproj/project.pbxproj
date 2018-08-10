@@ -58,7 +58,7 @@
 		B67881D6211A7044000DA750 /* PryntTransactionModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67881D5211A7044000DA750 /* PryntTransactionModels.swift */; };
 		B67A37062039E52D00A72456 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A37052039E52D00A72456 /* Extensions.swift */; };
 		B67A37082039FC7F00A72456 /* PearTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A37072039FC7F00A72456 /* PearTextField.swift */; };
-		B67A370A203A13E500A72456 /* SocialProfileConstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A3709203A13E500A72456 /* SocialProfileConstructionViewController.swift */; };
+		B67A370A203A13E500A72456 /* EditPryntProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A3709203A13E500A72456 /* EditPryntProfileViewController.swift */; };
 		B67A370C203A144000A72456 /* NetworkCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A370B203A144000A72456 /* NetworkCollectionCell.swift */; };
 		B67A370E203A1B2D00A72456 /* AddNewServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A370D203A1B2D00A72456 /* AddNewServiceViewController.swift */; };
 		B6889B2E211D0B56001E9B25 /* PryntUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6889B2D211D0B56001E9B25 /* PryntUser.swift */; };
@@ -79,7 +79,7 @@
 		B6FE7A082080079100F60838 /* PearUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE7A072080079100F60838 /* PearUser.swift */; };
 		B6FE7A0A20801C0400F60838 /* PostRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE7A0920801C0400F60838 /* PostRegistrationViewController.swift */; };
 		B6FE7A0C2080257400F60838 /* PearViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE7A0B2080257400F60838 /* PearViewControllers.swift */; };
-		B6FE7A0F208026AE00F60838 /* CreateSocialProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE7A0E208026AE00F60838 /* CreateSocialProfileViewController.swift */; };
+		B6FE7A0F208026AE00F60838 /* CreatePryntProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE7A0E208026AE00F60838 /* CreatePryntProfileViewController.swift */; };
 		B6FE7A11208028F200F60838 /* SocialService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE7A10208028F200F60838 /* SocialService.swift */; };
 		B6FE7A132080307000F60838 /* SocialProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE7A122080307000F60838 /* SocialProfile.swift */; };
 /* End PBXBuildFile section */
@@ -140,7 +140,7 @@
 		B67881D5211A7044000DA750 /* PryntTransactionModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PryntTransactionModels.swift; sourceTree = "<group>"; };
 		B67A37052039E52D00A72456 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B67A37072039FC7F00A72456 /* PearTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PearTextField.swift; sourceTree = "<group>"; };
-		B67A3709203A13E500A72456 /* SocialProfileConstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialProfileConstructionViewController.swift; sourceTree = "<group>"; };
+		B67A3709203A13E500A72456 /* EditPryntProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPryntProfileViewController.swift; sourceTree = "<group>"; };
 		B67A370B203A144000A72456 /* NetworkCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCollectionCell.swift; sourceTree = "<group>"; };
 		B67A370D203A1B2D00A72456 /* AddNewServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewServiceViewController.swift; sourceTree = "<group>"; };
 		B6889B2D211D0B56001E9B25 /* PryntUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PryntUser.swift; sourceTree = "<group>"; };
@@ -161,7 +161,7 @@
 		B6FE7A072080079100F60838 /* PearUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PearUser.swift; sourceTree = "<group>"; };
 		B6FE7A0920801C0400F60838 /* PostRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRegistrationViewController.swift; sourceTree = "<group>"; };
 		B6FE7A0B2080257400F60838 /* PearViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PearViewControllers.swift; sourceTree = "<group>"; };
-		B6FE7A0E208026AE00F60838 /* CreateSocialProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSocialProfileViewController.swift; sourceTree = "<group>"; };
+		B6FE7A0E208026AE00F60838 /* CreatePryntProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePryntProfileViewController.swift; sourceTree = "<group>"; };
 		B6FE7A10208028F200F60838 /* SocialService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialService.swift; sourceTree = "<group>"; };
 		B6FE7A122080307000F60838 /* SocialProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialProfile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -430,8 +430,8 @@
 		B6FE7A0D2080264000F60838 /* SocialProfileCreation */ = {
 			isa = PBXGroup;
 			children = (
-				B6FE7A0E208026AE00F60838 /* CreateSocialProfileViewController.swift */,
-				B67A3709203A13E500A72456 /* SocialProfileConstructionViewController.swift */,
+				B6FE7A0E208026AE00F60838 /* CreatePryntProfileViewController.swift */,
+				B67A3709203A13E500A72456 /* EditPryntProfileViewController.swift */,
 				B67A370B203A144000A72456 /* NetworkCollectionCell.swift */,
 				B67A370D203A1B2D00A72456 /* AddNewServiceViewController.swift */,
 			);
@@ -601,8 +601,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B67A370A203A13E500A72456 /* SocialProfileConstructionViewController.swift in Sources */,
-				B6FE7A0F208026AE00F60838 /* CreateSocialProfileViewController.swift in Sources */,
+				B67A370A203A13E500A72456 /* EditPryntProfileViewController.swift in Sources */,
+				B6FE7A0F208026AE00F60838 /* CreatePryntProfileViewController.swift in Sources */,
 				B62282EB20462B3D00C01F61 /* PastPearsTableViewController.swift in Sources */,
 				B6111DDA201903F000DC7877 /* WelcomeViewController.swift in Sources */,
 				B6045A562022ECC200609C9B /* PearProfileViewController.swift in Sources */,

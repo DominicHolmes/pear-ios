@@ -1,5 +1,5 @@
 //
-//  ProfileConstructionViewController.swift
+//  EditPryntProfileViewController.swift
 //  Pear
 //
 //  Created by Dominic Holmes on 2/18/18.
@@ -9,10 +9,12 @@
 import UIKit
 import FirebaseDatabase
 
-class SocialProfileConstructionViewController: PearViewController {
+class EditPryntProfileViewController: PryntViewController {
     
-    var allServices = SocialServiceType.allValues
-    var enabledServices = [SocialService]()
+    var profileToEdit: PryntProfile?
+    
+    private var allServices = SocialServiceType.allValues
+    private var enabledServices = [SocialService]()
     
     weak var lastTappedCell: NetworkCollectionCell?
     
@@ -28,7 +30,7 @@ class SocialProfileConstructionViewController: PearViewController {
     
     func saveNewSocialProfile() {
         
-        if activeUser != nil && enabledServices.count > 0 {
+        /*if activeUser != nil && enabledServices.count > 0 {
             
             let usersProfilesRef: DatabaseReference!
             let allProfilesRef: DatabaseReference!
@@ -46,12 +48,12 @@ class SocialProfileConstructionViewController: PearViewController {
             allProfilesRef.setValue(socialProfile.getFirebaseEncoding())
             
             if !activeUser!.profiles.contains(socialProfile) { activeUser!.profiles.append(socialProfile) }
-        }
+        }*/
     }
 }
 
 // MARK: - CollectionView Data Source
-extension SocialProfileConstructionViewController: UICollectionViewDataSource {
+extension EditPryntProfileViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return allServices.count
@@ -76,7 +78,7 @@ extension SocialProfileConstructionViewController: UICollectionViewDataSource {
 }
 
 // MARK: - CollectionView Delegate
-extension SocialProfileConstructionViewController: UICollectionViewDelegate {
+extension EditPryntProfileViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
@@ -96,7 +98,7 @@ extension SocialProfileConstructionViewController: UICollectionViewDelegate {
 }
 
 // MARK: - Add New Network Popover
-extension SocialProfileConstructionViewController: UIPopoverPresentationControllerDelegate {
+extension EditPryntProfileViewController: UIPopoverPresentationControllerDelegate {
     
     func popoverPresentationControllerDidDismissPopover(
         _ popoverPresentationController: UIPopoverPresentationController) {
@@ -109,7 +111,7 @@ extension SocialProfileConstructionViewController: UIPopoverPresentationControll
     
 }
 
-extension SocialProfileConstructionViewController: AddNewServiceProfileDelegate {
+extension EditPryntProfileViewController: AddNewServiceProfileDelegate {
     
     func addNewServiceViewControllerDidCancel(_ controller: AddNewServiceViewController) {
         controller.dismiss(animated: true, completion: nil)
@@ -129,7 +131,7 @@ extension SocialProfileConstructionViewController: AddNewServiceProfileDelegate 
 }
 
 // MARK: - Segue Control
-extension SocialProfileConstructionViewController {
+extension EditPryntProfileViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addNetworkSegue" {
             let controller = segue.destination as! AddNewServiceViewController
@@ -140,9 +142,8 @@ extension SocialProfileConstructionViewController {
             controller.socialService = sender.socialService
         } else if segue.identifier == "ProfileConstructionCompletedSegue" {
             let navController = segue.destination as! UINavigationController
-            let tabBarController = navController.topViewController as! PearTabBarController
-            tabBarController.databaseRef = self.databaseRef
-            tabBarController.activeUser = self.activeUser
+            let tabBarController = navController.topViewController as! PryntTabBarController
+            tabBarController.user = self.user
         }
     }
 }

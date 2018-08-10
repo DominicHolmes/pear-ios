@@ -1,5 +1,5 @@
 //
-//  CreateSocialProfileViewController.swift
+//  CreatePryntProfileViewController.swift
 //  Pear
 //
 //  Created by dominic on 4/12/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateSocialProfileViewController: PryntViewController {
+class CreatePryntProfileViewController: PryntViewController {
     
     @IBOutlet weak var profileNameTextField: UITextField!
     @IBOutlet weak var profileHandleTextField: UITextField!
@@ -16,10 +16,10 @@ class CreateSocialProfileViewController: PryntViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "SocialProfileConstructionSegue" {
-            let controller = segue.destination as! SocialProfileConstructionViewController
-            //controller.user = self.activeUser
-            //controller.pryntProfile = sender as! PryntProfile
+        if segue.identifier == "EditPryntProfileSegue", let sender = sender as? PryntProfile {
+            let controller = segue.destination as! EditPryntProfileViewController
+            controller.user = self.user
+            controller.profileToEdit = sender
         }
     }
     
@@ -37,15 +37,17 @@ class CreateSocialProfileViewController: PryntViewController {
             
             ProfileNetworkingManager.shared.createProfile(from: profileSkeleton) { (success, profile) in
                 if success, let profile = profile {
-                    user.add(profile)
+                    self.user.add(profile)
+                    self.performSegue(withIdentifier: "EditPryntProfileSegue", sender: profile)
+                } else {
+                    // TODO: Present error message to user
                 }
             }
-            performSegue(withIdentifier: "SocialProfileConstructionSegue", sender: socialProfile)
         }
     }
 }
 
-extension CreateSocialProfileViewController {
+extension CreatePryntProfileViewController {
     
     fileprivate func fieldsValid() -> Bool { return profileHandleValid() && profileNameValid() }
     
