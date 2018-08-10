@@ -12,11 +12,10 @@ class PryntTableViewController: UITableViewController {
     
     var user: PryntUser!
     
-    func displayAlert(_ title: String, _ messageHeader: String, _ errors: [String]) {
+    // Generic Alert
+    func displayAlert(_ title: String, _ messageHeader: String, _ errors: [String]?) {
         var message = messageHeader
-        for eachError in errors {
-            message += eachError
-        }
+        if errors != nil { for eachError in errors! { message += eachError }}
         let alert = UIAlertController(title: title,
                                       message: message,
                                       preferredStyle: .alert)

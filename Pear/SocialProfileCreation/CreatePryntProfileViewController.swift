@@ -14,15 +14,6 @@ class CreatePryntProfileViewController: PryntViewController {
     @IBOutlet weak var profileHandleTextField: UITextField!
     @IBOutlet weak var createPryntProfileButton: UIButton!
     
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "EditPryntProfileSegue", let sender = sender as? PryntProfile {
-            let controller = segue.destination as! EditPryntProfileViewController
-            controller.user = self.user
-            controller.profileToEdit = sender
-        }
-    }
-    
     @IBAction func textFieldValueValueChanged() {
         if profileNameTextField.hasText && profileHandleTextField.hasText {
             createPryntProfileButton.isEnabled = true
@@ -40,13 +31,25 @@ class CreatePryntProfileViewController: PryntViewController {
                     self.user.add(profile)
                     self.performSegue(withIdentifier: "EditPryntProfileSegue", sender: profile)
                 } else {
-                    // TODO: Present error message to user
+                    self.displayAlert("Error", "Couldn't create a new profile. Please try again later.", nil)
                 }
             }
         }
     }
 }
 
+// MARK: - Segue Control
+extension CreatePryntProfileViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "EditPryntProfileSegue", let sender = sender as? PryntProfile {
+            let controller = segue.destination as! EditPryntProfileViewController
+            controller.user = self.user
+            controller.profileToEdit = sender
+        }
+    }
+}
+
+// MARK: - Text Field Error Checking
 extension CreatePryntProfileViewController {
     
     fileprivate func fieldsValid() -> Bool { return profileHandleValid() && profileNameValid() }

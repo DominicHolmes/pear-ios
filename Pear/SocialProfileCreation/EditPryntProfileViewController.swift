@@ -14,7 +14,7 @@ class EditPryntProfileViewController: PryntViewController {
     var profileToEdit: PryntProfile?
     
     private var allServices = SocialServiceType.allValues
-    private var enabledServices = [SocialService]()
+    private var enabledServices = [ServiceProfile]()
     
     weak var lastTappedCell: NetworkCollectionCell?
     
@@ -22,13 +22,21 @@ class EditPryntProfileViewController: PryntViewController {
     var socialProfile: SocialProfile!
     
     @IBAction func doneButtonTapped() {
-        if enabledServices.count > 0 {
-            saveNewSocialProfile()
-        }
-        performSegue(withIdentifier: "ProfileConstructionCompletedSegue", sender: nil)
+        saveSocialProfile()
+        //performSegue(withIdentifier: "ProfileConstructionCompletedSegue", sender: nil)
     }
     
-    func saveNewSocialProfile() {
+    func saveServiceProfileChanges() {
+        guard let profileToEdit = profileToEdit else { return }
+        profileToEdit.accounts = enabledServices
+        ProfileNetworkingManager.shared.updateProfile(from: profileToEdit) { (success, updatedProfile) in
+            if success, let updatedProfile = updatedProfile {
+                user.add(updatedProfile)
+                performSegue(withIdentifier: "EditPryntProfileCompletedSegue", sender: nil)
+            } else {
+                self.displayAlert("Error", "Couldn't save profile. Please try again later.", nil)
+            }
+        }
         
         /*if activeUser != nil && enabledServices.count > 0 {
             
@@ -60,12 +68,12 @@ extension EditPryntProfileViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NetworkCell",
-                                                      for: indexPath) as! NetworkCollectionCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NetworkCell", for: indexPath) as! NetworkCollectionCell
+        
         let serviceType = allServices[indexPath.row]
         cell.socialServiceType = serviceType
         
-        let enabledServicesOfSameType = enabledServices.filter { $0.socialService == serviceType }
+        let enabledServicesOfSameType = enabledServices.filter { $0.service == serviceType }
         if !enabledServicesOfSameType.isEmpty {
             cell.socialService = enabledServicesOfSameType[0]
         }
