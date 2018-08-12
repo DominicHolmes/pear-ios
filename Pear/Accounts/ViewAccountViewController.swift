@@ -42,6 +42,7 @@ class ViewAccountViewController: PearViewController {
             state = .viewing
         }
     }
+    var userId: UserId?
     
     override func viewWillAppear(_ animated: Bool) {
         setupUI()
@@ -79,12 +80,12 @@ class ViewAccountViewController: PearViewController {
         switch state {
         case .viewing: delegate?.viewAccountViewControllerDidCancel(self)
         case .creating:
-            if let text = handleTextField.text {
-                delegate?.viewAccountViewControllerDidCreate(self, accountCreate: AccountCreate(service: service, handle: text))
+            if let text = handleTextField.text, let userId = userId {
+                delegate?.viewAccountViewControllerDidCreate(self, accountCreate: AccountCreate(userId: userId, service: service, handle: text))
             }
         case .editing:
             if let text = handleTextField.text, let accountToEdit = accountToEdit {
-                delegate?.viewAccountViewControllerDidUpdate(self, account: Account(service: service, handle: text, id: accountToEdit.id))
+                delegate?.viewAccountViewControllerDidUpdate(self, account: Account(userId: accountToEdit.userId, service: service, handle: text, id: accountToEdit.id))
             }
         }
     }

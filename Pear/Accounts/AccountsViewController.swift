@@ -188,9 +188,11 @@ extension AccountsViewController {
         
         if segue.identifier == "CreateAccountSegue", let service = sender as? SocialServiceType {
             controller.service = service
+            controller.userId = user.id
         } else if segue.identifier == "EditAccountSegue", let account = sender as? Account {
             controller.service = account.service
             controller.accountToEdit = account
+            dump(account)
         } else if segue.identifier == "ViewAccountSegue", let account = sender as? Account {
             controller.service = account.service
             controller.accountToDisplay = account

@@ -42,7 +42,9 @@ class AccountNetworkingManager {
                 }
             }
             catch {
+                print(error)
                 print("ERROR - Could not create account")
+                completion(false, nil)
             }
         }
     }
@@ -113,6 +115,7 @@ class AccountNetworkingManager {
                 }
             }
             catch {
+                print(error)
                 print("ERROR - Could not update account")
                 completion(false, nil)
             }

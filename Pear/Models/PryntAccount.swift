@@ -21,18 +21,27 @@ struct AllAccountsHTTPSResponse: Codable {
 }
 
 struct AccountCreate: Codable {
+    let userId: UserId
     let service: SocialServiceType
     let handle: String
+    
+    enum CodingKeys: String, CodingKey {
+        case userId = "id"
+        case handle = "handle"
+        case service = "service"
+    }
 }
 
 struct Account: Codable {
+    let userId: UserId
     let service: SocialServiceType
     let handle: String
     let id: AccountId
     
     enum CodingKeys: String, CodingKey {
+        case userId = "user"
         case service = "service"
         case handle = "handle"
-        case id = "_id"
+        case id = "id"
     }
 }
