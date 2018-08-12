@@ -706,11 +706,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Usn-87-uUO">
-                                <rect key="frame" x="41" y="384" width="46" height="30"/>
+                                <rect key="frame" x="39" y="384" width="50" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Create"/>
+                                <state key="normal" title="!!!Clear"/>
                                 <connections>
-                                    <action selector="create" destination="M2t-b4-Qz1" eventType="touchUpInside" id="Hz9-Ji-hzq"/>
+                                    <action selector="clearBlockchain" destination="M2t-b4-Qz1" eventType="touchUpInside" id="ABL-ef-DiY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0jp-vp-v8m">
@@ -1858,7 +1858,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="rQJ-Lp-f2f"/>
         <segue reference="zs1-hK-bs9"/>
-        <segue reference="JVR-pM-jdX"/>
+        <segue reference="61v-J4-xMk"/>
         <segue reference="H4Y-RI-GR5"/>
         <segue reference="PI2-Ap-psT"/>
     </inferredMetricsTieBreakers>

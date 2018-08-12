@@ -9,4 +9,10 @@
 import UIKit
 import FirebaseDatabase
 
-class WelcomeViewController: UIViewController {}
+class WelcomeViewController: UIViewController {
+    @IBAction func clearBlockchain() {
+        UserNetworkingManager.shared.clearBlockchain { (success) in
+            print(success)
+        }
+    }
+}

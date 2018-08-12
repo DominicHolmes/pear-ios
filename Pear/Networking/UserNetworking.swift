@@ -114,6 +114,80 @@ class UserNetworkingManager {
             }
         }
     }
+    
+    // MARK: - Clear Blockchain
+    func clearBlockchain(_ completion: @escaping (_ success: Bool) -> Void) {
+        var REMOVE_BEFORE_RELEASE__🛠🛠🛠: AnyObject
+        let method = Alamofire.HTTPMethod.get
+        
+        struct ClearBlockchainResponse: Codable {
+            let status: Bool?
+        }
+        
+        // Users
+        sessionManager.request("https://35.231.241.240/service/clear/user", method: method, parameters: nil, encoding: encoding, headers: headers).response { response in
+            let jsonDecoder = JSONDecoder()
+            do {
+                let decodedResponse =  try jsonDecoder.decode(ClearBlockchainResponse.self, from: response.data!)
+                if let status = decodedResponse.status {
+                    completion(status)
+                } else {
+                    completion(false)
+                }
+            }
+            catch {
+                print("ERROR - Could not clear users")
+            }
+        }
+        
+        // Profiles
+        sessionManager.request("https://35.231.241.240/service/clear/profile", method: method, parameters: nil, encoding: encoding, headers: headers).response { response in
+            let jsonDecoder = JSONDecoder()
+            do {
+                let decodedResponse =  try jsonDecoder.decode(ClearBlockchainResponse.self, from: response.data!)
+                if let status = decodedResponse.status {
+                    completion(status)
+                } else {
+                    completion(false)
+                }
+            }
+            catch {
+                print("ERROR - Could not clear profiles")
+            }
+        }
+        
+        // Accounts
+        sessionManager.request("https://35.231.241.240/service/clear/account", method: method, parameters: nil, encoding: encoding, headers: headers).response { response in
+            let jsonDecoder = JSONDecoder()
+            do {
+                let decodedResponse =  try jsonDecoder.decode(ClearBlockchainResponse.self, from: response.data!)
+                if let status = decodedResponse.status {
+                    completion(status)
+                } else {
+                    completion(false)
+                }
+            }
+            catch {
+                print("ERROR - Could not clear accounts")
+            }
+        }
+        
+        // Transaction
+        sessionManager.request("https://35.231.241.240/service/clear/transaction", method: method, parameters: nil, encoding: encoding, headers: headers).response { response in
+            let jsonDecoder = JSONDecoder()
+            do {
+                let decodedResponse =  try jsonDecoder.decode(ClearBlockchainResponse.self, from: response.data!)
+                if let status = decodedResponse.status {
+                    completion(status)
+                } else {
+                    completion(false)
+                }
+            }
+            catch {
+                print("ERROR - Could not clear transactions")
+            }
+        }
+    }
 }
 
 class CustomServerTrustPoliceManager : ServerTrustPolicyManager {
