@@ -92,7 +92,7 @@ extension LoginViewController {
     
     func proceedWithLogin(_ user: PryntUser) {
         self.state = .none
-        performSegue(withIdentifier: "LoginCompletedSegue", sender: nil)
+        performSegue(withIdentifier: "LoginCompletedSegue", sender: user)
     }
 }
 

@@ -8,28 +8,69 @@
 
 import UIKit
 
-class AccountsViewController: PryntViewController {
+class AccountsViewController: PryntTabViewController {
     
     private var allServices = SocialServiceType.allValues
-    private var enabledAccounts: [Account]? = [Account(service: .Facebook, handle: "DominicHolmes", id: "accountId"),
-                                               Account(service: .Twitter, handle: "DominicHolmes", id: "accountId"),
-                                               Account(service: .GroupMe, handle: "DominicHolmes", id: "accountId"),
-                                               Account(service: .GooglePlus, handle: "DominicHolmes", id: "accountId")]
+    private var enabledAccounts: [Account]?
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if let pryntTBC = self.tabBarController as? PryntTabBarController {
+            self.user = pryntTBC.user
+        }
+        readAllAccounts()
+    }
+    
+    func readAllAccounts() {
+        AccountNetworkingManager.shared.fetchAllAccounts(for: user.id) { (success, accounts) in
+            if success, let accounts = accounts {
+                self.user.accounts = accounts
+                self.updateEnabledAccounts()
+            } else {
+                self.displayAlert("Error", "Could not fetch accounts. Please make sure you have access to internet and try again.", nil)
+            }
+        }
+    }
+    
     internal func create(_ accountCreate: AccountCreate) {
-        dump(accountCreate)
-        enabledAccounts!.append(Account(service: accountCreate.service, handle: accountCreate.handle, id: "miscHandle"))
-        collectionView.reloadData()
+        AccountNetworkingManager.shared.createAccount(from: accountCreate) { (success, account) in
+            if success, let account = account {
+                self.user.add(account)
+                self.updateEnabledAccounts()
+            } else {
+                self.displayAlert("Error", "Could not create account. Please make sure you have access to internet and try again.", nil)
+            }
+        }
     }
     
     internal func update(_ account: Account) {
-        dump(account)
+        AccountNetworkingManager.shared.updateAccount(from: account) { (success, account) in
+            if success, let account = account {
+                self.user.add(account)
+                self.updateEnabledAccounts()
+            } else {
+                self.displayAlert("Error", "Could not update account. Please make sure you have access to internet and try again.", nil)
+            }
+        }
     }
     
     internal func delete(_ account: Account) {
-        dump(account)
+        AccountNetworkingManager.shared.deleteAccount(for: user.id, with: account.id) { (success) in
+            if success {
+                self.user.remove(account: account.id)
+                self.updateEnabledAccounts()
+            } else {
+                self.displayAlert("Error", "Could not delete account. Please make sure you have access to internet and try again.", nil)
+            }
+        }
+    }
+    
+    internal func updateEnabledAccounts() {
+        enabledAccounts = user.accounts
+        collectionView.reloadData()
     }
 }
 
@@ -57,7 +98,7 @@ extension AccountsViewController: UICollectionViewDataSource {
         
         let cellImageView = cell.viewWithTag(100) as? UIImageView
         
-        if let enabledAccounts = enabledAccounts, indexPath.section == 0 {
+        if let enabledAccounts = enabledAccounts, enabledAccounts.count > 0, indexPath.section == 0 {
             let account = enabledAccounts[indexPath.row]
             cell.socialServiceType = account.service
             cell.accountToEdit = account

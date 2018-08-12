@@ -15,6 +15,7 @@ class PryntUser {
     var username: String!
     let id: String!
     var profiles: [PryntProfile]?
+    var accounts: [Account]?
     
     init(firstName: String, lastName: String, username: String, id: String, profiles: [PryntProfile]?) {
         self.firstName = firstName
@@ -45,8 +46,9 @@ extension PryntUser {
     }
 }
 
-// MARK: - Profile Creation
+// MARK: - Profiles
 extension PryntUser {
+    
     func add(_ profile: PryntProfile) {
         // Replace a profile if the id already exists; append if it doesn't
         if profiles == nil { profiles = [PryntProfile]() }
@@ -56,6 +58,34 @@ extension PryntUser {
             profiles![replacedProfile] = profile
         } else {
             profiles!.append(profile)
+        }
+    }
+    
+    func remove(profile profileId: ProfileId) {
+        if profiles != nil, let index = profiles!.index(where: { $0.id == profileId }) {
+            profiles!.remove(at: index)
+        }
+    }
+}
+
+// MARK: - Accounts
+extension PryntUser {
+    
+    func add(_ account: Account) {
+        // Replace an account if the id already exists; append if it doesn't
+        if accounts == nil { accounts = [Account]() }
+        if let replacedAccount = accounts!.index(where: { (acct) -> Bool in
+            return account.id == acct.id
+        }) {
+            accounts![replacedAccount] = account
+        } else {
+            accounts!.append(account)
+        }
+    }
+    
+    func remove(account accountId: AccountId) {
+        if accounts != nil, let index = accounts!.index(where: { $0.id == accountId }) {
+            accounts!.remove(at: index)
         }
     }
 }

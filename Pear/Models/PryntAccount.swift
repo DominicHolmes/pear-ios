@@ -29,4 +29,10 @@ struct Account: Codable {
     let service: SocialServiceType
     let handle: String
     let id: AccountId
+    
+    enum CodingKeys: String, CodingKey {
+        case service = "service"
+        case handle = "handle"
+        case id = "_id"
+    }
 }
