@@ -8,6 +8,18 @@
 
 import Foundation
 
+typealias AccountId = String
+
+struct AccountHTTPSResponse: Codable {
+    let status: Bool
+    let account: Account?
+}
+
+struct AllAccountsHTTPSResponse: Codable {
+    let status: Bool
+    let accounts: [Account]?
+}
+
 struct AccountCreate: Codable {
     let service: SocialServiceType
     let handle: String
@@ -16,5 +28,5 @@ struct AccountCreate: Codable {
 struct Account: Codable {
     let service: SocialServiceType
     let handle: String
-    let id: String
+    let id: AccountId
 }
