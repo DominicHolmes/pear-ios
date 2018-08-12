@@ -30,7 +30,7 @@ class UserNetworkingManager {
         let method = Alamofire.HTTPMethod.post
         let parameters: Parameters? = userInfo.dictionary
         
-        sessionManager.request("https://35.231.241.240:80/user/create", method: method, parameters: parameters, encoding: encoding, headers: headers).response { response in
+        sessionManager.request("https://35.231.241.240/user/create", method: method, parameters: parameters, encoding: encoding, headers: headers).response { response in
             
             let jsonDecoder = JSONDecoder()
             do {
@@ -53,7 +53,7 @@ class UserNetworkingManager {
         let method = Alamofire.HTTPMethod.post
         let parameters: Parameters? = ["id": id]
         
-        sessionManager.request("https://35.231.241.240:80/user/read", method: method, parameters: parameters, encoding: encoding, headers: headers).response { response in
+        sessionManager.request("https://35.231.241.240/user/read", method: method, parameters: parameters, encoding: encoding, headers: headers).response { response in
             
             let jsonDecoder = JSONDecoder()
             do {
@@ -77,7 +77,7 @@ class UserNetworkingManager {
         let method = Alamofire.HTTPMethod.post
         let parameters: Parameters? = userInfo.dictionary
         
-        sessionManager.request("https://35.231.241.240:80/user/update", method: method, parameters: parameters, encoding: encoding, headers: headers).response { response in
+        sessionManager.request("https://35.231.241.240/user/update", method: method, parameters: parameters, encoding: encoding, headers: headers).response { response in
             
             let jsonDecoder = JSONDecoder()
             do {
@@ -101,7 +101,7 @@ class UserNetworkingManager {
         let method = Alamofire.HTTPMethod.post
         let parameters: Parameters? = ["id": id]
         
-        sessionManager.request("https://35.231.241.240:80/user/delete", method: method, parameters: parameters, encoding: encoding, headers: headers).response { response in
+        sessionManager.request("https://35.231.241.240/user/delete", method: method, parameters: parameters, encoding: encoding, headers: headers).response { response in
             
             let jsonDecoder = JSONDecoder()
             do {

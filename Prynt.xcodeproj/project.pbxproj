@@ -28,7 +28,6 @@
 		B628758B210D5C2D00FB2873 /* UserNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B628758A210D5C2D00FB2873 /* UserNetworking.swift */; };
 		B65DEEDB20E99DE40027A1EF /* RootPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DEEDA20E99DE40027A1EF /* RootPageViewController.swift */; };
 		B65DEEDD20E99E1B0027A1EF /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DEEDC20E99E1B0027A1EF /* ActivityViewController.swift */; };
-		B65DEEE120E99E450027A1EF /* ClustersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DEEE020E99E450027A1EF /* ClustersViewController.swift */; };
 		B6740ED520B90ECD00ACB85F /* Gotham-XLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6740EBC20B90EC900ACB85F /* Gotham-XLight.otf */; };
 		B6740ED620B90ECD00ACB85F /* Gotham-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6740EBD20B90EC900ACB85F /* Gotham-Thin.otf */; };
 		B6740ED720B90ECD00ACB85F /* Gotham-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6740EBE20B90EC900ACB85F /* Gotham-Black.otf */; };
@@ -113,7 +112,6 @@
 		B628758A210D5C2D00FB2873 /* UserNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworking.swift; sourceTree = "<group>"; };
 		B65DEEDA20E99DE40027A1EF /* RootPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPageViewController.swift; sourceTree = "<group>"; };
 		B65DEEDC20E99E1B0027A1EF /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
-		B65DEEE020E99E450027A1EF /* ClustersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClustersViewController.swift; sourceTree = "<group>"; };
 		B6740EBC20B90EC900ACB85F /* Gotham-XLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-XLight.otf"; sourceTree = "<group>"; };
 		B6740EBD20B90EC900ACB85F /* Gotham-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Thin.otf"; sourceTree = "<group>"; };
 		B6740EBE20B90EC900ACB85F /* Gotham-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Black.otf"; sourceTree = "<group>"; };
@@ -317,7 +315,6 @@
 				B65DEEDA20E99DE40027A1EF /* RootPageViewController.swift */,
 				B65DEEDC20E99E1B0027A1EF /* ActivityViewController.swift */,
 				B62282E020435B2E00C01F61 /* ScannerViewController.swift */,
-				B65DEEE020E99E450027A1EF /* ClustersViewController.swift */,
 			);
 			path = "Main Interface";
 			sourceTree = "<group>";
@@ -649,7 +646,6 @@
 				B6C945E220AE1B91000374DE /* PearProfileSelectionVC.swift in Sources */,
 				B65DEEDD20E99E1B0027A1EF /* ActivityViewController.swift in Sources */,
 				B6889B3C211D2314001E9B25 /* PryntTabViewController.swift in Sources */,
-				B65DEEE120E99E450027A1EF /* ClustersViewController.swift in Sources */,
 				B628758B210D5C2D00FB2873 /* UserNetworking.swift in Sources */,
 				B6FE7A0A20801C0400F60838 /* PostRegistrationViewController.swift in Sources */,
 				B6B3BE1F206D83B900A70F47 /* AuthRegistrationViewController.swift in Sources */,

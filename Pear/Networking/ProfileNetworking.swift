@@ -30,7 +30,7 @@ class ProfileNetworkingManager {
         let method = Alamofire.HTTPMethod.post
         let parameters: Parameters? = createProfile.dictionary
         
-        sessionManager.request("https://35.231.241.240:80/profile/create", method: method, parameters: parameters, encoding: encoding, headers: headers).response { response in
+        sessionManager.request("https://35.231.241.240/profile/create", method: method, parameters: parameters, encoding: encoding, headers: headers).response { response in
             
             let jsonDecoder = JSONDecoder()
             do {
@@ -53,7 +53,7 @@ class ProfileNetworkingManager {
         let method = Alamofire.HTTPMethod.post
         let parameters: Parameters? = ["id": userId, "profileId": profileId]
         
-        sessionManager.request("https://35.231.241.240:80/profile/read", method: method, parameters: parameters, encoding: encoding, headers: headers).response { response in
+        sessionManager.request("https://35.231.241.240/profile/read", method: method, parameters: parameters, encoding: encoding, headers: headers).response { response in
             
             let jsonDecoder = JSONDecoder()
             do {
@@ -77,7 +77,7 @@ class ProfileNetworkingManager {
         let method = Alamofire.HTTPMethod.post
         let parameters: Parameters? = ["id": userId]
         
-        sessionManager.request("https://35.231.241.240:80/profile/read/all", method: method, parameters: parameters, encoding: encoding, headers: headers).response { response in
+        sessionManager.request("https://35.231.241.240/profile/read/all", method: method, parameters: parameters, encoding: encoding, headers: headers).response { response in
             
             let jsonDecoder = JSONDecoder()
             do {
@@ -101,7 +101,7 @@ class ProfileNetworkingManager {
         let method = Alamofire.HTTPMethod.post
         let parameters: Parameters? = profileInfo.dictionary
         
-        sessionManager.request("https://35.231.241.240:80/profile/update", method: method, parameters: parameters, encoding: encoding, headers: headers).response { response in
+        sessionManager.request("https://35.231.241.240/profile/update", method: method, parameters: parameters, encoding: encoding, headers: headers).response { response in
             
             let jsonDecoder = JSONDecoder()
             do {
@@ -125,7 +125,7 @@ class ProfileNetworkingManager {
         let method = Alamofire.HTTPMethod.post
         let parameters: Parameters? = ["id": userId, "profileId": profileId]
         
-        sessionManager.request("https://35.231.241.240:80/profile/delete", method: method, parameters: parameters, encoding: encoding, headers: headers).response { response in
+        sessionManager.request("https://35.231.241.240/profile/delete", method: method, parameters: parameters, encoding: encoding, headers: headers).response { response in
             
             let jsonDecoder = JSONDecoder()
             do {
