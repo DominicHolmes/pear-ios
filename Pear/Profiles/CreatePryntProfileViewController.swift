@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreatePryntProfileViewController: PryntViewController {
+class CreateProfileViewController: PryntViewController {
     
     @IBOutlet weak var profileNameTextField: UITextField!
     @IBOutlet weak var profileHandleTextField: UITextField!
@@ -24,14 +24,14 @@ class CreatePryntProfileViewController: PryntViewController {
     
     @IBAction func createSocialProfileButtonTapped() {
         if fieldsValid(), let handle = profileHandleTextField.text, let name = profileNameTextField.text {
-            let profileSkeleton = PryntProfileCreate(userId: user.id, handle: handle, profileName: name, accounts: nil)
+            let profileSkeleton = PryntProfileCreate(userId: user.id, handle: handle, profileName: name, accounts: [AccountId]())
             
             ProfileNetworkingManager.shared.createProfile(from: profileSkeleton) { (success, profile) in
                 if success, let profile = profile {
                     self.user.add(profile)
-                    self.performSegue(withIdentifier: "EditPryntProfileSegue", sender: profile)
+                    self.performSegue(withIdentifier: "EditClusterSegue", sender: profile)
                 } else {
-                    self.displayAlert("Error", "Couldn't create a new profile. Please try again later.", nil)
+                    self.displayAlert("Error", "Couldn't create a new cluster. Please try again later.", nil)
                 }
             }
         }
@@ -39,18 +39,18 @@ class CreatePryntProfileViewController: PryntViewController {
 }
 
 // MARK: - Segue Control
-extension CreatePryntProfileViewController {
+extension CreateProfileViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "EditPryntProfileSegue", let _ = sender as? PryntProfile {
-            /*let controller = segue.destination as! EditPryntProfileViewController
+        if segue.identifier == "EditPryntProfileSegue", let sender = sender as? PryntProfile {
+            let controller = segue.destination as! EditProfileViewController
             controller.user = self.user
-            controller.profileToEdit = sender*/
+            controller.profileToEdit = sender
         }
     }
 }
 
 // MARK: - Text Field Error Checking
-extension CreatePryntProfileViewController {
+extension CreateProfileViewController {
     
     fileprivate func fieldsValid() -> Bool { return profileHandleValid() && profileNameValid() }
     

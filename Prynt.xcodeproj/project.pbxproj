@@ -245,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				B6889B36211D133A001E9B25 /* ProfilesViewController.swift */,
+				B6FE7A0E208026AE00F60838 /* CreatePryntProfileViewController.swift */,
 				B6889B55212216F1001E9B25 /* EditProfileViewController.swift */,
 			);
 			path = Profiles;
@@ -459,7 +460,6 @@
 		B6FE7A0D2080264000F60838 /* SocialProfileCreation */ = {
 			isa = PBXGroup;
 			children = (
-				B6FE7A0E208026AE00F60838 /* CreatePryntProfileViewController.swift */,
 				B67A3709203A13E500A72456 /* EditPryntProfileViewController.swift */,
 				B67A370D203A1B2D00A72456 /* AddNewServiceViewController.swift */,
 			);

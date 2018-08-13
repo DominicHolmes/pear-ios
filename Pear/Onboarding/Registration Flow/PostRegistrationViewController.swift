@@ -15,9 +15,9 @@ class PostRegistrationViewController : PryntViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "CreateSocialProfileSegue" {
+        /*if segue.identifier == "CreateSocialProfileSegue" {
             let controller = segue.destination as! CreatePryntProfileViewController
             controller.user = self.user
-        }
+        }*/
     }
 }

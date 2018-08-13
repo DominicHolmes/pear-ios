@@ -11,6 +11,8 @@ import Foundation
 class EditProfileViewController: PryntViewController {
     
     @IBAction func didSelectClose() {
-        dismiss(animated: false, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
+    
+    var profileToEdit: PryntProfile!
 }

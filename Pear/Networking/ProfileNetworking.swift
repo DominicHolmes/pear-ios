@@ -43,6 +43,8 @@ class ProfileNetworkingManager {
             }
             catch {
                 print("ERROR - Could not create profile")
+                print(error)
+                completion(false, nil)
             }
         }
     }

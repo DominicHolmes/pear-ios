@@ -27,7 +27,7 @@ struct PryntProfileCreate: Codable {
     let accounts: [AccountId]?
     
     enum CodingKeys: String, CodingKey {
-        case userId = "user"
+        case userId = "id"
         case handle = "handle"
         case profileName = "profileName"
         case accounts = "accounts"

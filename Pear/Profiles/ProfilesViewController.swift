@@ -55,15 +55,11 @@ extension ProfilesViewController: UICollectionViewDelegate {
         
         if indexPath.row == (profiles?.count ?? 0) {
             performSegue(withIdentifier: "CreateClusterSegue", sender: nil)
+        } else {
+            guard let profiles = profiles, indexPath.row < profiles.count else { return }
+            let profile = profiles[indexPath.row]
+            performSegue(withIdentifier: "EditClusterSegue", sender: profile)
         }
-        
-        /*if let accountToEdit = cell?.accountToEdit {
-            performSegue(withIdentifier: "EditAccountSegue", sender: accountToEdit)
-        } else if let accountToDisplay = cell?.accountToDisplay {
-            performSegue(withIdentifier: "ViewAccountSegue", sender: accountToDisplay)
-        } else if let cell = cell, let service = cell.socialServiceType {
-            performSegue(withIdentifier: "CreateAccountSegue", sender: service)
-        }*/
     }
 }
 
@@ -85,16 +81,13 @@ extension ProfilesViewController {
     
     // TODO: Hook up segue stuff
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ConfirmDeletePryntProfileSegue" {
-            let controller = segue.destination
-            //controller.popoverPresentationController!.delegate = self
-        } else if segue.identifier == "ViewPryntProfileSegue" {
-            let controller = segue.destination as! PearProfileViewController
-            /*controller.popoverPresentationController!.delegate = self
-            let profile = sender as? SocialProfile
-            controller.socialProfile = profile*/
-        } else if segue.identifier == "CreateNewPryntProfileSegue" {
-            let controller = segue.destination as! CreatePryntProfileViewController
+        if segue.identifier == "CreateClusterSegue" {
+            let nav = segue.destination as! UINavigationController
+            let controller = nav.topViewController as! CreateProfileViewController
+            controller.user = self.user
+        } else if segue.identifier == "EditClusterSegue" {
+            let nav = segue.destination as! UINavigationController
+            let controller = nav.topViewController as! EditProfileViewController
             controller.user = self.user
         }
     }
