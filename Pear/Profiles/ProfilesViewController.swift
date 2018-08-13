@@ -11,47 +11,51 @@ import UIKit
 class ProfilesViewController: PryntTabViewController {
     
     var profiles: [PryntProfile]?
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
 }
 
-// MARK: - TableView Data Source
-extension ProfilesViewController: UITableViewDataSource {
+// MARK: - CollectionView Data Source
+extension ProfilesViewController: UICollectionViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return profiles?.count ?? 0
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let profiles = profiles, profiles.count > indexPath.row else { return UITableViewCell() }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PryntProfileCell")
-        
-        let profileNameLabel = cell?.viewWithTag(100) as? UILabel
-        profileNameLabel?.text = profiles[indexPath.row].profileName
-        
-        let handleLabel = cell?.viewWithTag(101) as? UILabel
-        handleLabel?.text = profiles[indexPath.row].handle
-        
-        return cell!
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1 + (profiles?.count ?? 0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if indexPath.row == (profiles?.count ?? 0) {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CreateClusterCell", for: indexPath) as! UICollectionViewCell
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ClusterCell", for: indexPath) as! ProfileCell
+            guard let profiles = profiles, indexPath.row < profiles.count else { return cell }
+            
+            let profileNameLabel = cell.viewWithTag(100) as? UILabel
+            profileNameLabel?.text = profiles[indexPath.row].profileName
+            
+            return cell
+        }
     }
 }
 
-// MARK: - TableView Delegate
-extension ProfilesViewController: UITableViewDelegate {
+// MARK: - CollectionView Delegate
+extension ProfilesViewController: UICollectionViewDelegate {
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        guard let profiles = profiles, profiles.count > indexPath.row else { return }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        performSegue(withIdentifier: "ViewPryntProfileSegue", sender: profiles[indexPath.row])
-    }
-    
-    // Swipe to delete UI functionality
-    func tableView(_ tableView: UITableView,
-                   commit editingStyle: UITableViewCellEditingStyle,
-                   forRowAt indexPath: IndexPath) {
-        guard let profiles = profiles, profiles.count > indexPath.row else { return }
-        performSegue(withIdentifier: "ConfirmDeletePryntProfileSegue", sender: profiles[indexPath.row])
+        let cell = collectionView.cellForItem(at: indexPath) as? NetworkCollectionCell
+        
+        if let accountToEdit = cell?.accountToEdit {
+            performSegue(withIdentifier: "EditAccountSegue", sender: accountToEdit)
+        } else if let accountToDisplay = cell?.accountToDisplay {
+            performSegue(withIdentifier: "ViewAccountSegue", sender: accountToDisplay)
+        } else if let cell = cell, let service = cell.socialServiceType {
+            performSegue(withIdentifier: "CreateAccountSegue", sender: service)
+        }
     }
 }
 

@@ -20,11 +20,11 @@ class AccountsViewController: PryntTabViewController {
         
         if let pryntTBC = self.tabBarController as? PryntTabBarController {
             self.user = pryntTBC.user
+            fetchAllAccounts()
         }
-        readAllAccounts()
     }
     
-    func readAllAccounts() {
+    func fetchAllAccounts() {
         AccountNetworkingManager.shared.fetchAllAccounts(for: user.id) { (success, accounts) in
             if success, let accounts = accounts {
                 self.user.accounts = accounts
@@ -167,18 +167,6 @@ extension AccountsViewController: ViewAccountViewControllerDelegate {
         controller.dismiss(animated: true, completion: nil)
         delete(account)
     }
-    
-    /*func addNewServiceViewControllerDidSave(_ controller: ViewAccountViewController, withService service: SocialService?) {
-        controller.dismiss(animated: true, completion: nil)
-        if let _ = service {
-            //enabledServices.append(service!)
-            lastTappedCell?.socialService = service
-        }
-        lastTappedCell?.setNeedsLayout()
-        collectionView.layoutIfNeeded()
-    }*/
-    
-    
 }
 
 // MARK: - Segue Control
