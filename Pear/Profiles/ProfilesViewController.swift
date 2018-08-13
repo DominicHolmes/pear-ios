@@ -28,24 +28,21 @@ extension ProfilesViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.row == (profiles?.count ?? 0) {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CreateClusterCell", for: indexPath) as! UICollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CreateClusterCell", for: indexPath)
             return cell
         } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ClusterCell", for: indexPath) as! UICollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ClusterCell", for: indexPath)
             guard let profiles = profiles, indexPath.row < profiles.count else { return cell }
             let profile = profiles[indexPath.row]
             let accounts = profile.accounts ?? [Account]()
             
-            let profileNameLabel = cell.viewWithTag(100) as? UILabel
-            profileNameLabel?.text = profile.profileName
-            
-            let stackImage1 = cell.viewWithTag(201) as? UIImageView
-            let stackImage2 = cell.viewWithTag(202) as? UIImageView
-            let stackImage3 = cell.viewWithTag(203) as? UIImageView
-            let stackImages = [stackImage3, stackImage2, stackImage1]
-            
-            // Left off here
-            
+            for i in 0 ..< accounts.count {
+                guard i < 3 else { return cell }
+                
+                let imageView = cell.viewWithTag(200 + i) as? UIImageView
+                imageView?.image = UIImage(named: accounts[i].service.photoName)
+            }
+
             return cell
         }
     }
@@ -56,15 +53,17 @@ extension ProfilesViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let cell = collectionView.cellForItem(at: indexPath) as? NetworkCollectionCell
+        if indexPath.row == (profiles?.count ?? 0) {
+            performSegue(withIdentifier: "CreateClusterSegue", sender: nil)
+        }
         
-        if let accountToEdit = cell?.accountToEdit {
+        /*if let accountToEdit = cell?.accountToEdit {
             performSegue(withIdentifier: "EditAccountSegue", sender: accountToEdit)
         } else if let accountToDisplay = cell?.accountToDisplay {
             performSegue(withIdentifier: "ViewAccountSegue", sender: accountToDisplay)
         } else if let cell = cell, let service = cell.socialServiceType {
             performSegue(withIdentifier: "CreateAccountSegue", sender: service)
-        }
+        }*/
     }
 }
 
