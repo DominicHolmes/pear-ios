@@ -31,11 +31,20 @@ extension ProfilesViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CreateClusterCell", for: indexPath) as! UICollectionViewCell
             return cell
         } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ClusterCell", for: indexPath) as! ProfileCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ClusterCell", for: indexPath) as! UICollectionViewCell
             guard let profiles = profiles, indexPath.row < profiles.count else { return cell }
+            let profile = profiles[indexPath.row]
+            let accounts = profile.accounts ?? [Account]()
             
             let profileNameLabel = cell.viewWithTag(100) as? UILabel
-            profileNameLabel?.text = profiles[indexPath.row].profileName
+            profileNameLabel?.text = profile.profileName
+            
+            let stackImage1 = cell.viewWithTag(201) as? UIImageView
+            let stackImage2 = cell.viewWithTag(202) as? UIImageView
+            let stackImage3 = cell.viewWithTag(203) as? UIImageView
+            let stackImages = [stackImage3, stackImage2, stackImage1]
+            
+            // Left off here
             
             return cell
         }
