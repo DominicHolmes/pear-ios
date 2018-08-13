@@ -32,6 +32,20 @@ struct AccountCreate: Codable {
     }
 }
 
+struct AccountUpdate: Codable {
+    let userId: UserId
+    let service: SocialServiceType
+    let handle: String
+    let id: AccountId
+    
+    enum CodingKeys: String, CodingKey {
+        case userId = "id"
+        case service = "service"
+        case handle = "handle"
+        case id = "accountId"
+    }
+}
+
 struct Account: Codable {
     let userId: UserId
     let service: SocialServiceType

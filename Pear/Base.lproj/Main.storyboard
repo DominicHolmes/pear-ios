@@ -1809,6 +1809,16 @@
                                     <action selector="textFieldPrimaryActionShouldDismissKeyboardWithSender:" destination="JAB-Um-KeB" eventType="primaryActionTriggered" id="tuD-7Y-eyY"/>
                                 </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n1x-7j-MFp">
+                                <rect key="frame" x="166" y="587" width="45" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleColor" red="1" green="0.22472724668295085" blue="0.13905073738756646" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="userDidSelectDelete" destination="JAB-Um-KeB" eventType="touchUpInside" id="AMi-iF-Efy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="MZR-CN-pyH"/>

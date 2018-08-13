@@ -46,7 +46,7 @@ class AccountsViewController: PryntTabViewController {
         }
     }
     
-    internal func update(_ account: Account) {
+    internal func update(_ account: AccountUpdate) {
         AccountNetworkingManager.shared.updateAccount(from: account) { (success, account) in
             if success, let account = account {
                 self.user.add(account)
@@ -101,11 +101,14 @@ extension AccountsViewController: UICollectionViewDataSource {
         if let enabledAccounts = enabledAccounts, enabledAccounts.count > 0, indexPath.section == 0 {
             let account = enabledAccounts[indexPath.row]
             cell.socialServiceType = account.service
+            cell.accountToDisplay = nil
             cell.accountToEdit = account
             cellImageView?.image = UIImage(named: account.service.photoName)
         } else {
             let serviceType = allServices[indexPath.row]
             cell.socialServiceType = serviceType
+            cell.accountToDisplay = nil
+            cell.accountToEdit = nil
             cellImageView?.image = UIImage(named: serviceType.photoName)
         }
         
@@ -150,9 +153,9 @@ extension AccountsViewController: ViewAccountViewControllerDelegate {
         controller.dismiss(animated: true, completion: nil)
     }
     
-    func viewAccountViewControllerDidUpdate(_ controller: ViewAccountViewController, account: Account) {
+    func viewAccountViewControllerDidUpdate(_ controller: ViewAccountViewController, accountUpdate: AccountUpdate) {
         controller.dismiss(animated: true, completion: nil)
-        update(account)
+        update(accountUpdate)
     }
     
     func viewAccountViewControllerDidCreate(_ controller: ViewAccountViewController, accountCreate: AccountCreate) {

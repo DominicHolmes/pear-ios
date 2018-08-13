@@ -66,7 +66,7 @@
 		B6889B39211D1FEA001E9B25 /* PryntViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6889B38211D1FEA001E9B25 /* PryntViewController.swift */; };
 		B6889B3C211D2314001E9B25 /* PryntTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6889B3B211D2314001E9B25 /* PryntTabViewController.swift */; };
 		B6889B3E211D23A5001E9B25 /* PryntTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6889B3D211D23A5001E9B25 /* PryntTableViewController.swift */; };
-		B6889B40211E2707001E9B25 /* PryntAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6889B3F211E2707001E9B25 /* PryntAccount.swift */; };
+		B6889B40211E2707001E9B25 /* PryntAccountModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6889B3F211E2707001E9B25 /* PryntAccountModels.swift */; };
 		B6889B43211E2885001E9B25 /* AccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6889B42211E2885001E9B25 /* AccountsViewController.swift */; };
 		B6889B45211E2F7D001E9B25 /* ViewAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6889B44211E2F7D001E9B25 /* ViewAccountViewController.swift */; };
 		B6889B4C2120ABC1001E9B25 /* AccountNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6889B4B2120ABC1001E9B25 /* AccountNetworking.swift */; };
@@ -151,7 +151,7 @@
 		B6889B38211D1FEA001E9B25 /* PryntViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PryntViewController.swift; sourceTree = "<group>"; };
 		B6889B3B211D2314001E9B25 /* PryntTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PryntTabViewController.swift; sourceTree = "<group>"; };
 		B6889B3D211D23A5001E9B25 /* PryntTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PryntTableViewController.swift; sourceTree = "<group>"; };
-		B6889B3F211E2707001E9B25 /* PryntAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PryntAccount.swift; sourceTree = "<group>"; };
+		B6889B3F211E2707001E9B25 /* PryntAccountModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PryntAccountModels.swift; sourceTree = "<group>"; };
 		B6889B42211E2885001E9B25 /* AccountsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsViewController.swift; sourceTree = "<group>"; };
 		B6889B44211E2F7D001E9B25 /* ViewAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAccountViewController.swift; sourceTree = "<group>"; };
 		B6889B4B2120ABC1001E9B25 /* AccountNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountNetworking.swift; sourceTree = "<group>"; };
@@ -296,7 +296,7 @@
 			children = (
 				B6889B32211D0DEE001E9B25 /* User */,
 				B67881D3211A7029000DA750 /* PryntProfileModels.swift */,
-				B6889B3F211E2707001E9B25 /* PryntAccount.swift */,
+				B6889B3F211E2707001E9B25 /* PryntAccountModels.swift */,
 				B67881D5211A7044000DA750 /* PryntTransactionModels.swift */,
 			);
 			path = Models;
@@ -665,7 +665,7 @@
 				B65DEEDB20E99DE40027A1EF /* RootPageViewController.swift in Sources */,
 				B6E4468920BA1CE8006C6B5B /* UserValidationViewController.swift in Sources */,
 				B62282F1204743CF00C01F61 /* RadialProgressImageView.swift in Sources */,
-				B6889B40211E2707001E9B25 /* PryntAccount.swift in Sources */,
+				B6889B40211E2707001E9B25 /* PryntAccountModels.swift in Sources */,
 				B6889B35211D10E2001E9B25 /* PryntTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

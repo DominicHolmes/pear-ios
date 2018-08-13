@@ -98,10 +98,10 @@ class AccountNetworkingManager {
     }
     
     // MARK: - Update Account
-    func updateAccount(from accountInfo: Account, _ completion: @escaping (_ success: Bool, _ account: Account?) -> Void) {
+    func updateAccount(from accountUpdate: AccountUpdate, _ completion: @escaping (_ success: Bool, _ account: Account?) -> Void) {
         
         let method = Alamofire.HTTPMethod.post
-        let parameters: Parameters? = accountInfo.dictionary
+        let parameters: Parameters? = accountUpdate.dictionary
         
         sessionManager.request("https://35.231.241.240/account/update", method: method, parameters: parameters, encoding: encoding, headers: headers).response { response in
             

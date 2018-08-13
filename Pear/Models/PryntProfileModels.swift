@@ -34,6 +34,24 @@ struct PryntProfileCreate: Codable {
     }
 }
 
+struct PryntProfileUpdate: Codable {
+    let id: ProfileId
+    let userId: UserId
+    let handle: String
+    let profileName: String
+    let usersName: String
+    let accounts: [Account]?
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "profileId"
+        case userId = "id"
+        case handle = "handle"
+        case profileName = "profileName"
+        case usersName = "usersName"
+        case accounts = "accounts"
+    }
+}
+
 struct PryntProfile: Codable {
     let id: ProfileId
     let userId: UserId

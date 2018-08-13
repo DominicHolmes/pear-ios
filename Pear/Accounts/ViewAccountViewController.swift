@@ -11,7 +11,7 @@ import UIKit
 protocol ViewAccountViewControllerDelegate {
     func viewAccountViewControllerDidCancel(_ controller: ViewAccountViewController)
     func viewAccountViewControllerDidCreate(_ controller: ViewAccountViewController, accountCreate: AccountCreate)
-    func viewAccountViewControllerDidUpdate(_ controller: ViewAccountViewController, account: Account)
+    func viewAccountViewControllerDidUpdate(_ controller: ViewAccountViewController, accountUpdate: AccountUpdate)
     func viewAccountViewControllerDidDelete(_ controller: ViewAccountViewController, account: Account)
 }
 
@@ -85,12 +85,18 @@ class ViewAccountViewController: PearViewController {
             }
         case .editing:
             if let text = handleTextField.text, let accountToEdit = accountToEdit {
-                delegate?.viewAccountViewControllerDidUpdate(self, account: Account(userId: accountToEdit.userId, service: service, handle: text, id: accountToEdit.id))
+                delegate?.viewAccountViewControllerDidUpdate(self, accountUpdate: AccountUpdate(userId: accountToEdit.userId, service: service, handle: text, id: accountToEdit.id))
             }
         }
     }
     
     @IBAction func userDidSelectCancel() {
         delegate?.viewAccountViewControllerDidCancel(self)
+    }
+    
+    @IBAction func userDidSelectDelete() {
+        if let accountToEdit = accountToEdit {
+            delegate?.viewAccountViewControllerDidDelete(self, account: accountToEdit)
+        }
     }
 }
