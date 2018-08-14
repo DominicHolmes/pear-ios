@@ -15,7 +15,7 @@ class EditProfileViewController: PryntViewController {
     }
     
     var profileToEdit: PryntProfile?
-    
+    @IBOutlet weak var collectionView: UICollectionView!
     
     
     
@@ -79,6 +79,17 @@ extension EditProfileViewController: UICollectionViewDelegate {
             application.open(appURL as URL)
         } else {
             application.open(webURL as URL)
+        }
+    }
+}
+
+// MARK: - Segue Control
+extension EditProfileViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddNewAccountsSegue" {
+            let controller = segue.destination as! ChooseAccountsViewController
+            controller.user = self.user
+            controller.accounts = self.user.accounts
         }
     }
 }
