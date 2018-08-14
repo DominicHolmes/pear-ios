@@ -59,17 +59,3 @@ struct Account: Codable {
         case id = "id"
     }
 }
-
-struct NestedAccount: Codable {
-    let userId: UserId
-    let service: SocialServiceType
-    let handle: String
-    let id: AccountId
-    
-    enum CodingKeys: String, CodingKey {
-        case userId = "user"
-        case service = "service"
-        case handle = "handle"
-        case id = "_id"
-    }
-}

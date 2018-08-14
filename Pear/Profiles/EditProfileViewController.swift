@@ -23,6 +23,7 @@ class EditProfileViewController: PryntViewController {
             if success, let profile = profile {
                 self.user.add(profile)
                 self.profileToEdit = profile
+                self.collectionView.reloadData()
                 print("Update completed successfully")
             } else {
                 self.displayAlert("Error", "Couldn't update cluster. Please try again later.", nil)
