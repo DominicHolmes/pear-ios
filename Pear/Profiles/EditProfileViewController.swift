@@ -14,8 +14,31 @@ class EditProfileViewController: PryntViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    var profileToEdit: PryntProfile?
+    var profileToEdit: PryntProfile? {
+        didSet {
+            if let p = profileToEdit {
+                self.profileUpdate = PryntProfileUpdate(id: p.id, userId: p.userId, handle: p.handle, profileName: p.profileName, usersName: p.usersName, accounts: p.accounts)
+            }
+        }
+    }
+    fileprivate var profileUpdate: PryntProfileUpdate {
+        
+    }
+    
     @IBOutlet weak var collectionView: UICollectionView!
+}
+
+// MARK: - ChooseAccountViewController Delegate
+extension EditProfileViewController: ChooseAccountsViewControllerDelegate {
+    
+    func chooseAccountsViewControllerDidUpdate(_ controller: ChooseAccountsViewController, checkedAccounts: [AccountId]) {
+        dismiss(animated: true, completion: nil)
+        profileToEdit?.accounts
+    }
+    
+    func chooseAccountsViewControllerDidCancel(_ controller: ChooseAccountsViewController) {
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 // MARK: - CollectionView Data Source
