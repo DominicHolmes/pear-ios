@@ -16,7 +16,13 @@ protocol ChooseAccountsViewControllerDelegate {
 class ChooseAccountsViewController: PryntViewController {
     
     var accounts: [Account]?
-    fileprivate var checkedAccounts = [AccountId]()
+    var checkedAccounts = [AccountId]()
+    
+    override var user: PryntUser! {
+        didSet {
+            self.accounts = user.accounts
+        }
+    }
     
     var delegate: ChooseAccountsViewControllerDelegate?
     
@@ -36,8 +42,6 @@ class ChooseAccountsViewController: PryntViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        updateAccounts()
         fetchAllAccounts()
     }
     

@@ -29,6 +29,17 @@ class EditProfileViewController: PryntViewController {
             }
         }
     }
+    
+    internal func delete(_ profile: PryntProfile) {
+        ProfileNetworkingManager.shared.deleteProfile(for: user.id, with: profile.id) { (success) in
+            if success {
+                self.user.remove(profile: profile.id)
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                self.displayAlert("Error", "Could not delete account. Please make sure you have access to internet and try again.", nil)
+            }
+        }
+    }
 }
 
 // MARK: - ChooseAccountViewController Delegate
@@ -37,7 +48,7 @@ extension EditProfileViewController: ChooseAccountsViewControllerDelegate {
     func chooseAccountsViewControllerDidUpdate(_ controller: ChooseAccountsViewController, checkedAccounts: [AccountId]) {
         dismiss(animated: true, completion: nil)
         if let p = profileToEdit {
-            let profileUpdate = PryntProfileUpdate(id: p.id, userId: p.userId, handle: p.handle, profileName: p.profileName, usersName: p.usersName, accounts: checkedAccounts)
+            let profileUpdate = PryntProfileUpdate(id: p.id, userId: user.id, handle: p.handle, profileName: p.profileName, usersName: p.usersName, accounts: checkedAccounts)
             updateProfile(with: profileUpdate)
         }
     }
@@ -111,11 +122,21 @@ extension EditProfileViewController: UICollectionViewDelegate {
 
 // MARK: - Segue Control
 extension EditProfileViewController {
+    internal func getIdList(from usersAccounts: [Account]?) -> [AccountId] {
+        var accountIds = [AccountId]()
+        guard let accts = usersAccounts else { return accountIds }
+        for each in accts {
+            accountIds.append(each.id)
+        }
+        return accountIds
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddNewAccountsSegue" {
             let controller = segue.destination as! ChooseAccountsViewController
             controller.user = self.user
             controller.accounts = self.user.accounts
+            controller.delegate = self
+            controller.checkedAccounts = getIdList(from: self.user.accounts)
         }
     }
 }

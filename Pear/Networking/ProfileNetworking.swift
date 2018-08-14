@@ -92,6 +92,8 @@ class ProfileNetworkingManager {
             }
             catch {
                 print("ERROR - Could not fetch all profiles")
+                print(userId)
+                print(error)
                 completion(false, nil)
             }
         }
@@ -102,6 +104,8 @@ class ProfileNetworkingManager {
         
         let method = Alamofire.HTTPMethod.post
         let parameters: Parameters? = profileInfo.dictionary
+        
+        dump(profileInfo)
         
         sessionManager.request("https://35.231.241.240/profile/update", method: method, parameters: parameters, encoding: encoding, headers: headers).response { response in
             
@@ -117,6 +121,7 @@ class ProfileNetworkingManager {
             catch {
                 print("ERROR - Could not update profile")
                 completion(false, nil)
+                print(error)
             }
         }
     }

@@ -93,6 +93,7 @@ class AccountNetworkingManager {
             catch {
                 print("ERROR - Could not fetch all accounts")
                 completion(false, nil)
+                print(error)
             }
         }
     }

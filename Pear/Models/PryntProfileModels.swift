@@ -54,7 +54,6 @@ struct PryntProfileUpdate: Codable {
 
 struct PryntProfile: Codable {
     let id: ProfileId
-    let userId: UserId
     let handle: String
     let profileName: String
     let usersName: String
@@ -62,7 +61,6 @@ struct PryntProfile: Codable {
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
-        case userId = "user"
         case handle = "handle"
         case profileName = "profileName"
         case usersName = "usersName"

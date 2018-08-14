@@ -13,6 +13,32 @@ class ProfilesViewController: PryntTabViewController {
     var profiles: [PryntProfile]?
     @IBOutlet weak var collectionView: UICollectionView!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if let pryntTBC = self.tabBarController as? PryntTabBarController {
+            self.user = pryntTBC.user
+            profiles = user.profiles
+            fetchAllProfiles()
+        }
+    }
+    
+    func fetchAllProfiles() {
+        ProfileNetworkingManager.shared.fetchAllProfiles(for: user.id) { (success, profiles) in
+            if success, let profiles = profiles {
+                self.user.profiles = profiles
+                self.updateShownProfiles()
+            } else {
+                self.displayAlert("Error", "Could not fetch profiles. Please make sure you have access to internet and try again.", nil)
+            }
+        }
+    }
+    
+    private func updateShownProfiles() {
+        profiles = user.profiles
+        collectionView.reloadData()
+    }
+    
 }
 
 // MARK: - CollectionView Data Source

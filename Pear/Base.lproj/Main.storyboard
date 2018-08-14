@@ -111,7 +111,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ClusterCell" id="kPT-NW-BFV">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="ClusterCell" id="kPT-NW-BFV">
                                         <rect key="frame" x="0.0" y="0.0" width="70" height="65"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -140,7 +140,7 @@
                                             </subviews>
                                         </view>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CreateClusterCell" id="itF-6G-nHZ">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="CreateClusterCell" id="itF-6G-nHZ">
                                         <rect key="frame" x="101.5" y="0.0" width="70" height="65"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -148,7 +148,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="201" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pear-tab-icon-disabled" translatesAutoresizingMaskIntoConstraints="NO" id="fVP-fs-Qdk">
-                                                    <rect key="frame" x="11" y="0.0" width="45" height="45"/>
+                                                    <rect key="frame" x="10" y="0.0" width="45" height="45"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -363,11 +363,21 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y61-ly-kdR">
-                                <rect key="frame" x="327" y="51" width="30" height="30"/>
+                                <rect key="frame" x="16" y="51" width="48" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="X"/>
+                                <state key="normal" title="Cancel"/>
                                 <connections>
+                                    <action selector="didSelectClose" destination="tBx-Kx-Yse" eventType="touchUpInside" id="O6a-Ww-pTi"/>
                                     <action selector="didSelectClose" destination="7eE-O2-vfZ" eventType="touchUpInside" id="ur1-WC-DkD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nCU-qL-HEp">
+                                <rect key="frame" x="318" y="51" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="didSelectClose" destination="7eE-O2-vfZ" eventType="touchUpInside" id="maA-Ni-R66"/>
+                                    <action selector="didSelectSave" destination="tBx-Kx-Yse" eventType="touchUpInside" id="dBU-ED-4ZQ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1678,7 +1688,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="4ez-Cb-OmC">
+                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="4ez-Cb-OmC">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="71"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <subviews>
