@@ -83,6 +83,7 @@ extension ChooseAccountsViewController: UICollectionViewDataSource {
         cell.accountToDisplay = nil
         cell.accountToEdit = nil
         cellImageView?.image = UIImage(named: account.service.photoName)
+        cell.isChecked = checkedAccounts.contains(where: { $0 == account.id })
         return cell
     }
 }

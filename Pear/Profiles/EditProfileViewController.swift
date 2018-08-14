@@ -41,6 +41,11 @@ class EditProfileViewController: PryntViewController {
             }
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView.reloadData()
+    }
 }
 
 // MARK: - ChooseAccountViewController Delegate
@@ -123,9 +128,9 @@ extension EditProfileViewController: UICollectionViewDelegate {
 
 // MARK: - Segue Control
 extension EditProfileViewController {
-    internal func getIdList(from usersAccounts: [Account]?) -> [AccountId] {
+    internal func getIdList(from profile: PryntProfile?) -> [AccountId] {
         var accountIds = [AccountId]()
-        guard let accts = usersAccounts else { return accountIds }
+        guard let accts = profile?.accounts else { return accountIds }
         for each in accts {
             accountIds.append(each.id)
         }
@@ -137,7 +142,7 @@ extension EditProfileViewController {
             controller.user = self.user
             controller.accounts = self.user.accounts
             controller.delegate = self
-            controller.checkedAccounts = getIdList(from: self.user.accounts)
+            controller.checkedAccounts = getIdList(from: profileToEdit)
         }
     }
 }

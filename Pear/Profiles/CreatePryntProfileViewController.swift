@@ -14,6 +14,10 @@ class CreateProfileViewController: PryntViewController {
     @IBOutlet weak var profileHandleTextField: UITextField!
     @IBOutlet weak var createPryntProfileButton: UIButton!
     
+    @IBAction func didSelectClose() {
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func textFieldValueValueChanged() {
         if profileNameTextField.hasText && profileHandleTextField.hasText {
             createPryntProfileButton.isEnabled = true

@@ -224,6 +224,9 @@
                                 <rect key="frame" x="16" y="80" width="34" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="didSelectClose" destination="hcC-6T-ULL" eventType="touchUpInside" id="Vam-om-ZL1"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -368,7 +371,6 @@
                                 <state key="normal" title="Cancel"/>
                                 <connections>
                                     <action selector="didSelectClose" destination="tBx-Kx-Yse" eventType="touchUpInside" id="O6a-Ww-pTi"/>
-                                    <action selector="didSelectClose" destination="7eE-O2-vfZ" eventType="touchUpInside" id="ur1-WC-DkD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nCU-qL-HEp">

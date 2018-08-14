@@ -111,10 +111,11 @@ extension ProfilesViewController {
             let nav = segue.destination as! UINavigationController
             let controller = nav.topViewController as! CreateProfileViewController
             controller.user = self.user
-        } else if segue.identifier == "EditClusterSegue" {
+        } else if segue.identifier == "EditClusterSegue", let sender = sender as? PryntProfile {
             let nav = segue.destination as! UINavigationController
             let controller = nav.topViewController as! EditProfileViewController
             controller.user = self.user
+            controller.profileToEdit = sender
         }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  PearingProfileSelectionVC.swift
+//  PryntProfileSelectionVC.swift
 //  Pear
 //
 //  Created by dominic on 5/17/18.
@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseDatabase
 
-class PearProfileSelectionVC: PearViewController {
+class PryntProfileSelectionVC: PearViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     
@@ -31,7 +31,7 @@ class PearProfileSelectionVC: PearViewController {
     
 }
 
-extension PearProfileSelectionVC {
+extension PryntProfileSelectionVC {
     func updateInterface(with profile: SocialProfile?) {
         if let _ = loadedProfile {
             titleLabel.text = "Pearing with \(loadedProfile!.getUsersName()!)"
@@ -40,7 +40,7 @@ extension PearProfileSelectionVC {
 }
 
 // MARK: - TableView Data Source
-extension PearProfileSelectionVC : UITableViewDataSource {
+extension PryntProfileSelectionVC : UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         if activeUser != nil && activeUser!.profiles.count > 0 {
@@ -73,20 +73,20 @@ extension PearProfileSelectionVC : UITableViewDataSource {
 }
 
 // MARK: - TableView Delegate
-extension PearProfileSelectionVC : UITableViewDelegate {
+extension PryntProfileSelectionVC : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         // segue to correct profile
         if indexPath.section == 1 || activeUser?.profiles.count == 0 {
-            performSegue(withIdentifier: "confirmPearProfilesSegue", sender: nil)
+            performSegue(withIdentifier: "confirmPryntProfilesSegue", sender: nil)
         } else {
-            performSegue(withIdentifier: "confirmPearProfilesSegue", sender: activeUser!.profiles[indexPath.row])
+            performSegue(withIdentifier: "confirmPryntProfilesSegue", sender: activeUser!.profiles[indexPath.row])
         }
     }
 }
 
-extension PearProfileSelectionVC {
+extension PryntProfileSelectionVC {
     
     func attemptLoadSocialProfile(with id: String) {
         let profilesRef = databaseRef.child("allSocialProfiles").child(id)
@@ -132,10 +132,10 @@ extension PearProfileSelectionVC {
     }
 }
 
-extension PearProfileSelectionVC {
+extension PryntProfileSelectionVC {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "confirmPearProfilesSegue" {
-            let controller = segue.destination as? ConfirmPearProfilesVC
+        if segue.identifier == "confirmPryntProfilesSegue" {
+            let controller = segue.destination as? ConfirmPryntProfilesVC
             if let socialProfile = sender as? SocialProfile {
                 controller?.profileToShare = socialProfile
             }
