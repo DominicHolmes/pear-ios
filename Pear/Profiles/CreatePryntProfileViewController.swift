@@ -41,7 +41,7 @@ class CreateProfileViewController: PryntViewController {
 // MARK: - Segue Control
 extension CreateProfileViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "EditPryntProfileSegue", let sender = sender as? PryntProfile {
+        if segue.identifier == "EditClusterSegue", let sender = sender as? PryntProfile {
             let controller = segue.destination as! EditProfileViewController
             controller.user = self.user
             controller.profileToEdit = sender

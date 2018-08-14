@@ -312,10 +312,10 @@
             </objects>
             <point key="canvasLocation" x="4406" y="-2650"/>
         </scene>
-        <!--View Controller-->
+        <!--Choose Accounts View Controller-->
         <scene sceneID="r9X-75-ZBx">
             <objects>
-                <viewController id="tBx-Kx-Yse" sceneMemberID="viewController">
+                <viewController id="tBx-Kx-Yse" customClass="ChooseAccountsViewController" customModule="Prynt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dSg-B0-bdh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -351,8 +351,8 @@
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="7eE-O2-vfZ" id="fXk-Oi-goT"/>
-                                    <outlet property="delegate" destination="7eE-O2-vfZ" id="kFj-pe-mRs"/>
+                                    <outlet property="dataSource" destination="tBx-Kx-Yse" id="aCT-iG-uxM"/>
+                                    <outlet property="delegate" destination="tBx-Kx-Yse" id="7Yy-k6-gTs"/>
                                 </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose Accounts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jws-Zk-uEC">
@@ -374,6 +374,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="DUk-rj-Bbg"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="spt-az-IiX" id="HaG-RP-3uV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VIL-9k-9sD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

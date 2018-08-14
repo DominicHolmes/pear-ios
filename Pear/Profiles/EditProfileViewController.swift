@@ -16,9 +16,6 @@ class EditProfileViewController: PryntViewController {
     
     var profileToEdit: PryntProfile?
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    
-    
 }
 
 // MARK: - CollectionView Data Source

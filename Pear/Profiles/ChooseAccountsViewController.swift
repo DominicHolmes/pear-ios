@@ -8,10 +8,25 @@
 
 import UIKit
 
+protocol ChooseAccountsViewControllerDelegate {
+    func chooseAccountsViewControllerDidUpdate(_ controller: ChooseAccountsViewController, checkedAccounts: [AccountId])
+    func chooseAccountsViewControllerDidCancel(_ controller: ChooseAccountsViewController)
+}
+
 class ChooseAccountsViewController: PryntViewController {
     
     var accounts: [Account]?
     fileprivate var checkedAccounts = [AccountId]()
+    
+    var delegate: ChooseAccountsViewControllerDelegate?
+    
+    @IBAction func didSelectClose() {
+        delegate?.chooseAccountsViewControllerDidCancel(self)
+    }
+    
+    @IBAction func didSelectSave() {
+        delegate?.chooseAccountsViewControllerDidUpdate(self, checkedAccounts: checkedAccounts)
+    }
     
     @IBOutlet weak var collectionView: UICollectionView!
     
