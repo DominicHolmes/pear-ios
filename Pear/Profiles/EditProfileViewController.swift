@@ -14,18 +14,21 @@ class EditProfileViewController: PryntViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    var profileToEdit: PryntProfile? {
-        didSet {
-            if let p = profileToEdit {
-                self.profileUpdate = PryntProfileUpdate(id: p.id, userId: p.userId, handle: p.handle, profileName: p.profileName, usersName: p.usersName, accounts: p.accounts)
+    var profileToEdit: PryntProfile?
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    internal func updateProfile(with profileUpdate: PryntProfileUpdate) {
+        ProfileNetworkingManager.shared.updateProfile(from: profileUpdate) { (success, profile) in
+            if success, let profile = profile {
+                self.user.add(profile)
+                self.profileToEdit = profile
+                print("Update completed successfully")
+            } else {
+                self.displayAlert("Error", "Couldn't update cluster. Please try again later.", nil)
             }
         }
     }
-    fileprivate var profileUpdate: PryntProfileUpdate {
-        
-    }
-    
-    @IBOutlet weak var collectionView: UICollectionView!
 }
 
 // MARK: - ChooseAccountViewController Delegate
@@ -33,7 +36,10 @@ extension EditProfileViewController: ChooseAccountsViewControllerDelegate {
     
     func chooseAccountsViewControllerDidUpdate(_ controller: ChooseAccountsViewController, checkedAccounts: [AccountId]) {
         dismiss(animated: true, completion: nil)
-        profileToEdit?.accounts
+        if let p = profileToEdit {
+            let profileUpdate = PryntProfileUpdate(id: p.id, userId: p.userId, handle: p.handle, profileName: p.profileName, usersName: p.usersName, accounts: checkedAccounts)
+            updateProfile(with: profileUpdate)
+        }
     }
     
     func chooseAccountsViewControllerDidCancel(_ controller: ChooseAccountsViewController) {

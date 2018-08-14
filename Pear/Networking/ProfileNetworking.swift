@@ -98,7 +98,7 @@ class ProfileNetworkingManager {
     }
     
     // MARK: - Update Profile
-    func updateProfile(from profileInfo: PryntProfile, _ completion: @escaping (_ success: Bool, _ profile: PryntProfile?) -> Void) {
+    func updateProfile(from profileInfo: PryntProfileUpdate, _ completion: @escaping (_ success: Bool, _ profile: PryntProfile?) -> Void) {
         
         let method = Alamofire.HTTPMethod.post
         let parameters: Parameters? = profileInfo.dictionary
