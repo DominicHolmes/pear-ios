@@ -9,7 +9,6 @@
 import AVFoundation
 import UIKit
 
-class ScannerViewController: UIViewController {}
     
     /*var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!

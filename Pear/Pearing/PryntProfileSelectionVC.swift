@@ -134,7 +134,7 @@ extension PryntProfileSelectionVC {
 
 extension PryntProfileSelectionVC {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "confirmPryntProfilesSegue" {
+        /*if segue.identifier == "confirmPryntProfilesSegue" {
             let controller = segue.destination as? ConfirmPryntProfilesVC
             if let socialProfile = sender as? SocialProfile {
                 controller?.profileToShare = socialProfile
@@ -142,6 +142,6 @@ extension PryntProfileSelectionVC {
             controller?.activeUser = activeUser
             controller?.scannedProfile = loadedProfile
             controller?.databaseRef = databaseRef
-        }
+        }*/
     }
 }
