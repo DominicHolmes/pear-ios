@@ -18,7 +18,6 @@ class ScannerViewController: PryntTabViewController {
     private var areProfilesVisible = false
     
     @IBOutlet weak var profilesButton : UIButton!
-    @IBOutlet weak var headerView : UIView!
     @IBOutlet weak var cameraView : UIView!
     @IBOutlet weak var profileViewTopConstraint : NSLayoutConstraint!
     @IBOutlet weak var profileViewHeightConstraint : NSLayoutConstraint!
@@ -124,8 +123,29 @@ extension ScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
     func found(code: String) {
         if !codeFound {
             endCaptureSession()
-            performSegue(withIdentifier: "pearProfileSelectionSegue", sender: code)
+            performSegue(withIdentifier: "QRCodeDetectedSegue", sender: code)
             codeFound = true
+        }
+    }
+}
+
+// MARK: - Confirm Transaction Logic
+extension ScannerViewController {
+}
+
+// MARK: - Segue Control
+extension ScannerViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PresentCodeSegue", let sender = sender as? Transaction {
+            let controller = segue.destination as! QRCodeViewController
+            controller.popoverPresentationController!.delegate = self
+            controller.transaction = sender
+            controller.user = self.user
+        } else if segue.identifier == "QRCodeDetectedSegue" {
+            /*let controller = segue.destination as? PearProfileSelectionVC
+            controller?.activeUser = self.activeUser
+            controller?.databaseRef = self.databaseRef
+            controller?.scannedCode = (sender as? String)*/
         }
     }
 }

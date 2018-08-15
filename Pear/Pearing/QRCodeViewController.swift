@@ -7,11 +7,16 @@
 //
 
 import UIKit
-import FirebaseDatabase
 
-class QRCodeViewController: PearViewController {
+class QRCodeViewController: PryntViewController {
     
-    var socialProfile: SocialProfile?
+    var transaction: Transaction! {
+        didSet {
+            let qrCodeImage = generateQRCode(from: transaction.id)
+        }
+    }
+    
+    var qrCodeImage: UIImage?
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileNameLabel: UILabel!
@@ -20,23 +25,15 @@ class QRCodeViewController: PearViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if let _ = socialProfile {
-            let qrCodeImage = generateQRCode(from: socialProfile!.getProfileID())
-            QRCodeImageView.image = qrCodeImage
-            
-            observePendingTransaction()
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        if let profile = socialProfile {
-            profileNameLabel.text = profile.getName()
-            nameLabel.text = profile.getUsersName()
-            handleLabel.text = "@" + profile.getHandle()
-        }
+
+        profileNameLabel.text = transaction.primaryName
+        nameLabel.text = transaction.primaryUsersName
+        handleLabel.text = "@" + transaction.primaryHandle
+        QRCodeImageView?.image = qrCodeImage
     }
     
     override func didReceiveMemoryWarning() {
@@ -48,17 +45,6 @@ class QRCodeViewController: PearViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    func observePendingTransaction() {
-        let ref = databaseRef.child("pendingTransactions").child(socialProfile!.getProfileID())
-        ref.observe(.value, with: { snapshot in
-            if let _ = snapshot.value, let dict = snapshot.value as? Dictionary<String, Dictionary<String, String>> {
-                for eachPendingTransaction in dict {
-                    self.handle(PearPendingTransaction(of: eachPendingTransaction.value))
-                }
-            }
-        })
-    }
-    
     private func handle(_ transaction: PearPendingTransaction) {
         if !transaction.isApproved() && !transaction.isDenied() {
             if let _ = transaction.primaryProfileID {
@@ -66,16 +52,6 @@ class QRCodeViewController: PearViewController {
             } else {
                 displayTransactionPrompt(transaction, optionalProfile: nil)
             }
-        }
-    }
-    
-    private func loadPrimaryProfile(with pending: PearPendingTransaction) {
-        guard let primaryProfileID = pending.primaryProfileID else { return }
-        let ref = databaseRef.child("allSocialProfiles").child(primaryProfileID)
-        ref.observe(.value) { (snapshot) in
-            guard let _ = snapshot.value, let dict = snapshot.value as? Dictionary<String, String> else { return }
-            let primaryProfile = SocialProfile(of: dict)
-            self.displayTransactionPrompt(pending, optionalProfile: primaryProfile)
         }
     }
     
@@ -98,17 +74,6 @@ class QRCodeViewController: PearViewController {
         // Deny transaction
         transaction.setDenial()
         updatePendingTransactionRef(transaction)
-    }
-    
-    func updateSecondaryUserTransactions(_ transaction: PearPendingTransaction) {
-        // Update users transaction's ref
-        let usersRef = databaseRef.child("usersTransactions").child(activeUser!.id).child(transaction.transactionID)
-        usersRef.setValue(transaction.getFirebaseEncodingStub(from: .secondary))
-    }
-
-    func updatePendingTransactionRef(_ transaction: PearPendingTransaction) {
-        let pendingRef = databaseRef.child("pendingTransactions").child(socialProfile!.getProfileID()).child(transaction.transactionID)
-        pendingRef.setValue(transaction.getFirebaseEncoding())
     }
 }
 
