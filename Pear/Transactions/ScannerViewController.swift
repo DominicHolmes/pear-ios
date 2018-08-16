@@ -122,10 +122,15 @@ extension ScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
     
     func found(code: String) {
         if !codeFound {
+            confirmTransaction(with: code)
             endCaptureSession()
-            performSegue(withIdentifier: "QRCodeDetectedSegue", sender: code)
+            performSegue(withIdentifier: "CodeDetectedSegue", sender: code)
             codeFound = true
         }
+    }
+    
+    private func confirmTransaction(with code: String) {
+        
     }
 }
 
@@ -138,10 +143,9 @@ extension ScannerViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PresentCodeSegue", let sender = sender as? Transaction {
             let controller = segue.destination as! QRCodeViewController
-            controller.popoverPresentationController!.delegate = self
             controller.transaction = sender
             controller.user = self.user
-        } else if segue.identifier == "QRCodeDetectedSegue" {
+        } else if segue.identifier == "CodeDetectedSegue" {
             /*let controller = segue.destination as? PearProfileSelectionVC
             controller?.activeUser = self.activeUser
             controller?.databaseRef = self.databaseRef
