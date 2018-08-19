@@ -10,8 +10,20 @@ import Foundation
 
 typealias TransactionId = String
 
-struct TransactionInitiateRequest: Codable {
+struct TransactionHTTPSResponse: Codable {
+    let status: Bool
+    let transaction: Transaction?
+}
+
+struct TransactionCreate: Codable {
     let id: UserId
+    let profileId: ProfileId
+}
+
+struct TransactionAccept: Codable {
+    let id: UserId
+    let transactionId: TransactionId
+    let secondaryApproval: Bool
     let profileId: ProfileId
 }
 
@@ -34,7 +46,7 @@ struct Transaction: Codable {
     let id: TransactionId
 }
 
-struct CompleteTransaction: Codable {
+struct FinishedTransaction: Codable {
     let transaction: Transaction
     let primaryProfile: PryntProfile
     let secondaryProfile: PryntProfile?
