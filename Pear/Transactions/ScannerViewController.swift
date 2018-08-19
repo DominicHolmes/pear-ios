@@ -67,6 +67,10 @@ class ScannerViewController: PryntTabViewController {
         
         endCaptureSession()
     }
+    
+    @IBAction func bankButtonSelected() {
+        performSegue(withIdentifier: "ViewBankSegue", sender: nil)
+    }
 }
 
 extension ScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
@@ -153,15 +157,10 @@ extension ScannerViewController {
 // MARK: - Segue Control
 extension ScannerViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "PresentCodeSegue", let sender = sender as? Transaction {
-            let controller = segue.destination as! QRCodeViewController
-            controller.transaction = sender
+        if segue.identifier == "ViewBankSegue" {
+            let nav = segue.destination as! UINavigationController
+            let controller = nav.topViewController as! BankViewController
             controller.user = self.user
-        } else if segue.identifier == "CodeDetectedSegue" {
-            /*let controller = segue.destination as? PearProfileSelectionVC
-            controller?.activeUser = self.activeUser
-            controller?.databaseRef = self.databaseRef
-            controller?.scannedCode = (sender as? String)*/
         }
     }
 }

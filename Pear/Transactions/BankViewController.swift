@@ -13,14 +13,15 @@ class BankViewController: PryntTabViewController {
     var profiles: [PryntProfile]?
     @IBOutlet weak var collectionView: UICollectionView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        if let pryntTBC = self.tabBarController as? PryntTabBarController {
-            self.user = pryntTBC.user
+    override var user: PryntUser! {
+        didSet {
             profiles = user.profiles
             fetchAllProfiles()
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
     
     func fetchAllProfiles() {
