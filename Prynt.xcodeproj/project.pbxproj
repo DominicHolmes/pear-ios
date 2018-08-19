@@ -471,8 +471,8 @@
 			children = (
 				B62282E020435B2E00C01F61 /* ScannerViewController-DEPRECATED.swift */,
 				B6889B5A2123A2D4001E9B25 /* ScannerViewController.swift */,
-				B62282EC2046481C00C01F61 /* PresentTransactionViewController.swift */,
 				B6D274E4212A1B8F008C9712 /* BankViewController.swift */,
+				B62282EC2046481C00C01F61 /* PresentTransactionViewController.swift */,
 			);
 			path = Transactions;
 			sourceTree = "<group>";

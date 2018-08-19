@@ -13,13 +13,11 @@ typealias TransactionId = String
 struct TransactionHTTPSResponse: Codable {
     let status: Bool
     let transaction: Transaction?
-    let primaryProfile: PryntProfile?
-    let secondaryProfile: PryntProfile?
 }
 
 struct AllTransactionsHTTPSResponse: Codable {
     let status: Bool
-    let transactions: [FinishedTransaction]?
+    let transactions: [Transaction]?
 }
 
 struct TransactionCreate: Codable {
@@ -41,6 +39,12 @@ struct TransactionReciprocate: Codable {
 }
 
 struct Transaction: Codable {
+    let transaction: TransactionDetails
+    let primaryProfile: PryntProfile
+    let secondaryProfile: PryntProfile?
+}
+
+struct TransactionDetails: Codable {
     let primaryApproval: Bool
     let primaryHandle: String
     let primaryName: String
@@ -57,12 +61,6 @@ struct Transaction: Codable {
     
     let state: TransactionState
     let id: TransactionId
-}
-
-struct FinishedTransaction: Codable {
-    let transaction: Transaction
-    let primaryProfile: PryntProfile
-    let secondaryProfile: PryntProfile?
 }
 
 enum TransactionState: String, Codable {

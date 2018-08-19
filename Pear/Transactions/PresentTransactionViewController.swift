@@ -12,7 +12,7 @@ class PresentTransactionViewController: PryntViewController {
     
     var transaction: Transaction! {
         didSet {
-            self.qrCodeImage = generateQRCode(from: transaction.id)
+            self.qrCodeImage = generateQRCode(from: transaction.transaction.id)
         }
     }
     
@@ -30,9 +30,9 @@ class PresentTransactionViewController: PryntViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        profileNameLabel.text = transaction.primaryName
-        nameLabel.text = transaction.primaryUsersName
-        handleLabel.text = "@" + transaction.primaryHandle
+        profileNameLabel.text = transaction.primaryProfile.profileName
+        nameLabel.text = transaction.primaryProfile.usersName
+        handleLabel.text = "@" + transaction.primaryProfile.handle
         QRCodeImageView?.image = qrCodeImage
     }
     

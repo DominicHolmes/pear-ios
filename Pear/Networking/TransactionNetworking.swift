@@ -30,7 +30,7 @@ class TransactionNetworkingManager {
         let method = Alamofire.HTTPMethod.post
         let parameters: Parameters? = createTransaction.dictionary
         
-        sessionManager.request("https://35.231.241.240/transaction/create", method: method, parameters: parameters, encoding: encoding, headers: headers).response { response in
+        sessionManager.request("https://35.231.241.240/transaction/initiate", method: method, parameters: parameters, encoding: encoding, headers: headers).response { response in
             
             let jsonDecoder = JSONDecoder()
             do {
@@ -50,7 +50,7 @@ class TransactionNetworkingManager {
     }
     
     // MARK: - Accept Transaction
-    func acceptTransaction(from acceptTransaction: TransactionAccept, _ completion: @escaping (_ success: Bool, _ transaction: FinishedTransaction?) -> Void) {
+    func acceptTransaction(from acceptTransaction: TransactionAccept, _ completion: @escaping (_ success: Bool, _ transaction: Transaction?) -> Void) {
         
         let method = Alamofire.HTTPMethod.post
         let parameters: Parameters? = acceptTransaction.dictionary
@@ -60,11 +60,8 @@ class TransactionNetworkingManager {
             let jsonDecoder = JSONDecoder()
             do {
                 let decodedResponse =  try jsonDecoder.decode(TransactionHTTPSResponse.self, from: response.data!)
-                if decodedResponse.status, let transaction = decodedResponse.transaction, let primaryProfile = decodedResponse.primaryProfile {
-                    let finishedTransaction = FinishedTransaction(transaction: transaction,
-                                                                  primaryProfile: primaryProfile,
-                                                                  secondaryProfile: decodedResponse.secondaryProfile)
-                    completion(true, finishedTransaction)
+                if decodedResponse.status, let transaction = decodedResponse.transaction {
+                    completion(true, transaction)
                 } else {
                     completion(false, nil)
                 }
@@ -78,7 +75,7 @@ class TransactionNetworkingManager {
     }
     
     // MARK: - Reciprocate Transaction
-    func reciprocateTransaction(from reciprocateTransaction: TransactionReciprocate, _ completion: @escaping (_ success: Bool, _ transaction: FinishedTransaction?) -> Void) {
+    func reciprocateTransaction(from reciprocateTransaction: TransactionReciprocate, _ completion: @escaping (_ success: Bool, _ transaction: Transaction?) -> Void) {
         
         let method = Alamofire.HTTPMethod.post
         let parameters: Parameters? = reciprocateTransaction.dictionary
@@ -88,11 +85,8 @@ class TransactionNetworkingManager {
             let jsonDecoder = JSONDecoder()
             do {
                 let decodedResponse =  try jsonDecoder.decode(TransactionHTTPSResponse.self, from: response.data!)
-                if decodedResponse.status, let transaction = decodedResponse.transaction, let primaryProfile = decodedResponse.primaryProfile {
-                    let finishedTransaction = FinishedTransaction(transaction: transaction,
-                                                                  primaryProfile: primaryProfile,
-                                                                  secondaryProfile: decodedResponse.secondaryProfile)
-                    completion(true, finishedTransaction)
+                if decodedResponse.status, let transaction = decodedResponse.transaction {
+                    completion(true, transaction)
                 } else {
                     completion(false, nil)
                 }
@@ -106,7 +100,7 @@ class TransactionNetworkingManager {
     }
     
     // MARK: - Fetch Transaction
-    func fetchTransaction(for userId: UserId, with transactionId: TransactionId, _ completion: @escaping (_ success: Bool, _ transaction: FinishedTransaction?) -> Void) {
+    func fetchTransaction(for userId: UserId, with transactionId: TransactionId, _ completion: @escaping (_ success: Bool, _ transaction: Transaction?) -> Void) {
         
         let method = Alamofire.HTTPMethod.post
         let parameters: Parameters? = ["id": userId, "transactionId": transactionId]
@@ -116,11 +110,8 @@ class TransactionNetworkingManager {
             let jsonDecoder = JSONDecoder()
             do {
                 let decodedResponse =  try jsonDecoder.decode(TransactionHTTPSResponse.self, from: response.data!)
-                if decodedResponse.status, let transaction = decodedResponse.transaction, let primaryProfile = decodedResponse.primaryProfile {
-                    let finishedTransaction = FinishedTransaction(transaction: transaction,
-                                                                  primaryProfile: primaryProfile,
-                                                                  secondaryProfile: decodedResponse.secondaryProfile)
-                    completion(true, finishedTransaction)
+                if decodedResponse.status, let transaction = decodedResponse.transaction {
+                    completion(true, transaction)
                 } else {
                     completion(false, nil)
                 }
@@ -133,7 +124,7 @@ class TransactionNetworkingManager {
     }
     
     // MARK: - Fetch All Transactions
-    func fetchAllTransactions(for userId: UserId, _ completion: @escaping (_ success: Bool, _ transactions: [FinishedTransaction]?) -> Void) {
+    func fetchAllTransactions(for userId: UserId, _ completion: @escaping (_ success: Bool, _ transactions: [Transaction]?) -> Void) {
         
         let method = Alamofire.HTTPMethod.post
         let parameters: Parameters? = ["id": userId]

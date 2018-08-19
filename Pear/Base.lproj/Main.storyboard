@@ -1387,11 +1387,8 @@
                     <connections>
                         <outlet property="cameraView" destination="PPX-oO-opV" id="yhG-Dh-zyP"/>
                         <outlet property="profilesButton" destination="OhS-Cq-Yga" id="Opj-tv-JRG"/>
-                        <segue destination="Qdb-gs-KGW" kind="popoverPresentation" identifier="viewCodeSegue" popoverAnchorView="PPX-oO-opV" id="2Z4-Kf-B9m">
-                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                        </segue>
                         <segue destination="KfD-PZ-VB1" kind="showDetail" identifier="pearProfileSelectionSegue" id="DwF-UE-SQM"/>
-                        <segue destination="FPI-El-jDB" kind="presentation" identifier="ViewBankSegue" id="QmB-NM-WFh"/>
+                        <segue destination="lvE-Y5-bkD" kind="presentation" identifier="ViewBankSegue" id="QmB-NM-WFh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wtV-rF-Wft" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1471,18 +1468,20 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Zfy-kj-Kyt"/>
                     </view>
+                    <navigationItem key="navigationItem" id="XgK-vP-1Zh"/>
                     <connections>
                         <outlet property="collectionView" destination="rsc-9s-QgG" id="9OI-ZK-Obf"/>
+                        <segue destination="Qdb-gs-KGW" kind="show" identifier="PresentTransactionSegue" id="0Zr-te-eDj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PYy-tv-eY2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2654" y="206"/>
+            <point key="canvasLocation" x="3542" y="206"/>
         </scene>
-        <!--Code View Controller-->
+        <!--Present Transaction View Controller-->
         <scene sceneID="hQL-CO-Dor">
             <objects>
-                <viewController id="Qdb-gs-KGW" customClass="QRCodeViewController" customModule="Prynt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Qdb-gs-KGW" customClass="PresentTransactionViewController" customModule="Prynt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UMS-81-67C">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1551,7 +1550,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3985" y="-243"/>
+            <point key="canvasLocation" x="4406" y="206"/>
         </scene>
         <!--Pear Profile SelectionVC-->
         <scene sceneID="d3S-vL-9dV">
@@ -1615,7 +1614,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qhh-V8-fld" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4442" y="636"/>
+            <point key="canvasLocation" x="5380" y="635.53223388305855"/>
         </scene>
         <!--Confirm Pear ProfilesVC-->
         <scene sceneID="GtL-L2-cOy">
@@ -1689,7 +1688,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Du-Qg-MNi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5169" y="636"/>
+            <point key="canvasLocation" x="6108" y="635.53223388305855"/>
         </scene>
         <!--Root Page View Controller-->
         <scene sceneID="cEk-Il-z7Z">
@@ -2229,6 +2228,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bbb-zq-OnH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3543" y="-2649"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Nnc-TV-OhO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="lvE-Y5-bkD" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XW2-Kz-1Hd">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="FPI-El-jDB" kind="relationship" relationship="rootViewController" id="eeq-Aa-IEr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gv9-H0-Pdu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2654" y="206"/>
         </scene>
     </scenes>
     <resources>

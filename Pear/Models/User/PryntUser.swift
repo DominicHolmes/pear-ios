@@ -98,7 +98,7 @@ extension PryntUser {
         // Replace an transaction if the id already exists; append if it doesn't
         if transactions == nil { transactions = [Transaction]() }
         if let replacedTransaction = transactions!.index(where: { (acct) -> Bool in
-            return transaction.id == acct.id
+            return transaction.transaction.id == acct.transaction.id
         }) {
             transactions![replacedTransaction] = transaction
         } else {
@@ -107,7 +107,7 @@ extension PryntUser {
     }
     
     func remove(transaction transactionId: TransactionId) {
-        if transactions != nil, let index = transactions!.index(where: { $0.id == transactionId }) {
+        if transactions != nil, let index = transactions!.index(where: { $0.transaction.id == transactionId }) {
             transactions!.remove(at: index)
         }
     }
