@@ -47,7 +47,6 @@ extension BankViewController {
     func initializeTransaction(with profile: PryntProfile) {
         let transactionCreate = TransactionCreate(id: user.id, profileId: profile.id)
         create(transactionCreate)
-        dump(transactionCreate)
     }
     
     internal func create(_ transactionCreate: TransactionCreate) {

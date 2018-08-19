@@ -73,6 +73,29 @@ class ScannerViewController: PryntTabViewController {
     }
 }
 
+// MARK: - QR Code Detected
+extension ScannerViewController {
+    fileprivate func found(code: String) {
+        if !codeFound {
+            codeFound = true
+            confirmTransaction(with: code)
+        }
+    }
+    
+    private func confirmTransaction(with code: String) {
+        let transactionAccept = TransactionAccept(id: user.id, transactionId: code, secondaryApproval: false, profileId: nil)
+        TransactionNetworkingManager.shared.acceptTransaction(from: transactionAccept) { (success, transaction) in
+            if success, let transaction = transaction {
+                self.performSegue(withIdentifier: "ViewTransactionSegue", sender: transaction)
+                self.endCaptureSession()
+            } else {
+                self.displayAlert("Error", "Could not complete transaction. Please make sure you have internet and try again.", nil)
+            }
+        }
+    }
+    
+}
+
 extension ScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
     
     fileprivate func setupCaptureSession() {
@@ -135,19 +158,6 @@ extension ScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
         
         //dismiss(animated: true) // potential problem here
     }
-    
-    func found(code: String) {
-        if !codeFound {
-            confirmTransaction(with: code)
-            endCaptureSession()
-            performSegue(withIdentifier: "CodeDetectedSegue", sender: code)
-            codeFound = true
-        }
-    }
-    
-    private func confirmTransaction(with code: String) {
-        
-    }
 }
 
 // MARK: - Confirm Transaction Logic
@@ -158,6 +168,10 @@ extension ScannerViewController {
 extension ScannerViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ViewBankSegue" {
+            let nav = segue.destination as! UINavigationController
+            let controller = nav.topViewController as! BankViewController
+            controller.user = self.user
+        } else if segue.identifier == "ViewTransactionSegue", let sender = sender as? Transaction {
             let nav = segue.destination as! UINavigationController
             let controller = nav.topViewController as! BankViewController
             controller.user = self.user
