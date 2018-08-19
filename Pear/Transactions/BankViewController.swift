@@ -121,6 +121,7 @@ extension BankViewController {
         if segue.identifier == "PresentTransactionSegue", let sender = sender as? Transaction {
             let controller = segue.destination as! PresentTransactionViewController
             controller.user = self.user
+            controller.transaction = sender
         }
     }
 }

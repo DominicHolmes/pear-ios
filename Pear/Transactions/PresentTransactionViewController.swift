@@ -10,8 +10,9 @@ import UIKit
 
 class PresentTransactionViewController: PryntViewController {
     
-    var transaction: Transaction! {
+    var transaction: Transaction? {
         didSet {
+            guard let transaction = transaction else { return }
             self.qrCodeImage = generateQRCode(from: transaction.transaction.id)
         }
     }
@@ -29,16 +30,22 @@ class PresentTransactionViewController: PryntViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
-        profileNameLabel.text = transaction.primaryProfile.profileName
-        nameLabel.text = transaction.primaryProfile.usersName
-        handleLabel.text = "@" + transaction.primaryProfile.handle
-        QRCodeImageView?.image = qrCodeImage
+        
+        if let transaction = transaction {
+            updateLabels(with: transaction)
+        }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func updateLabels(with transaction: Transaction) {
+        profileNameLabel.text = transaction.primaryProfile.profileName
+        nameLabel.text = transaction.primaryProfile.usersName
+        handleLabel.text = "@" + transaction.primaryProfile.handle
+        QRCodeImageView?.image = qrCodeImage
     }
     
     @IBAction func userDidSelectClose() {

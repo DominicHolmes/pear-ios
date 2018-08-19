@@ -40,8 +40,8 @@ struct TransactionReciprocate: Codable {
 
 struct Transaction: Codable {
     let transaction: TransactionDetails
-    let primaryProfile: PryntProfile
-    let secondaryProfile: PryntProfile?
+    let primaryProfile: PryntTransactionProfile
+    let secondaryProfile: PryntTransactionProfile?
 }
 
 struct TransactionDetails: Codable {
@@ -50,14 +50,12 @@ struct TransactionDetails: Codable {
     let primaryName: String
     let primaryProfileId: ProfileId
     let primaryUsersName: String
-    let primaryUser: UserId
     
     let secondaryApproval: Bool
     let secondaryHandle: String?
     let secondaryName: String?
     let secondaryProfileId: ProfileId?
     let secondaryUsersName: String?
-    let secondaryUser: UserId?
     
     let state: TransactionState
     let id: TransactionId
