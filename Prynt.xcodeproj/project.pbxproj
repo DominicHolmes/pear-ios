@@ -82,6 +82,7 @@
 		B6C945E220AE1B91000374DE /* PryntProfileSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C945E120AE1B91000374DE /* PryntProfileSelectionVC.swift */; };
 		B6C945E420AE32FC000374DE /* PearTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C945E320AE32FC000374DE /* PearTransaction.swift */; };
 		B6C945E620AE4601000374DE /* PearPendingTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C945E520AE4601000374DE /* PearPendingTransaction.swift */; };
+		B6D274E5212A1B8F008C9712 /* BankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D274E4212A1B8F008C9712 /* BankViewController.swift */; };
 		B6E4468920BA1CE8006C6B5B /* UserValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E4468820BA1CE8006C6B5B /* UserValidationViewController.swift */; };
 		B6FE7A082080079100F60838 /* PearUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE7A072080079100F60838 /* PearUser.swift */; };
 		B6FE7A0A20801C0400F60838 /* PostRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE7A0920801C0400F60838 /* PostRegistrationViewController.swift */; };
@@ -171,6 +172,7 @@
 		B6C945E120AE1B91000374DE /* PryntProfileSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PryntProfileSelectionVC.swift; sourceTree = "<group>"; };
 		B6C945E320AE32FC000374DE /* PearTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PearTransaction.swift; sourceTree = "<group>"; };
 		B6C945E520AE4601000374DE /* PearPendingTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PearPendingTransaction.swift; sourceTree = "<group>"; };
+		B6D274E4212A1B8F008C9712 /* BankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankViewController.swift; sourceTree = "<group>"; };
 		B6E4468820BA1CE8006C6B5B /* UserValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserValidationViewController.swift; sourceTree = "<group>"; };
 		B6FE7A072080079100F60838 /* PearUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PearUser.swift; sourceTree = "<group>"; };
 		B6FE7A0920801C0400F60838 /* PostRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRegistrationViewController.swift; sourceTree = "<group>"; };
@@ -470,6 +472,7 @@
 				B62282E020435B2E00C01F61 /* ScannerViewController-DEPRECATED.swift */,
 				B6889B5A2123A2D4001E9B25 /* ScannerViewController.swift */,
 				B62282EC2046481C00C01F61 /* QRCodeViewController.swift */,
+				B6D274E4212A1B8F008C9712 /* BankViewController.swift */,
 			);
 			path = Transactions;
 			sourceTree = "<group>";
@@ -696,6 +699,7 @@
 				B69DED9F2096A8460084C1E0 /* LoginViewController.swift in Sources */,
 				B65DEEDB20E99DE40027A1EF /* RootPageViewController.swift in Sources */,
 				B6E4468920BA1CE8006C6B5B /* UserValidationViewController.swift in Sources */,
+				B6D274E5212A1B8F008C9712 /* BankViewController.swift in Sources */,
 				B62282F1204743CF00C01F61 /* RadialProgressImageView.swift in Sources */,
 				B6889B40211E2707001E9B25 /* PryntAccountModels.swift in Sources */,
 				B6889B35211D10E2001E9B25 /* PryntTabBarController.swift in Sources */,

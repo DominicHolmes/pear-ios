@@ -30,8 +30,20 @@ class ScannerViewController: PryntTabViewController {
             self.user = pryntTBC.user
         }
         
+        fetchAllProfiles()
+        
         view.backgroundColor = UIColor.white
         setupCaptureSession()
+    }
+    
+    func fetchAllProfiles() {
+        ProfileNetworkingManager.shared.fetchAllProfiles(for: user.id) { (success, profiles) in
+            if success, let profiles = profiles {
+                self.user.profiles = profiles
+            } else {
+                self.displayAlert("Error", "Could not fetch profiles. Please make sure you have access to internet and try again.", nil)
+            }
+        }
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -93,7 +105,7 @@ extension ScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
     
     func failedScan() {
         let ac = UIAlertController(title: "Scanning not supported",
-                                   message: "Your device does not support scanning a code from an item. Please use a device with a camera.",
+                                   message: "Your device does not support scanning QR codes. Please use a device with a camera.",
                                    preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default))
         present(ac, animated: true)
