@@ -16,6 +16,7 @@ class PryntUser {
     let id: String!
     var profiles: [PryntProfile]?
     var accounts: [Account]?
+    var transactions: [Transaction]?
     
     init(firstName: String, lastName: String, username: String, id: String, profiles: [PryntProfile]?) {
         self.firstName = firstName
@@ -86,6 +87,28 @@ extension PryntUser {
     func remove(account accountId: AccountId) {
         if accounts != nil, let index = accounts!.index(where: { $0.id == accountId }) {
             accounts!.remove(at: index)
+        }
+    }
+}
+
+// MARK: - Transactions
+extension PryntUser {
+    
+    func add(_ transaction: Transaction) {
+        // Replace an transaction if the id already exists; append if it doesn't
+        if transactions == nil { transactions = [Transaction]() }
+        if let replacedTransaction = transactions!.index(where: { (acct) -> Bool in
+            return transaction.id == acct.id
+        }) {
+            transactions![replacedTransaction] = transaction
+        } else {
+            transactions!.append(transaction)
+        }
+    }
+    
+    func remove(transaction transactionId: TransactionId) {
+        if transactions != nil, let index = transactions!.index(where: { $0.id == transactionId }) {
+            transactions!.remove(at: index)
         }
     }
 }

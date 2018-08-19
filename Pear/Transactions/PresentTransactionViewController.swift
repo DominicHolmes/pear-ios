@@ -1,5 +1,5 @@
 //
-//  QRCodeViewController.swift
+//  PresentTransactionViewController.swift
 //  Pear
 //
 //  Created by Dominic Holmes on 2/27/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QRCodeViewController: PryntViewController {
+class PresentTransactionViewController: PryntViewController {
     
     var transaction: Transaction! {
         didSet {
@@ -46,7 +46,7 @@ class QRCodeViewController: PryntViewController {
     }
 }
 
-extension QRCodeViewController {
+extension PresentTransactionViewController {
     
     func generateQRCode(from string: String) -> UIImage? {
         

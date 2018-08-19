@@ -42,6 +42,26 @@ class BankViewController: PryntTabViewController {
     
 }
 
+// MARK: - Create Transaction Logic
+extension BankViewController {
+    func initializeTransaction(with profile: PryntProfile) {
+        let transactionCreate = TransactionCreate(id: user.id, profileId: profile.id)
+        create(transactionCreate)
+        
+    }
+    
+    internal func create(_ transactionCreate: TransactionCreate) {
+        TransactionNetworkingManager.shared.createTransaction(from: transactionCreate) { (success, transaction) in
+            if success, let transaction = transaction {
+                self.user.add(transaction)
+                self.performSegue(withIdentifier: "PresentTransactionSegue", sender: transaction)
+            } else {
+                self.displayAlert("Error", "Couldn't create a QR code. Please try again later.", nil)
+            }
+        }
+    }
+}
+
 // MARK: - CollectionView Data Source
 extension BankViewController: UICollectionViewDataSource {
     
@@ -76,7 +96,7 @@ extension BankViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let profiles = profiles, indexPath.row < profiles.count else { return }
         let profile = profiles[indexPath.row]
-        performSegue(withIdentifier: "EditClusterSegue", sender: profile)
+        initializeTransaction(with: profile)
     }
 }
 
@@ -98,15 +118,9 @@ extension BankViewController {
     
     // TODO: Hook up segue stuff
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "CreateClusterSegue" {
-//            let nav = segue.destination as! UINavigationController
-//            let controller = nav.topViewController as! CreateProfileViewController
-//            controller.user = self.user
-//        } else if segue.identifier == "EditClusterSegue", let sender = sender as? PryntProfile {
-//            let nav = segue.destination as! UINavigationController
-//            let controller = nav.topViewController as! EditProfileViewController
-//            controller.user = self.user
-//            controller.profileToEdit = sender
-//        }
+        if segue.identifier == "PresentTransactionSegue", let sender = sender as? Transaction {
+            let controller = segue.destination as! PresentTransactionViewController
+            controller.user = self.user
+        }
     }
 }
