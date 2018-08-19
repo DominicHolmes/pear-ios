@@ -63,6 +63,7 @@ class TransactionNetworkingManager {
                 if decodedResponse.status, let transaction = decodedResponse.transaction {
                     completion(true, transaction)
                 } else {
+                    dump(decodedResponse)
                     completion(false, nil)
                 }
             }

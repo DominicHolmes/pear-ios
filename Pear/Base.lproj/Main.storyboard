@@ -595,7 +595,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="5068" y="-682"/>
+            <point key="canvasLocation" x="6188" y="-960.2698650674663"/>
         </scene>
         <!--Delete Social Profile View Controller-->
         <scene sceneID="2JK-qO-uJO">
@@ -1389,6 +1389,7 @@
                         <outlet property="profilesButton" destination="OhS-Cq-Yga" id="Opj-tv-JRG"/>
                         <segue destination="KfD-PZ-VB1" kind="showDetail" identifier="pearProfileSelectionSegue" id="DwF-UE-SQM"/>
                         <segue destination="lvE-Y5-bkD" kind="presentation" identifier="ViewBankSegue" id="QmB-NM-WFh"/>
+                        <segue destination="IME-1k-8J5" kind="presentation" identifier="ViewTransactionSegue" id="4cH-ZX-45j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wtV-rF-Wft" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1540,7 +1541,6 @@
                         <outlet property="handleLabel" destination="jba-7b-2DN" id="Wa9-TZ-ykX"/>
                         <outlet property="nameLabel" destination="maq-QI-pCC" id="3bk-MM-sRx"/>
                         <outlet property="profileNameLabel" destination="Ocb-Kv-0ie" id="pZC-t7-rIn"/>
-                        <segue destination="HO9-DV-9D7" kind="show" identifier="successfulPearSegue" id="PI2-Ap-psT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yTn-pX-Tug" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1614,7 +1614,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qhh-V8-fld" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5380" y="635.53223388305855"/>
+            <point key="canvasLocation" x="5281" y="1252"/>
         </scene>
         <!--Confirm Pear ProfilesVC-->
         <scene sceneID="GtL-L2-cOy">
@@ -1688,7 +1688,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Du-Qg-MNi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6108" y="635.53223388305855"/>
+            <point key="canvasLocation" x="6036" y="1252"/>
         </scene>
         <!--Root Page View Controller-->
         <scene sceneID="cEk-Il-z7Z">
@@ -2248,6 +2248,135 @@
             </objects>
             <point key="canvasLocation" x="2654" y="206"/>
         </scene>
+        <!--Transaction View Controller-->
+        <scene sceneID="3F3-kJ-p49">
+            <objects>
+                <viewController id="bdY-SI-ShB" customClass="TransactionViewController" customModule="Prynt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9k9-3r-Ck1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UsersNameLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K7H-ID-SsX">
+                                <rect key="frame" x="16" y="227" width="343" height="24"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="@handleLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W4D-KD-izq">
+                                <rect key="frame" x="16" y="259" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="17"/>
+                                <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fnY-Oq-jsX">
+                                <rect key="frame" x="72" y="581" width="230" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="17"/>
+                                <state key="normal" title="Done" backgroundImage="button-outline-green">
+                                    <color key="titleColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted" backgroundImage="button-outline-green-highlighted">
+                                    <color key="titleColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="0.5995023545" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="userDidSelectDone" destination="bdY-SI-ShB" eventType="touchUpInside" id="VRI-xj-LIG"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="b4d-AI-Ak1">
+                                <rect key="frame" x="37" y="317" width="300" height="225"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pRg-yl-Mc1">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NetworkCell" id="QND-1c-3bp" customClass="NetworkCollectionCell" customModule="Prynt" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p9S-Ob-6eq">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="bdY-SI-ShB" id="baL-gw-iTd"/>
+                                    <outlet property="delegate" destination="bdY-SI-ShB" id="B1i-ne-4VA"/>
+                                </connections>
+                            </collectionView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pear-logo" translatesAutoresizingMaskIntoConstraints="NO" id="Pfz-Gm-PPf">
+                                <rect key="frame" x="141" y="118" width="91" height="89"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzI-LL-8nf">
+                                <rect key="frame" x="330" y="37" width="25" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="x-button"/>
+                                <state key="highlighted" image="x-button-highlighted"/>
+                                <connections>
+                                    <action selector="userDidSelectDone" destination="bdY-SI-ShB" eventType="touchUpInside" id="fwR-nr-cGt"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ProfileName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1a-RO-peR">
+                                <rect key="frame" x="16" y="41" width="306" height="17"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="GothamRounded-Bold" family="Gotham Rounded" pointSize="17"/>
+                                <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <viewLayoutGuide key="safeArea" id="fbT-rI-7zj"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Exy-t6-RRS" appends="YES" id="nua-ui-Zw9"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" id="ITP-nf-iVe"/>
+                    <connections>
+                        <outlet property="collectionView" destination="b4d-AI-Ak1" id="S2b-cZ-3Jh"/>
+                        <outlet property="profileNameLabel" destination="Q1a-RO-peR" id="wWL-yd-W7x"/>
+                        <outlet property="usersHandleLabel" destination="W4D-KD-izq" id="w2j-pK-dmN"/>
+                        <outlet property="usersNameLabel" destination="K7H-ID-SsX" id="cBx-uK-hAK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iQ3-u6-f07" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="down" id="Exy-t6-RRS">
+                    <connections>
+                        <action selector="userDidSelectDone" destination="bdY-SI-ShB" id="HHE-Li-cyy"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="3542" y="-518"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ELR-VL-PmW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="IME-1k-8J5" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cgw-c7-HKb">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bdY-SI-ShB" kind="relationship" relationship="rootViewController" id="Kk9-sh-Nl9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hAJ-ez-HWg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2654" y="-518"/>
+        </scene>
     </scenes>
     <resources>
         <image name="bell-tab-icon-disabled" width="22" height="28"/>
@@ -2275,11 +2404,12 @@
         <image name="x-button-highlighted" width="47" height="47"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="DwF-UE-SQM"/>
         <segue reference="rQJ-Lp-f2f"/>
         <segue reference="zs1-hK-bs9"/>
         <segue reference="JVR-pM-jdX"/>
         <segue reference="H4Y-RI-GR5"/>
-        <segue reference="PI2-Ap-psT"/>
+        <segue reference="4wm-yD-ubR"/>
         <segue reference="QFb-nf-2F1"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>

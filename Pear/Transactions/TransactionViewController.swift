@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TransactionViewController: PearViewController {
+class TransactionViewController: PryntViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     

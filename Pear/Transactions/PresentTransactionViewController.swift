@@ -58,6 +58,7 @@ extension PresentTransactionViewController {
     func generateQRCode(from string: String) -> UIImage? {
         
         let data = string.data(using: String.Encoding.ascii)
+        dump(string)
         
         // Generate the QR code
         guard let qrFilter = CIFilter(name: "CIQRCodeGenerator") else { return nil }
