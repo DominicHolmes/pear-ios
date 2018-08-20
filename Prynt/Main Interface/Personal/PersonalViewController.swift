@@ -34,8 +34,8 @@ class PersonalNavigationController: TabmanViewController, PageboyViewControllerD
         self.dataSource = self
         
         // configure the bar
-        self.bar.items = [Item(title: "Contacts"),
-                          Item(title: "Requests")]
+        self.bar.items = [Item(title: "Clusters"),
+                          Item(title: "Accounts")]
     }
     
     func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
@@ -48,6 +48,6 @@ class PersonalNavigationController: TabmanViewController, PageboyViewControllerD
     }
     
     func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
-        return nil
+        return .first
     }
 }

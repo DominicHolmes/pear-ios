@@ -46,6 +46,6 @@ class ActivityNavigationController: TabmanViewController, PageboyViewControllerD
     }
     
     func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
-        return nil
+        return .last
     }
 }
