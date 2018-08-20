@@ -8,14 +8,18 @@
 
 import UIKit
 
-class RootPageViewController: UIPageViewController, UIPageViewControllerDataSource {
+class RootPageViewController: PryntPageViewController, UIPageViewControllerDataSource {
     
     lazy var viewControllerList : [UIViewController] = {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         
-        let activityVC = storyboard.instantiateViewController(withIdentifier: "ActivityViewController")
-        let cameraVC = storyboard.instantiateViewController(withIdentifier: "ScannerViewController")
-        let clusterVC = storyboard.instantiateViewController(withIdentifier: "ClustersViewController")
+        let activityVC = storyboard.instantiateViewController(withIdentifier: "ActivityViewController") as! ActivityViewController
+        let cameraVC = storyboard.instantiateViewController(withIdentifier: "ScannerViewController") as! ScannerViewController
+        let clusterVC = storyboard.instantiateViewController(withIdentifier: "PersonalViewController") as! PersonalViewController
+        
+        activityVC.user = user
+        cameraVC.user = user
+        clusterVC.user = user
         
         return [activityVC, cameraVC, clusterVC]
     }()

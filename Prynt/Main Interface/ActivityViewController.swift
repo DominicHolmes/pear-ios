@@ -8,6 +8,10 @@
 
 import UIKit
 
-class ActivityViewController: UIViewController {
+class ActivityViewController: PryntViewController {
+    
+}
+
+class PersonalViewController: PryntViewController {
     
 }

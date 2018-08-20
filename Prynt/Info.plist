@@ -28,48 +28,42 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
-    <dict>
-        <key>NSExceptionDomains</key>
-        <dict>
-            <key>35.231.241.240:80</key>
-            <dict>
-                <key>NSExceptionAllowsInsecureHTTPLoads</key>
-                <true/>
-                <key>NSExceptionRequiresForwardSecrecy</key>
-                <false/>
-                <key>NSIncludesSubdomains</key>
-                <true/>
-            </dict>
-        </dict>
-    </dict>
+	<dict>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>35.231.241.240:80</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSExceptionRequiresForwardSecrecy</key>
+				<false/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
+		</dict>
+	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>This app needs access to the camera to read QR codes.</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Gotham-Black.otf</string>
-		<string>Gotham-BlackItalic.otf</string>
-		<string>Gotham-Bold.otf</string>
-		<string>Gotham-BoldItalic.otf</string>
-		<string>Gotham-Book.otf</string>
-		<string>Gotham-BookItalic.otf</string>
-		<string>Gotham-Light.otf</string>
-		<string>Gotham-LightItalic.otf</string>
-		<string>Gotham-Medium.otf</string>
-		<string>Gotham-MediumItalic.otf</string>
-		<string>Gotham-Thin.otf</string>
-		<string>Gotham-ThinItalic.otf</string>
-		<string>Gotham-Ultra.otf</string>
-		<string>Gotham-UltraItalic.otf</string>
-		<string>Gotham-XLight.otf</string>
-		<string>Gotham-XLightItalic.otf</string>
-		<string>GothamRnd-Bold.otf</string>
-		<string>GothamRnd-BoldItal.otf</string>
-		<string>GothamRnd-Book.otf</string>
-		<string>GothamRnd-BookItal.otf</string>
-		<string>GothamRnd-Light.otf</string>
-		<string>GothamRnd-LightItal.otf</string>
-		<string>GothamRnd-MedItal.otf</string>
-		<string>GothamRnd-Medium.otf</string>
+		<string>Montserrat-Black.ttf</string>
+		<string>Montserrat-BlackItalic.otf</string>
+		<string>Montserrat-Bold.otf</string>
+		<string>Montserrat-BoldItalic.otf</string>
+		<string>Montserrat-ExtraBold.otf</string>
+		<string>Montserrat-ExtraBoldItalic.otf</string>
+		<string>Montserrat-ExtraLight.otf</string>
+		<string>Montserrat-ExtraLightItalic.otf</string>
+		<string>Montserrat-Italic.otf</string>
+		<string>Montserrat-Light.otf</string>
+		<string>Montserrat-LightItalic.otf</string>
+		<string>Montserrat-Medium.otf</string>
+		<string>Montserrat-MediumItalic.otf</string>
+		<string>Montserrat-Regular.otf</string>
+		<string>Montserrat-SemiBold.otf</string>
+		<string>Montserrat-SemiBoldItalic.otf</string>
+		<string>Montserrat-Thin.otf</string>
+		<string>Montserrat-ThinItalic.otf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
