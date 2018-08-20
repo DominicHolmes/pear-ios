@@ -73,6 +73,8 @@
 		B6C945E220AE1B91000374DE /* PryntProfileSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C945E120AE1B91000374DE /* PryntProfileSelectionVC.swift */; };
 		B6D274E5212A1B8F008C9712 /* BankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D274E4212A1B8F008C9712 /* BankViewController.swift */; };
 		B6D274E7212A2CEB008C9712 /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D274E6212A2CEB008C9712 /* TransactionViewController.swift */; };
+		B6D274E9212A6E22008C9712 /* PryntGenericRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D274E8212A6E22008C9712 /* PryntGenericRegistrationViewController.swift */; };
+		B6D274EB212A6E40008C9712 /* PryntGenericLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D274EA212A6E40008C9712 /* PryntGenericLoginViewController.swift */; };
 		B6E4468920BA1CE8006C6B5B /* UserValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E4468820BA1CE8006C6B5B /* UserValidationViewController.swift */; };
 		B6FE7A0A20801C0400F60838 /* PostRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE7A0920801C0400F60838 /* PostRegistrationViewController.swift */; };
 		B6FE7A0F208026AE00F60838 /* CreatePryntProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE7A0E208026AE00F60838 /* CreatePryntProfileViewController.swift */; };
@@ -150,6 +152,8 @@
 		B6C945E120AE1B91000374DE /* PryntProfileSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PryntProfileSelectionVC.swift; sourceTree = "<group>"; };
 		B6D274E4212A1B8F008C9712 /* BankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankViewController.swift; sourceTree = "<group>"; };
 		B6D274E6212A2CEB008C9712 /* TransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
+		B6D274E8212A6E22008C9712 /* PryntGenericRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PryntGenericRegistrationViewController.swift; sourceTree = "<group>"; };
+		B6D274EA212A6E40008C9712 /* PryntGenericLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PryntGenericLoginViewController.swift; sourceTree = "<group>"; };
 		B6E4468820BA1CE8006C6B5B /* UserValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserValidationViewController.swift; sourceTree = "<group>"; };
 		B6FE7A0920801C0400F60838 /* PostRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRegistrationViewController.swift; sourceTree = "<group>"; };
 		B6FE7A0E208026AE00F60838 /* CreatePryntProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePryntProfileViewController.swift; sourceTree = "<group>"; };
@@ -171,7 +175,7 @@
 		B6111DB9201901F600DC7877 = {
 			isa = PBXGroup;
 			children = (
-				B6111DC4201901F600DC7877 /* Pear */,
+				B6111DC4201901F600DC7877 /* Prynt */,
 				B6111DC3201901F600DC7877 /* Products */,
 				C60B1EBE86204C5795FAD7C1 /* Pods */,
 				C8F115107479D5A94EDDF343 /* Frameworks */,
@@ -186,7 +190,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B6111DC4201901F600DC7877 /* Pear */ = {
+		B6111DC4201901F600DC7877 /* Prynt */ = {
 			isa = PBXGroup;
 			children = (
 				B65DEED920E99DB20027A1EF /* Main Interface */,
@@ -208,7 +212,7 @@
 				B602F1E4204A2E66003B969B /* GoogleService-Info.plist */,
 				B6111DD3201901F600DC7877 /* Info.plist */,
 			);
-			path = Pear;
+			path = Prynt;
 			sourceTree = "<group>";
 		};
 		B62282E22046279B00C01F61 /* Onboarding */ = {
@@ -396,6 +400,8 @@
 			children = (
 				B6889B34211D10E2001E9B25 /* PryntTabBarController.swift */,
 				B6889B3B211D2314001E9B25 /* PryntTabViewController.swift */,
+				B6D274E8212A6E22008C9712 /* PryntGenericRegistrationViewController.swift */,
+				B6D274EA212A6E40008C9712 /* PryntGenericLoginViewController.swift */,
 				B6889B38211D1FEA001E9B25 /* PryntViewController.swift */,
 				B6889B3D211D23A5001E9B25 /* PryntTableViewController.swift */,
 			);
@@ -601,6 +607,7 @@
 				B62282ED2046481C00C01F61 /* PresentTransactionViewController.swift in Sources */,
 				B6889B5B2123A2D4001E9B25 /* ScannerViewController.swift in Sources */,
 				B67A37062039E52D00A72456 /* Extensions.swift in Sources */,
+				B6D274E9212A6E22008C9712 /* PryntGenericRegistrationViewController.swift in Sources */,
 				B6889B43211E2885001E9B25 /* AccountsViewController.swift in Sources */,
 				B6889B3E211D23A5001E9B25 /* PryntTableViewController.swift in Sources */,
 				B6889B39211D1FEA001E9B25 /* PryntViewController.swift in Sources */,
@@ -608,6 +615,7 @@
 				B6889B582122899E001E9B25 /* ChooseAccountsViewController.swift in Sources */,
 				B65DEEDD20E99E1B0027A1EF /* ActivityViewController.swift in Sources */,
 				B6889B5D2123FD59001E9B25 /* TransactionNetworking.swift in Sources */,
+				B6D274EB212A6E40008C9712 /* PryntGenericLoginViewController.swift in Sources */,
 				B6889B3C211D2314001E9B25 /* PryntTabViewController.swift in Sources */,
 				B628758B210D5C2D00FB2873 /* UserNetworking.swift in Sources */,
 				B6FE7A0A20801C0400F60838 /* PostRegistrationViewController.swift in Sources */,

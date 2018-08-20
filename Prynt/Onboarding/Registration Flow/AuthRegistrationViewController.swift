@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class AuthRegistrationViewController: PearGenericRegistrationViewController {
+class AuthRegistrationViewController: PryntGenericRegistrationViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()

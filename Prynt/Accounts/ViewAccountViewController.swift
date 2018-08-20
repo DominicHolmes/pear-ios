@@ -15,7 +15,7 @@ protocol ViewAccountViewControllerDelegate {
     func viewAccountViewControllerDidDelete(_ controller: ViewAccountViewController, account: Account)
 }
 
-class ViewAccountViewController: PearViewController {
+class ViewAccountViewController: PryntViewController {
     
     private enum State {
         case editing
