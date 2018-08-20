@@ -7,9 +7,9 @@
 //
 
 import UIKit
-import FirebaseDatabase
+//import FirebaseDatabase
 
-class ConfirmPearProfilesVC: PearViewController {
+/*class ConfirmPearProfilesVC: PearViewController {
     
     var profileToShare : SocialProfile?
     var scannedProfile : SocialProfile?
@@ -248,4 +248,4 @@ extension ConfirmPearProfilesVC {
             self.bottomProfileView.setValueAnimated(duration: 0.6, newProgressValue: 1.0)
         })
     }
-}
+}*/
