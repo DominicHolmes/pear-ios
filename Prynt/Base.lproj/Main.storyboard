@@ -111,7 +111,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ClusterCell" id="kPT-NW-BFV">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="ClusterCell" id="kPT-NW-BFV">
                                         <rect key="frame" x="0.0" y="0.0" width="70" height="65"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -269,7 +269,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NetworkCell" id="c5I-Il-h2k" customClass="NetworkCollectionCell" customModule="Prynt" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="NetworkCell" id="c5I-Il-h2k" customClass="NetworkCollectionCell" customModule="Prynt" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -334,7 +334,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NetworkCell" id="uOy-Ap-82a" customClass="NetworkCollectionCell" customModule="Prynt" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="NetworkCell" id="uOy-Ap-82a" customClass="NetworkCollectionCell" customModule="Prynt" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -532,7 +532,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NetworkCell" id="hcA-gO-pvV" customClass="NetworkCollectionCell" customModule="Prynt" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="NetworkCell" id="hcA-gO-pvV" customClass="NetworkCollectionCell" customModule="Prynt" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -935,7 +935,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2zy-Ty-gUs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2996" y="1008"/>
+            <point key="canvasLocation" x="-3892" y="1895"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="Xct-UB-fUB">
@@ -1177,7 +1177,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-2085" y="1008"/>
+            <point key="canvasLocation" x="-2996" y="1895"/>
         </scene>
         <!--Social Profile Construction View Controller-->
         <scene sceneID="3vb-58-yXk">
@@ -1269,7 +1269,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4zu-Ci-RO9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1039.2" y="1007.9460269865068"/>
+            <point key="canvasLocation" x="-2086" y="1895"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qPq-U3-yNc">
@@ -1302,7 +1302,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="98A-3K-XzF" kind="relationship" relationship="viewControllers" id="5j2-dq-Z68"/>
-                        <segue destination="5oa-Xh-Fqc" kind="relationship" relationship="viewControllers" id="fW4-dE-Xoi"/>
                         <segue destination="qwc-q3-2xs" kind="relationship" relationship="viewControllers" id="cPM-Vz-jN0"/>
                         <segue destination="ECp-0q-adc" kind="relationship" relationship="viewControllers" id="sJ0-7b-AUp"/>
                         <segue destination="jFc-oZ-Ov8" kind="relationship" relationship="viewControllers" id="YjA-Yi-sia"/>
@@ -1317,17 +1316,46 @@
             <objects>
                 <viewController storyboardIdentifier="ScannerViewController" id="5oa-Xh-Fqc" customClass="ScannerViewController" customModule="Prynt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fqk-hs-TjG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PPX-oO-opV">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OhS-Cq-Yga">
+                                        <rect key="frame" x="165" y="603" width="44" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <state key="normal" image="Prynt-Tab-Lt"/>
+                                        <state key="highlighted" image="qr-button-highlighted"/>
+                                        <connections>
+                                            <action selector="bankButtonSelected" destination="5oa-Xh-Fqc" eventType="touchUpInside" id="GIa-wR-7fN"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ert-kp-ut8">
+                                        <rect key="frame" x="311" y="603" width="44" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                        <state key="normal" image="Self-Tab-Lt"/>
+                                        <state key="highlighted" image="qr-button-highlighted"/>
+                                        <connections>
+                                            <action selector="bankButtonSelected" destination="5oa-Xh-Fqc" eventType="touchUpInside" id="1yn-u5-5GG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TN8-vR-WVx">
+                                        <rect key="frame" x="20" y="603" width="44" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <state key="normal" image="People-Tab-Lt"/>
+                                        <state key="highlighted" image="qr-button-highlighted"/>
+                                        <connections>
+                                            <action selector="bankButtonSelected" destination="5oa-Xh-Fqc" eventType="touchUpInside" id="xGS-Ul-SQO"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qrJ-7J-mz4">
-                                <rect key="frame" x="93" y="864" width="189" height="219"/>
+                                <rect key="frame" x="93" y="820" width="189" height="219"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Is4-lb-wD2">
                                         <rect key="frame" x="0.0" y="0.0" width="189" height="219"/>
@@ -1362,16 +1390,6 @@
                                     <constraint firstAttribute="height" constant="219" id="S4H-9p-XD4"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OhS-Cq-Yga">
-                                <rect key="frame" x="309" y="548" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="qr-button"/>
-                                <state key="highlighted" image="qr-button-highlighted"/>
-                                <connections>
-                                    <action selector="bankButtonSelected" destination="5oa-Xh-Fqc" eventType="touchUpInside" id="GIa-wR-7fN"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -1427,7 +1445,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ClusterCell" id="hgQ-rk-N5C">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="ClusterCell" id="hgQ-rk-N5C">
                                         <rect key="frame" x="0.0" y="0.0" width="70" height="65"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -2067,7 +2085,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-10.4" y="1007.9460269865068"/>
+            <point key="canvasLocation" x="-1039" y="1895"/>
         </scene>
         <!--View Account View Controller-->
         <scene sceneID="usB-2Z-mmL">
@@ -2272,7 +2290,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NetworkCell" id="QND-1c-3bp" customClass="NetworkCollectionCell" customModule="Prynt" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="NetworkCell" id="QND-1c-3bp" customClass="NetworkCollectionCell" customModule="Prynt" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -2374,6 +2392,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="People-Tab-Lt" width="44" height="44"/>
+        <image name="Prynt-Tab-Lt" width="44" height="44"/>
+        <image name="Self-Tab-Lt" width="44" height="44"/>
         <image name="bell-tab-icon-disabled" width="22" height="28"/>
         <image name="bell-tab-icon-enabled" width="22" height="28"/>
         <image name="button-outline-green" width="214" height="44"/>
@@ -2392,7 +2413,6 @@
         <image name="profile-tab-icon-disabled" width="22" height="26"/>
         <image name="profile-tab-icon-enabled" width="22" height="26"/>
         <image name="prynt-logo" width="402" height="252"/>
-        <image name="qr-button" width="60" height="60"/>
         <image name="qr-button-highlighted" width="60" height="60"/>
         <image name="translucent-background" width="750" height="1336"/>
         <image name="x-button" width="47" height="47"/>
@@ -2401,8 +2421,8 @@
     <inferredMetricsTieBreakers>
         <segue reference="rQJ-Lp-f2f"/>
         <segue reference="zs1-hK-bs9"/>
-        <segue reference="EsY-PZ-b6Y"/>
-        <segue reference="H4Y-RI-GR5"/>
+        <segue reference="EaW-Nt-kia"/>
+        <segue reference="XqZ-TR-T33"/>
         <segue reference="4wm-yD-ubR"/>
         <segue reference="QFb-nf-2F1"/>
     </inferredMetricsTieBreakers>
