@@ -26,7 +26,7 @@
         <!--Item-->
         <scene sceneID="FcC-8L-r9s">
             <objects>
-                <viewController id="ECp-0q-adc" customClass="AccountsViewController" customModule="Prynt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AccountsViewController" id="ECp-0q-adc" customClass="AccountsViewController" customModule="Prynt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EOd-9Z-WHi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -90,12 +90,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9eD-tF-cPs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1564" y="-3055.3223388305851"/>
+            <point key="canvasLocation" x="3385" y="1483"/>
         </scene>
         <!--Item-->
         <scene sceneID="qrl-Gx-cSH">
             <objects>
-                <viewController id="jFc-oZ-Ov8" customClass="ProfilesViewController" customModule="Prynt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfilesViewController" id="jFc-oZ-Ov8" customClass="ProfilesViewController" customModule="Prynt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nn0-lE-sCS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -111,7 +111,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="ClusterCell" id="kPT-NW-BFV">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ClusterCell" id="kPT-NW-BFV">
                                         <rect key="frame" x="0.0" y="0.0" width="70" height="65"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -173,7 +173,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y13-LT-I2U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1564" y="-2308"/>
+            <point key="canvasLocation" x="2593" y="1483"/>
         </scene>
         <!--Create Profile View Controller-->
         <scene sceneID="iLy-SN-HJN">
@@ -269,7 +269,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="NetworkCell" id="c5I-Il-h2k" customClass="NetworkCollectionCell" customModule="Prynt" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NetworkCell" id="c5I-Il-h2k" customClass="NetworkCollectionCell" customModule="Prynt" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -334,7 +334,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="NetworkCell" id="uOy-Ap-82a" customClass="NetworkCollectionCell" customModule="Prynt" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NetworkCell" id="uOy-Ap-82a" customClass="NetworkCollectionCell" customModule="Prynt" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -532,7 +532,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="NetworkCell" id="hcA-gO-pvV" customClass="NetworkCollectionCell" customModule="Prynt" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NetworkCell" id="hcA-gO-pvV" customClass="NetworkCollectionCell" customModule="Prynt" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -1445,7 +1445,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="ClusterCell" id="hgQ-rk-N5C">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ClusterCell" id="hgQ-rk-N5C">
                                         <rect key="frame" x="0.0" y="0.0" width="70" height="65"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -1715,10 +1715,10 @@
             </objects>
             <point key="canvasLocation" x="1684" y="-87"/>
         </scene>
-        <!--Activity View Controller-->
+        <!--Activity Navigation Controller-->
         <scene sceneID="PDf-pj-Rd9">
             <objects>
-                <viewController storyboardIdentifier="ActivityViewController" id="BCz-ud-7Re" customClass="ActivityViewController" customModule="Prynt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ActivityNavigationController" id="BCz-ud-7Re" customClass="ActivityNavigationController" customModule="Prynt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PWd-e1-DRd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1730,10 +1730,10 @@
             </objects>
             <point key="canvasLocation" x="825" y="752"/>
         </scene>
-        <!--Personal View Controller-->
+        <!--Personal Navigation Controller-->
         <scene sceneID="Vwu-vw-gsF">
             <objects>
-                <viewController storyboardIdentifier="PersonalViewController" id="GeG-Lb-FRa" customClass="PersonalViewController" customModule="Prynt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PersonalNavigationController" id="GeG-Lb-FRa" customClass="PersonalNavigationController" customModule="Prynt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dp5-tI-IHd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1953,7 +1953,37 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9A2-k8-XZx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1564" y="1799"/>
+            <point key="canvasLocation" x="-742" y="1083"/>
+        </scene>
+        <!--Contacts View Controller-->
+        <scene sceneID="WnU-Za-uV5">
+            <objects>
+                <viewController storyboardIdentifier="ContactsViewController" id="Hh7-hG-8iM" customClass="ContactsViewController" customModule="Prynt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6mm-DX-Aqy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.22472724669999999" blue="0.13905073740000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <viewLayoutGuide key="safeArea" id="g4u-Tc-qot"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Je5-F9-Cx1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="70" y="1483"/>
+        </scene>
+        <!--Requests View Controller-->
+        <scene sceneID="zQw-eM-MZo">
+            <objects>
+                <viewController storyboardIdentifier="RequestsViewController" id="Qqo-Ef-DbK" customClass="RequestsViewController" customModule="Prynt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8zS-fF-l99">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <viewLayoutGuide key="safeArea" id="gif-vs-rua"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6ft-fh-12H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="825" y="1483"/>
         </scene>
         <!--User Validation View Controller-->
         <scene sceneID="PNP-Nn-Ttv">
@@ -2290,7 +2320,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="NetworkCell" id="QND-1c-3bp" customClass="NetworkCollectionCell" customModule="Prynt" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NetworkCell" id="QND-1c-3bp" customClass="NetworkCollectionCell" customModule="Prynt" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -2420,7 +2450,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="rQJ-Lp-f2f"/>
-        <segue reference="zs1-hK-bs9"/>
+        <segue reference="7Rc-ku-flp"/>
         <segue reference="EaW-Nt-kia"/>
         <segue reference="XqZ-TR-T33"/>
         <segue reference="4wm-yD-ubR"/>

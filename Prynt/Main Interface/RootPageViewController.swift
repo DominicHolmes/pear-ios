@@ -13,9 +13,9 @@ class RootPageViewController: PryntPageViewController, UIPageViewControllerDataS
     lazy var viewControllerList : [UIViewController] = {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         
-        let activityVC = storyboard.instantiateViewController(withIdentifier: "ActivityViewController") as! ActivityViewController
+        let activityVC = storyboard.instantiateViewController(withIdentifier: "ActivityNavigationController") as! ActivityNavigationController
         let cameraVC = storyboard.instantiateViewController(withIdentifier: "ScannerViewController") as! ScannerViewController
-        let clusterVC = storyboard.instantiateViewController(withIdentifier: "PersonalViewController") as! PersonalViewController
+        let clusterVC = storyboard.instantiateViewController(withIdentifier: "PersonalNavigationController") as! PersonalNavigationController
         
         activityVC.user = user
         cameraVC.user = user

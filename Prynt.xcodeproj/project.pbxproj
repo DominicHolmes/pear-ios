@@ -21,8 +21,11 @@
 		B6287589210D49C000FB2873 /* PryntUserModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6287588210D49C000FB2873 /* PryntUserModels.swift */; };
 		B628758B210D5C2D00FB2873 /* UserNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B628758A210D5C2D00FB2873 /* UserNetworking.swift */; };
 		B65DEEDB20E99DE40027A1EF /* RootPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DEEDA20E99DE40027A1EF /* RootPageViewController.swift */; };
-		B65DEEDD20E99E1B0027A1EF /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DEEDC20E99E1B0027A1EF /* ActivityViewController.swift */; };
 		B6630600212A8D0E004EE499 /* PryntPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66305FF212A8D0E004EE499 /* PryntPageViewController.swift */; };
+		B6630602212A93D7004EE499 /* PersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6630601212A93D7004EE499 /* PersonalViewController.swift */; };
+		B6630604212A9455004EE499 /* ActivityNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6630603212A9455004EE499 /* ActivityNavigationController.swift */; };
+		B6630606212A9636004EE499 /* RequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6630605212A9636004EE499 /* RequestsViewController.swift */; };
+		B6630608212A963E004EE499 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6630607212A963E004EE499 /* ContactsViewController.swift */; };
 		B6740ED520B90ECD00ACB85F /* Gotham-XLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6740EBC20B90EC900ACB85F /* Gotham-XLight.otf */; };
 		B6740ED620B90ECD00ACB85F /* Gotham-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6740EBD20B90EC900ACB85F /* Gotham-Thin.otf */; };
 		B6740ED720B90ECD00ACB85F /* Gotham-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6740EBE20B90EC900ACB85F /* Gotham-Black.otf */; };
@@ -118,8 +121,11 @@
 		B6287588210D49C000FB2873 /* PryntUserModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PryntUserModels.swift; sourceTree = "<group>"; };
 		B628758A210D5C2D00FB2873 /* UserNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworking.swift; sourceTree = "<group>"; };
 		B65DEEDA20E99DE40027A1EF /* RootPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPageViewController.swift; sourceTree = "<group>"; };
-		B65DEEDC20E99E1B0027A1EF /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		B66305FF212A8D0E004EE499 /* PryntPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PryntPageViewController.swift; sourceTree = "<group>"; };
+		B6630601212A93D7004EE499 /* PersonalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalViewController.swift; sourceTree = "<group>"; };
+		B6630603212A9455004EE499 /* ActivityNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityNavigationController.swift; sourceTree = "<group>"; };
+		B6630605212A9636004EE499 /* RequestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsViewController.swift; sourceTree = "<group>"; };
+		B6630607212A963E004EE499 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		B6740EBC20B90EC900ACB85F /* Gotham-XLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-XLight.otf"; sourceTree = "<group>"; };
 		B6740EBD20B90EC900ACB85F /* Gotham-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Thin.otf"; sourceTree = "<group>"; };
 		B6740EBE20B90EC900ACB85F /* Gotham-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Black.otf"; sourceTree = "<group>"; };
@@ -232,8 +238,6 @@
 				B65DEED920E99DB20027A1EF /* Main Interface */,
 				B62282E22046279B00C01F61 /* Onboarding */,
 				B6889B33211D10C7001E9B25 /* Generic */,
-				B6889B41211E27E8001E9B25 /* Accounts */,
-				B62282E3204627AA00C01F61 /* Profiles */,
 				B6889B592123A2AB001E9B25 /* Transactions */,
 				B628758C210D5C3000FB2873 /* Networking */,
 				B6287587210D495000FB2873 /* Models */,
@@ -325,9 +329,30 @@
 			isa = PBXGroup;
 			children = (
 				B65DEEDA20E99DE40027A1EF /* RootPageViewController.swift */,
-				B65DEEDC20E99E1B0027A1EF /* ActivityViewController.swift */,
+				B6630609212A97B2004EE499 /* Activity */,
+				B663060A212A97BA004EE499 /* Personal */,
 			);
 			path = "Main Interface";
+			sourceTree = "<group>";
+		};
+		B6630609212A97B2004EE499 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				B6630603212A9455004EE499 /* ActivityNavigationController.swift */,
+				B6630605212A9636004EE499 /* RequestsViewController.swift */,
+				B6630607212A963E004EE499 /* ContactsViewController.swift */,
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
+		B663060A212A97BA004EE499 /* Personal */ = {
+			isa = PBXGroup;
+			children = (
+				B6630601212A93D7004EE499 /* PersonalViewController.swift */,
+				B6889B41211E27E8001E9B25 /* Accounts */,
+				B62282E3204627AA00C01F61 /* Profiles */,
+			);
+			path = Personal;
 			sourceTree = "<group>";
 		};
 		B6740EBA20B90EC900ACB85F /* Fonts */ = {
@@ -681,11 +706,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6889B4C2120ABC1001E9B25 /* AccountNetworking.swift in Sources */,
+				B6630608212A963E004EE499 /* ContactsViewController.swift in Sources */,
 				B6FE7A0F208026AE00F60838 /* CreatePryntProfileViewController.swift in Sources */,
 				B6111DDA201903F000DC7877 /* WelcomeViewController.swift in Sources */,
 				B67881D6211A7044000DA750 /* PryntTransactionModels.swift in Sources */,
 				B6287589210D49C000FB2873 /* PryntUserModels.swift in Sources */,
 				B6111DC6201901F600DC7877 /* AppDelegate.swift in Sources */,
+				B6630604212A9455004EE499 /* ActivityNavigationController.swift in Sources */,
 				B6111DE0201D4C1000DC7877 /* NotificationsViewController.swift in Sources */,
 				B6FE7A11208028F200F60838 /* SocialService.swift in Sources */,
 				B6889B45211E2F7D001E9B25 /* ViewAccountViewController.swift in Sources */,
@@ -700,7 +727,6 @@
 				B6889B3E211D23A5001E9B25 /* PryntTableViewController.swift in Sources */,
 				B6889B39211D1FEA001E9B25 /* PryntViewController.swift in Sources */,
 				B6889B582122899E001E9B25 /* ChooseAccountsViewController.swift in Sources */,
-				B65DEEDD20E99E1B0027A1EF /* ActivityViewController.swift in Sources */,
 				B6889B5D2123FD59001E9B25 /* TransactionNetworking.swift in Sources */,
 				B6D274EB212A6E40008C9712 /* PryntGenericLoginViewController.swift in Sources */,
 				B6889B3C211D2314001E9B25 /* PryntTabViewController.swift in Sources */,
@@ -719,7 +745,9 @@
 				B65DEEDB20E99DE40027A1EF /* RootPageViewController.swift in Sources */,
 				B6E4468920BA1CE8006C6B5B /* UserValidationViewController.swift in Sources */,
 				B6D274E5212A1B8F008C9712 /* BankViewController.swift in Sources */,
+				B6630606212A9636004EE499 /* RequestsViewController.swift in Sources */,
 				B62282F1204743CF00C01F61 /* RadialProgressImageView.swift in Sources */,
+				B6630602212A93D7004EE499 /* PersonalViewController.swift in Sources */,
 				B6889B40211E2707001E9B25 /* PryntAccountModels.swift in Sources */,
 				B6889B35211D10E2001E9B25 /* PryntTabBarController.swift in Sources */,
 			);
