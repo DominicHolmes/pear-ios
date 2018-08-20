@@ -21,6 +21,9 @@
         <array key="GothamRnd-Medium.otf">
             <string>GothamRounded-Medium</string>
         </array>
+        <array key="Montserrat-Regular.ttf">
+            <string>Montserrat-Regular</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Item-->
@@ -759,7 +762,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-838" y="-1121"/>
+            <point key="canvasLocation" x="-2556" y="-1628"/>
         </scene>
         <!--Auth Registration View Controller-->
         <scene sceneID="Tyg-tE-cpe">
@@ -772,7 +775,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Register" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRi-gz-GTL">
                                 <rect key="frame" x="7" y="60" width="359" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="23"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="23"/>
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -849,7 +852,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1916" y="-1121"/>
+            <point key="canvasLocation" x="-3662" y="-1627"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="b2W-ts-SVQ">
@@ -867,7 +870,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aQT-Lq-DdX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="70" y="-1121"/>
+            <point key="canvasLocation" x="-1644" y="-1629"/>
         </scene>
         <!--Post Registration View Controller-->
         <scene sceneID="qya-iy-RhH">
@@ -935,7 +938,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2zy-Ty-gUs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5471" y="1895"/>
+            <point key="canvasLocation" x="-5500" y="-843"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="Xct-UB-fUB">
@@ -1177,7 +1180,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-4711" y="1895"/>
+            <point key="canvasLocation" x="-4982" y="-843"/>
         </scene>
         <!--Social Profile Construction View Controller-->
         <scene sceneID="3vb-58-yXk">
@@ -1269,7 +1272,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4zu-Ci-RO9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4098" y="1895"/>
+            <point key="canvasLocation" x="-4439" y="-843"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qPq-U3-yNc">
@@ -1750,7 +1753,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-3434" y="1895"/>
+            <point key="canvasLocation" x="-4002" y="-843"/>
         </scene>
         <!--View Account View Controller-->
         <scene sceneID="usB-2Z-mmL">
@@ -2081,7 +2084,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="rQJ-Lp-f2f"/>
         <segue reference="7Rc-ku-flp"/>
-        <segue reference="JVR-pM-jdX"/>
+        <segue reference="EaW-Nt-kia"/>
         <segue reference="XqZ-TR-T33"/>
         <segue reference="QFb-nf-2F1"/>
     </inferredMetricsTieBreakers>
