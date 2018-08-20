@@ -1,6 +1,6 @@
 //
 //  AuthRegistrationViewController.swift
-//  Pear
+//  Prynt
 //
 //  Created by dominic on 3/29/18.
 //  Copyright © 2018 Dominic Holmes. All rights reserved.
@@ -56,7 +56,7 @@ extension AuthRegistrationViewController {
                     self.displayAlert("Error", error!.localizedDescription, [""], false)
                 } else if let user = user {
                     self.newUserUID = user.uid
-                    self.displayAlert("Success!", "New account with email \(self.emailTextField.text!) created. Welcome to Pear!", [""], true)
+                    self.displayAlert("Success!", "New account with email \(self.emailTextField.text!) created. Welcome to Prynt!", [""], true)
                 }
             }
         } else {
@@ -106,8 +106,8 @@ extension AuthRegistrationViewController {
 // MARK: - Segue Control
 extension AuthRegistrationViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "PearRegistrationSegue", let uid = newUserUID {
-            let controller = segue.destination as! PearRegistrationViewController
+        if segue.identifier == "PryntRegistrationSegue", let uid = newUserUID {
+            let controller = segue.destination as! PryntRegistrationViewController
             controller.newUserUID = uid
         }
     }

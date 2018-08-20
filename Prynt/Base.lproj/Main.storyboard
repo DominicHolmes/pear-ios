@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Yqs-gN-lmO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3dU-Km-9Ts">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -475,7 +475,7 @@
                         <segue destination="F7o-oA-ROU" kind="popoverPresentation" identifier="deleteProfileSegue" popoverAnchorView="wG8-1x-00J" id="hu9-9E-gPQ">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
-                        <segue destination="HO9-DV-9D7" kind="popoverPresentation" identifier="PearProfileSegue" popoverAnchorView="wG8-1x-00J" id="44M-5T-dTA">
+                        <segue destination="HO9-DV-9D7" kind="popoverPresentation" identifier="PryntProfileSegue" popoverAnchorView="wG8-1x-00J" id="44M-5T-dTA">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
                     </connections>
@@ -484,10 +484,10 @@
             </objects>
             <point key="canvasLocation" x="1564" y="-1556.6716641679161"/>
         </scene>
-        <!--Pear Profile View Controller-->
+        <!--Prynt Profile View Controller-->
         <scene sceneID="QIi-3X-BsU">
             <objects>
-                <viewController id="HO9-DV-9D7" customClass="PearProfileViewController" customModule="Prynt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="HO9-DV-9D7" customClass="PryntProfileViewController" customModule="Prynt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EPP-sg-eAE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -668,10 +668,10 @@
             </objects>
             <point key="canvasLocation" x="2654" y="-1557"/>
         </scene>
-        <!--Pear Registration View Controller-->
+        <!--Prynt Registration View Controller-->
         <scene sceneID="O2w-yJ-zMJ">
             <objects>
-                <viewController id="FNR-xZ-2wm" customClass="PearRegistrationViewController" customModule="Prynt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FNR-xZ-2wm" customClass="PryntRegistrationViewController" customModule="Prynt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5uT-SJ-IXa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -683,7 +683,7 @@
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B62-39-x0q" customClass="PearTextField" customModule="Prynt" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B62-39-x0q" customClass="PryntTextField" customModule="Prynt" customModuleProvider="target">
                                 <rect key="frame" x="75" y="114" width="222" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -695,7 +695,7 @@
                                     <action selector="textFieldValueValueChanged" destination="FNR-xZ-2wm" eventType="editingChanged" id="Fxs-m5-wFz"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="geT-wC-cU1" customClass="PearTextField" customModule="Prynt" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="geT-wC-cU1" customClass="PryntTextField" customModule="Prynt" customModuleProvider="target">
                                 <rect key="frame" x="75" y="169" width="222" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -707,7 +707,7 @@
                                     <action selector="textFieldValueValueChanged" destination="FNR-xZ-2wm" eventType="editingDidEnd" id="Yri-d7-Rkt"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="00n-0h-Kj2" customClass="PearTextField" customModule="Prynt" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="00n-0h-Kj2" customClass="PryntTextField" customModule="Prynt" customModuleProvider="target">
                                 <rect key="frame" x="75" y="225" width="222" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -789,7 +789,7 @@
                                     <action selector="createAccountButtonPressed" destination="GGn-0W-5Wp" eventType="touchUpInside" id="iJO-jb-VWe"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qHc-XI-NJy" customClass="PearTextField" customModule="Prynt" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qHc-XI-NJy" customClass="PryntTextField" customModule="Prynt" customModuleProvider="target">
                                 <rect key="frame" x="75" y="169" width="222" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -800,7 +800,7 @@
                                     <action selector="textFieldValueValueChanged" destination="GGn-0W-5Wp" eventType="editingChanged" id="r1Y-mS-9Wt"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="If3-hG-oP8" customClass="PearTextField" customModule="Prynt" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="If3-hG-oP8" customClass="PryntTextField" customModule="Prynt" customModuleProvider="target">
                                 <rect key="frame" x="75" y="225" width="222" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -811,7 +811,7 @@
                                     <action selector="textFieldValueValueChanged" destination="GGn-0W-5Wp" eventType="editingChanged" id="HjI-SY-rnV"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ST6-uO-PII" customClass="PearTextField" customModule="Prynt" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ST6-uO-PII" customClass="PryntTextField" customModule="Prynt" customModuleProvider="target">
                                 <rect key="frame" x="75" y="114" width="222" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -839,7 +839,7 @@
                         <outlet property="emailTextField" destination="ST6-uO-PII" id="i2w-nO-0lg"/>
                         <outlet property="passwordConfirmTextField" destination="If3-hG-oP8" id="qOB-m2-zYz"/>
                         <outlet property="passwordTextField" destination="qHc-XI-NJy" id="TLR-sa-Dgl"/>
-                        <segue destination="FNR-xZ-2wm" kind="show" identifier="PearRegistrationSegue" id="YyT-vg-sfO"/>
+                        <segue destination="FNR-xZ-2wm" kind="show" identifier="PryntRegistrationSegue" id="YyT-vg-sfO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dsw-mA-DHO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1068,7 +1068,7 @@
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="test@dominic.land" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="asH-wz-x2b" customClass="PearTextField" customModule="Prynt" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="test@dominic.land" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="asH-wz-x2b" customClass="PryntTextField" customModule="Prynt" customModuleProvider="target">
                                 <rect key="frame" x="75" y="114" width="222" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1079,7 +1079,7 @@
                                     <action selector="textFieldValueValueChanged" destination="9cF-gE-Uio" eventType="editingChanged" id="qce-Fh-Fe6"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="password123" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gjm-gs-0Nl" customClass="PearTextField" customModule="Prynt" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="password123" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gjm-gs-0Nl" customClass="PryntTextField" customModule="Prynt" customModuleProvider="target">
                                 <rect key="frame" x="75" y="169" width="222" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1144,7 +1144,7 @@
                                 <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ex. social, professional" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UdN-5p-cLw" customClass="PearTextField" customModule="Prynt" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ex. social, professional" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UdN-5p-cLw" customClass="PryntTextField" customModule="Prynt" customModuleProvider="target">
                                 <rect key="frame" x="75" y="200" width="222" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1552,10 +1552,10 @@
             </objects>
             <point key="canvasLocation" x="4406" y="206"/>
         </scene>
-        <!--Pear Profile SelectionVC-->
+        <!--Prynt Profile SelectionVC-->
         <scene sceneID="d3S-vL-9dV">
             <objects>
-                <viewController id="KfD-PZ-VB1" customClass="PearProfileSelectionVC" customModule="Prynt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="KfD-PZ-VB1" customClass="PryntProfileSelectionVC" customModule="Prynt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MeC-Nf-N6O">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1609,17 +1609,17 @@
                     </view>
                     <connections>
                         <outlet property="titleLabel" destination="d9t-pE-8Gx" id="K8m-Ph-eva"/>
-                        <segue destination="Bx5-Dl-4Y7" kind="show" identifier="confirmPearProfilesSegue" id="Ihi-x8-Mg4"/>
+                        <segue destination="Bx5-Dl-4Y7" kind="show" identifier="confirmPryntProfilesSegue" id="Ihi-x8-Mg4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qhh-V8-fld" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5281" y="1252"/>
         </scene>
-        <!--Confirm Pear ProfilesVC-->
+        <!--Confirm Prynt ProfilesVC-->
         <scene sceneID="GtL-L2-cOy">
             <objects>
-                <viewController id="Bx5-Dl-4Y7" customClass="ConfirmPearProfilesVC" customModule="Prynt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Bx5-Dl-4Y7" customClass="ConfirmPryntProfilesVC" customModule="Prynt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EzM-Px-C3n">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1683,7 +1683,7 @@
                         <outlet property="topProfileTrailingConstraint" destination="G9z-qd-HSh" id="48r-fA-RQC"/>
                         <outlet property="topProfileView" destination="iQg-bd-whq" id="IsU-wA-Rp4"/>
                         <outlet property="topProfileWidthConstraint" destination="aiN-pC-yyh" id="pHV-x1-pgo"/>
-                        <segue destination="HO9-DV-9D7" kind="show" identifier="successfulPearSegue" id="4wm-yD-ubR"/>
+                        <segue destination="HO9-DV-9D7" kind="show" identifier="successfulPryntSegue" id="4wm-yD-ubR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Du-Qg-MNi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1750,10 +1750,10 @@
             </objects>
             <point key="canvasLocation" x="4830" y="2183"/>
         </scene>
-        <!--Past Pears Table View Controller-->
+        <!--Past Prynts Table View Controller-->
         <scene sceneID="Dim-Cd-E9y">
             <objects>
-                <tableViewController id="98A-3K-XzF" customClass="PastPearsTableViewController" customModule="Prynt" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="98A-3K-XzF" customClass="PastPryntsTableViewController" customModule="Prynt" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="lmi-rX-mG5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1778,7 +1778,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PastPearCell" rowHeight="80" id="4hn-wf-6bM">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PastPryntCell" rowHeight="80" id="4hn-wf-6bM">
                                 <rect key="frame" x="0.0" y="99" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4hn-wf-6bM" id="IcK-HQ-sgh">
@@ -1811,7 +1811,7 @@
                     <tabBarItem key="tabBarItem" title="" image="pear-tab-icon-disabled" selectedImage="pear-tab-icon-enabled" id="akK-Rd-CHY"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="Sip-y0-6Hw" id="de8-v3-KNT"/>
-                        <segue destination="HO9-DV-9D7" kind="popoverPresentation" identifier="viewPastPearSegue" popoverAnchorView="lmi-rX-mG5" id="DbV-Xy-BZu">
+                        <segue destination="HO9-DV-9D7" kind="popoverPresentation" identifier="viewPastPryntSegue" popoverAnchorView="lmi-rX-mG5" id="DbV-Xy-BZu">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
                     </connections>
@@ -2061,7 +2061,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Facebook username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C7W-0l-72g" customClass="PearTextField" customModule="Prynt" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Facebook username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C7W-0l-72g" customClass="PryntTextField" customModule="Prynt" customModuleProvider="target">
                                 <rect key="frame" x="66" y="298" width="240" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2153,7 +2153,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Facebook username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="btn-pp-YHt" customClass="PearTextField" customModule="Prynt" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Facebook username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="btn-pp-YHt" customClass="PryntTextField" customModule="Prynt" customModuleProvider="target">
                                 <rect key="frame" x="66" y="298" width="240" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2404,10 +2404,9 @@
         <image name="x-button-highlighted" width="47" height="47"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="DwF-UE-SQM"/>
         <segue reference="rQJ-Lp-f2f"/>
         <segue reference="zs1-hK-bs9"/>
-        <segue reference="JVR-pM-jdX"/>
+        <segue reference="61v-J4-xMk"/>
         <segue reference="H4Y-RI-GR5"/>
         <segue reference="4wm-yD-ubR"/>
         <segue reference="QFb-nf-2F1"/>

@@ -1,6 +1,6 @@
 //
 //  LoginViewController.swift
-//  Pear
+//  Prynt
 //
 //  Created by dominic on 4/29/18.
 //  Copyright © 2018 Dominic Holmes. All rights reserved.
@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class LoginViewController: PearLoginViewController {
+class LoginViewController: PryntLoginViewController {
     
     var authenticatedFIRUser: User?
     

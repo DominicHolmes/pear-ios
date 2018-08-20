@@ -17,7 +17,6 @@
 		B6111DE0201D4C1000DC7877 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6111DDF201D4C1000DC7877 /* NotificationsViewController.swift */; };
 		B62282E92046287200C01F61 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62282E82046287200C01F61 /* SettingsTableViewController.swift */; };
 		B62282ED2046481C00C01F61 /* PresentTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62282EC2046481C00C01F61 /* PresentTransactionViewController.swift */; };
-		B62282EF20464DAA00C01F61 /* ConfirmPearProfilesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62282EE20464DAA00C01F61 /* ConfirmPearProfilesVC.swift */; };
 		B62282F1204743CF00C01F61 /* RadialProgressImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62282F0204743CF00C01F61 /* RadialProgressImageView.swift */; };
 		B6287589210D49C000FB2873 /* PryntUserModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6287588210D49C000FB2873 /* PryntUserModels.swift */; };
 		B628758B210D5C2D00FB2873 /* UserNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B628758A210D5C2D00FB2873 /* UserNetworking.swift */; };
@@ -70,7 +69,6 @@
 		B69DED9F2096A8460084C1E0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69DED9E2096A8460084C1E0 /* LoginViewController.swift */; };
 		B6B3BE1D206D839600A70F47 /* PearRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B3BE1C206D839600A70F47 /* PearRegistrationViewController.swift */; };
 		B6B3BE1F206D83B900A70F47 /* AuthRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B3BE1E206D83B900A70F47 /* AuthRegistrationViewController.swift */; };
-		B6C945E220AE1B91000374DE /* PryntProfileSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C945E120AE1B91000374DE /* PryntProfileSelectionVC.swift */; };
 		B6D274E5212A1B8F008C9712 /* BankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D274E4212A1B8F008C9712 /* BankViewController.swift */; };
 		B6D274E7212A2CEB008C9712 /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D274E6212A2CEB008C9712 /* TransactionViewController.swift */; };
 		B6D274E9212A6E22008C9712 /* PryntGenericRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D274E8212A6E22008C9712 /* PryntGenericRegistrationViewController.swift */; };
@@ -96,7 +94,6 @@
 		B6111DDF201D4C1000DC7877 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		B62282E82046287200C01F61 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		B62282EC2046481C00C01F61 /* PresentTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentTransactionViewController.swift; sourceTree = "<group>"; };
-		B62282EE20464DAA00C01F61 /* ConfirmPearProfilesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPearProfilesVC.swift; sourceTree = "<group>"; };
 		B62282F0204743CF00C01F61 /* RadialProgressImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadialProgressImageView.swift; sourceTree = "<group>"; };
 		B6287588210D49C000FB2873 /* PryntUserModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PryntUserModels.swift; sourceTree = "<group>"; };
 		B628758A210D5C2D00FB2873 /* UserNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworking.swift; sourceTree = "<group>"; };
@@ -149,7 +146,6 @@
 		B69DED9E2096A8460084C1E0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B6B3BE1C206D839600A70F47 /* PearRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PearRegistrationViewController.swift; sourceTree = "<group>"; };
 		B6B3BE1E206D83B900A70F47 /* AuthRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRegistrationViewController.swift; sourceTree = "<group>"; };
-		B6C945E120AE1B91000374DE /* PryntProfileSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PryntProfileSelectionVC.swift; sourceTree = "<group>"; };
 		B6D274E4212A1B8F008C9712 /* BankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankViewController.swift; sourceTree = "<group>"; };
 		B6D274E6212A2CEB008C9712 /* TransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
 		B6D274E8212A6E22008C9712 /* PryntGenericRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PryntGenericRegistrationViewController.swift; sourceTree = "<group>"; };
@@ -371,8 +367,6 @@
 		B6889B2F211D0D83001E9B25 /* DEPRECATED */ = {
 			isa = PBXGroup;
 			children = (
-				B62282EE20464DAA00C01F61 /* ConfirmPearProfilesVC.swift */,
-				B6C945E120AE1B91000374DE /* PryntProfileSelectionVC.swift */,
 			);
 			path = DEPRECATED;
 			sourceTree = "<group>";
@@ -595,7 +589,6 @@
 				B6889B4C2120ABC1001E9B25 /* AccountNetworking.swift in Sources */,
 				B6FE7A0F208026AE00F60838 /* CreatePryntProfileViewController.swift in Sources */,
 				B6111DDA201903F000DC7877 /* WelcomeViewController.swift in Sources */,
-				B62282EF20464DAA00C01F61 /* ConfirmPearProfilesVC.swift in Sources */,
 				B67881D6211A7044000DA750 /* PryntTransactionModels.swift in Sources */,
 				B6287589210D49C000FB2873 /* PryntUserModels.swift in Sources */,
 				B6111DC6201901F600DC7877 /* AppDelegate.swift in Sources */,
@@ -611,7 +604,6 @@
 				B6889B43211E2885001E9B25 /* AccountsViewController.swift in Sources */,
 				B6889B3E211D23A5001E9B25 /* PryntTableViewController.swift in Sources */,
 				B6889B39211D1FEA001E9B25 /* PryntViewController.swift in Sources */,
-				B6C945E220AE1B91000374DE /* PryntProfileSelectionVC.swift in Sources */,
 				B6889B582122899E001E9B25 /* ChooseAccountsViewController.swift in Sources */,
 				B65DEEDD20E99E1B0027A1EF /* ActivityViewController.swift in Sources */,
 				B6889B5D2123FD59001E9B25 /* TransactionNetworking.swift in Sources */,
@@ -778,7 +770,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 374VQ98E23;
-				INFOPLIST_FILE = Pear/Info.plist;
+				INFOPLIST_FILE = Prynt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DominicHolmes.Pear;
@@ -795,7 +787,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 374VQ98E23;
-				INFOPLIST_FILE = Pear/Info.plist;
+				INFOPLIST_FILE = Prynt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DominicHolmes.Pear;

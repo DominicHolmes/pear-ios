@@ -1,6 +1,6 @@
 //
 //  RadialCircleImageView.swift
-//  Pear
+//  Prynt
 //
 //  Created by Dominic Holmes on 2/28/18.
 //  Copyright © 2018 Dominic Holmes. All rights reserved.

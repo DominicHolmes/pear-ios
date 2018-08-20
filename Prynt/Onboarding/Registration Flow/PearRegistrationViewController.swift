@@ -1,6 +1,6 @@
 //
-//  PearRegistrationViewController.swift
-//  Pear
+//  PryntRegistrationViewController.swift
+//  Prynt
 //
 //  Created by dominic on 3/29/18.
 //  Copyright © 2018 Dominic Holmes. All rights reserved.
@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseAuth
 
-class PearRegistrationViewController: PearGenericRegistrationViewController {
+class PryntRegistrationViewController: PryntGenericRegistrationViewController {
     
     // Class variables
     var newUserUID: String?
@@ -57,7 +57,7 @@ class PearRegistrationViewController: PearGenericRegistrationViewController {
 }
 
 // MARK: - Error Handling
-extension PearRegistrationViewController {
+extension PryntRegistrationViewController {
     fileprivate func findErrors() -> [String] {
         var errors = [String]()
         
@@ -91,7 +91,7 @@ extension PearRegistrationViewController {
 }
 
 // MARK: - Segue Control
-extension PearRegistrationViewController {
+extension PryntRegistrationViewController {
     override internal func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PostRegistrationSegue", let sender = sender as? UserInfo {
             let nav = segue.destination as! UINavigationController

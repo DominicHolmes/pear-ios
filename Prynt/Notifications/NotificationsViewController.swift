@@ -1,6 +1,6 @@
 //
 //  NotificationsViewController.swift
-//  Pear
+//  Prynt
 //
 //  Created by Dominic Holmes on 1/27/18.
 //  Copyright © 2018 Dominic Holmes. All rights reserved.
@@ -33,7 +33,7 @@ extension NotificationsViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NotificationCell")
         
         let notificationDescriptionLabel = cell?.viewWithTag(100) as? UILabel
-        notificationDescriptionLabel?.text = "New app feature from your friends at Pear!"
+        notificationDescriptionLabel?.text = "New app feature from your friends at Prynt!"
         
         return cell!
     }

@@ -1,6 +1,6 @@
 //
 //  WelcomeViewController.swift
-//  Pear
+//  Prynt
 //
 //  Created by Dominic Holmes on 1/24/18.
 //  Copyright © 2018 Dominic Holmes. All rights reserved.
