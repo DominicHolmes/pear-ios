@@ -119,17 +119,6 @@ extension LoginViewController {
     }
 }
 
-// MARK: - Segue Control
-extension LoginViewController {
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "LoginCompletedSegue", let sender = sender as? PryntUser {
-            let navController = segue.destination as! UINavigationController
-            let tabBarController = navController.topViewController as! PryntTabBarController
-            tabBarController.user = sender
-        }
-    }
-}
-
 // MARK: - IBActions
 extension LoginViewController {
     @IBAction func privacyPolicyButtonPressed() {
@@ -162,5 +151,16 @@ extension LoginViewController {
     fileprivate func stopLoading() {
         spinner.stopAnimating()
         loginButton.setTitle("Login", for: .normal)
+    }
+}
+
+// MARK: - Segue Control
+extension LoginViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "LoginCompletedSegue", let sender = sender as? PryntUser {
+            let navController = segue.destination as! UINavigationController
+            let pageController = navController.topViewController as! RootPageViewController
+            pageController.user = sender
+        }
     }
 }

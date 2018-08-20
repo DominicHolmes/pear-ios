@@ -988,9 +988,6 @@
                                 <rect key="frame" x="142" y="306" width="91" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Open Testing"/>
-                                <connections>
-                                    <segue destination="FKO-cV-nxN" kind="show" id="yEe-DQ-gv7"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Usn-87-uUO">
                                 <rect key="frame" x="39" y="384" width="50" height="30"/>
@@ -1108,7 +1105,7 @@
                         <outlet property="loginButton" destination="vWV-uA-ffU" id="IDS-1c-fqA"/>
                         <outlet property="passwordTextField" destination="Gjm-gs-0Nl" id="k9s-Gb-vlB"/>
                         <outlet property="spinner" destination="wj2-A0-vcZ" id="OWa-zp-V43"/>
-                        <segue destination="2qu-Rl-Az0" kind="show" identifier="LoginCompletedSegue" id="61v-J4-xMk"/>
+                        <segue destination="FKO-cV-nxN" kind="show" identifier="LoginCompletedSegue" id="NNO-9Q-vu6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Zw-rm-Zv6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1290,7 +1287,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ee-iQ-iQf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-791" y="0.0"/>
+            <point key="canvasLocation" x="-839" y="-430"/>
         </scene>
         <!--Prynt Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -2404,7 +2401,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="rQJ-Lp-f2f"/>
         <segue reference="zs1-hK-bs9"/>
-        <segue reference="61v-J4-xMk"/>
+        <segue reference="EsY-PZ-b6Y"/>
         <segue reference="H4Y-RI-GR5"/>
         <segue reference="4wm-yD-ubR"/>
         <segue reference="QFb-nf-2F1"/>
