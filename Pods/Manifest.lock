@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.7.3)
+  - AutoInsetter (1.2.4)
   - Firebase/Auth (4.12.0):
     - Firebase/Core
     - FirebaseAuth (= 4.6.0)
@@ -43,16 +44,22 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - Pageboy (2.5.4)
+  - Tabman (1.9.1):
+    - AutoInsetter (~> 1.2.0)
+    - Pageboy (~> 2.5.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
+  - Tabman (~> 1.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - AutoInsetter
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -63,9 +70,12 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - Pageboy
+    - Tabman
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  AutoInsetter: 00cbcc6c56e9294169222b3e29fb336db7181156
   Firebase: d7fdf40e4d6c841849c52919f437fd3a0009ded0
   FirebaseAnalytics: 3dfae28d4a5e06f86c4fae830efc2ad3fadb19bc
   FirebaseAuth: 85a1b118a89838efc6f6ab3f2b1f94747d72a915
@@ -76,7 +86,9 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  Pageboy: 46d743783414a18f8b27a988485e0ed2ea219ff7
+  Tabman: e867a8e3fc72a30cc694aca51a2b331070f5e3ba
 
-PODFILE CHECKSUM: d8a23a386620147d5bb3847a0f19b17b620f4e1a
+PODFILE CHECKSUM: bf2313343f13839ed32bfaee07843308127cd910
 
 COCOAPODS: 1.5.3

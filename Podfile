@@ -10,6 +10,10 @@ target 'Prynt' do
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   
+  # Alamofire, for simplified HTTP networking
   pod 'Alamofire', '~> 4.7'
+  
+  # Tabman, for its custom tab view controllers
+  pod 'Tabman', '~> 1.0'
 
 end
