@@ -18,6 +18,8 @@ extension UIColor {
     }
     
     static let pearGreen = UIColor(r: 0, g: 189, b: 157)
+    static let royale = UIColor(r: 127, g: 127, b: 213)
+    static let unselectedGrey = UIColor(r: 214, g: 214, b: 214)
 }
 
 extension UIImageView {

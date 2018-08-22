@@ -38,6 +38,20 @@ class ActivityNavigationController: TabmanViewController, PageboyViewControllerD
         // configure the bar
         self.bar.items = [Item(title: "Contacts"),
                           Item(title: "Requests")]
+        
+        // style the bar
+        self.bar.appearance = TabmanBar.Appearance({ (appearance) in
+            appearance.state.selectedColor = UIColor.royale
+            appearance.state.color = UIColor.unselectedGrey
+            
+            appearance.indicator.lineWeight = TabmanIndicator.LineWeight.thick
+            appearance.indicator.color = UIColor.royale
+            
+            appearance.text.font = UIFont(name: "Montserrat-Bold", size: 14.0)
+            //appearance.indicator.isProgressive = true
+            
+            appearance.layout.itemDistribution = TabmanBar.Appearance.Layout.ItemDistribution.fill
+        })
     }
     
     func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
