@@ -130,7 +130,7 @@ class TransactionNetworkingManager {
         let method = Alamofire.HTTPMethod.post
         let parameters: Parameters? = ["id": userId]
         
-        sessionManager.request("https://35.231.241.240/transactions/read/all", method: method, parameters: parameters, encoding: encoding, headers: headers).response { response in
+        sessionManager.request("https://35.231.241.240/transaction/read/all", method: method, parameters: parameters, encoding: encoding, headers: headers).response { response in
             
             let jsonDecoder = JSONDecoder()
             do {

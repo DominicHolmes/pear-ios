@@ -42,6 +42,7 @@ struct Transaction: Codable {
     let transaction: TransactionDetails
     let primaryProfile: PryntTransactionProfile
     let secondaryProfile: PryntTransactionProfile?
+    let userIs: TransactionContext?
 }
 
 struct TransactionDetails: Codable {
@@ -64,4 +65,9 @@ struct TransactionDetails: Codable {
 enum TransactionState: String, Codable {
     case COMPLETE
     case PENDING
+}
+
+enum TransactionContext: String, Codable {
+    case PRIMARY
+    case SECONDARY
 }

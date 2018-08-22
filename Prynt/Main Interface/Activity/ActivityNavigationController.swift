@@ -12,7 +12,11 @@ import Pageboy
 
 class ActivityNavigationController: TabmanViewController, PageboyViewControllerDataSource {
     
-    var user: PryntUser!
+    var user: PryntUser! {
+        didSet {
+            self.fetchAllTransactions()
+        }
+    }
     
     lazy var viewControllers : [UIViewController] = {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
@@ -47,5 +51,22 @@ class ActivityNavigationController: TabmanViewController, PageboyViewControllerD
     
     func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
         return .last
+    }
+    
+    private func fetchAllTransactions() {
+        TransactionNetworkingManager.shared.fetchAllTransactions(for: user.id) { (success, transactions) in
+            if success, let transactions = transactions {
+                self.user.transactions = transactions
+                self.updateViewControllers()
+            } else {
+                print("Could not fetch user transactions")
+            }
+        }
+    }
+    
+    private func updateViewControllers() {
+        for each in (viewControllers as! [PryntTableViewController]) {
+            each.user = self.user
+        }
     }
 }

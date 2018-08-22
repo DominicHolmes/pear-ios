@@ -10,6 +10,12 @@ import UIKit
 
 class ContactsViewController: PryntTableViewController {
     
+    override var user: PryntUser! {
+        didSet {
+            contacts = user.contacts()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -17,13 +23,46 @@ class ContactsViewController: PryntTableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
+    
+    lazy var contacts: [Transaction]? = {
+        return user.contacts()
+    }()
 }
 
 extension ContactsViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return user.getContacts().count
+        return 1
     }
     
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return contacts?.count ?? 0
+    }
     
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CompletedTransactionCell")
+        guard let contacts = contacts, indexPath.row < contacts.count else { return cell! }
+        let contact = contacts[indexPath.row]
+        (cell?.viewWithTag(100) as? UIImageView)?.image = UIImage(named: "Prynt")
+        (cell?.viewWithTag(101) as? UILabel)?.text = relevantProfile(from: contact)?.usersName
+        (cell?.viewWithTag(101) as? UILabel)?.text = relevantProfile(from: contact)?.handle
+        return cell!
+    }
+    
+}
+
+extension ContactsViewController {
+    func relevantProfile(from transaction: Transaction) -> PryntTransactionProfile? {
+        if isPrimaryUser(in: transaction) {
+            return transaction.secondaryProfile
+        } else {
+            return transaction.primaryProfile
+        }
+    }
+    
+    func isPrimaryUser(in transaction: Transaction) -> Bool {
+        return user.profiles?.contains(where: { (profile) -> Bool in
+            return profile.id == transaction.transaction.primaryProfileId
+        }) ?? false
+    }
 }
