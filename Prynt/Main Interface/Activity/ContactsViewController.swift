@@ -45,7 +45,7 @@ extension ContactsViewController {
         let contact = contacts[indexPath.row]
         (cell?.viewWithTag(100) as? UIImageView)?.image = UIImage(named: "Prynt")
         (cell?.viewWithTag(101) as? UILabel)?.text = relevantProfile(from: contact)?.usersName
-        (cell?.viewWithTag(101) as? UILabel)?.text = relevantProfile(from: contact)?.handle
+        (cell?.viewWithTag(102) as? UILabel)?.text = relevantProfile(from: contact)?.handle
         return cell!
     }
     
@@ -53,16 +53,8 @@ extension ContactsViewController {
 
 extension ContactsViewController {
     func relevantProfile(from transaction: Transaction) -> PryntTransactionProfile? {
-        if isPrimaryUser(in: transaction) {
-            return transaction.secondaryProfile
-        } else {
-            return transaction.primaryProfile
-        }
-    }
-    
-    func isPrimaryUser(in transaction: Transaction) -> Bool {
-        return user.profiles?.contains(where: { (profile) -> Bool in
-            return profile.id == transaction.transaction.primaryProfileId
-        }) ?? false
+        guard let userIs = transaction.userIs else { return nil }
+//        return userIs == .PRIMARY ? transaction.secondaryProfile : transaction.primaryProfile
+        return userIs == .PRIMARY ? transaction.primaryProfile : transaction.secondaryProfile
     }
 }
