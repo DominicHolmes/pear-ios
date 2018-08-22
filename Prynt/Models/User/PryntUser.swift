@@ -112,3 +112,35 @@ extension PryntUser {
         }
     }
 }
+
+// MARK: - Filtered Transactions
+extension PryntUser {
+    
+    func requests() -> [Transaction]? {
+        guard let transactions = transactions else { return nil }
+        return transactions.filter({ (t) -> Bool in
+            t.transaction.state == .PENDING
+        })
+    }
+    
+    func requestsCount() -> Int? {
+        guard let transactions = transactions else { return nil }
+        return transactions.filter({ (t) -> Bool in
+            t.transaction.state == .PENDING
+        }).count
+    }
+    
+    func contacts() -> [Transaction]? {
+        guard let transactions = transactions else { return nil }
+        return transactions.filter({ (t) -> Bool in
+            t.transaction.state == .COMPLETE
+        })
+    }
+    
+    func contactsCount() -> Int? {
+        guard let transactions = transactions else { return nil }
+        return transactions.filter({ (t) -> Bool in
+            t.transaction.state == .COMPLETE
+        }).count
+    }
+}

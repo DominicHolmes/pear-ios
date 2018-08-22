@@ -8,6 +8,13 @@
 
 import UIKit
 
-class RequestsViewController: PryntViewController {
+class RequestsViewController: PryntTableViewController {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
 }

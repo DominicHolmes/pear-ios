@@ -8,6 +8,22 @@
 
 import UIKit
 
-class ContactsViewController: PryntViewController {
+class ContactsViewController: PryntTableViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+}
+
+extension ContactsViewController {
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return user.getContacts().count
+    }
+    
     
 }
