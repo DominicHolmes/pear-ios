@@ -10,17 +10,23 @@ import UIKit
 
 class ProfilesViewController: PryntTabViewController {
     
+    override var user: PryntUser! {
+        didSet {
+            self.profiles = user.profiles
+        }
+    }
     var profiles: [PryntProfile]?
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if let pryntTBC = self.tabBarController as? PryntTabBarController {
-            self.user = pryntTBC.user
-            profiles = user.profiles
-            fetchAllProfiles()
-        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        profiles = user.profiles
+        collectionView.reloadData()
     }
     
     func fetchAllProfiles() {

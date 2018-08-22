@@ -14,7 +14,12 @@ import Pageboy
 
 class PersonalNavigationController: TabmanViewController, PageboyViewControllerDataSource {
     
-    var user: PryntUser!
+    var user: PryntUser! {
+        didSet {
+            self.fetchAllAccounts()
+            self.fetchAllProfiles()
+        }
+    }
     
     lazy var viewControllers : [UIViewController] = {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
@@ -25,7 +30,7 @@ class PersonalNavigationController: TabmanViewController, PageboyViewControllerD
         profilesVC.user = user
         accountsVC.user = user
         
-        return [accountsVC, profilesVC]
+        return [profilesVC, accountsVC]
     }()
     
     override func viewDidLoad() {
@@ -36,6 +41,19 @@ class PersonalNavigationController: TabmanViewController, PageboyViewControllerD
         // configure the bar
         self.bar.items = [Item(title: "Clusters"),
                           Item(title: "Accounts")]
+        
+        // style the bar
+        self.bar.appearance = TabmanBar.Appearance({ (appearance) in
+            appearance.state.selectedColor = UIColor.royale
+            appearance.state.color = UIColor.unselectedGrey
+            
+            appearance.indicator.lineWeight = TabmanIndicator.LineWeight.thick
+            appearance.indicator.color = UIColor.royale
+            
+            appearance.text.font = UIFont(name: "Montserrat-Bold", size: 14.0)
+            
+            appearance.layout.itemDistribution = TabmanBar.Appearance.Layout.ItemDistribution.fill
+        })
     }
     
     func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
@@ -49,5 +67,35 @@ class PersonalNavigationController: TabmanViewController, PageboyViewControllerD
     
     func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
         return .first
+    }
+}
+
+// MARK: - Networking
+extension PersonalNavigationController {
+    
+    fileprivate func fetchAllAccounts() {
+        AccountNetworkingManager.shared.fetchAllAccounts(for: user.id) { (success, accounts) in
+            if success, let accounts = accounts {
+                self.user.accounts = accounts
+                if let vc = self.viewControllers[0] as? AccountsViewController {
+                    vc.user = self.user
+                }
+            } else {
+                print("Could not fetch accounts. Check internet.")
+            }
+        }
+    }
+    
+    fileprivate func fetchAllProfiles() {
+        ProfileNetworkingManager.shared.fetchAllProfiles(for: user.id) { (success, profiles) in
+            if success, let profiles = profiles {
+                self.user.profiles = profiles
+                if let vc = self.viewControllers[0] as? ProfilesViewController {
+                    vc.user = self.user
+                }
+            } else {
+                print("Could not fetch profiles. Check internet.")
+            }
+        }
     }
 }

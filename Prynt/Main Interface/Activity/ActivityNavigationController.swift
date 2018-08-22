@@ -48,7 +48,6 @@ class ActivityNavigationController: TabmanViewController, PageboyViewControllerD
             appearance.indicator.color = UIColor.royale
             
             appearance.text.font = UIFont(name: "Montserrat-Bold", size: 14.0)
-            //appearance.indicator.isProgressive = true
             
             appearance.layout.itemDistribution = TabmanBar.Appearance.Layout.ItemDistribution.fill
         })

@@ -20,7 +20,6 @@ class PresentTransactionViewController: PryntViewController {
     var qrCodeImage: UIImage?
     
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var profileNameLabel: UILabel!
     @IBOutlet weak var handleLabel: UILabel!
     @IBOutlet weak var QRCodeImageView: UIImageView!
     
@@ -42,7 +41,6 @@ class PresentTransactionViewController: PryntViewController {
     }
     
     func updateLabels(with transaction: Transaction) {
-        profileNameLabel.text = transaction.primaryProfile.profileName
         nameLabel.text = transaction.primaryProfile.usersName
         handleLabel.text = "@" + transaction.primaryProfile.handle
         QRCodeImageView?.image = qrCodeImage

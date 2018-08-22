@@ -13,6 +13,10 @@ class BankViewController: PryntTabViewController {
     var profiles: [PryntProfile]?
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBAction func didSelectClose() {
+        dismiss(animated: true, completion: nil)
+    }
+    
     override var user: PryntUser! {
         didSet {
             profiles = user.profiles

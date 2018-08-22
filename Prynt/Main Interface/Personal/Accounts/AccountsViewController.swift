@@ -13,15 +13,16 @@ class AccountsViewController: PryntTabViewController {
     private var allServices = SocialServiceType.allValues
     private var enabledAccounts: [Account]?
     
+    override var user: PryntUser! {
+        didSet {
+            self.enabledAccounts = user.accounts
+        }
+    }
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if let pryntTBC = self.tabBarController as? PryntTabBarController {
-            self.user = pryntTBC.user
-            fetchAllAccounts()
-        }
     }
     
     func fetchAllAccounts() {
