@@ -11,8 +11,8 @@ import UIKit
 class TransactionViewController: PryntViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    @IBOutlet weak var profileNameLabel: UILabel!
+    @IBOutlet weak var reciprocateTransactionButton: UIButton!
+
     @IBOutlet weak var usersNameLabel: UILabel!
     @IBOutlet weak var usersHandleLabel: UILabel!
     
@@ -21,12 +21,30 @@ class TransactionViewController: PryntViewController {
             self.transaction = fullTransaction?.transaction
             self.primary = fullTransaction?.primaryProfile
             self.secondary = fullTransaction?.secondaryProfile
+            self.userIs = fullTransaction?.userIs
+        }
+    }
+    
+    var context: TransactionContext? {
+        didSet {
+            if let userIs = self.userIs, let context = self.context {
+                if userIs == .SECONDARY && context == .SECONDARY {
+                    self.collectionView.isHidden = true
+                    self.reciprocateTransactionButton.isHidden = false
+                    self.reciprocateTransactionButton.isEnabled = true
+                } else {
+                    self.collectionView.isHidden = false
+                    self.reciprocateTransactionButton.isEnabled = false
+                    self.reciprocateTransactionButton.isHidden = true
+                }
+            }
         }
     }
     
     private var transaction: TransactionDetails?
     private var primary: PryntTransactionProfile?
     private var secondary: PryntTransactionProfile?
+    private var userIs: TransactionContext?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +54,6 @@ class TransactionViewController: PryntViewController {
         super.viewWillAppear(animated)
         
         if let primary = primary {
-            profileNameLabel.text = primary.profileName
             usersNameLabel.text = primary.usersName
             usersHandleLabel.text = "@" + primary.handle
         }

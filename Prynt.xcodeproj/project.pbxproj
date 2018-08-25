@@ -20,6 +20,7 @@
 		B62282F1204743CF00C01F61 /* RadialProgressImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62282F0204743CF00C01F61 /* RadialProgressImageView.swift */; };
 		B6287589210D49C000FB2873 /* PryntUserModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6287588210D49C000FB2873 /* PryntUserModels.swift */; };
 		B628758B210D5C2D00FB2873 /* UserNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B628758A210D5C2D00FB2873 /* UserNetworking.swift */; };
+		B648309E21321DF800FD2B17 /* ExternalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B648309D21321DF800FD2B17 /* ExternalViewController.swift */; };
 		B65DEEDB20E99DE40027A1EF /* RootPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DEEDA20E99DE40027A1EF /* RootPageViewController.swift */; };
 		B6630600212A8D0E004EE499 /* PryntPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66305FF212A8D0E004EE499 /* PryntPageViewController.swift */; };
 		B6630602212A93D7004EE499 /* PersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6630601212A93D7004EE499 /* PersonalViewController.swift */; };
@@ -120,6 +121,7 @@
 		B62282F0204743CF00C01F61 /* RadialProgressImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadialProgressImageView.swift; sourceTree = "<group>"; };
 		B6287588210D49C000FB2873 /* PryntUserModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PryntUserModels.swift; sourceTree = "<group>"; };
 		B628758A210D5C2D00FB2873 /* UserNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworking.swift; sourceTree = "<group>"; };
+		B648309D21321DF800FD2B17 /* ExternalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalViewController.swift; sourceTree = "<group>"; };
 		B65DEEDA20E99DE40027A1EF /* RootPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPageViewController.swift; sourceTree = "<group>"; };
 		B66305FF212A8D0E004EE499 /* PryntPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PryntPageViewController.swift; sourceTree = "<group>"; };
 		B6630601212A93D7004EE499 /* PersonalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalViewController.swift; sourceTree = "<group>"; };
@@ -325,11 +327,20 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		B648309C21321DD300FD2B17 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				B648309D21321DF800FD2B17 /* ExternalViewController.swift */,
+			);
+			path = External;
+			sourceTree = "<group>";
+		};
 		B65DEED920E99DB20027A1EF /* Main Interface */ = {
 			isa = PBXGroup;
 			children = (
 				B65DEEDA20E99DE40027A1EF /* RootPageViewController.swift */,
 				B6630609212A97B2004EE499 /* Activity */,
+				B648309C21321DD300FD2B17 /* External */,
 				B663060A212A97BA004EE499 /* Personal */,
 			);
 			path = "Main Interface";
@@ -706,6 +717,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6889B4C2120ABC1001E9B25 /* AccountNetworking.swift in Sources */,
+				B648309E21321DF800FD2B17 /* ExternalViewController.swift in Sources */,
 				B6630608212A963E004EE499 /* ContactsViewController.swift in Sources */,
 				B6FE7A0F208026AE00F60838 /* CreatePryntProfileViewController.swift in Sources */,
 				B6111DDA201903F000DC7877 /* WelcomeViewController.swift in Sources */,

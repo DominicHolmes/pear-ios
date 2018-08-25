@@ -1,8 +1,8 @@
 //
-//  PersonalViewController.swift
+//  ExternalViewController.swift
 //  Prynt
 //
-//  Created by Dominic Holmes on 8/20/18.
+//  Created by Dominic Holmes on 8/25/18.
 //  Copyright © 2018 Dominic Holmes. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import UIKit
 import Tabman
 import Pageboy
 
-class PersonalNavigationController: TabmanViewController, PageboyViewControllerDataSource {
+class ExternalNavigationController: TabmanViewController, PageboyViewControllerDataSource {
     
     var user: PryntUser! {
         didSet {
@@ -69,7 +69,7 @@ class PersonalNavigationController: TabmanViewController, PageboyViewControllerD
 }
 
 // MARK: - Networking
-extension PersonalNavigationController {
+extension ExternalNavigationController {
     
     fileprivate func fetchAllAccounts() {
         AccountNetworkingManager.shared.fetchAllAccounts(for: user.id) { (success, accounts) in
