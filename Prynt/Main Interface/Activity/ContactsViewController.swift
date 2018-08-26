@@ -29,6 +29,17 @@ class ContactsViewController: PryntTableViewController {
     }()
 }
 
+// MARK: - Table View Delegate
+extension ContactsViewController {
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        guard let contacts = contacts, contacts.count < indexPath.row else { return }
+        performSegue(withIdentifier: "ViewTransactionSegue", sender: contacts[indexPath.row])
+    }
+}
+
+// MARK: - Table View Data Source
 extension ContactsViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -53,6 +64,7 @@ extension ContactsViewController {
 
 extension ContactsViewController {
     func relevantProfile(from transaction: Transaction) -> PryntTransactionProfile? {
+        var FIX_BEFORE_RELEASE__🛠🛠🛠: AnyObject
         guard let userIs = transaction.userIs else { return nil }
 //        return userIs == .PRIMARY ? transaction.secondaryProfile : transaction.primaryProfile
         return userIs == .PRIMARY ? transaction.primaryProfile : transaction.secondaryProfile
