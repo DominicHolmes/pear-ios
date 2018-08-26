@@ -84,7 +84,6 @@ extension ScannerViewController {
     
     private func confirmTransaction(with code: String) {
         let transactionAccept = TransactionAccept(id: user.id, transactionId: code, secondaryApproval: false, profileId: nil)
-        dump(transactionAccept)
         TransactionNetworkingManager.shared.acceptTransaction(from: transactionAccept) { (success, transaction) in
             if success, let transaction = transaction {
                 self.performSegue(withIdentifier: "ViewTransactionSegue", sender: transaction)

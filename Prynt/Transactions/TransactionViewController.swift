@@ -24,22 +24,7 @@ class TransactionViewController: PryntViewController {
             self.userIs = fullTransaction?.userIs
         }
     }
-    
-    var context: TransactionContext? {
-        didSet {
-            if let userIs = self.userIs, let context = self.context {
-                if userIs == .SECONDARY && context == .SECONDARY {
-                    self.collectionView.isHidden = true
-                    self.reciprocateTransactionButton.isHidden = false
-                    self.reciprocateTransactionButton.isEnabled = true
-                } else {
-                    self.collectionView.isHidden = false
-                    self.reciprocateTransactionButton.isEnabled = false
-                    self.reciprocateTransactionButton.isHidden = true
-                }
-            }
-        }
-    }
+    var context: TransactionContext?
     
     private var transaction: TransactionDetails?
     private var primary: PryntTransactionProfile?
@@ -63,6 +48,18 @@ class TransactionViewController: PryntViewController {
         } else if context == .SECONDARY && userIs == .SECONDARY && secondary == nil {
             usersNameLabel.text = "No Profile Sent"
             usersHandleLabel.text = "You can share one now."
+        }
+        
+        if let userIs = self.userIs, let context = self.context {
+            if userIs == .SECONDARY && context == .SECONDARY {
+                self.collectionView.isHidden = true
+                self.reciprocateTransactionButton.isHidden = false
+                self.reciprocateTransactionButton.isEnabled = true
+            } else {
+                self.collectionView.isHidden = false
+                self.reciprocateTransactionButton.isEnabled = false
+                self.reciprocateTransactionButton.isHidden = true
+            }
         }
     }
     

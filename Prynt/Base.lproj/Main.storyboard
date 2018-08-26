@@ -1362,6 +1362,7 @@
                         <outlet property="cameraView" destination="PPX-oO-opV" id="yhG-Dh-zyP"/>
                         <outlet property="profilesButton" destination="OhS-Cq-Yga" id="Opj-tv-JRG"/>
                         <segue destination="lvE-Y5-bkD" kind="presentation" identifier="ViewBankSegue" id="QmB-NM-WFh"/>
+                        <segue destination="LLu-CM-e63" kind="presentation" identifier="ViewTransactionSegue" id="YcM-JA-LZF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wtV-rF-Wft" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2016,7 +2017,7 @@
         <!--Transaction View Controller-->
         <scene sceneID="3F3-kJ-p49">
             <objects>
-                <viewController id="bdY-SI-ShB" customClass="TransactionViewController" customModule="Prynt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TransactionViewController" id="bdY-SI-ShB" customClass="TransactionViewController" customModule="Prynt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9k9-3r-Ck1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2104,6 +2105,7 @@
                     <navigationItem key="navigationItem" id="ITP-nf-iVe"/>
                     <connections>
                         <outlet property="collectionView" destination="b4d-AI-Ak1" id="S2b-cZ-3Jh"/>
+                        <outlet property="reciprocateTransactionButton" destination="OSN-Sd-3R0" id="Zf4-3W-7LW"/>
                         <outlet property="usersHandleLabel" destination="LZn-ui-Xvx" id="RNT-xo-jNp"/>
                         <outlet property="usersNameLabel" destination="l2h-XQ-YhL" id="oIH-HC-5fy"/>
                     </connections>
@@ -2197,7 +2199,7 @@
         <image name="x-button-highlighted" width="47" height="47"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vLc-lC-yHV"/>
+        <segue reference="YcM-JA-LZF"/>
         <segue reference="rQJ-Lp-f2f"/>
         <segue reference="7Rc-ku-flp"/>
         <segue reference="EaW-Nt-kia"/>

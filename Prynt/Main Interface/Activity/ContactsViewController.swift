@@ -34,7 +34,7 @@ extension ContactsViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        guard let contacts = contacts, contacts.count < indexPath.row else { return }
+        guard let contacts = contacts, indexPath.row < contacts.count else { return }
         performSegue(withIdentifier: "ViewTransactionSegue", sender: contacts[indexPath.row])
     }
 }
@@ -68,5 +68,17 @@ extension ContactsViewController {
         guard let userIs = transaction.userIs else { return nil }
 //        return userIs == .PRIMARY ? transaction.secondaryProfile : transaction.primaryProfile
         return userIs == .PRIMARY ? transaction.primaryProfile : transaction.secondaryProfile
+    }
+}
+
+// MARK: - Segue Control
+extension ContactsViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ViewTransactionSegue", let sender = sender as? Transaction {
+            let nav = segue.destination as! UINavigationController
+            let controller = nav.topViewController as! ExternalNavigationController
+            controller.user = self.user
+            controller.fullTransaction = sender
+        }
     }
 }

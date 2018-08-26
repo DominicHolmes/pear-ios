@@ -10,12 +10,23 @@ import UIKit
 
 class RootPageViewController: PryntPageViewController, UIPageViewControllerDataSource {
     
+    lazy var mainStoryboard: UIStoryboard = {
+        return UIStoryboard.init(name: "Main", bundle: nil)
+    }()
+    
+    lazy var activityVC : ActivityNavigationController = {
+        return mainStoryboard.instantiateViewController(withIdentifier: "ActivityNavigationController") as! ActivityNavigationController
+    }()
+    
+    lazy var cameraVC : ScannerViewController = {
+        return mainStoryboard.instantiateViewController(withIdentifier: "ScannerViewController") as! ScannerViewController
+    }()
+    
+    lazy var clusterVC : PersonalNavigationController = {
+        return mainStoryboard.instantiateViewController(withIdentifier: "PersonalNavigationController") as! PersonalNavigationController
+    }()
+    
     lazy var viewControllerList : [UIViewController] = {
-        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-        
-        let activityVC = storyboard.instantiateViewController(withIdentifier: "ActivityNavigationController") as! ActivityNavigationController
-        let cameraVC = storyboard.instantiateViewController(withIdentifier: "ScannerViewController") as! ScannerViewController
-        let clusterVC = storyboard.instantiateViewController(withIdentifier: "PersonalNavigationController") as! PersonalNavigationController
         
         activityVC.user = user
         cameraVC.user = user
@@ -23,6 +34,19 @@ class RootPageViewController: PryntPageViewController, UIPageViewControllerDataS
         
         return [activityVC, cameraVC, clusterVC]
     }()
+    
+    
+//    lazy var viewControllerList : [UIViewController] = {
+//        let activityVC = storyboard.instantiateViewController(withIdentifier: "ActivityNavigationController") as! ActivityNavigationController
+//        let cameraVC = storyboard.instantiateViewController(withIdentifier: "ScannerViewController") as! ScannerViewController
+//        let clusterVC = storyboard.instantiateViewController(withIdentifier: "PersonalNavigationController") as! PersonalNavigationController
+//
+//        activityVC.user = user
+//        cameraVC.user = user
+//        clusterVC.user = user
+//
+//        return [activityVC, cameraVC, clusterVC]
+//    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
