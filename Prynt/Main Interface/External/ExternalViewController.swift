@@ -12,23 +12,24 @@ import Pageboy
 
 class ExternalNavigationController: TabmanViewController, PageboyViewControllerDataSource {
     
-    var user: PryntUser! {
-        didSet {
-            self.fetchAllAccounts()
-            self.fetchAllProfiles()
-        }
-    }
+    var user: PryntUser!
+    var fullTransaction: Transaction!
     
     lazy var viewControllers : [UIViewController] = {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         
-        let profilesVC = storyboard.instantiateViewController(withIdentifier: "ProfilesViewController") as! ProfilesViewController
-        let accountsVC = storyboard.instantiateViewController(withIdentifier: "AccountsViewController") as! AccountsViewController
+        let primaryVC = storyboard.instantiateViewController(withIdentifier: "TransactionViewController") as! TransactionViewController
+        let secondaryVC = storyboard.instantiateViewController(withIdentifier: "TransactionViewController") as! TransactionViewController
         
-        profilesVC.user = user
-        accountsVC.user = user
+        primaryVC.user = user
+        primaryVC.fullTransaction = fullTransaction
+        primaryVC.context = .PRIMARY
         
-        return [profilesVC, accountsVC]
+        secondaryVC.user = user
+        secondaryVC.fullTransaction = fullTransaction
+        secondaryVC.context = .SECONDARY
+        
+        return [primaryVC, secondaryVC]
     }()
     
     override func viewDidLoad() {
@@ -37,8 +38,8 @@ class ExternalNavigationController: TabmanViewController, PageboyViewControllerD
         self.dataSource = self
         
         // configure the bar
-        self.bar.items = [Item(title: "Clusters"),
-                          Item(title: "Accounts")]
+        self.bar.items = [Item(title: "Received"),
+                          Item(title: "Sent")]
         
         // style the bar
         self.bar.appearance = TabmanBar.Appearance({ (appearance) in
@@ -68,6 +69,7 @@ class ExternalNavigationController: TabmanViewController, PageboyViewControllerD
     }
 }
 
+/*
 // MARK: - Networking
 extension ExternalNavigationController {
     
@@ -97,3 +99,4 @@ extension ExternalNavigationController {
         }
     }
 }
+*/

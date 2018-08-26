@@ -2109,7 +2109,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="825" y="3260"/>
+            <point key="canvasLocation" x="825" y="4055"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CRE-Lc-qNj">
@@ -2141,7 +2141,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j6h-wa-sXd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="825" y="2438"/>
+            <point key="canvasLocation" x="-767" y="3260"/>
         </scene>
     </scenes>
     <resources>

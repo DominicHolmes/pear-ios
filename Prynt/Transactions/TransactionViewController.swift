@@ -52,10 +52,17 @@ class TransactionViewController: PryntViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        guard let context = context, let userIs = userIs else { return }
         
-        if let primary = primary {
+        if context == .PRIMARY && userIs == .SECONDARY, let primary = primary {
             usersNameLabel.text = primary.usersName
             usersHandleLabel.text = "@" + primary.handle
+        } else if context == .SECONDARY && userIs == .SECONDARY, let secondary = secondary {
+            usersNameLabel.text = secondary.usersName
+            usersHandleLabel.text = "@" + secondary.handle
+        } else if context == .SECONDARY && userIs == .SECONDARY && secondary == nil {
+            usersNameLabel.text = "No Profile Sent"
+            usersHandleLabel.text = "You can share one now."
         }
     }
     
