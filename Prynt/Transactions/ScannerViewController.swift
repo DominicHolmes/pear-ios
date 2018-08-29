@@ -83,7 +83,7 @@ extension ScannerViewController {
     }
     
     private func confirmTransaction(with code: String) {
-        let transactionAccept = TransactionAccept(id: user.id, transactionId: code, secondaryApproval: false, profileId: nil)
+        let transactionAccept = TransactionAccept(id: user.id, transactionId: code, secondaryApproval: false)
         TransactionNetworkingManager.shared.acceptTransaction(from: transactionAccept) { (success, transaction) in
             if success, let transaction = transaction {
                 self.performSegue(withIdentifier: "ViewTransactionSegue", sender: transaction)
@@ -137,7 +137,6 @@ extension ScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
         ac.addAction(UIAlertAction(title: "OK", style: .default))
         present(ac, animated: true)
         captureSession = nil
-        
     }
     
     func endCaptureSession() {

@@ -18,6 +18,8 @@ struct TransactionHTTPSResponse: Codable {
 struct AllTransactionsHTTPSResponse: Codable {
     let status: Bool
     let transactions: [Transaction]?
+    let error: String?
+    let errorCode: String?
 }
 
 struct TransactionCreate: Codable {
@@ -29,7 +31,6 @@ struct TransactionAccept: Codable {
     let id: UserId
     let transactionId: TransactionId
     let secondaryApproval: Bool
-    let profileId: ProfileId?
 }
 
 struct TransactionReciprocate: Codable {
