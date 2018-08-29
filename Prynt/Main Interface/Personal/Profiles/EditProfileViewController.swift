@@ -114,13 +114,13 @@ extension EditProfileViewController: UICollectionViewDelegate {
         let appURLString = service.appURL + username
         let webURLString = service.webURL + username
         
-        let appURL = NSURL(string: appURLString)!
-        let webURL = NSURL(string: webURLString)!
+        let appURL = NSURL(string: appURLString)
+        let webURL = NSURL(string: webURLString)
         let application = UIApplication.shared
         
-        if application.canOpenURL(appURL as URL) {
+        if let appURL = appURL, application.canOpenURL(appURL as URL) {
             application.open(appURL as URL)
-        } else {
+        } else if let webURL = webURL {
             application.open(webURL as URL)
         }
     }
