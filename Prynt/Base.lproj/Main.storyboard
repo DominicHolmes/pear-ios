@@ -219,10 +219,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Cluster" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEs-bW-H8K">
-                                <rect key="frame" x="142" y="151" width="90" height="21"/>
+                                <rect key="frame" x="135" y="148" width="105" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
+                                <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ppz-0c-1Xf">
@@ -233,19 +233,8 @@
                                     <action selector="createSocialProfileButtonTapped" destination="hcC-6T-ULL" eventType="touchUpInside" id="F9W-XM-72y"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ugy-sG-7z0">
-                                <rect key="frame" x="86" y="214" width="202" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                                <connections>
-                                    <action selector="textFieldPrimaryActionShouldDismissKeyboardWithSender:" destination="hcC-6T-ULL" eventType="primaryActionTriggered" id="s6t-yg-lJw"/>
-                                    <action selector="textFieldValueValueChanged" destination="hcC-6T-ULL" eventType="valueChanged" id="D3v-BM-ykW"/>
-                                </connections>
-                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1o2-pk-48h">
-                                <rect key="frame" x="86" y="283" width="202" height="30"/>
+                                <rect key="frame" x="86" y="327" width="202" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -255,14 +244,25 @@
                                     <action selector="textFieldValueValueChanged" destination="hcC-6T-ULL" eventType="valueChanged" id="4S1-Ni-ZpE"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pue-Dd-1Hb">
-                                <rect key="frame" x="16" y="80" width="34" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jsd-jb-kUh">
+                                <rect key="frame" x="16" y="38" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Back"/>
+                                <state key="normal" title="Back" image="Exit-Med"/>
                                 <connections>
-                                    <action selector="didSelectClose" destination="hcC-6T-ULL" eventType="touchUpInside" id="Vam-om-ZL1"/>
+                                    <action selector="didSelectClose" destination="hcC-6T-ULL" eventType="touchUpInside" id="HaC-lI-ueG"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Hello" placeholder="Enter Cluster Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ugy-sG-7z0">
+                                <rect key="frame" x="86" y="267" width="202" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="textFieldPrimaryActionShouldDismissKeyboardWithSender:" destination="hcC-6T-ULL" eventType="primaryActionTriggered" id="s6t-yg-lJw"/>
+                                    <action selector="textFieldValueValueChanged" destination="hcC-6T-ULL" eventType="valueChanged" id="D3v-BM-ykW"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Igc-Al-Hxq"/>
@@ -276,7 +276,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MbP-zc-Yjx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3345" y="3260"/>
+            <point key="canvasLocation" x="3344.8000000000002" y="3259.5202398800602"/>
         </scene>
         <!--Edit Profile View Controller-->
         <scene sceneID="um0-TC-OHu">
