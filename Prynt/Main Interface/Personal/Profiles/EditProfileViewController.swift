@@ -82,7 +82,7 @@ extension EditProfileViewController: UICollectionViewDataSource {
         let cellImageView = cell.viewWithTag(100) as? UIImageView
         
         guard let accounts = profileToEdit?.accounts, accounts.count != indexPath.row else {
-            cellImageView?.image = UIImage(named: "pear-logo")
+            cellImageView?.image = UIImage(named: "Plus")
             cell.socialServiceType = nil
             cell.accountToDisplay = nil
             cell.accountToEdit = nil
