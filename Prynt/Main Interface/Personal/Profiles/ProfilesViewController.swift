@@ -71,9 +71,12 @@ extension ProfilesViewController: UICollectionViewDataSource {
             for i in 0 ..< accounts.count {
                 guard i < 3 else { return cell }
                 
-                let imageView = cell.viewWithTag(200 + i) as? UIImageView
+                let imageView = cell.viewWithTag(201 + i) as? UIImageView
                 imageView?.image = UIImage(named: accounts[i].service.photoName)
             }
+            
+            let profileNameLabel = cell.viewWithTag(100) as? UILabel
+            profileNameLabel?.text = profile.profileName
 
             return cell
         }
