@@ -17,6 +17,7 @@ class EditProfileViewController: PryntViewController {
     var profileToEdit: PryntProfile?
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var clusterNameLabel: UILabel!
     
     internal func updateProfile(with profileUpdate: PryntProfileUpdate) {
         ProfileNetworkingManager.shared.updateProfile(from: profileUpdate) { (success, profile) in
@@ -45,6 +46,7 @@ class EditProfileViewController: PryntViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         collectionView.reloadData()
+        clusterNameLabel.text = profileToEdit?.profileName
     }
 }
 
