@@ -17,10 +17,18 @@ class ProfilesViewController: PryntTabViewController {
     }
     var profiles: [PryntProfile]?
     
+    @IBOutlet weak var usersNameLabel: UILabel!
+    @IBOutlet weak var usersHandleLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        usersNameLabel.text = user.firstName + " " + user.lastName
+        usersHandleLabel.text = ""
     }
     
     override func viewDidAppear(_ animated: Bool) {

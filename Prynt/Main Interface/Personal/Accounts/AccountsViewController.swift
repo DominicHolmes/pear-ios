@@ -112,8 +112,13 @@ extension AccountsViewController: UICollectionViewDataSource {
             cell.accountToEdit = nil
             cellImageView?.image = UIImage(named: serviceType.photoName)
         }
-        
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SectionHeaderView", for: indexPath)
+        (view.viewWithTag(100) as? UILabel)?.text = (indexPath.section == 0 ? "Your Accounts" : "Other Accounts")
+        return view
     }
 }
 

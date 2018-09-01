@@ -70,9 +70,18 @@
                                         </view>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="CpE-fc-gFP">
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="SectionHeaderView" id="CpE-fc-gFP">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJp-DB-78n">
+                                            <rect key="frame" x="24" y="14" width="328" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
+                                            <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="ECp-0q-adc" id="GDP-hn-nXR"/>
@@ -201,6 +210,8 @@
                     <tabBarItem key="tabBarItem" title="Item" id="P1e-ve-I0C"/>
                     <connections>
                         <outlet property="collectionView" destination="06G-D2-OS7" id="TM7-tQ-GLM"/>
+                        <outlet property="usersHandleLabel" destination="Zie-zf-w5F" id="rA2-9I-CiV"/>
+                        <outlet property="usersNameLabel" destination="0RR-LU-lRG" id="QFf-2T-d3U"/>
                         <segue destination="Pri-qf-0EU" kind="presentation" identifier="CreateClusterSegue" id="opN-MF-0X6"/>
                         <segue destination="0T8-lM-1S1" kind="presentation" identifier="EditClusterSegue" id="fax-6V-xxk"/>
                     </connections>
