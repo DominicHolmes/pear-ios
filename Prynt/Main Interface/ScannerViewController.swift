@@ -103,6 +103,7 @@ extension ScannerViewController {
     }
     
     private func confirmTransaction(with code: String) {
+        print("Found: " + code)
         let transactionAccept = TransactionAccept(id: user.id, transactionId: code, secondaryApproval: false)
         TransactionNetworkingManager.shared.acceptTransaction(from: transactionAccept) { (success, transaction) in
             if success, let transaction = transaction {
@@ -192,7 +193,7 @@ extension ScannerViewController {
             controller.user = self.user
         } else if segue.identifier == "ViewTransactionSegue", let sender = sender as? Transaction {
             let nav = segue.destination as! UINavigationController
-            let controller = nav.topViewController as! TransactionViewController
+            let controller = nav.topViewController as! ExternalNavigationController
             controller.user = self.user
             controller.fullTransaction = sender
         }
