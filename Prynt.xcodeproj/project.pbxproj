@@ -339,6 +339,7 @@
 			isa = PBXGroup;
 			children = (
 				B65DEEDA20E99DE40027A1EF /* RootPageViewController.swift */,
+				B6889B5A2123A2D4001E9B25 /* ScannerViewController.swift */,
 				B6630609212A97B2004EE499 /* Activity */,
 				B648309C21321DD300FD2B17 /* External */,
 				B663060A212A97BA004EE499 /* Personal */,
@@ -493,7 +494,6 @@
 		B6889B592123A2AB001E9B25 /* Transactions */ = {
 			isa = PBXGroup;
 			children = (
-				B6889B5A2123A2D4001E9B25 /* ScannerViewController.swift */,
 				B6D274E6212A2CEB008C9712 /* TransactionViewController.swift */,
 				B6D274E4212A1B8F008C9712 /* BankViewController.swift */,
 				B62282EC2046481C00C01F61 /* PresentTransactionViewController.swift */,

@@ -10,32 +10,6 @@ import UIKit
 
 class RootPageViewController: PryntPageViewController, UIPageViewControllerDataSource {
     
-    /*lazy var mainStoryboard: UIStoryboard = {
-        return UIStoryboard.init(name: "Main", bundle: nil)
-    }()
-    
-    lazy var activityVC : ActivityNavigationController = {
-        return mainStoryboard.instantiateViewController(withIdentifier: "ActivityNavigationController") as! ActivityNavigationController
-    }()
-    
-    lazy var cameraVC : ScannerViewController = {
-        return mainStoryboard.instantiateViewController(withIdentifier: "ScannerViewController") as! ScannerViewController
-    }()
-    
-    lazy var clusterVC : PersonalNavigationController = {
-        return mainStoryboard.instantiateViewController(withIdentifier: "PersonalNavigationController") as! PersonalNavigationController
-    }()
-    
-    lazy var viewControllerList : [UIViewController] = {
-        
-        activityVC.user = user
-        cameraVC.user = user
-        clusterVC.user = user
-        
-        return [activityVC, cameraVC, clusterVC]
-    }()*/
-    
-    
     lazy var viewControllerList : [UIViewController] = {
         
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
@@ -46,6 +20,7 @@ class RootPageViewController: PryntPageViewController, UIPageViewControllerDataS
 
         activityVC.user = user
         cameraVC.user = user
+        cameraVC.delegate = self
         clusterVC.user = user
 
         return [activityVC, cameraVC, clusterVC]
@@ -62,6 +37,18 @@ class RootPageViewController: PryntPageViewController, UIPageViewControllerDataS
     func setInitialViewController() {
         if viewControllerList.count > 1, let firstVC = viewControllerList[1] as? ScannerViewController {
             self.setViewControllers([firstVC], direction: .forward, animated: true, completion: nil)
+        }
+    }
+    
+    func setActivityViewController() {
+        if viewControllerList.count > 0, let vc = viewControllerList[0] as? ActivityNavigationController {
+            self.setViewControllers([vc], direction: .reverse, animated: true, completion: nil)
+        }
+    }
+    
+    func setPersonalViewController() {
+        if viewControllerList.count > 2, let vc = viewControllerList[2] as? PersonalNavigationController {
+            self.setViewControllers([vc], direction: .forward, animated: true, completion: nil)
         }
     }
     
@@ -82,5 +69,13 @@ class RootPageViewController: PryntPageViewController, UIPageViewControllerDataS
         
         return viewControllerList[nextIndex]
     }
-    
+}
+
+extension RootPageViewController: RootPageControllable {
+    func userDidSelectActivity(_ controller: PryntTabViewController) {
+        setActivityViewController()
+    }
+    func userDidSelectPersonal(_ controller: PryntTabViewController) {
+        setPersonalViewController()
+    }
 }

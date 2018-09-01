@@ -1350,11 +1350,17 @@
                                 <rect key="frame" x="315" y="603" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <state key="normal" image="Self-Tab-Lt"/>
+                                <connections>
+                                    <action selector="personalButtonSelected" destination="5oa-Xh-Fqc" eventType="touchUpInside" id="L1h-pW-fmx"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TN8-vR-WVx">
                                 <rect key="frame" x="16" y="603" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <state key="normal" image="People-Tab-Lt"/>
+                                <connections>
+                                    <action selector="activityButtonSelected" destination="5oa-Xh-Fqc" eventType="touchUpInside" id="b9u-Vo-VBa"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OhS-Cq-Yga">
                                 <rect key="frame" x="165" y="603" width="44" height="44"/>

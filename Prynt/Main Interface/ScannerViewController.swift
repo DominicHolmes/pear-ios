@@ -9,10 +9,17 @@
 import UIKit
 import AVFoundation
 
+protocol RootPageControllable {
+    func userDidSelectActivity(_ controller: PryntTabViewController)
+    func userDidSelectPersonal(_ controller: PryntTabViewController)
+}
+
 class ScannerViewController: PryntTabViewController {
     
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
+    
+    var delegate: RootPageControllable?
     
     private var codeFound = false
     private var areProfilesVisible = false
@@ -33,7 +40,12 @@ class ScannerViewController: PryntTabViewController {
         fetchAllProfiles()
         
         view.backgroundColor = UIColor.white
+        
+        #if targetEnvironment(simulator)
+        print("Running on device!")
+        #else
         setupCaptureSession()
+        #endif
     }
     
     func fetchAllProfiles() {
@@ -70,6 +82,14 @@ class ScannerViewController: PryntTabViewController {
     
     @IBAction func bankButtonSelected() {
         performSegue(withIdentifier: "ViewBankSegue", sender: nil)
+    }
+    
+    @IBAction func activityButtonSelected() {
+        delegate?.userDidSelectActivity(self)
+    }
+    
+    @IBAction func personalButtonSelected() {
+        delegate?.userDidSelectPersonal(self)
     }
 }
 
