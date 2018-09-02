@@ -21,6 +21,7 @@
 		B6287589210D49C000FB2873 /* PryntUserModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6287588210D49C000FB2873 /* PryntUserModels.swift */; };
 		B628758B210D5C2D00FB2873 /* UserNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B628758A210D5C2D00FB2873 /* UserNetworking.swift */; };
 		B648309E21321DF800FD2B17 /* ExternalNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B648309D21321DF800FD2B17 /* ExternalNavigationController.swift */; };
+		B64830A0213C411500FD2B17 /* ChooseProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B648309F213C411500FD2B17 /* ChooseProfileViewController.swift */; };
 		B65DEEDB20E99DE40027A1EF /* RootPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DEEDA20E99DE40027A1EF /* RootPageViewController.swift */; };
 		B6630600212A8D0E004EE499 /* PryntPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66305FF212A8D0E004EE499 /* PryntPageViewController.swift */; };
 		B6630602212A93D7004EE499 /* PersonalNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6630601212A93D7004EE499 /* PersonalNavigationController.swift */; };
@@ -122,6 +123,7 @@
 		B6287588210D49C000FB2873 /* PryntUserModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PryntUserModels.swift; sourceTree = "<group>"; };
 		B628758A210D5C2D00FB2873 /* UserNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworking.swift; sourceTree = "<group>"; };
 		B648309D21321DF800FD2B17 /* ExternalNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalNavigationController.swift; sourceTree = "<group>"; };
+		B648309F213C411500FD2B17 /* ChooseProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseProfileViewController.swift; sourceTree = "<group>"; };
 		B65DEEDA20E99DE40027A1EF /* RootPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPageViewController.swift; sourceTree = "<group>"; };
 		B66305FF212A8D0E004EE499 /* PryntPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PryntPageViewController.swift; sourceTree = "<group>"; };
 		B6630601212A93D7004EE499 /* PersonalNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalNavigationController.swift; sourceTree = "<group>"; };
@@ -496,6 +498,7 @@
 			children = (
 				B6D274E6212A2CEB008C9712 /* TransactionViewController.swift */,
 				B6D274E4212A1B8F008C9712 /* BankViewController.swift */,
+				B648309F213C411500FD2B17 /* ChooseProfileViewController.swift */,
 				B62282EC2046481C00C01F61 /* PresentTransactionViewController.swift */,
 			);
 			path = Transactions;
@@ -723,6 +726,7 @@
 				B6111DDA201903F000DC7877 /* WelcomeViewController.swift in Sources */,
 				B67881D6211A7044000DA750 /* PryntTransactionModels.swift in Sources */,
 				B6287589210D49C000FB2873 /* PryntUserModels.swift in Sources */,
+				B64830A0213C411500FD2B17 /* ChooseProfileViewController.swift in Sources */,
 				B6111DC6201901F600DC7877 /* AppDelegate.swift in Sources */,
 				B6630604212A9455004EE499 /* ActivityNavigationController.swift in Sources */,
 				B6111DE0201D4C1000DC7877 /* NotificationsViewController.swift in Sources */,
