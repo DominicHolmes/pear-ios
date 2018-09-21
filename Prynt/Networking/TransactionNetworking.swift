@@ -49,34 +49,7 @@ class TransactionNetworkingManager {
             }
         }
     }
-    
-    // MARK: - Accept Transaction
-//    func acceptTransaction(from acceptTransaction: TransactionAccept, _ completion: @escaping (_ success: Bool, _ transaction: Transaction?) -> Void) {
-//
-//        let method = Alamofire.HTTPMethod.post
-//        let parameters: Parameters? = acceptTransaction.dictionary
-//
-//        dump(acceptTransaction)
-//
-//        sessionManager.request("https://35.231.241.240/transaction/complete", method: method, parameters: parameters, encoding: encoding, headers: headers).response { response in
-//
-//            let jsonDecoder = JSONDecoder()
-//            do {
-//                let decodedResponse =  try jsonDecoder.decode(TransactionHTTPSResponse.self, from: response.data!)
-//                if decodedResponse.status, let transaction = decodedResponse.transaction {
-//                    completion(true, transaction)
-//                } else {
-//                    dump(decodedResponse)
-//                    completion(false, nil)
-//                }
-//            }
-//            catch {
-//                print(error)
-//                print("ERROR - Could not complete transaction")
-//                completion(false, nil)
-//            }
-//        }
-//    }
+
     func acceptTransaction(from acceptTransaction: TransactionAccept, _ completion: @escaping (_ success: Bool, _ transaction: Transaction?) -> Void) {
         
         let method = Alamofire.HTTPMethod.post
@@ -111,6 +84,8 @@ class TransactionNetworkingManager {
         let method = Alamofire.HTTPMethod.post
         let parameters: Parameters? = reciprocateTransaction.dictionary
         
+        dump(reciprocateTransaction)
+        
         sessionManager.request("https://35.231.241.240/transaction/complete/profile", method: method, parameters: parameters, encoding: encoding, headers: headers).response { response in
             
             let jsonDecoder = JSONDecoder()
@@ -119,6 +94,7 @@ class TransactionNetworkingManager {
                 if decodedResponse.status, let transaction = decodedResponse.transaction {
                     completion(true, transaction)
                 } else {
+                    dump(decodedResponse)
                     completion(false, nil)
                 }
             }

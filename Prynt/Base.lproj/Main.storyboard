@@ -12,12 +12,6 @@
         <array key="Gotham-Medium.otf">
             <string>Gotham-Medium</string>
         </array>
-        <array key="GothamRnd-Bold.otf">
-            <string>GothamRounded-Bold</string>
-        </array>
-        <array key="GothamRnd-Book.otf">
-            <string>GothamRounded-Book</string>
-        </array>
         <array key="GothamRnd-Medium.otf">
             <string>GothamRounded-Medium</string>
         </array>
@@ -440,209 +434,6 @@
             </objects>
             <point key="canvasLocation" x="2592.8000000000002" y="4054.7226386806601"/>
         </scene>
-        <!--Profiles View Controller-->
-        <scene sceneID="JJV-2u-p2L">
-            <objects>
-                <viewController id="5ou-9m-ssN" customClass="ProfilesViewController" customModule="Prynt" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="9PC-1h-pQf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="72" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wG8-1x-00J">
-                                <rect key="frame" x="0.0" y="135" width="375" height="532"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PryntProfileCell" id="Jjk-Ez-r1o">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="72"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jjk-Ez-r1o" id="YEN-Th-C16">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="71.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hnN-jv-Lyv">
-                                                    <rect key="frame" x="15" y="12" width="327" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="18"/>
-                                                    <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="@handle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doB-YM-vCf">
-                                                    <rect key="frame" x="15" y="37" width="327" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="GothamRounded-Book" family="Gotham Rounded" pointSize="14"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <sections/>
-                                <connections>
-                                    <outlet property="dataSource" destination="5ou-9m-ssN" id="Bvl-fB-EK3"/>
-                                    <outlet property="delegate" destination="5ou-9m-ssN" id="Er8-Uh-pcJ"/>
-                                </connections>
-                            </tableView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7gO-jm-jHT">
-                                <rect key="frame" x="0.0" y="64" width="375" height="71"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Profiles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wSj-Zb-nR9">
-                                        <rect key="frame" x="8" y="23" width="357" height="24"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="23"/>
-                                        <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="41U-Tt-e52">
-                                        <rect key="frame" x="0.0" y="70" width="375" height="1"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                        <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                    </view>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cYO-Cd-k7a">
-                                        <rect key="frame" x="333" y="23" width="22" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <segue destination="ahl-Rz-l7O" kind="show" identifier="CreateNewPryntProfileSegue" id="H4Y-RI-GR5"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="gRe-pr-upV"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="" image="profile-tab-icon-disabled" selectedImage="profile-tab-icon-enabled" id="Xyf-If-rx8"/>
-                    <connections>
-                        <outlet property="tableView" destination="wG8-1x-00J" id="Zes-Tn-dk8"/>
-                        <segue destination="F7o-oA-ROU" kind="popoverPresentation" identifier="deleteProfileSegue" popoverAnchorView="wG8-1x-00J" id="hu9-9E-gPQ">
-                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                        </segue>
-                        <segue destination="HO9-DV-9D7" kind="popoverPresentation" identifier="PryntProfileSegue" popoverAnchorView="wG8-1x-00J" id="44M-5T-dTA">
-                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                        </segue>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Suk-Jh-f4X" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1564" y="-1556.6716641679161"/>
-        </scene>
-        <!--Prynt Profile View Controller-->
-        <scene sceneID="QIi-3X-BsU">
-            <objects>
-                <viewController id="HO9-DV-9D7" customClass="PryntProfileViewController" customModule="Prynt" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="EPP-sg-eAE">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UsersNameLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cUT-bu-wbL">
-                                <rect key="frame" x="16" y="227" width="343" height="24"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="@handleLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENt-KI-nvg">
-                                <rect key="frame" x="16" y="259" width="343" height="21"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="17"/>
-                                <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="053-c5-q0X">
-                                <rect key="frame" x="72" y="581" width="230" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="17"/>
-                                <state key="normal" title="Done" backgroundImage="button-outline-green">
-                                    <color key="titleColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <state key="highlighted" backgroundImage="button-outline-green-highlighted">
-                                    <color key="titleColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="0.5995023545" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="userDidSelectDelete" destination="F7o-oA-ROU" eventType="touchUpInside" id="Q7x-h9-9tL"/>
-                                    <action selector="userDidSelectDone" destination="HO9-DV-9D7" eventType="touchUpInside" id="UWm-vV-Fmg"/>
-                                </connections>
-                            </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HyI-dN-jzG">
-                                <rect key="frame" x="37" y="317" width="300" height="225"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LeP-j0-Tkk">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NetworkCell" id="hcA-gO-pvV" customClass="NetworkCollectionCell" customModule="Prynt" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6fB-OK-Z0Y">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                </imageView>
-                                            </subviews>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="HO9-DV-9D7" id="7Fh-Yf-qB3"/>
-                                    <outlet property="delegate" destination="HO9-DV-9D7" id="osn-r2-uFj"/>
-                                </connections>
-                            </collectionView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pear-logo" translatesAutoresizingMaskIntoConstraints="NO" id="J8R-YI-sMR">
-                                <rect key="frame" x="141" y="118" width="91" height="89"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ee9-3d-zLR">
-                                <rect key="frame" x="330" y="37" width="25" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="x-button"/>
-                                <state key="highlighted" image="x-button-highlighted"/>
-                                <connections>
-                                    <action selector="userDidSelectDone" destination="HO9-DV-9D7" eventType="touchUpInside" id="ueh-LA-rli"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ProfileName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="48d-69-P7u">
-                                <rect key="frame" x="16" y="41" width="306" height="17"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="GothamRounded-Bold" family="Gotham Rounded" pointSize="17"/>
-                                <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <gestureRecognizers/>
-                        <viewLayoutGuide key="safeArea" id="Va3-Jm-Gjw"/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="ZP2-r5-iPJ" appends="YES" id="66z-uH-dZR"/>
-                        </connections>
-                    </view>
-                    <connections>
-                        <outlet property="collectionView" destination="HyI-dN-jzG" id="3Uw-uK-HXG"/>
-                        <outlet property="profileNameLabel" destination="48d-69-P7u" id="ueN-XP-Usf"/>
-                        <outlet property="usersHandleLabel" destination="ENt-KI-nvg" id="Ibs-ey-ip3"/>
-                        <outlet property="usersNameLabel" destination="cUT-bu-wbL" id="nUD-qH-kpT"/>
-                        <segue destination="2qu-Rl-Az0" kind="show" identifier="returnToHomeSegue" id="JVR-pM-jdX"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SUk-dX-YGn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="down" id="ZP2-r5-iPJ">
-                    <connections>
-                        <action selector="userDidSelectDone" destination="HO9-DV-9D7" id="8Ys-9Q-S0a"/>
-                    </connections>
-                </swipeGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="3698" y="-1558"/>
-        </scene>
         <!--Delete Social Profile View Controller-->
         <scene sceneID="2JK-qO-uJO">
             <objects>
@@ -712,7 +503,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2654" y="-1557"/>
+            <point key="canvasLocation" x="4302" y="-1928"/>
         </scene>
         <!--Prynt Registration View Controller-->
         <scene sceneID="O2w-yJ-zMJ">
@@ -722,11 +513,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Register" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JG5-fa-3F6">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Almost done!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JG5-fa-3F6">
                                 <rect key="frame" x="16" y="60" width="343" height="24"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="23"/>
-                                <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
+                                <color key="textColor" red="0.49803921569999998" green="0.49803921569999998" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B62-39-x0q" customClass="PryntTextField" customModule="Prynt" customModuleProvider="target">
@@ -795,7 +586,7 @@
                         <outlet property="firstNameTextField" destination="B62-39-x0q" id="fmz-IE-hP4"/>
                         <outlet property="lastNameTextField" destination="geT-wC-cU1" id="SFF-FS-FQX"/>
                         <outlet property="usernameTextField" destination="00n-0h-Kj2" id="If1-nR-tsY"/>
-                        <segue destination="648-Ra-rJw" kind="show" identifier="PostRegistrationSegue" id="Ntz-fv-L10"/>
+                        <segue destination="FKO-cV-nxN" kind="show" identifier="RegistrationCompletedSegue" id="x0g-Mr-Jbn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iVY-qF-efZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -805,7 +596,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-2556" y="-1628"/>
+            <point key="canvasLocation" x="825" y="-840"/>
         </scene>
         <!--Auth Registration View Controller-->
         <scene sceneID="Tyg-tE-cpe">
@@ -815,11 +606,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Register" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRi-gz-GTL">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Registration" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRi-gz-GTL">
                                 <rect key="frame" x="7" y="60" width="359" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="23"/>
-                                <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
+                                <color key="textColor" red="0.49803921569999998" green="0.49803921569999998" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Nf-jH-RUR">
@@ -895,93 +686,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-3662" y="-1627"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="b2W-ts-SVQ">
-            <objects>
-                <navigationController id="648-Ra-rJw" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LxW-C8-ZaZ">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="CzA-5a-5Rk" kind="relationship" relationship="rootViewController" id="96b-kw-BUI"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aQT-Lq-DdX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1644" y="-1629"/>
-        </scene>
-        <!--Post Registration View Controller-->
-        <scene sceneID="qya-iy-RhH">
-            <objects>
-                <viewController id="CzA-5a-5Rk" customClass="PostRegistrationViewController" customModule="Prynt" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="yoe-MN-4N6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Gx-IG-wLk">
-                                <rect key="frame" x="80.5" y="567" width="214" height="44"/>
-                                <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="17"/>
-                                <state key="normal" title="Let's do this!" backgroundImage="button-outline-green">
-                                    <color key="titleColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <state key="highlighted" backgroundImage="button-outline-green-highlighted">
-                                    <color key="titleColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="0.5995023545" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="segueButtonPressed" destination="CzA-5a-5Rk" eventType="touchUpInside" id="fcu-h0-Ifo"/>
-                                    <action selector="userDidSelectDelete" destination="F7o-oA-ROU" eventType="touchUpInside" id="Qte-dz-Qto"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bu7-hd-uph">
-                                <rect key="frame" x="15" y="111" width="343" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="23"/>
-                                <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYY-4g-E7W">
-                                <rect key="frame" x="65" y="241" width="242" height="96"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <string key="text">You just joined the best social pairing app around. Connecting with people is easier than ever - just enter your contact info once, and Prynt will do the rest.</string>
-                                <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="17"/>
-                                <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Let's make your first Prynt profile. " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qci-Gh-J4G">
-                                <rect key="frame" x="46" y="356" width="288" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="17"/>
-                                <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hey, Dominic!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FvW-ZU-eCo">
-                                <rect key="frame" x="130" y="201" width="117" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="17"/>
-                                <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="2Gx-IG-wLk" firstAttribute="centerX" secondItem="yoe-MN-4N6" secondAttribute="centerX" id="B4J-wk-Zzz"/>
-                            <constraint firstItem="UqN-gQ-X9E" firstAttribute="bottom" secondItem="2Gx-IG-wLk" secondAttribute="bottom" constant="56" id="kzF-G1-WR4"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="UqN-gQ-X9E"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="s2R-Tv-H1v"/>
-                    <connections>
-                        <segue destination="ahl-Rz-l7O" kind="show" identifier="CreateSocialProfileSegue" id="XqZ-TR-T33"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2zy-Ty-gUs" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-5500" y="-843"/>
+            <point key="canvasLocation" x="-52" y="-839"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="Xct-UB-fUB">
@@ -1081,7 +786,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SeS-7C-3gT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2882.4000000000001" y="-0.44977511244377816"/>
+            <point key="canvasLocation" x="-1050" y="-90"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="TYR-3K-q7G">
@@ -1107,15 +812,15 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFY-km-giz">
                                 <rect key="frame" x="7" y="60" width="359" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="23"/>
-                                <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
+                                <color key="textColor" red="0.49803921569999998" green="0.49803921569999998" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="test@dominic.land" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="asH-wz-x2b" customClass="PryntTextField" customModule="Prynt" customModuleProvider="target">
                                 <rect key="frame" x="75" y="114" width="222" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
                                 <connections>
                                     <action selector="emailFieldNextButtonPressed" destination="9cF-gE-Uio" eventType="primaryActionTriggered" id="ovM-Dn-9Ih"/>
@@ -1125,8 +830,8 @@
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="password123" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gjm-gs-0Nl" customClass="PryntTextField" customModule="Prynt" customModuleProvider="target">
                                 <rect key="frame" x="75" y="169" width="222" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                 <connections>
                                     <action selector="loginActionTriggered" destination="9cF-gE-Uio" eventType="primaryActionTriggered" id="NNb-F6-a3f"/>
@@ -1156,166 +861,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Zw-rm-Zv6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1983" y="0.0"/>
-        </scene>
-        <!--Create Social Profile View Controller-->
-        <scene sceneID="WD8-Xf-p1V">
-            <objects>
-                <viewController id="ahl-Rz-l7O" customClass="CreateSocialProfileViewController" customModule="Prynt" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="qQl-sM-wx1">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UUg-vy-FwI">
-                                <rect key="frame" x="80.5" y="567" width="214" height="44"/>
-                                <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="17"/>
-                                <state key="normal" title="Create" backgroundImage="button-outline-green">
-                                    <color key="titleColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <state key="highlighted" backgroundImage="button-outline-green-highlighted">
-                                    <color key="titleColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="0.5995023545" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="createSocialProfileButtonTapped" destination="ahl-Rz-l7O" eventType="touchUpInside" id="rh8-cN-CBU"/>
-                                    <action selector="userDidSelectDelete" destination="F7o-oA-ROU" eventType="touchUpInside" id="exo-GQ-EMU"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What's the purpose of this pear profile?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rqd-Js-hbn">
-                                <rect key="frame" x="66" y="122" width="240" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="17"/>
-                                <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ex. social, professional" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UdN-5p-cLw" customClass="PryntTextField" customModule="Prynt" customModuleProvider="target">
-                                <rect key="frame" x="75" y="200" width="222" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                                <connections>
-                                    <action selector="textFieldPrimaryActionShouldDismissKeyboardWithSender:" destination="ahl-Rz-l7O" eventType="primaryActionTriggered" id="2BB-Kw-BLW"/>
-                                    <action selector="textFieldValueValueChanged" destination="ahl-Rz-l7O" eventType="editingChanged" id="Zbq-Ox-r6c"/>
-                                </connections>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <gestureRecognizers/>
-                        <constraints>
-                            <constraint firstItem="6zn-49-ZOS" firstAttribute="bottom" secondItem="UUg-vy-FwI" secondAttribute="bottom" constant="56" id="arZ-td-Dm9"/>
-                            <constraint firstItem="UUg-vy-FwI" firstAttribute="centerX" secondItem="qQl-sM-wx1" secondAttribute="centerX" id="mHp-pa-z1Y"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="6zn-49-ZOS"/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="6lZ-Qy-Sd6" appends="YES" id="hSK-qb-fRC"/>
-                        </connections>
-                    </view>
-                    <connections>
-                        <outlet property="createSocialProfileButton" destination="UUg-vy-FwI" id="nEX-T4-AI0"/>
-                        <outlet property="socialProfileTextField" destination="UdN-5p-cLw" id="ahy-tw-Q6R"/>
-                        <segue destination="MCp-Nu-Jqp" kind="show" identifier="SocialProfileConstructionSegue" id="KHy-lm-9No"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NT2-aj-Jsy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="6lZ-Qy-Sd6">
-                    <connections>
-                        <action selector="dismissKeyboardWithSender:" destination="ahl-Rz-l7O" id="Aqx-Mw-Ahc"/>
-                    </connections>
-                </tapGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="-4982" y="-843"/>
-        </scene>
-        <!--Social Profile Construction View Controller-->
-        <scene sceneID="3vb-58-yXk">
-            <objects>
-                <viewController id="MCp-Nu-Jqp" customClass="SocialProfileConstructionViewController" customModule="Prynt" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Iuh-Ud-cm4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ehg-ko-9fM">
-                                <rect key="frame" x="80.5" y="567" width="214" height="44"/>
-                                <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="17"/>
-                                <state key="normal" title="Done" backgroundImage="button-outline-green">
-                                    <color key="titleColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <state key="highlighted" backgroundImage="button-outline-green-highlighted">
-                                    <color key="titleColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="0.5995023545" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="doneButtonTapped" destination="MCp-Nu-Jqp" eventType="touchUpInside" id="LCW-Yn-psa"/>
-                                    <action selector="userDidSelectDelete" destination="F7o-oA-ROU" eventType="touchUpInside" id="bw3-CO-CMg"/>
-                                </connections>
-                            </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AYh-GQ-cb8">
-                                <rect key="frame" x="0.0" y="233.5" width="375" height="200"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="4nK-0n-rdG"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" sectionInsetReference="safeArea" id="O0z-13-wPa">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NetworkCell" id="clW-T7-JYc" customClass="NetworkCollectionCell" customModule="Prynt" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="0.0" width="60" height="60"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xau-aa-HAr">
-                                                    <rect key="frame" x="1" y="0.0" width="59" height="59"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" tag="101" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wn0-PO-y5d">
-                                                    <rect key="frame" x="40" y="0.0" width="20" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                            </subviews>
-                                        </view>
-                                        <size key="customSize" width="60" height="60"/>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="MCp-Nu-Jqp" id="0nJ-IK-ZWd"/>
-                                    <outlet property="delegate" destination="MCp-Nu-Jqp" id="6cY-nX-cg1"/>
-                                </connections>
-                            </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Which profiles would you like to share?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ixe-mt-yAy">
-                                <rect key="frame" x="65" y="122" width="243" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="17"/>
-                                <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="AYh-GQ-cb8" firstAttribute="centerX" secondItem="Iuh-Ud-cm4" secondAttribute="centerX" id="9m9-Eo-xv3"/>
-                            <constraint firstAttribute="trailing" secondItem="AYh-GQ-cb8" secondAttribute="trailing" id="DEg-uf-Tfc"/>
-                            <constraint firstItem="nNa-vY-rkJ" firstAttribute="bottom" secondItem="Ehg-ko-9fM" secondAttribute="bottom" constant="56" id="Ee2-SV-5WV"/>
-                            <constraint firstItem="AYh-GQ-cb8" firstAttribute="centerY" secondItem="Iuh-Ud-cm4" secondAttribute="centerY" id="IST-I0-hBj"/>
-                            <constraint firstItem="AYh-GQ-cb8" firstAttribute="centerX" secondItem="Iuh-Ud-cm4" secondAttribute="centerX" id="aGQ-7q-XEB"/>
-                            <constraint firstItem="Ehg-ko-9fM" firstAttribute="centerX" secondItem="Iuh-Ud-cm4" secondAttribute="centerX" id="aP9-zW-CQ8"/>
-                            <constraint firstItem="AYh-GQ-cb8" firstAttribute="leading" secondItem="Iuh-Ud-cm4" secondAttribute="leading" id="gfn-IX-uZW"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="nNa-vY-rkJ"/>
-                    </view>
-                    <connections>
-                        <outlet property="collectionView" destination="AYh-GQ-cb8" id="It8-tU-DVC"/>
-                        <segue destination="gey-ed-Ebv" kind="popoverPresentation" identifier="addNetworkSegue" popoverAnchorView="Iuh-Ud-cm4" id="pZb-8e-ZDz">
-                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                        </segue>
-                        <segue destination="2qu-Rl-Az0" kind="show" identifier="ProfileConstructionCompletedSegue" id="EaW-Nt-kia"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4zu-Ci-RO9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-4439" y="-843"/>
+            <point key="canvasLocation" x="-52" y="-89"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qPq-U3-yNc">
@@ -1330,7 +876,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ee-iQ-iQf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-839" y="-430"/>
+            <point key="canvasLocation" x="-2068" y="-838"/>
         </scene>
         <!--Scanner View Controller-->
         <scene sceneID="QgL-xF-bi2">
@@ -1628,7 +1174,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9A2-k8-XZx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5118" y="917"/>
+            <point key="canvasLocation" x="5298" y="2438"/>
         </scene>
         <!--User Validation View Controller-->
         <scene sceneID="PNP-Nn-Ttv">
@@ -1648,7 +1194,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qn5-Ay-J3m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4710" y="0.0"/>
+            <point key="canvasLocation" x="-3036" y="-89"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hzv-FY-KVC">
@@ -1668,99 +1214,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k9H-l0-Elv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3799" y="0.0"/>
-        </scene>
-        <!--Add New Service View Controller-->
-        <scene sceneID="RsE-wX-0Vs">
-            <objects>
-                <viewController id="gey-ed-Ebv" customClass="AddNewServiceViewController" customModule="Prynt" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="6fM-kG-Mmf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="translucent-background" translatesAutoresizingMaskIntoConstraints="NO" id="TwF-Ke-1k9">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="f9l-Eg-S6M" appends="YES" id="Y38-4m-8Gd"/>
-                                </connections>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I want to share my Instagram profile" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ElO-1x-ZVd">
-                                <rect key="frame" x="72" y="110" width="230" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fqv-A5-mOI">
-                                <rect key="frame" x="72" y="407" width="230" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="17"/>
-                                <state key="normal" title="Done" backgroundImage="button-solid-white">
-                                    <color key="titleColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <state key="highlighted" backgroundImage="button-solid-white-highlighted">
-                                    <color key="titleColor" red="0.0" green="0.74117647060000003" blue="0.61568627450000002" alpha="0.5995023545" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="userDidSelectDone" destination="gey-ed-Ebv" eventType="touchUpInside" id="7UF-eD-Z5D"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e7m-Te-LyF">
-                                <rect key="frame" x="72" y="477" width="230" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="17"/>
-                                <state key="normal" title="Cancel" backgroundImage="button-outline-white">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <state key="highlighted" backgroundImage="button-outline-white-highlighted">
-                                    <color key="titleColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="userDidSelectCancel" destination="gey-ed-Ebv" eventType="touchUpInside" id="7hh-4p-XyF"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FbY-Fg-sfU">
-                                <rect key="frame" x="157" y="208" width="60" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UjM-zh-eda">
-                                <rect key="frame" x="88" y="172" width="200" height="3"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Facebook username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C7W-0l-72g" customClass="PryntTextField" customModule="Prynt" customModuleProvider="target">
-                                <rect key="frame" x="66" y="298" width="240" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="username"/>
-                                <connections>
-                                    <action selector="doneButtonShouldUpdateState" destination="gey-ed-Ebv" eventType="editingChanged" id="0uN-Wo-IRb"/>
-                                    <action selector="textFieldPrimaryActionShouldDismissKeyboardWithSender:" destination="gey-ed-Ebv" eventType="primaryActionTriggered" id="m8Q-D8-1Cx"/>
-                                </connections>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="5eA-y1-QAA"/>
-                    </view>
-                    <connections>
-                        <outlet property="doneButton" destination="Fqv-A5-mOI" id="CLx-46-Nv2"/>
-                        <outlet property="handleTextField" destination="C7W-0l-72g" id="ytj-hY-l7W"/>
-                        <outlet property="socialServiceLogo" destination="FbY-Fg-sfU" id="ZpG-wP-iOb"/>
-                        <outlet property="socialServiceNameLabel" destination="ElO-1x-ZVd" id="QpH-xm-UAn"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MJg-ze-fQp" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="down" id="f9l-Eg-S6M">
-                    <connections>
-                        <action selector="userDidSelectCancel" destination="gey-ed-Ebv" id="Kiy-h2-cgw"/>
-                    </connections>
-                </swipeGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="-4002" y="-843"/>
+            <point key="canvasLocation" x="-2068" y="-89"/>
         </scene>
         <!--View Account View Controller-->
         <scene sceneID="usB-2Z-mmL">
@@ -1770,10 +1224,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="translucent-background" translatesAutoresizingMaskIntoConstraints="NO" id="Ggs-7k-cWq">
+                            <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ggs-7k-cWq">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="OW6-w6-lYl" appends="YES" id="WNr-KC-4ND"/>
@@ -1783,7 +1237,7 @@
                                 <rect key="frame" x="72" y="110" width="230" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7S-A8-IGM">
@@ -1821,7 +1275,7 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OWt-AK-6X7">
                                 <rect key="frame" x="88" y="172" width="200" height="3"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Facebook username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="btn-pp-YHt" customClass="PryntTextField" customModule="Prynt" customModuleProvider="target">
                                 <rect key="frame" x="66" y="298" width="240" height="36"/>
@@ -2103,6 +1557,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <state key="normal" title="Button" image="Prynt"/>
                                 <state key="disabled" image="Prynt-Disabled"/>
+                                <connections>
+                                    <segue destination="2UY-4l-Lud" kind="presentation" identifier="chooseProfileSegue" id="DZc-Td-qTM"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2127,7 +1584,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="824.79999999999995" y="4054.7226386806601"/>
+            <point key="canvasLocation" x="825" y="4030"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CRE-Lc-qNj">
@@ -2179,10 +1636,10 @@
             </objects>
             <point key="canvasLocation" x="825" y="2438"/>
         </scene>
-        <!--Bank View Controller-->
+        <!--Choose Profile View Controller-->
         <scene sceneID="sWO-4d-bnS">
             <objects>
-                <viewController id="2UY-4l-Lud" customClass="BankViewController" customModule="Prynt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2UY-4l-Lud" customClass="ChooseProfileViewController" customModule="Prynt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fFx-mJ-NhN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2259,7 +1716,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MfY-aZ-OcW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="825" y="4835"/>
+            <point key="canvasLocation" x="825" y="4803"/>
         </scene>
     </scenes>
     <resources>
@@ -2284,21 +1741,16 @@
         <image name="circle-tab-icon-enabled" width="26" height="26"/>
         <image name="gear-tab-icon-disabled" width="26" height="26"/>
         <image name="gear-tab-icon-enabled" width="26" height="26"/>
-        <image name="pear-logo" width="81" height="88"/>
-        <image name="profile-tab-icon-disabled" width="22" height="26"/>
-        <image name="profile-tab-icon-enabled" width="22" height="26"/>
         <image name="prynt-logo" width="402" height="252"/>
         <image name="translucent-background" width="750" height="1336"/>
-        <image name="x-button" width="47" height="47"/>
         <image name="x-button-highlighted" width="47" height="47"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YcM-JA-LZF"/>
+        <segue reference="vLc-lC-yHV"/>
+        <segue reference="x0g-Mr-Jbn"/>
         <segue reference="rQJ-Lp-f2f"/>
-        <segue reference="7Rc-ku-flp"/>
-        <segue reference="EaW-Nt-kia"/>
-        <segue reference="XqZ-TR-T33"/>
-        <segue reference="0wU-Qr-kDY"/>
+        <segue reference="zs1-hK-bs9"/>
+        <segue reference="QFb-nf-2F1"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.49803921568627452" green="0.49803921568627452" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>
 </document>

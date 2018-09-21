@@ -68,6 +68,31 @@ class TransactionViewController: PryntViewController {
     }
 }
 
+// MARK: - ProfileSelectionProtocol
+extension TransactionViewController: ProfileSelectionProtocol {
+    
+    func userDidSelect(profile: PryntProfile, _ controller: ChooseProfileViewController) {
+        dismiss(animated: true, completion: nil)
+        reciprocateTransaction(with: profile)
+    }
+    
+    func userDidCancel(_ controller: ChooseProfileViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+
+    private func reciprocateTransaction(with profile: PryntProfile) {
+        guard let trans = transaction else { return }
+        let recip = TransactionReciprocate(id: user.id, transactionId: trans.id, profileId: profile.id)
+        TransactionNetworkingManager.shared.reciprocateTransaction(from: recip) { (success, transaction) in
+            if success, let tr = transaction {
+                self.fullTransaction = tr
+            } else {
+                self.displayAlert("Could not share profile", "Please make sure you have internet, or try again later", nil)
+            }
+        }
+    }
+}
+
 // MARK: - Collection View Data Source
 extension TransactionViewController: UICollectionViewDataSource {
     
@@ -108,8 +133,19 @@ extension TransactionViewController: UICollectionViewDelegate {
         if application.canOpenURL(appURL as URL) {
             application.open(appURL as URL)
         } else {
-            // if Instagram app is not installed, open URL inside Safari
+            // if spp is not installed, open URL inside Safari
             application.open(webURL as URL)
+        }
+    }
+}
+
+// MARK: - Segue Control
+extension TransactionViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "chooseProfileSegue" {
+            let controller = segue.destination as! ChooseProfileViewController
+            controller.delegate = self
+            controller.user = user
         }
     }
 }

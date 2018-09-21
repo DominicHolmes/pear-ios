@@ -8,14 +8,20 @@
 
 import UIKit
 
+protocol ProfileSelectionProtocol : class {
+    func userDidSelect(profile: PryntProfile, _ controller: ChooseProfileViewController)
+    func userDidCancel(_ controller: ChooseProfileViewController)
+}
 
 class ChooseProfileViewController: PryntTabViewController {
     
     var profiles: [PryntProfile]?
     @IBOutlet weak var collectionView: UICollectionView!
     
+    weak var delegate: ProfileSelectionProtocol?
+    
     @IBAction func didSelectClose() {
-        dismiss(animated: true, completion: nil)
+        delegate?.userDidCancel(self)
     }
     
     override var user: PryntUser! {
@@ -45,25 +51,6 @@ class ChooseProfileViewController: PryntTabViewController {
         collectionView.reloadData()
     }
     
-}
-
-// MARK: - Create Transaction Logic
-extension ChooseProfileViewController {
-    func initializeTransaction(with profile: PryntProfile) {
-        let transactionCreate = TransactionCreate(id: user.id, profileId: profile.id)
-        create(transactionCreate)
-    }
-    
-    internal func create(_ transactionCreate: TransactionCreate) {
-        TransactionNetworkingManager.shared.createTransaction(from: transactionCreate) { (success, transaction) in
-            if success, let transaction = transaction {
-                self.user.add(transaction)
-                self.performSegue(withIdentifier: "PresentTransactionSegue", sender: transaction)
-            } else {
-                self.displayAlert("Error", "Couldn't create a QR code. Please try again later.", nil)
-            }
-        }
-    }
 }
 
 // MARK: - CollectionView Data Source
@@ -103,7 +90,7 @@ extension ChooseProfileViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let profiles = profiles, indexPath.row < profiles.count else { return }
         let profile = profiles[indexPath.row]
-        initializeTransaction(with: profile)
+        delegate?.userDidSelect(profile: profile, self)
     }
 }
 
