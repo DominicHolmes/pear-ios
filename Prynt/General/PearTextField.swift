@@ -10,7 +10,7 @@ import UIKit
 
 class PryntTextField: UITextField {
     
-    private let borderStroke = UIColor.pearGreen.cgColor
+    private let borderStroke = UIColor.royale.cgColor
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -24,7 +24,7 @@ class PryntTextField: UITextField {
         let pathLayer: CAShapeLayer = CAShapeLayer()
         pathLayer.frame = self.bounds
         pathLayer.path = path.cgPath
-        pathLayer.strokeColor = UIColor.pearGreen.cgColor
+        pathLayer.strokeColor = borderStroke
         pathLayer.fillColor = nil
         pathLayer.lineWidth = 2.0
         pathLayer.lineJoin = kCALineJoinBevel

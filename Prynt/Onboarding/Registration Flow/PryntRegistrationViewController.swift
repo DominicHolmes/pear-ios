@@ -49,7 +49,7 @@ class PryntRegistrationViewController: PryntGenericRegistrationViewController {
         UserNetworkingManager.shared.createUser(from: proposedUser) { (success, user) in
             if success, let user = user {
                 let pryntUser = PryntUser(from: user)
-                self.performSegue(withIdentifier: "PostRegistrationSegue", sender: pryntUser)
+                self.performSegue(withIdentifier: "RegistrationCompletedSegue", sender: pryntUser)
             } else {
                 self.displayAlert("Username taken", "Please try again.", [], false)
             }

@@ -12,7 +12,7 @@ class RadialProgressView : UIView {
     
     let progressCircleLayer : CAShapeLayer!
     
-    let progressStroke: UIColor = .green
+    let progressStroke: UIColor = .royale
     let progressFill: UIColor = .clear
     
     // Circle line thickness
