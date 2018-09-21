@@ -48,7 +48,8 @@ class PryntRegistrationViewController: PryntGenericRegistrationViewController {
         let proposedUser = UserInfo(id: uid, username: username, nameFirst: first, nameLast: last)
         UserNetworkingManager.shared.createUser(from: proposedUser) { (success, user) in
             if success, let user = user {
-                self.performSegue(withIdentifier: "PostRegistrationSegue", sender: user)
+                let pryntUser = PryntUser(from: user)
+                self.performSegue(withIdentifier: "PostRegistrationSegue", sender: pryntUser)
             } else {
                 self.displayAlert("Username taken", "Please try again.", [], false)
             }
@@ -93,10 +94,10 @@ extension PryntRegistrationViewController {
 // MARK: - Segue Control
 extension PryntRegistrationViewController {
     override internal func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "PostRegistrationSegue", let sender = sender as? UserInfo {
-            let nav = segue.destination as! UINavigationController
-            let controller = nav.topViewController as! PostRegistrationViewController
-            controller.user = PryntUser(from: sender)
+        if segue.identifier == "RegistrationCompletedSegue", let sender = sender as? PryntUser {
+            let navController = segue.destination as! UINavigationController
+            let pageController = navController.topViewController as! RootPageViewController
+            pageController.user = sender
         }
     }
 }
